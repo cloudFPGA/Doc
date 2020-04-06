@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Themisto SRA &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="cloudFPGA on-prem" href="../../zyc2.html" />
+    <link rel="prev" title="cFDK" href="../README.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rtdocs.html">cloudFPGA-doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">cFDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Themisto SRA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#node2node-communication">node2node communication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known limitations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hls-structs">HLS structs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#protocol">Protocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-handling">Error handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sra-interface">SRA interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../zyc2.html">cloudFPGA on-prem</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>The Themisto SRA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/pages/cFDK/DOC/Themisto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-themisto-sra">
+<h1>The Themisto SRA<a class="headerlink" href="#the-themisto-sra" title="Permalink to this headline">¶</a></h1>
+<p>This SRA type enables node2node communication within cloudFPGA.
+The network data streams have now a parallel meta stream to select the destinations or to see the source, respectively.
+The dual memory port is stream based.</p>
+<div class="section" id="node2node-communication">
+<h2>node2node communication<a class="headerlink" href="#node2node-communication" title="Permalink to this headline">¶</a></h2>
+<p>The management of the <strong>listen ports</strong> is silently done in the background, <strong>but only the following port range is allowed, currently</strong>:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define NRC_RX_MIN_PORT 2718</span>
+<span class="cp">#define NRC_RX_MAX_PORT 2749</span>
+</pre></div>
+</div>
+<p>The registers <code class="docutils literal notranslate"><span class="pre">poNRC_Udp_RX_ports</span></code> and <code class="docutils literal notranslate"><span class="pre">poNRC_Tcp_RX_ports</span></code> indicates on which ports the Role wants to listen (separated for UDP and TCP).
+<a href="#id1"><span class="problematic" id="id2">**</span></a>Therefore, the Least-Significant-Bit of the vector represents the <code class="docutils literal notranslate"><span class="pre">MIN_PORT</span></code><a href="#id3"><span class="problematic" id="id4">**</span></a>.
+The register can be updated during runtime (<em>currently, once opened ports remain open</em>).</p>
+<p>As an example, a value <code class="docutils literal notranslate"><span class="pre">0x0011</span></code> in <code class="docutils literal notranslate"><span class="pre">poNRC_Udp_Rx_ports</span></code> opens the ports <code class="docutils literal notranslate"><span class="pre">2718</span></code> and <code class="docutils literal notranslate"><span class="pre">2722</span></code> for receiving UDP packets.</p>
+<p>The Role can <strong>send</strong> to any valid port (but other FPGAs may only receive in the given range).</p>
+<p>The addressing between the ROLEs (on different FPGA nodes) is done <strong>based on node-id</strong>s.
+The node-ids are mapped to IP addresses by the <em>Network Routing Core (NRC)</em>.
+The routing tables are configured during the cluster setup.</p>
+<div class="section" id="known-limitations">
+<h3>Known limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h3>
+<p>Currently, only <em>node-ids smaller than 128</em> are supported.
+For TCP, <em>only 32 connections per FPGA</em> are possible for the time being (i.e. connections in the sense of different TCP-sessions).</p>
+</div>
+<div class="section" id="hls-structs">
+<h3>HLS structs<a class="headerlink" href="#hls-structs" title="Permalink to this headline">¶</a></h3>
+<p>The code for the used Metadata can be found in <code class="docutils literal notranslate"><span class="pre">cFDK/SRA/LIB/hls/network_utils.{c|h}pp</span></code>.
+<em>It is recommended to import this file directly in any Role-hls code</em>.</p>
+<p>Respectively, the following definitons for the <em>Meta streams</em> are important:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">16</span><span class="o">&gt;</span>     <span class="n">NrcPort</span><span class="p">;</span> <span class="c1">// UDP/TCP Port Number</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span>      <span class="n">NodeId</span><span class="p">;</span>  <span class="c1">// Cluster Node Id</span>
+<span class="k">typedef</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span>     <span class="n">NetworkDataLength</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">NetworkMeta</span> <span class="p">{</span>
+  <span class="n">NodeId</span>  <span class="n">dst_rank</span><span class="p">;</span>   <span class="c1">// The node-id where the data goest to (the FPGA itself if receiving)</span>
+  <span class="n">NrcPort</span> <span class="n">dst_port</span><span class="p">;</span>   <span class="c1">// The receiving port</span>
+  <span class="n">NodeId</span>  <span class="n">src_rank</span><span class="p">;</span>   <span class="c1">// The origin node-id (the FPGA itself if sending)</span>
+  <span class="n">NrcPort</span> <span class="n">src_port</span><span class="p">;</span>   <span class="c1">// The origin port</span>
+  <span class="n">NetworkDataLength</span> <span class="n">len</span><span class="p">;</span>    <span class="c1">// The length of this data Chunk/packet (optional)</span>
+
+  <span class="n">NetworkMeta</span><span class="p">()</span> <span class="p">{}</span>
+
+  <span class="n">NetworkMeta</span><span class="p">(</span><span class="n">NodeId</span> <span class="n">d_id</span><span class="p">,</span> <span class="n">NrcPort</span> <span class="n">d_port</span><span class="p">,</span> <span class="n">NodeId</span> <span class="n">s_id</span><span class="p">,</span> <span class="n">NrcPort</span> <span class="n">s_port</span><span class="p">,</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">32</span><span class="o">&gt;</span> <span class="n">lenght</span><span class="p">)</span> <span class="o">:</span>
+    <span class="n">dst_rank</span><span class="p">(</span><span class="n">d_id</span><span class="p">),</span> <span class="n">dst_port</span><span class="p">(</span><span class="n">d_port</span><span class="p">),</span> <span class="n">src_rank</span><span class="p">(</span><span class="n">s_id</span><span class="p">),</span> <span class="n">src_port</span><span class="p">(</span><span class="n">s_port</span><span class="p">),</span> <span class="n">len</span><span class="p">(</span><span class="n">lenght</span><span class="p">)</span> <span class="p">{}</span>
+ <span class="p">};</span>
+
+<span class="c1">//ATTENTION: split between NetworkMeta and NetworkMetaStream is necessary, due to bugs in Vivados hls::stream library</span>
+<span class="k">struct</span> <span class="n">NetworkMetaStream</span> <span class="p">{</span>
+  <span class="n">NetworkMeta</span> <span class="n">tdata</span><span class="p">;</span>
+  <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">6</span><span class="o">&gt;</span> <span class="n">tkeep</span><span class="p">;</span>
+  <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">tlast</span><span class="p">;</span>
+
+  <span class="n">NetworkMetaStream</span><span class="p">()</span> <span class="p">{}</span>
+  <span class="n">NetworkMetaStream</span><span class="p">(</span><span class="n">NetworkMeta</span> <span class="n">single_data</span><span class="p">)</span> <span class="o">:</span> <span class="n">tdata</span><span class="p">(</span><span class="n">single_data</span><span class="p">),</span> <span class="n">tkeep</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">tlast</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>The term <em>rank</em> instead of <em>node_id</em> is used, because it seems that Vivado HLS ignores names with <em>id</em> in it.</p>
+<p>The <em>``len`` field can be 0</em>, if the data stream sets <code class="docutils literal notranslate"><span class="pre">tlast</span></code> accordingly. If no <code class="docutils literal notranslate"><span class="pre">tlast</span></code> will be set, the length must be specified in advance!.
+(<a href="#id5"><span class="problematic" id="id6">*</span></a>The Shell will always set <code class="docutils literal notranslate"><span class="pre">tlast</span></code><a href="#id7"><span class="problematic" id="id8">*</span></a>).</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>As an example, to send a packet to node 3, port 2723 from node 1, port 2718, the following code should be used:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">NetworkMeta</span> <span class="n">new_meta</span> <span class="o">=</span> <span class="n">NetworkMeta</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2723</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2718</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>   <span class="c1">//len is 0, so we must set the tlast in the data stream</span>
+<span class="n">meta_out_stream</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">NetworkMetaStream</span><span class="p">(</span><span class="n">new_meta</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The following <em>data stream</em> definitions are used:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">NetworkWord</span> <span class="p">{</span>
+    <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;</span>    <span class="n">tdata</span><span class="p">;</span>
+    <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span>     <span class="n">tkeep</span><span class="p">;</span>
+    <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span>     <span class="n">tlast</span><span class="p">;</span>
+    <span class="n">NetworkWord</span><span class="p">()</span>      <span class="p">{}</span>
+    <span class="n">NetworkWord</span><span class="p">(</span><span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">64</span><span class="o">&gt;</span> <span class="n">tdata</span><span class="p">,</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">8</span><span class="o">&gt;</span> <span class="n">tkeep</span><span class="p">,</span> <span class="n">ap_uint</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">tlast</span><span class="p">)</span> <span class="o">:</span>
+                   <span class="n">tdata</span><span class="p">(</span><span class="n">tdata</span><span class="p">),</span> <span class="n">tkeep</span><span class="p">(</span><span class="n">tkeep</span><span class="p">),</span> <span class="n">tlast</span><span class="p">(</span><span class="n">tlast</span><span class="p">)</span> <span class="p">{}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="protocol">
+<h3>Protocol<a class="headerlink" href="#protocol" title="Permalink to this headline">¶</a></h3>
+<p>A packet transmission consists <em>always of two streams: one data stream and one meta stream</em>.</p>
+<p>For each data stream <em>one valid</em> transaction of the meta stream <em>must be issued before</em> (or at least at the same time)
+(i.e. the meta stream has the <code class="docutils literal notranslate"><span class="pre">tlast</span></code> and the <code class="docutils literal notranslate"><span class="pre">tvalid</span></code> asserted).</p>
+<p>The Network Core does not process a data stream, before a valid Meta-word was received.
+Therefore, it is recommended to send the meta stream along with the start of the data stream, for UDP.</p>
+<p>For TCP, it is recommended <strong>to send the meta stream before</strong> the data stream,
+<em>because the data stream will only be accepted, if the connection to the destination was opened successfully</em>.
+Hence, if the ROLE has submitted the Meta-Stream successfully, but can’t submit the data stream (i.e. <code class="docutils literal notranslate"><span class="pre">tready</span></code> remains 0) (after a reasonable amount of time),
+a <code class="docutils literal notranslate"><span class="pre">&quot;connection</span> <span class="pre">time</span> <span class="pre">out&quot;</span></code> has occurred.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">len</span></code> field in the Meta-Stream is set, there is no need for the <code class="docutils literal notranslate"><span class="pre">tlast</span></code> for data streams from the ROLE to the SHELL.
+<em>The SHELL will always set the ``tlast`` bit</em>, and the <code class="docutils literal notranslate"><span class="pre">len</span></code> field only if it is known in advance.</p>
+</div>
+<div class="section" id="error-handling">
+<h3>Error handling<a class="headerlink" href="#error-handling" title="Permalink to this headline">¶</a></h3>
+<p>Some Counters and date from the last processed packet can be requested through the <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/instances/{instance_id}/flight_recorder_data</span></code> or <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/clusters/{cluster_id}/flight_recorder_data</span></code> calls from the CloudFPGA Resource Manager API.</p>
+<p>RX path:
+If the packet comes from an unknown IP address, the packet will be dropped (and the corresponding <code class="docutils literal notranslate"><span class="pre">node_id_missmatch_RX</span></code> counter in the “Flight data” will be increased).</p>
+<p>TX path:
+If the user tries to send to an unknown node-id, the packet will be dropped (and the corresponding <code class="docutils literal notranslate"><span class="pre">node_id_missmatch_TX</span></code> counter in the “Flight data” will be increased).</p>
+</div>
+</div>
+<div class="section" id="sra-interface">
+<h2>SRA interface<a class="headerlink" href="#sra-interface" title="Permalink to this headline">¶</a></h2>
+<p>The vhdl interface <em>to the ROLE</em> looks like follows:</p>
+<div class="highlight-vhdl notranslate"><div class="highlight"><pre><span></span><span class="k">entity</span> <span class="nc">Role_Themisto</span> <span class="k">is</span>
+  <span class="k">port</span> <span class="p">(</span>
+
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Global Input Clock and Reset Interface</span>
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="n">piSHL_156_25Clk</span>                     <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">piSHL_156_25Rst</span>                     <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">-- LY7 Enable and Reset</span>
+    <span class="n">piMMIO_Ly7_Rst</span>                      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">piMMIO_Ly7_En</span>                       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+
+    <span class="c1">------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Role / Nts0 / Udp Interface</span>
+    <span class="c1">------------------------------------------------------</span>
+    <span class="c1">---- Input AXI-Write Stream Interface ----------</span>
+    <span class="n">siNRC_Udp_Data_tdata</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Udp_Data_tkeep</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Udp_Data_tvalid</span>      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Udp_Data_tlast</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Udp_Data_tready</span>      <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">---- Output AXI-Write Stream Interface ---------</span>
+    <span class="n">soNRC_Udp_Data_tdata</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soNRC_Udp_Data_tkeep</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soNRC_Udp_Data_tvalid</span>      <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soNRC_Udp_Data_tlast</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soNRC_Udp_Data_tready</span>      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">-- Open Port vector</span>
+    <span class="n">poROL_Nrc_Udp_Rx_ports</span>     <span class="o">:</span> <span class="k">out</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">31</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">-- ROLE &lt;-&gt; NRC Meta Interface</span>
+    <span class="n">soROLE_Nrc_Udp_Meta_TDATA</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soROLE_Nrc_Udp_Meta_TVALID</span>  <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soROLE_Nrc_Udp_Meta_TREADY</span>  <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soROLE_Nrc_Udp_Meta_TKEEP</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">9</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soROLE_Nrc_Udp_Meta_TLAST</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Udp_Meta_TDATA</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Role_Udp_Meta_TVALID</span>  <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Udp_Meta_TREADY</span>  <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Udp_Meta_TKEEP</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">9</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Role_Udp_Meta_TLAST</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+
+    <span class="c1">------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Role / Nts0 / Tcp Interface</span>
+    <span class="c1">------------------------------------------------------</span>
+    <span class="c1">---- Input AXI-Write Stream Interface ----------</span>
+    <span class="n">siNRC_Tcp_Data_tdata</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Tcp_Data_tkeep</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Tcp_Data_tvalid</span>      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Tcp_Data_tlast</span>       <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Tcp_Data_tready</span>      <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">---- Output AXI-Write Stream Interface ---------</span>
+    <span class="n">soNRC_Tcp_Data_tdata</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soNRC_Tcp_Data_tkeep</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soNRC_Tcp_Data_tvalid</span>      <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soNRC_Tcp_Data_tlast</span>       <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soNRC_Tcp_Data_tready</span>      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">-- Open Port vector</span>
+    <span class="n">poROL_Nrc_Tcp_Rx_ports</span>     <span class="o">:</span> <span class="k">out</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">31</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">-- ROLE &lt;-&gt; NRC Meta Interface</span>
+    <span class="n">soROLE_Nrc_Tcp_Meta_TDATA</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soROLE_Nrc_Tcp_Meta_TVALID</span>  <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soROLE_Nrc_Tcp_Meta_TREADY</span>  <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soROLE_Nrc_Tcp_Meta_TKEEP</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">9</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soROLE_Nrc_Tcp_Meta_TLAST</span>   <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Tcp_Meta_TDATA</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Role_Tcp_Meta_TVALID</span>  <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Tcp_Meta_TREADY</span>  <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siNRC_Role_Tcp_Meta_TKEEP</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">9</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siNRC_Role_Tcp_Meta_TLAST</span>   <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+
+
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Mem / Mp0 Interface</span>
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">---- Memory Port #0 / S2MM-AXIS ----------------</span>
+    <span class="c1">------ Stream Read Command ---------</span>
+    <span class="n">soSHL_Mem_Mp0_RdCmd_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp0_RdCmd_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp0_RdCmd_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Read Status ----------</span>
+    <span class="n">siSHL_Mem_Mp0_RdSts_tdata</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp0_RdSts_tvalid</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp0_RdSts_tready</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Data Input Channel ---</span>
+    <span class="n">siSHL_Mem_Mp0_Read_tdata</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">511</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp0_Read_tkeep</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp0_Read_tlast</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp0_Read_tvalid</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp0_Read_tready</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Write Command --------</span>
+    <span class="n">soSHL_Mem_Mp0_WrCmd_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp0_WrCmd_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp0_WrCmd_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Write Status ---------</span>
+    <span class="n">siSHL_Mem_Mp0_WrSts_tdata</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp0_WrSts_tvalid</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp0_WrSts_tready</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Data Output Channel --</span>
+    <span class="n">soSHL_Mem_Mp0_Write_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">511</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp0_Write_tkeep</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp0_Write_tlast</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp0_Write_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp0_Write_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Mem / Mp1 Interface</span>
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">---- Memory Port #1 / S2MM-AXIS ------------------</span>
+    <span class="c1">------ Stream Read Command ---------</span>
+    <span class="n">soSHL_Mem_Mp1_RdCmd_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp1_RdCmd_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp1_RdCmd_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Read Status ----------</span>
+    <span class="n">siSHL_Mem_Mp1_RdSts_tdata</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp1_RdSts_tvalid</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp1_RdSts_tready</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Data Input Channel ---</span>
+    <span class="n">siSHL_Mem_Mp1_Read_tdata</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">511</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp1_Read_tkeep</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp1_Read_tlast</span>            <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp1_Read_tvalid</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp1_Read_tready</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Write Command --------</span>
+    <span class="n">soSHL_Mem_Mp1_WrCmd_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">79</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp1_WrCmd_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp1_WrCmd_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Write Status ---------</span>
+    <span class="n">siSHL_Mem_Mp1_WrSts_tvalid</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">siSHL_Mem_Mp1_WrSts_tdata</span>           <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">7</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">siSHL_Mem_Mp1_WrSts_tready</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">------ Stream Data Output Channel --</span>
+    <span class="n">soSHL_Mem_Mp1_Write_tdata</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">511</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp1_Write_tkeep</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span> <span class="mi">63</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">soSHL_Mem_Mp1_Write_tlast</span>           <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp1_Write_tvalid</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">soSHL_Mem_Mp1_Write_tready</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">-- SHELL / Mmio / AppFlash Interface</span>
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">---- [DIAG_CTRL_1] -----------------</span>
+    <span class="n">piSHL_Mmio_Mc1_MemTestCtrl</span>          <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">---- [DIAG_STAT_1] -----------------</span>
+    <span class="n">poSHL_Mmio_Mc1_MemTestStat</span>          <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic_vector</span><span class="p">(</span><span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">---- [DIAG_CTRL_2] -----------------</span>
+    <span class="n">piSHL_Mmio_UdpEchoCtrl</span>              <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">piSHL_Mmio_UdpPostDgmEn</span>             <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">piSHL_Mmio_UdpCaptDgmEn</span>             <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">piSHL_Mmio_TcpEchoCtrl</span>              <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic_vector</span><span class="p">(</span>  <span class="mi">1</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">piSHL_Mmio_TcpPostSegEn</span>             <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="n">piSHL_Mmio_TcpCaptSegEn</span>             <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>
+    <span class="c1">---- [APP_RDROL] -------------------</span>
+    <span class="n">poSHL_Mmio_RdReg</span>                    <span class="o">:</span> <span class="k">out</span>  <span class="kt">std_logic_vector</span><span class="p">(</span> <span class="mi">15</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="c1">--- [APP_WRROL] --------------------</span>
+    <span class="n">piSHL_Mmio_WrReg</span>                    <span class="o">:</span> <span class="k">in</span>   <span class="kt">std_logic_vector</span><span class="p">(</span> <span class="mi">15</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="c1">-- TOP : Secondary Clock (Asynchronous)</span>
+    <span class="c1">--------------------------------------------------------</span>
+    <span class="n">piTOP_250_00Clk</span>                     <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_ulogic</span><span class="p">;</span>  <span class="c1">-- Freerunning</span>
+
+    <span class="c1">------------------------------------------------</span>
+    <span class="c1">-- SMC Interface</span>
+    <span class="c1">------------------------------------------------</span>
+    <span class="n">piFMC_ROLE_rank</span>                      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">31</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">piFMC_ROLE_size</span>                      <span class="o">:</span> <span class="k">in</span>    <span class="kt">std_logic_vector</span><span class="p">(</span><span class="mi">31</span> <span class="k">downto</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">poVoid</span>                              <span class="o">:</span> <span class="k">out</span>   <span class="kt">std_ulogic</span>
+
+
+  <span class="p">);</span>
+
+<span class="k">end</span> <span class="nc">Role_Themisto</span><span class="p">;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Trivia</strong>: The <a class="reference external" href="https://en.wikipedia.org/wiki/Themisto_(moon">moon Themisto</a>)</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../zyc2.html" class="btn btn-neutral float-right" title="cloudFPGA on-prem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../README.html" class="btn btn-neutral float-left" title="cFDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -17,26 +17,26 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
     
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
 
   
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cloudFPGA on-prem" href="zyc2.html" />
-    <link rel="prev" title="cloudFPGA-doc" href="rtdocs.html" /> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Themisto SRA" href="DOC/Themisto.html" />
+    <link rel="prev" title="cloudFPGA-doc" href="../rtdocs.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> cloudFPGA
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
           
 
           
@@ -63,7 +63,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -82,8 +82,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rtdocs.html">cloudFPGA-doc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rtdocs.html">cloudFPGA-doc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">cFDK</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#shell-role-architectures">Shell-Role-Architectures</a></li>
@@ -94,7 +94,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#create-new-applications">Create new applications</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="zyc2.html">cloudFPGA on-prem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DOC/Themisto.html">The Themisto SRA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zyc2.html">cloudFPGA on-prem</a></li>
 </ul>
 
             
@@ -109,7 +110,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">cloudFPGA</a>
+          <a href="../../index.html">cloudFPGA</a>
         
       </nav>
 
@@ -138,7 +139,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
         
       <li>cFDK</li>
     
@@ -146,7 +147,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/pages/cfdk.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/pages/cFDK/README.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -171,7 +172,7 @@ Before creating a new cFp, a designer must decide for a SHELL and a MOD, both ar
 <div class="section" id="shell-role-architectures">
 <h3>Shell-Role-Architectures<a class="headerlink" href="#shell-role-architectures" title="Permalink to this headline">¶</a></h3>
 <p>To abstract the details of the hardware from the user and to assert certain levels of security, cloudFPGA uses a Shell-Role-Architecture (<strong>SRA</strong>).</p>
-<a class="reference external image-reference" href="./DOC/imgs/sra_flow.png"><img alt="SRA concept" src="pages/./DOC/imgs/sra_flow.png" /></a>
+<a class="reference external image-reference" href="./DOC/imgs/sra_flow.png"><img alt="SRA concept" src="pages/cFDK/./DOC/imgs/sra_flow.png" /></a>
 <p>Currently, the following SHELLs are available:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="./DOC/Kale.md">Kale</a> This SHELL has one AXI-Stream for UDP and TCP each, as well as two stream-based memory ports.</p></li>
@@ -183,7 +184,7 @@ Before creating a new cFp, a designer must decide for a SHELL and a MOD, both ar
 <h3>cloudFPGA Modules<a class="headerlink" href="#cloudfpga-modules" title="Permalink to this headline">¶</a></h3>
 <p>The cloudFPGA service provides different types of FPGAs and module cards (<strong>MOD</strong>).</p>
 <p>The module looks like follows:</p>
-<a class="reference external image-reference" href="./DOC/imgs/fmku60.png"><img alt="FMKU60 module" src="pages/./DOC/imgs/fmku60.png" /></a>
+<a class="reference external image-reference" href="./DOC/imgs/fmku60.png"><img alt="FMKU60 module" src="pages/cFDK/./DOC/imgs/fmku60.png" /></a>
 <p>Currently, the following MODs are available:</p>
 <ul class="simple">
 <li><p><strong>FMKU60</strong>: A module equipped with a <em>Xilinx Kintex UltraScale XCKU060</em> and  <em>2x8GB of DDR4 memory</em>. It is connected via <em>10GbE</em>.</p></li>
@@ -212,10 +213,10 @@ Before creating a new cFp, a designer must decide for a SHELL and a MOD, both ar
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="zyc2.html" class="btn btn-neutral float-right" title="cloudFPGA on-prem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="DOC/Themisto.html" class="btn btn-neutral float-right" title="The Themisto SRA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rtdocs.html" class="btn btn-neutral float-left" title="cloudFPGA-doc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../rtdocs.html" class="btn btn-neutral float-left" title="cloudFPGA-doc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
