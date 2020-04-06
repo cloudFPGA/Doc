@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cFDK &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="cloudFPGA on-prem" href="zyc2.html" />
+    <link rel="prev" title="cloudFPGA-doc" href="rtdocs.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rtdocs.html">cloudFPGA-doc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">cFDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shell-role-architectures">Shell-Role-Architectures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudfpga-modules">cloudFPGA Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cloudfpga-example-applications">cloudFPGA example applications</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-new-applications">Create new applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zyc2.html">cloudFPGA on-prem</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>cFDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/cfdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfdk">
+<h1>cFDK<a class="headerlink" href="#cfdk" title="Permalink to this headline">¶</a></h1>
+<p><strong>cloudFPGA Development Kit (cFDK)</strong></p>
+<p>The cFDK provides all the design files that are necessary to create a new cloudFPGA application, also called <em>cloudFPGA project (cFp)</em>.</p>
+<p>cloudFPGA is design to support different types of <em>Shells (SHELL or SHL)</em> and <em>FPGA Modules (MOD)</em>.
+Before creating a new cFp, a designer must decide for a SHELL and a MOD, both are explained in the documentation section.</p>
+<p>To set up a new cFp properly, the <em>cloudFPGA Build Framework</em> (cFBuild) is highly recommended!</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shell-role-architectures">
+<h3>Shell-Role-Architectures<a class="headerlink" href="#shell-role-architectures" title="Permalink to this headline">¶</a></h3>
+<p>To abstract the details of the hardware from the user and to assert certain levels of security, cloudFPGA uses a Shell-Role-Architecture (<strong>SRA</strong>).</p>
+<a class="reference external image-reference" href="./DOC/imgs/sra_flow.png"><img alt="SRA concept" src="pages/./DOC/imgs/sra_flow.png" /></a>
+<p>Currently, the following SHELLs are available:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="./DOC/Kale.md">Kale</a> This SHELL has one AXI-Stream for UDP and TCP each, as well as two stream-based memory ports.</p></li>
+<li><p><a class="reference external" href="./DOC/Themisto.md">Themisto</a> This SHELL enables node-to-node communication between multiple FPGA modules.</p></li>
+</ul>
+<p>Details for the interfaces can be found in the linked documents.</p>
+</div>
+<div class="section" id="cloudfpga-modules">
+<h3>cloudFPGA Modules<a class="headerlink" href="#cloudfpga-modules" title="Permalink to this headline">¶</a></h3>
+<p>The cloudFPGA service provides different types of FPGAs and module cards (<strong>MOD</strong>).</p>
+<p>The module looks like follows:</p>
+<a class="reference external image-reference" href="./DOC/imgs/fmku60.png"><img alt="FMKU60 module" src="pages/./DOC/imgs/fmku60.png" /></a>
+<p>Currently, the following MODs are available:</p>
+<ul class="simple">
+<li><p><strong>FMKU60</strong>: A module equipped with a <em>Xilinx Kintex UltraScale XCKU060</em> and  <em>2x8GB of DDR4 memory</em>. It is connected via <em>10GbE</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="cloudfpga-example-applications">
+<h3>cloudFPGA example applications<a class="headerlink" href="#cloudfpga-example-applications" title="Permalink to this headline">¶</a></h3>
+<p>To demonstrate the usage of this Development Kit and to provide some code for learning, example applications (<strong>APP</strong>) are provided.</p>
+<p>Currently, the cFDK includes the following example APPs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">triangle_app</span></code>: To build a triangle cluster</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="create-new-applications">
+<h2>Create new applications<a class="headerlink" href="#create-new-applications" title="Permalink to this headline">¶</a></h2>
+<p>Follow the instructions of the <a class="reference external" href="https://github.ibm.com/cloudFPGA/cFBuild">*cFBuild* documentation</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zyc2.html" class="btn btn-neutral float-right" title="cloudFPGA on-prem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rtdocs.html" class="btn btn-neutral float-left" title="cloudFPGA-doc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -30,6 +30,7 @@ The cloudFPGA system is built on three main pillars:
 
    pages/overview
    pages/rtdocs
+   pages/cfdk
    pages/zyc2
 
 
