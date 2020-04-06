@@ -22,6 +22,9 @@ The cloudFPGA system is built on three main pillars:
 * a hyperscale infrastructure for deploying the above FPGAs at large scale and in a cost-effective way,
 * an accelerator service that integrates and manages the standalone network-attached FPGAs in the cloud.
 
+================
+My Documentation
+================
 
 
 .. toctree::
@@ -30,7 +33,8 @@ The cloudFPGA system is built on three main pillars:
 
    pages/overview
    pages/rtdocs
-   pages/cfdk
+   pages/cFDK/README
+   pages/cFDK/DOC/Themisto
    pages/zyc2
 
 
