@@ -21,6 +21,7 @@ Rebuild Documentation
 ```bash
 $ . sphinx/bin/activate
 $ cd docsrc
+$ make clean
 $ make github
 $ git commit -a -m"rebuild docs"
 ```
