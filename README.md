@@ -1,9 +1,8 @@
 # cloudFPGA-doc
-Documentation and tutorials for cloudFPGA project
+Documentation and tutorials for cloudFPGA project (this page).
 
+In this page you can find information of hoe to contribute to the documentation of cloudFPGA.
 
-Documentation
-=============
 https://pages.github.ibm.com/cloudFPGA/Doc/
 
 Spinx setup
