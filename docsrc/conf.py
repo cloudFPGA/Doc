@@ -22,7 +22,7 @@ import sphinx_rtd_theme
 
 project = 'cloudFPGA'
 copyright = '2020, cloudFPGA'
-author = 'Dionysios Diamantopoulos'
+author = 'cloudFPGA team'
 
 # The short X.Y version
 version = ''
