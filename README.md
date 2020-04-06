@@ -1,2 +1,2 @@
 # Doc
-Documentation for the cloudFPGA Hardware Development Kit (cFDK)
+Documentation for the cloudFPGA project.
