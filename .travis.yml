@@ -15,6 +15,7 @@ install:
   - pipenv install # set up the environment
   - curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.1.0 # install vale
   - export PATH="./bin:$PATH"
+  - curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
 # Install dependencies
 addons:
   apt:
@@ -35,7 +36,7 @@ jobs:
       name: Build
       script: pipenv run make html # build the docs
       #- script: vale --minAlertLevel error source # run vale
-      - curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
+      #- curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
       name: Test
     - stage: deploy
       name: Deploy to GitHub Pages
