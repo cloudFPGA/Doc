@@ -59,4 +59,9 @@ build/
 sphinx/
 _build/
 
+docsrc/_build
+# wherever you told breathe_projects to look
+docsrc/doxyoutput
+# wherever you told Exhale containmentFolder is
+docsrc/api
 

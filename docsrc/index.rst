@@ -33,10 +33,9 @@ My Documentation
 
    pages/overview
    pages/rtdocs
-   pages/cFDK/README
-   pages/cFDK/DOC/Themisto
+   pages/cfdk
    pages/zyc2
-
+   cFDK_api/cFDK_library_root
 
 
 Links

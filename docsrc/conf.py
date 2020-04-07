@@ -50,7 +50,9 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'm2r',
-    "sphinx_rtd_theme",
+    'sphinx_rtd_theme',
+    'breathe',
+    'exhale',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -187,6 +189,35 @@ epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
+
+# Setup the breathe extension
+breathe_projects = {
+    "cFDK_breathe_Project": "./doxyoutput/xml"
+}
+breathe_default_project = "cFDK_breathe_Project"
+
+
+# Setup the exhale extension
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./cFDK_api",
+    "rootFileName":          "cFDK_library_root.rst",
+    "rootFileTitle":         "cFDK Library API",
+    "doxygenStripFromPath":  "..",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin":    "INPUT = NO../../cFDK"
+}
+
+# Tell sphinx what the primary language being documented is.
+primary_domain = 'cpp'
+
+# Tell sphinx what the pygments highlight language should be.
+highlight_language = 'cpp'
+
 
 # -- Options for intersphinx extension ---------------------------------------
 
