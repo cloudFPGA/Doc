@@ -47,4 +47,4 @@ jobs:
         url: github.ibm.com
         skip_cleanup: true
         github_token: 4b37eda17ae0607db8b6236becf8e4bf65689859
-        local_dir: build/html
+        local_dir: _build/html
