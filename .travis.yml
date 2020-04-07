@@ -46,5 +46,5 @@ jobs:
         provider: pages # deploy on github pages
         url: github.ibm.com
         skip_cleanup: true
-        github_token: 4b37eda17ae0607db8b6236becf8e4bf65689859
+        github_token: $GITHUB_TOKEN
         local_dir: _build/html
