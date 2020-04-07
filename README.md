@@ -1,3 +1,5 @@
+[![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)
+
 # cloudFPGA-doc
 Documentation and tutorials for cloudFPGA project (this page).
 
