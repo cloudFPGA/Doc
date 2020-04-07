@@ -6,6 +6,7 @@ branches:
 python:
   - 3.7
 install:
+  - apt-get install python3-sphinx
   - pip install -U pip
   - pip install pipenv
   - pipenv install # set up the environment
