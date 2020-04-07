@@ -40,8 +40,8 @@ jobs:
       name: Deploy to GitHub Pages
       if: (NOT type IN (pull_request)) AND (branch = master) # only deploy if merging on master
       script: pipenv run make html
-      #script: curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
-      #script: curl -H "Authorization: token $token" https://api.github.ibm.com
+      script: curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
+      script: curl -H "Authorization: token $token" https://api.github.ibm.com
       deploy:
         provider: pages # deploy on github pages
         skip_cleanup: true
