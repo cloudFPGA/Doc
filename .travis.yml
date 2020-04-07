@@ -43,7 +43,8 @@ jobs:
       if: (NOT type IN (pull_request)) AND (branch = master) # only deploy if merging on master
       script: pipenv run make html
       deploy:
-        provider: pages.github.ibm.com #pages # deploy on github pages
+        provider: pages # deploy on github pages
+	url: github.ibm.com
         skip_cleanup: true
         github_token: 4b37eda17ae0607db8b6236becf8e4bf65689859
         local_dir: build/html
