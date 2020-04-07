@@ -5,6 +5,9 @@ branches:
     - master
 python:
   - 3.7
+cache:
+  directories:
+  - node_modules
 install:
   - pip install -r ./docsrc/requirements.txt
   - pip install -U pip
@@ -40,5 +43,5 @@ jobs:
       deploy:
         provider: pages # deploy on github pages
         skip_cleanup: true
-        github_token: $GITHUB_TOKEN
+        github_token: 4b37eda17ae0607db8b6236becf8e4bf65689859
         local_dir: build/html
