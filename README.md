@@ -52,9 +52,11 @@ cd cloudFPGA-Doc
 git checkout gh-pages
 < ... make your changes ... >
 make clean
-make html
+make localhtml
 firefox _build/html/index.html & (view your changes locally)
 ```
+
+**NOTE**: To avoid the long-time for building documentation for the source code, you can run `make html` instead `make localhtml` on the script above. This will not clone the source-code repositories of cloudFPGA and eventually there will be no repo to parse the source code with Doxygen. Expect an empty documentation for API then. 
 
 #### Step 3/3: Update Documentation
 

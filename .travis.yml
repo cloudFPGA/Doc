@@ -15,11 +15,9 @@ install:
   - pipenv install # set up the environment
   - curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.1.0 # install vale
   - export PATH="./bin:$PATH"
-  #- git clone --depth=1 https://github.ibm.com/cloudFPGA/cFDK.git
-  - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git
+  - mkdir -p repos_for_Doxygen
+  - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
   - ls -la cFDK 
-  #- curl -H "Authorization: token 4b37eda17ae0607db8b6236becf8e4bf65689859" https://api.github.ibm.com
-  #- curl -H "Authorization: token $token" https://api.github.ibm.com
 # Install dependencies
 addons:
   apt:

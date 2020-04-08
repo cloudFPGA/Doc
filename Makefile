@@ -14,12 +14,13 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf doxyoutput/ cFDK_api/
+	rm -rf doxyoutput/ cFDK_api/ repos_for_Doxygen/
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-github:
+localhtml:
+	mkdir -p repos_for_Doxygen
+	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
 	@make html
-	@cp -a _build/html/. ./
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
