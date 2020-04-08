@@ -17,9 +17,17 @@ clean:
 	rm -rf doxyoutput/ cFDK_api/ repos_for_Doxygen/
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-localhtml:
+clone_local_cfdk_repo:
 	mkdir -p repos_for_Doxygen
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
+
+doxygen:
+	cd docsrc && doxygen Doxyfile && cd ../
+
+localhtml: clone_local_cfdk_repo doxygen
+	@make html
+
+dhtml: doxygen
 	@make html
 
 # Catch-all target: route all unknown targets to Sphinx using the new

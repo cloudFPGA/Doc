@@ -41,22 +41,21 @@ To generate the spinx based python documentations, you have to setup:
 which python3.6
 virtualenv sphinx -p /usr/bin/python3.6
 . sphinx/bin/activate
-pip install -r ./docsrc/requirements.txt
+git clone git@github.ibm.com:cloudFPGA/Doc.git cloudFPGA-Doc
+pip install -r ./cloudFPGA-Doc/docsrc/requirements.txt
 ```
 #### Step 2/3: Rebuild Documentation
 
 ```bash
 . sphinx/bin/activate
-git clone git@github.ibm.com:cloudFPGA/Doc.git cloudFPGA-Doc
-cd cloudFPGA-Doc
-git checkout gh-pages
+git checkout gh-pages  (assuming you are on cloudFPGA-Doc folder)
 < ... make your changes ... >
 make clean
 make localhtml
 firefox _build/html/index.html & (view your changes locally)
 ```
 
-**NOTE**: To avoid the long-time for building documentation for the source code, you can run `make html` instead `make localhtml` on the script above. This will not clone the source-code repositories of cloudFPGA and eventually there will be no repo to parse the source code with Doxygen. Expect an empty documentation for API then. 
+**NOTE**: To avoid the long-time for building documentation for the source code, you can run `make html` instead `make localhtml` on the script above. This will not clone the source-code repositories of cloudFPGA and eventually there will be no repo to parse the source code with Doxygen. Expect an empty documentation for API then.
 
 #### Step 3/3: Update Documentation
 

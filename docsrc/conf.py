@@ -96,6 +96,22 @@ html_theme = "sphinx_rtd_theme"
 # documentation.
 #
 # html_theme_options = {}
+html_theme_options = {
+    'canonical_url': '',
+    #'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
+    'logo_only': False,
+    'display_version': True,
+    'prev_next_buttons_location': 'top',
+    'style_external_links': False,
+    'vcs_pageview_mode': '',
+    #'style_nav_header_background': 'white',
+    # Toc options
+    'collapse_navigation': True,
+    'sticky_navigation': True,
+    'navigation_depth': 4,
+    'includehidden': True,
+    'titles_only': False
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -192,7 +208,8 @@ epub_exclude_files = ['search.html']
 
 # Setup the breathe extension
 breathe_projects = {
-    "cFDK_breathe_Project": "./doxyoutput/xml"
+    #"cFDK_breathe_Project": "./doxyoutput/xml"
+    "cFDK_breathe_Project": "./cFDK_api2/xml"
 }
 breathe_default_project = "cFDK_breathe_Project"
 
@@ -208,8 +225,9 @@ exhale_args = {
     "createTreeView":        True,
     # TIP: if using the sphinx-bootstrap-theme, you need
     # "treeViewIsBootstrap": True,
-    "exhaleExecutesDoxygen": True,
-    "exhaleDoxygenStdin":    "INPUT = ../repos_for_Doxygen/cFDK"
+    "exhaleExecutesDoxygen": False,
+    #"exhaleDoxygenStdin":    "INPUT = NO../repos_for_Doxygen/cFDK",
+    "exhaleUseDoxyfile": True
 }
 
 # Tell sphinx what the primary language being documented is.
