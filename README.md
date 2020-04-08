@@ -34,9 +34,9 @@ firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 ## Manual documentation compilation
 In case you need to manually compile the documentation of cloudFPGA project on your local development environment, please follow these steps:
 
-#### Step 1/3: Spinx setup
+#### Step 1/3: Sphinx and dependencies setup 
 
-To generate the spinx based python documentations, you have to setup:
+To generate the Sphinx based python documentations, you have to setup:
 ```bash
 which python3.6
 virtualenv sphinx -p /usr/bin/python3.6
