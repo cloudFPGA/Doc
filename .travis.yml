@@ -17,7 +17,7 @@ install:
   - export PATH="./bin:$PATH"
   - mkdir -p repos_for_Doxygen
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
-  - ls -la repos_for_Doxygen/cFDK 
+  - ls -la repos_for_Doxygen/cFDK
 # Install dependencies
 addons:
   apt:
@@ -30,16 +30,11 @@ addons:
 script:
   - skip # Travis requires a `script` property, but we do not need it
 stages:
-  - build and test
   - deploy
 jobs:
   include:
-    - stage: build and test # This stage builds and lints in parallel
-      name: Build
-      script: pipenv run make html # build the docs
-      #- script: vale --minAlertLevel error source # run vale
-      name: Test
     - stage: deploy
+      #- script: vale --minAlertLevel error source # run vale
       name: Deploy to GitHub Pages
       if: (NOT type IN (pull_request)) AND (branch = master) # only deploy if merging on master
       script: pipenv run make html
