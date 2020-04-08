@@ -2,7 +2,7 @@
 
 .. _cfdk:
 
-.. mdinclude:: ../../../cFDK/README.md
+.. mdinclude:: ../../repos_for_Doxygen/cFDK/README.md
 
-.. mdinclude:: ../../../cFDK/DOC/Themisto.md
-.. mdinclude:: ../../../cFDK/DOC/Kale.md
+.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/Themisto.md
+.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/Kale.md
