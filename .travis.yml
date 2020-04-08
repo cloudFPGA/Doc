@@ -17,7 +17,7 @@ install:
   - export PATH="./bin:$PATH"
   - mkdir -p repos_for_Doxygen
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
-  - ls -la cFDK 
+  - ls -la repos_for_Doxygen/cFDK 
 # Install dependencies
 addons:
   apt:
