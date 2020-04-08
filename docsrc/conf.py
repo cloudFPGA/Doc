@@ -209,7 +209,7 @@ exhale_args = {
     # TIP: if using the sphinx-bootstrap-theme, you need
     # "treeViewIsBootstrap": True,
     "exhaleExecutesDoxygen": True,
-    "exhaleDoxygenStdin":    "INPUT = NO../../cFDK"
+    "exhaleDoxygenStdin":    "INPUT = ../../cFDK"
 }
 
 # Tell sphinx what the primary language being documented is.
