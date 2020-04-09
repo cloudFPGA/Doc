@@ -18,7 +18,7 @@ install:
   - mkdir -p repos_for_Doxygen
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
   - ls -la repos_for_Doxygen/cFDK
-  - git clone --depth=1 https://diamantopoulos:$GITHUB-COM_TOKEN@github.com/doxygen/doxygen.git doxygen_local
+  - git clone https://diamantopoulos:$GITHUB-COM_TOKEN@github.com/doxygen/doxygen.git doxygen_local
   - cd doxygen_local
   - git checkout 7464fdd7d4a3efd97dbc24c171556d7683648c8d
   - mkdir build && cd build
