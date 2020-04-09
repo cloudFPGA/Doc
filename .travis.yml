@@ -28,6 +28,7 @@ install:
   - export PATH="$PATH:~/lib"
   - export LD_LIBRARY_PATH=~/lib:/lib:/usr/lib
   - doxygen --version
+  - cd ../../
 # Install dependencies
 addons:
   apt:
