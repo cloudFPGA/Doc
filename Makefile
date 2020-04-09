@@ -22,7 +22,7 @@ clone_local_cfdk_repo:
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
 
 doxygen:
-	cd docsrc && doxygen Doxyfile && cd ../
+	cd docsrc && ~/lib/bin/doxygen Doxyfile && cd ../
 
 localhtml: clone_local_cfdk_repo doxygen
 	@make html

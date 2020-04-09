@@ -27,16 +27,13 @@ install:
   - make install
   - export PATH="$PATH:~/lib"
   - export LD_LIBRARY_PATH=~/lib:/lib:/usr/lib
+  - ls -la ~/lib
   - doxygen --version
   - cd ../../
 # Install dependencies
 addons:
   apt:
     packages:
-      - doxygen
-      - doxygen-doc
-      - doxygen-latex
-      - doxygen-gui
       - graphviz
       - build-essential
       - flex
