@@ -8,6 +8,9 @@ python:
 cache:
   directories:
   - node_modules
+env:
+  global:
+  - PIPENV_VERBOSITY=-1
 install:
   - pip install -r ./docsrc/requirements.txt
   - pip install -U pip
