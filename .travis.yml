@@ -22,11 +22,10 @@ install:
   - cd doxygen_local
   - git checkout 7464fdd7d4a3efd97dbc24c171556d7683648c8d
   - mkdir build && cd build
-  - cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=~/lib ..
+  - cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX:PATH=~/lib .. &>/dev/null
   - make -j 4 &>/dev/null
   - make install
-  - export PATH="$PATH:~/lib/bin"
-  - export LD_LIBRARY_PATH=~/lib/bin:/lib:/usr/lib
+  - export PATH=~/lib/bin:$PATH
   - ls -la ~/lib/bin
   - doxygen --version
   - cd ../../
