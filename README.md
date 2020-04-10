@@ -1,4 +1,4 @@
-[![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)
+[![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 # cloudFPGA Doc
 [Documentation and tutorials for cloudFPGA project.](https://pages.github.ibm.com/cloudFPGA/Doc/)
@@ -34,7 +34,7 @@ firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 ## Manual documentation compilation
 In case you need to manually compile the documentation of cloudFPGA project on your local development environment, please follow these steps:
 
-#### Step 1/3: Sphinx and dependencies setup 
+#### Step 1/3: Sphinx and dependencies setup
 
 To generate the Sphinx based python documentations, you have to setup:
 ```bash
