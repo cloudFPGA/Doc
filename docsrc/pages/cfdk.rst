@@ -8,3 +8,4 @@
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/Kale.md
 
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/FMC/general.md
+.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/NRC/general.md
