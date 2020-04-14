@@ -28,7 +28,7 @@ My Documentation
 
 
 .. toctree::
-   :maxdepth: 6
+   :maxdepth: 5
    :caption: Contents:
 
    pages/overview

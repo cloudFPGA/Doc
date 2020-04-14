@@ -19,7 +19,7 @@ clean:
 
 clone_local_cfdk_repo:
 	mkdir -p repos_for_Doxygen
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
+	git clone --depth=1 -b update_md_for_doc_compatibility_did git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
 
 doxygen:
 	cd docsrc && doxygen Doxyfile && cd ../
