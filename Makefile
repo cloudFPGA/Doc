@@ -14,20 +14,22 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/
+	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/cFDK
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_cfdk_repo:
-	mkdir -p repos_for_Doxygen
 	git clone --depth=1 -b update_md_for_doc_compatibility_did git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
+
+change_links:
+	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../
 
 doxygen:
 	cd docsrc && doxygen Doxyfile && cd ../
 
-localhtml: clone_local_cfdk_repo doxygen
+localhtml: clone_local_cfdk_repo change_links doxygen
 	@make html
 
-dhtml: doxygen
+dhtml: change_links doxygen
 	@make html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
