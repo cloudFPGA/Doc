@@ -1,9 +1,8 @@
 
 import pathlib
-import re
-from re import search
 import os
 import shutil
+from re import search
 
 repo_organization_url = "https://github.ibm.com/cloudFPGA/"
 

@@ -7,6 +7,9 @@ SPHINXBUILD   = sphinx-build
 SOURCEDIR     = ./docsrc
 BUILDDIR      = _build
 
+PDFBUILDDIR   = /tmp
+PDF           = ./manual.pdf
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -28,6 +31,13 @@ doxygen:
 
 localhtml: clone_local_cfdk_repo change_links doxygen
 	@make html
+
+latexpdf:
+	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(SOURCEDIR) $(PDFBUILDDIR)/latex
+	@echo "Running LaTeX files through pdflatex..."
+	make -C $(PDFBUILDDIR)/latex all-pdf"$(SOURCEDIR)"
+	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
+	@echo "pdflatex finished; see $(PDF)"
 
 dhtml: change_links doxygen
 	@make html

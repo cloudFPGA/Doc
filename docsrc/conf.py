@@ -25,7 +25,7 @@ copyright = '2020, cloudFPGA'
 author = 'cloudFPGA team'
 
 # The short X.Y version
-version = ''
+version = '1.0'
 # The full version, including alpha/beta/rc tags
 release = 'v0.1'
 
@@ -108,7 +108,7 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 5,
+    'navigation_depth': 8,
     'includehidden': True,
     'titles_only': False
 }
