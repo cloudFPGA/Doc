@@ -6,6 +6,11 @@ from re import search
 
 repo_organization_url = "https://github.ibm.com/cloudFPGA/"
 
+# Limitiation : we assume that a single markdown line has only one link (i.e.
+#               either a link to another .md file or a .png and so on. Thus,
+#               currently when double links exist in the same line, we take care
+#               by fixing the 2nd, 3rd to be a static one. This is the case e.g.
+#               of a table with one column with markdowns and one with .v files.
 def replace_markdown_links(full_md_file, link_type, replace_str):
     f1 = open(full_md_file, 'r')
     f2 = open(full_md_file+"_new", 'w')
@@ -19,6 +24,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
             if search(link_type, s):
                 #print("before:"+s)
                 s2 = s.replace("](", "]("+replace_str)
+                # special case for image files to be rendered correctly
                 s2 = s2.replace(".png", ".png?raw=true")
                 s2 = s2.replace(".bmp", ".bmp?raw=true")
                 replaced = replaced + 1
