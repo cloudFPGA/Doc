@@ -42,6 +42,24 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
     shutil.move(full_md_file+"_new", full_md_file)
 
 
+
+def insert_in_markdown_source(full_md_file, tail):
+    f1 = open(full_md_file, 'r')
+    f2 = open(full_md_file+"_new", 'w')
+    lines_parsed = 0
+
+    for s in f1:
+        if (lines_parsed == 1):
+            #f2.write("ONE NEW LINE\n")
+            string_to_insert = "**Note:** [This HTML section is rendered based on the Markdown file in cFDK source code repository.]("+tail+")\n\n"
+            f2.write(string_to_insert)
+        lines_parsed = lines_parsed + 1
+        f2.write(s)
+    f1.close()
+    f2.close()
+    shutil.copyfile(full_md_file, full_md_file+"_backup")
+    shutil.move(full_md_file+"_new", full_md_file)
+
 for md_file in pathlib.Path('./').glob('**/*.md'):
     full_md_file = str(pathlib.Path().absolute()) + '/' + str(md_file)
     print("#################\n"+full_md_file+"\n----------------")
@@ -55,6 +73,9 @@ for md_file in pathlib.Path('./').glob('**/*.md'):
     #print("subdir is : " + subdir)
     replace_str = repo_organization_url + repo + "/blob/master/" + subdir + "/"
     #print("replace_str is : " + replace_str)
+
+    insert_in_markdown_source(full_md_file, tail)
+
     link_type = ".md"
     replace_markdown_links(full_md_file, link_type, replace_str)
 
