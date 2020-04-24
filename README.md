@@ -1,11 +1,16 @@
 [![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/) [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg)](https://www.sphinx-doc.org/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.ibm.com/cloudFPGA/Doc/pulse)
 
-# cloudFPGA Documentation info
+# How to Contribute
 [Documentation and tutorials for cloudFPGA project.](https://pages.github.ibm.com/cloudFPGA/Doc/)
 
+## Bug fixes
+
+## Example Applications
+
+## Documentation
 There are two ways to contribute to the documentation of cloudFPGA project, the automating compilation and and the manual compilation.
 
-## Automated documentation compilation
+### Automated documentation compilation
 
 We adopt the following tools for automating the documentation of cloudFPGA project:
 * [Sphinx](https://www.sphinx-doc.org/en/master/) is a tool that makes it easy to create intelligent and beautiful documentation.
@@ -31,7 +36,7 @@ firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 
 ***
 
-## Manual documentation compilation
+### Manual documentation compilation
 In case you need to manually compile the documentation of cloudFPGA project on your local development environment, please follow these steps:
 
 #### Step 1/3: Sphinx and dependencies setup

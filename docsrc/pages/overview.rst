@@ -17,8 +17,8 @@
 
 .. _overview:
 
-Overview
-########
+cloudFPGA Project Overview
+##########################
 
 Stand-alone network-attached FPGA
 

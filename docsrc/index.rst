@@ -39,6 +39,7 @@ Indices and Search
    self
    pages/overview
    pages/cfdk
+   pages/example_projects.rst
    pages/zyc2
-   pages/rtdocs
    cFDK_api/cFDK_library_root
+   pages/rtdocs
