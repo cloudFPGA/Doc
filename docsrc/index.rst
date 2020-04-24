@@ -42,4 +42,4 @@ Indices and Search
    pages/example_projects.rst
    pages/zyc2
    cFDK_api/cFDK_library_root
-   pages/rtdocs
+   pages/contrib_and_rtdocs
