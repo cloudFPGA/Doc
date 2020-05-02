@@ -41,5 +41,5 @@ Indices and Search
    pages/cfdk
    pages/example_projects.rst
    pages/zyc2
-   cFDK_api/cFDK_library_root
    pages/contrib_and_rtdocs
+   6. cloudFPGA API Documentation <https://pages.github.ibm.com/cloudFPGA/Dox/index.html>

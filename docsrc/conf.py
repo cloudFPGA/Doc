@@ -51,8 +51,8 @@ extensions = [
     'sphinx.ext.githubpages',
     'm2r',
     'sphinx_rtd_theme',
-    'breathe',
-    'exhale',
+#    'breathe',
+#    'exhale',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -207,28 +207,28 @@ epub_exclude_files = ['search.html']
 # -- Extension configuration -------------------------------------------------
 
 # Setup the breathe extension
-breathe_projects = {
-    #"cFDK_breathe_Project": "./doxyoutput/xml"
-    "cFDK_breathe_Project": "./cFDK_api2/xml"
-}
-breathe_default_project = "cFDK_breathe_Project"
+#breathe_projects = {
+#    #"cFDK_breathe_Project": "./doxyoutput/xml"
+#    "cFDK_breathe_Project": "./cFDK_api2/xml"
+#}
+#breathe_default_project = "cFDK_breathe_Project"
 
 
 # Setup the exhale extension
-exhale_args = {
-    # These arguments are required
-    "containmentFolder":     "./cFDK_api",
-    "rootFileName":          "cFDK_library_root.rst",
-    "rootFileTitle":         "cFDK Library API",
-    "doxygenStripFromPath":  "..",
-    # Suggested optional arguments
-    "createTreeView":        True,
-    # TIP: if using the sphinx-bootstrap-theme, you need
-    # "treeViewIsBootstrap": True,
-    "exhaleExecutesDoxygen": False,
-    #"exhaleDoxygenStdin":    "INPUT = NO../repos_for_Doxygen/cFDK",
-    "exhaleUseDoxyfile": True
-}
+#exhale_args = {
+#    # These arguments are required
+#    "containmentFolder":     "./cFDK_api",
+#    "rootFileName":          "cFDK_library_root.rst",
+#    "rootFileTitle":         "cFDK Library API",
+#    "doxygenStripFromPath":  "..",
+#    # Suggested optional arguments
+#    "createTreeView":        True,
+#    # TIP: if using the sphinx-bootstrap-theme, you need
+#    # "treeViewIsBootstrap": True,
+#    "exhaleExecutesDoxygen": False,
+#    #"exhaleDoxygenStdin":    "INPUT = NO../repos_for_Doxygen/cFDK",
+#    "exhaleUseDoxyfile": True
+#}
 
 # Tell sphinx what the primary language being documented is.
 primary_domain = 'cpp'

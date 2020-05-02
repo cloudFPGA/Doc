@@ -29,7 +29,7 @@ change_links:
 doxygen:
 	cd docsrc && doxygen Doxyfile && cd ../
 
-localhtml: clone_local_cfdk_repo change_links doxygen
+localhtml: clone_local_cfdk_repo change_links 
 	@make html
 
 latexpdf:
@@ -39,7 +39,7 @@ latexpdf:
 	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
 	@echo "pdflatex finished; see $(PDF)"
 
-dhtml: change_links doxygen
+dhtml: change_links 
 	@make html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
