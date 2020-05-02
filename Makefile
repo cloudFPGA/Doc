@@ -24,7 +24,7 @@ clone_local_cfdk_repo:
 	git clone --depth=1 -b update_md_for_doc_compatibility_did git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
 
 change_links:
-	cd repos_for_Doxygen && python3 modify_links_cf.py > /tmp/modify_links_cf.log && cat /tmp/modify_links_cf.log && cd ../
+	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../
 
 doxygen:
 	cd docsrc && doxygen Doxyfile && cd ../
