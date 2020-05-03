@@ -18,6 +18,7 @@ install:
   - pipenv install # set up the environment
   - git clone --depth=1 -b update_md_for_doc_compatibility_did https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
   - ls -la repos_for_Doxygen/cFDK
+  - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/Dox.git repos_for_Doxygen/Dox
 #  - curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.1.0 # install vale
 #  - export PATH="./bin:$PATH"
 #  - git clone https://diamantopoulos:$GITHUB-COM_TOKEN@github.com/doxygen/doxygen.git doxygen_local
