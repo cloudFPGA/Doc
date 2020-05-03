@@ -2,6 +2,6 @@
 
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/CONTRIBUTING.md
 
-.. mdinclude:: ../../../Doc/README.md
+.. mdinclude:: ../../README.md
 
-.. mdinclude:: ../../../Dox/README.md
+.. mdinclude:: ../../repos_for_Doxygen/Dox/README.md
