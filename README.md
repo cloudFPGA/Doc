@@ -11,7 +11,7 @@ components, tutorials, etc. The documentation of the cloudFPGA source code is ma
 [is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
 
 
-![Overview of Doc repository](./docsrc/images/doc_repo_overview.png)
+![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/master/docsrc/images/doc_repo_overview.png?raw=true)
 
 
 There are two ways to contribute to the documentation of cloudFPGA project, the automating compilation and and the manual compilation.
@@ -47,7 +47,7 @@ In order to edit the documentation of the aforementioned repositiories, you shou
 directly on the `Markdown` files in those repositories.
 
 Then, to make the changes being reflected onto the html pages, there are two options:
-1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when don't have any changes for this actual documentation repository and you only intend to keep the cFDK API documentation up to date with the source code of the cloudFPGA repositories listed above.
+1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when don't have any changes for this actual documentation repository and you only intend to keep the cloudFPGA generic documentation up to date with the Markdown files of the cloudFPGA repositories listed above.
 2. Clone this repo, create a minor commit and push. This is useful when you also have some changes for this actual documentation repository (i.e. pipeline of tasks). The `push` request will trigger a new Travis CI building process.
 
 #### Update this documentation
