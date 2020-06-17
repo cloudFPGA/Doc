@@ -11,6 +11,9 @@ components, tutorials, etc. The documentation of the cloudFPGA source code is ma
 [is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
 
 
+![Overview of Doc repository](./docsrc/images/doc_repo_overview.png)
+
+
 There are two ways to contribute to the documentation of cloudFPGA project, the automating compilation and and the manual compilation.
 
 ### Automated documentation compilation
@@ -29,12 +32,30 @@ The repository is configured to match this branch to
 also bypass [jekyll](https://jekyllrb.com/) processing of `GitHub Pages` by creating an empty file named `.nojekyll` 
 on the repository. Eventually the final documentation is available [here](https://pages.github.ibm.com/cloudFPGA/Doc/).
 
-#### Step 1/1: Update Documentation
 
+
+#### Update cloudFPGA Generic Documentation
+Since in this repository we don't host any cloudFPGA source code, the actual source code is pulled from 
+other repositiories in order to parse the `Markdown` files and generate the rpspective html output.
+The following repositories are being parsed for `Markdown` files:
+
+* [cloudFPGA/cFDK](https://github.ibm.com/cloudFPGA/cFDK)
+* [cloudFPGA/cFp_BringUp](https://github.ibm.com/cloudFPGA/cFp_BringUp)
+* [cloudFPGA/cFp_Vitis](https://github.ibm.com/cloudFPGA/cFp_Vitis)
+
+In order to edit the documentation of the aforementioned repositiories, you should apply the changes 
+directly on the `Markdown` files in those repositories.
+
+Then, to make the changes being reflected onto the html pages, there are two options:
+1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when don't have any changes for this actual documentation repository and you only intend to keep the cFDK API documentation up to date with the source code of the cloudFPGA repositories listed above.
+2. Clone this repo, create a minor commit and push. This is useful when you also have some changes for this actual documentation repository (i.e. pipeline of tasks). The `push` request will trigger a new Travis CI building process.
+
+#### Update this documentation
 ```bash
 git clone git@github.ibm.com:cloudFPGA/Doc.git cloudFPGA-Doc
 cd cloudFPGA-Doc
 < ... make your changes ... >
+git commit -am "my changes in Doc repo"
 git push
 firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 ```
