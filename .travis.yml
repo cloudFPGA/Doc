@@ -16,7 +16,7 @@ install:
   - pip install -U pip
   - pip install pipenv
   - pipenv install # set up the environment
-  - git clone --depth=1 -b update_md_for_doc_compatibility_did https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
+  - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
   - ls -la repos_for_Doxygen/cFDK
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/Dox.git repos_for_Doxygen/Dox
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
