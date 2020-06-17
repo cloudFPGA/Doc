@@ -11,7 +11,7 @@ components, tutorials, etc. The documentation of the cloudFPGA source code is ma
 [is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
 
 
-![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/master/docsrc/images/doc_repo_overview.png?raw=true)
+![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/images/doc_repo_overview.png?raw=true)
 
 
 There are two ways to contribute to the documentation of cloudFPGA project, the automating compilation and and the manual compilation.
