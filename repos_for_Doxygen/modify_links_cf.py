@@ -17,22 +17,26 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
 
     replaced = 0
     for s in f1:
-        new_s = s
-        if search("]\(", s):
-            #print("this is a link")
-            #  print("The s is:"+s)
-            if search(link_type, s):
-                #print("before:"+s)
-                s2 = s.replace("](", "]("+replace_str)
-                # special case for image files to be rendered correctly
-                s2 = s2.replace(".png", ".png?raw=true")
-                s2 = s2.replace(".bmp", ".bmp?raw=true")
-                replaced = replaced + 1
-                #print("after:"+s2)
-            else:
-                s2 = s
-                #print("NONOOOO avoiding "+str(s))
-            new_s = s.replace(str(s), str(s2))
+        new_s = s2 = s
+        # Avoid to replace absolute links
+        if (search("http://", s) or search("https://", s)):
+            s2 = s
+        else:
+            if search("]\(", s):
+                #print("this is a link")
+                #  print("The s is:"+s)
+                if search(link_type, s):
+                    #print("before:"+s)
+                    s2 = s.replace("](", "]("+replace_str)
+                    # special case for image files to be rendered correctly
+                    s2 = s2.replace(".png", ".png?raw=true")
+                    s2 = s2.replace(".bmp", ".bmp?raw=true")
+                    replaced = replaced + 1
+                    #print("after:"+s2)
+                else:
+                    s2 = s
+                    #print("NONOOOO avoiding "+str(s))
+        new_s = s.replace(str(s), str(s2))
         f2.write(new_s)
     print("INFO: Replaced links of " + link_type + " : "+ str(replaced))
     print("#################")
@@ -43,7 +47,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
 
 
 
-def insert_in_markdown_source(full_md_file, tail):
+def insert_in_markdown_source(repo, full_md_file, tail):
     f1 = open(full_md_file, 'r')
     f2 = open(full_md_file+"_new", 'w')
     lines_parsed = 0
@@ -51,7 +55,7 @@ def insert_in_markdown_source(full_md_file, tail):
     for s in f1:
         if (lines_parsed == 1):
             #f2.write("ONE NEW LINE\n")
-            string_to_insert = "**Note:** [This HTML section is rendered based on the Markdown file in cFDK source code repository.]("+tail+")\n\n"
+            string_to_insert = "**Note:** [This HTML section is rendered based on the Markdown file in "+repo+" source code repository.]("+tail+")\n\n"
             f2.write(string_to_insert)
         lines_parsed = lines_parsed + 1
         f2.write(s)
@@ -74,7 +78,7 @@ for md_file in pathlib.Path('./').glob('**/*.md'):
     replace_str = repo_organization_url + repo + "/blob/master/" + subdir + "/"
     #print("replace_str is : " + replace_str)
 
-    insert_in_markdown_source(full_md_file, tail)
+    insert_in_markdown_source(repo, full_md_file, tail)
 
     link_type = ".md"
     replace_markdown_links(full_md_file, link_type, replace_str)
