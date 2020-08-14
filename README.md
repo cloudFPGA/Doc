@@ -5,7 +5,7 @@
 [Documentation and tutorials for cloudFPGA project.](https://pages.github.ibm.com/cloudFPGA/Doc/)
 
 **NOTE**: This repository acts as a building pipeline of tasks that results in the actual documentation in static
-html pages. This is the generic documentation of the cloudFPGA project, including the desctiprtion of the cloudFPGA 
+html pages. This is the generic documentation of the cloudFPGA project, including the description of the cloudFPGA 
 components, tutorials, etc. The documentation of the cloudFPGA source code is maintained in a 
 [separate repository](https://github.ibm.com/cloudFPGA/Dox/) and 
 [is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
@@ -14,7 +14,7 @@ components, tutorials, etc. The documentation of the cloudFPGA source code is ma
 ![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/images/doc_repo_overview.png?raw=true)
 
 
-There are two ways to contribute to the documentation of cloudFPGA project, the automating compilation and and the manual compilation.
+There are two ways to contribute to the documentation of cloudFPGA project, the automated compilation and and the manual compilation.
 
 ### Automated documentation compilation
 
