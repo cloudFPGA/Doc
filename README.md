@@ -40,7 +40,7 @@ other repositiories in order to parse the `Markdown` files and generate the rpsp
 The following repositories are being parsed for `Markdown` files:
 
 * [cloudFPGA/cFDK](https://github.ibm.com/cloudFPGA/cFDK)
-* [cloudFPGA/cFp_BringUp](https://github.ibm.com/cloudFPGA/cFp_BringUp)
+* [cloudFPGA/cFp_Monolithic](https://github.ibm.com/cloudFPGA/cFp_Monolithic)
 * [cloudFPGA/cFp_Vitis](https://github.ibm.com/cloudFPGA/cFp_Vitis)
 
 In order to edit the documentation of the aforementioned repositiories, you should apply the changes 
