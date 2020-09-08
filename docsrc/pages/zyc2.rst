@@ -22,4 +22,4 @@
 
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/ZYC2/ZYC2_Access_Authentication_and_Login.md
 
-.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/ZYC2/How_to_cloudFPGA_on_ZYC2_todo.md
+.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/ZYC2/How_to_cloudFPGA_on_ZYC2_body.md
