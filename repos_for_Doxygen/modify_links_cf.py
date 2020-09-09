@@ -25,9 +25,10 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
             if search("]\(", s):
                 #print("this is a link")
                 #  print("The s is:"+s)
-                if search(link_type, s):
+                if search(link_type, s.str.lower()):
                     #print("before:"+s)
                     s2 = s.replace("](", "]("+replace_str)
+                    s2 = s2.str.lower()
                     # special case for image files to be rendered correctly
                     s2 = s2.replace(".png", ".png?raw=true")
                     s2 = s2.replace(".bmp", ".bmp?raw=true")
@@ -36,7 +37,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                 else:
                     s2 = s
                     #print("NONOOOO avoiding "+str(s))
-        new_s = s.replace(str(s), str(s2))
+        new_s = s.replace(str(s.str.lower()), str(s2))
         f2.write(new_s)
     print("INFO: Replaced links of " + link_type + " : "+ str(replaced))
     print("#################")
