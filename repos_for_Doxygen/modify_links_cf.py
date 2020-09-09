@@ -37,7 +37,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                 else:
                     s2 = s
                     #print("NONOOOO avoiding "+str(s))
-        new_s = s.replace(str(s()), str(s2))
+        new_s = s.replace(str(s), str(s2))
         f2.write(new_s)
     print("INFO: Replaced links of " + link_type + " : "+ str(replaced))
     print("#################")
