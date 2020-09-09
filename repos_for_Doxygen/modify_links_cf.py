@@ -29,7 +29,9 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                     #print("before:"+s)
                     s2 = s.replace("](", "]("+replace_str)
                     s2 = s2
-                    # special case for image files to be rendered correctly
+                    # special case for image and pdf files to be rendered correctly
+                    s2 = s2.replace(".pdf", ".pdf?raw=true")
+                    s2 = s2.replace(".PDF", ".PDF?raw=true")
                     s2 = s2.replace(".png", ".png?raw=true")
                     s2 = s2.replace(".PNG", ".PNG?raw=true")
                     s2 = s2.replace(".bmp", ".bmp?raw=true")
@@ -96,6 +98,12 @@ for md_file in pathlib.Path('./').glob('**/*.md'):
     replace_markdown_links(full_md_file, link_type, replace_str)
 
     link_type = ".BMP"
+    replace_markdown_links(full_md_file, link_type, replace_str)
+
+    link_type = ".pdf"
+    replace_markdown_links(full_md_file, link_type, replace_str)
+
+    link_type = ".PDF"
     replace_markdown_links(full_md_file, link_type, replace_str)
 
     #exit(0)
