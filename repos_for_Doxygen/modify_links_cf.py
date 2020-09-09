@@ -17,7 +17,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
 
     replaced = 0
     for s in f1:
-        new_s = s2 = s
+        new_s = s2 = s.str.lower()
         # Avoid to replace absolute links
         if (search("http://", s) or search("https://", s)):
             s2 = s
@@ -30,7 +30,6 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                     s2 = s.replace("](", "]("+replace_str)
                     # special case for image files to be rendered correctly
                     s2 = s2.replace(".png", ".png?raw=true")
-                    s2 = s2.replace(".PNG", ".png?raw=true")
                     s2 = s2.replace(".bmp", ".bmp?raw=true")
                     replaced = replaced + 1
                     #print("after:"+s2)
