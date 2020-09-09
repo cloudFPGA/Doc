@@ -17,7 +17,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
 
     replaced = 0
     for s in f1:
-        new_s = s2 = s.lower()
+        new_s = s2 = s
         # Avoid to replace absolute links
         if (search("http://", s) or search("https://", s)):
             s2 = s
@@ -37,7 +37,7 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                 else:
                     s2 = s
                     #print("NONOOOO avoiding "+str(s))
-        new_s = s.replace(str(s.lower()), str(s2))
+        new_s = s.replace(str(s()), str(s2))
         f2.write(new_s)
     print("INFO: Replaced links of " + link_type + " : "+ str(replaced))
     print("#################")
