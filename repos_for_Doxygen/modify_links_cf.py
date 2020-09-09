@@ -60,7 +60,7 @@ def insert_in_markdown_source(repo, full_md_file, tail):
     for s in f1:
         if (lines_parsed == 1):
             #f2.write("ONE NEW LINE\n")
-            string_to_insert = "**Note:** [This HTML section is rendered based on the Markdown file in "+repo+" source code repository.]("+tail+")\n\n"
+            string_to_insert = "**Note:** [This HTML section is rendered based on the Markdown file in "+repo+".]("+tail+")\n\n"
             f2.write(string_to_insert)
         lines_parsed = lines_parsed + 1
         f2.write(s)

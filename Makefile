@@ -17,14 +17,15 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/cFDK ./repos_for_Doxygen/Dox ./repos_for_Doxygen/cFp_Vitis ./repos_for_Doxygen/cFp_BringUp
+	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/cFDK ./repos_for_Doxygen/Dox ./repos_for_Doxygen/cFp_Vitis ./repos_for_Doxygen/cFp_Monolithic ./repos_for_Doxygen/cFp_EchoThemisto
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_cfdk_repo:
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/Dox.git repos_for_Doxygen/Dox
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_BringUp.git repos_for_Doxygen/cFp_BringUp
+	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Monolithic.git repos_for_Doxygen/cFp_Monolithic
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
+	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git repos_for_Doxygen/cFp_EchoThemisto
 
 change_links:
 	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../
