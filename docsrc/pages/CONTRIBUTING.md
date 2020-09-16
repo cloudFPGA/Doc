@@ -1,3 +1,3 @@
-## How to Contribute
+# How to Contribute
 
-### Bug fixes
+## Bug fixes
