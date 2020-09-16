@@ -38,8 +38,8 @@ Indices and Search
 
    self
    pages/overview
+   pages/getting_started
+   pages/getting_started_on_zyc2
+   pages/project_repository.rst
    pages/cfdk
-   pages/example_projects.rst
-   pages/zyc2
    pages/contrib_and_rtdocs
-   6. cloudFPGA API Documentation <https://pages.github.ibm.com/cloudFPGA/Dox/index.html>

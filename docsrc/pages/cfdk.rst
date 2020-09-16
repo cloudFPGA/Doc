@@ -14,3 +14,6 @@
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/NRC/general.md
 
 .. mdinclude:: ../../repos_for_Doxygen/cFDK/SRA/LIB/MIDLW/README.md
+
+.. mdinclude:: ./cfdk_api.md
+

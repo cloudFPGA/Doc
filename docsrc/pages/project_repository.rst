@@ -2,7 +2,7 @@
 
 .. _example_projects:
 
-.. mdinclude:: ../../repos_for_Doxygen/cFDK/DOC/Example_projects.md
+.. mdinclude:: ./Project_repository.md
 
 .. mdinclude:: ../../repos_for_Doxygen/cFp_EchoThemisto/README.md
 
