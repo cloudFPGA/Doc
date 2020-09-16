@@ -1,6 +1,6 @@
 
 
-.. _example_projects:
+.. _project_repository:
 
 .. mdinclude:: ./Project_repository.md
 

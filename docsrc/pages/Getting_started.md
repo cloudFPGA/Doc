@@ -1,6 +1,6 @@
 ## Getting started
 
-### Guide the user trough a ‘Hello World’ example (.i.e ThemistoEcho)
+### Guide the user through a ‘Hello World’ example (i.e. ThemistoEcho)
 
 ### How to clone, build, csim, cosim
 

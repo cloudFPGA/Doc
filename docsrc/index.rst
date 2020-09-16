@@ -39,7 +39,7 @@ Indices and Search
    self
    pages/overview
    pages/getting_started
-   pages/getting_started_on_zyc2
-   pages/project_repository.rst
+   pages/ZYC2/getting_started_on_zyc2
+   pages/project_repository
    pages/cfdk
    pages/contrib_and_rtdocs

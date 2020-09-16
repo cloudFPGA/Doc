@@ -18,8 +18,8 @@
 .. _zyc2:
 
 
-.. mdinclude:: ./ZYC2/How_to_cloudFPGA_on_ZYC2.md
+.. mdinclude:: ./How_to_cloudFPGA_on_ZYC2.md
 
-.. mdinclude:: ./ZYC2/ZYC2_Access_Authentication_and_Login.md
+.. mdinclude:: ./ZYC2_Access_Authentication_and_Login.md
 
-.. mdinclude:: ./ZYC2/How_to_cloudFPGA_on_ZYC2_body.md
+.. mdinclude:: ./How_to_cloudFPGA_on_ZYC2_body.md
