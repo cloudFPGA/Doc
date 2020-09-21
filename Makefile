@@ -26,6 +26,7 @@ clone_local_cfdk_repo:
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Monolithic.git repos_for_Doxygen/cFp_Monolithic
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
 	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git repos_for_Doxygen/cFp_EchoThemisto
+	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Uppercase.git repos_for_Doxygen/cFp_Uppercase
 
 change_links:
 	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../

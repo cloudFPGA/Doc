@@ -22,6 +22,8 @@ install:
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFp_Monolithic.git repos_for_Doxygen/cFp_Monolithic
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
   - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFp_EchoThemisto.git repos_for_Doxygen/cFp_EchoThemisto
+  - git clone --depth=1 https://DID:$GITHUB_TOKEN@github.ibm.com/cloudFPGA/cFp_Uppercase.git repos_for_Doxygen/cFp_Uppercase
+
 #  - curl -sfL https://install.goreleaser.com/github.com/ValeLint/vale.sh | sh -s v2.1.0 # install vale
 #  - export PATH="./bin:$PATH"
 #  - git clone https://diamantopoulos:$GITHUB-COM_TOKEN@github.com/doxygen/doxygen.git doxygen_local

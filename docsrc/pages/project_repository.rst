@@ -8,5 +8,7 @@
 
 .. mdinclude:: ../../repos_for_Doxygen/cFp_Monolithic/README.md
 
+.. mdinclude:: ../../repos_for_Doxygen/cFp_Uppercase/README.md
+
 .. mdinclude:: ../../repos_for_Doxygen/cFp_Vitis/README.md
 
