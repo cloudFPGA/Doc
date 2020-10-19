@@ -17,7 +17,7 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/cFDK ./repos_for_Doxygen/Dox ./repos_for_Doxygen/cFp_Vitis ./repos_for_Doxygen/cFp_Monolithic ./repos_for_Doxygen/cFp_EchoThemisto
+	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doxygen/cFDK ./repos_for_Doxygen/Dox ./repos_for_Doxygen/cFp_Vitis ./repos_for_Doxygen/cFp_Monolithic ./repos_for_Doxygen/cFp_EchoThemisto ./repos_for_Doxygen/cFp_Uppercase
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_cfdk_repo:
