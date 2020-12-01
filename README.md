@@ -25,18 +25,16 @@ We adopt the following tools for automating the documentation of cloudFPGA proje
 
 The overall documentation compilation process is triggered by a new commit to 
 [cloudFPGA Doc repository](https://github.ibm.com/cloudFPGA/Doc). Then `Travis CI` is building the documentation 
-for the cloudFPGA (general information, tutorials, etc.)on a containerized environment and pushes the generated 
+for the cloudFPGA (general information, tutorials, etc.) on a containerized environment and pushes the generated 
 static HTML files on the `gh_pages` branch of [cloudFPGA Doc repository](https://github.ibm.com/cloudFPGA/Doc). 
 The repository is configured to match this branch to 
 [GitHub Pages](https://help.github.com/en/github/working-with-github-pages/getting-started-with-github-pages) and 
 also bypass [jekyll](https://jekyllrb.com/) processing of `GitHub Pages` by creating an empty file named `.nojekyll` 
 on the repository. Eventually the final documentation is available [here](https://pages.github.ibm.com/cloudFPGA/Doc/).
 
-
-
 #### Update cloudFPGA Generic Documentation
 Since in this repository we don't host any cloudFPGA source code, the actual source code is pulled from 
-other repositiories in order to parse the `Markdown` files and generate the rpspective html output.
+other repositiories in order to parse the `Markdown` files and generate the respective html output.
 The following repositories are being parsed for `Markdown` files:
 
 * [cloudFPGA/cFDK](https://github.ibm.com/cloudFPGA/cFDK)
