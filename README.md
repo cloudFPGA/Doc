@@ -45,7 +45,7 @@ In order to edit the documentation of the aforementioned repositiories, you shou
 directly on the `Markdown` files in those repositories.
 
 Then, to make the changes being reflected onto the html pages, there are two options:
-1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when don't have any changes for this actual documentation repository and you only intend to keep the cloudFPGA generic documentation up to date with the Markdown files of the cloudFPGA repositories listed above.
+1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when you don't have any changes for this actual documentation repository and you only intend to keep the cloudFPGA generic documentation up to date with the Markdown files of the cloudFPGA repositories listed above.
 2. Clone this repo, create a minor commit and push. This is useful when you also have some changes for this actual documentation repository (i.e. pipeline of tasks). The `push` request will trigger a new Travis CI building process.
 
 #### Update this documentation
@@ -58,12 +58,12 @@ git push
 firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 ```
 
-**NOTE**: the documentation compilation on Travis CI is expected to take several minutes, so be patient when you submit changes until the time these take effect on the documentation.
+**NOTE**: the documentation compilation on Travis CI is expected to take several minutes, so be patient when you submit changes as they won't take effect instantly.
 
 ***
 
 ### Manual documentation compilation
-In case you need to manually compile the documentation of cloudFPGA project on your local development environment, please follow these steps:
+If you need to manually compile the documentation of the cloudFPGA project on your local development environment, please follow these steps:
 
 #### Step 1/3: Sphinx and dependencies setup
 
