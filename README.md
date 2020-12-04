@@ -1,3 +1,46 @@
+# Welcome to the _cloudFPGA_ project
+This organization hosts a set of repositories related to the _cloudFPGA_ project, a disaggregated data processing 
+proposal based on standalone and network-attached FPGAs in cloud datacenters.
+ 
+
+    [TODO - Add a banner picture here]
+
+
+## Table of Contents
+1. [Overview of the _cloudFPGA_ Project/Proposal/Concept](#cF-intro)
+2. [Overview of the _cloudFPGA_ Organization](#overview-of-the-cloudFPGA-organization)
+3. [Getting Started](#getting-started)
+4. [Documentation](#documentation)
+
+
+## Overview of the _cloudFPGA_ Project <a name="cF-intro"></a>
+    [ TODO - Bird's eye view - Network attachement - SHELL/ROLE architecture ]
+
+## Overview of the _cloudFPGA_ Organization
+    [ TODO - Summary description of the main repos]
+        * cFDK, cFp_<ProjectName>, cFBuild 
+    
+## Getting Started
+    [ TODO - Quick-start step-by-step example(s) ]
+
+## Documentation
+    [ TODO - Link to cF pages ]
+    
+## How To Contribute
+    [ TODO - cFDK vs cFp_<ProjectName> ]
+
+
+```
+
+
+
+
+
+
+
+
+```
+
 ## Generic cloudFPGA Documentation
 
 [![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/) [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg)](https://www.sphinx-doc.org/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.ibm.com/cloudFPGA/Doc/pulse)
