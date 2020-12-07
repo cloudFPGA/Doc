@@ -1,141 +1,63 @@
-# Welcome to the _cloudFPGA_ project
-This organization hosts a set of repositories related to the _cloudFPGA_ project, a disaggregated data processing 
-proposal based on standalone and network-attached FPGAs in cloud datacenters.
+![Banner for cF](./imgs/banner.png#center)
+
+Welcome to the _cloudFPGA_ organization. This organization hosts a set of repositories and projects related to 
+ _cloudFPGA_, a disaggregated data processing proposal based on standalone and network attached FPGAs in cloud
+ datacenters.
  
-
-    [TODO - Add a banner picture here]
-
-
-## Table of Contents
-1. [Overview of the _cloudFPGA_ Project/Proposal/Concept](#cF-intro)
-2. [Overview of the _cloudFPGA_ Organization](#overview-of-the-cloudFPGA-organization)
-3. [Getting Started](#getting-started)
-4. [Documentation](#documentation)
+# Table of Contents
+1. [About cloudFPGA](#about-_cloudfpga_)
+2. [About this GitHub organization](#about-this-_github_-organization)
+3. [Documentation](#documentation)
+4. [Getting started](#getting-started)
+5. [Contributing](#contributing)
+6. [Contact and support](#contact-and-support)
 
 
-## Overview of the _cloudFPGA_ Project <a name="cF-intro"></a>
-    [ TODO - Bird's eye view - Network attachement - SHELL/ROLE architecture ]
-
-## Overview of the _cloudFPGA_ Organization
-    [ TODO - Summary description of the main repos]
-        * cFDK, cFp_<ProjectName>, cFBuild 
-    
-## Getting Started
-    [ TODO - Quick-start step-by-step example(s) ]
-
-## Documentation
-    [ TODO - Link to cF pages ]
-    
-## How To Contribute
-    [ TODO - cFDK vs cFp_<ProjectName> ]
-
-
-```
-
-
-
-
-
-
-
-
-```
-
-## Generic cloudFPGA Documentation
-
-[![Build Status](https://travis.ibm.com/cloudFPGA/Doc.svg?token=8sgWzx3xuqu53CzFUy8K&branch=master)](https://travis.ibm.com/cloudFPGA/Doc)  [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Python 3.6+](https://img.shields.io/badge/python-3.6+-blue.svg)](https://www.python.org/downloads/release/python-360/) [![made-with-sphinx-doc](https://img.shields.io/badge/Made%20with-Sphinx-1f425f.svg)](https://www.sphinx-doc.org/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.ibm.com/cloudFPGA/Doc/pulse)
-
-[Documentation and tutorials for cloudFPGA project.](https://pages.github.ibm.com/cloudFPGA/Doc/)
-
-**NOTE**: This repository acts as a building pipeline of tasks that results in the actual documentation in static
-html pages. This is the generic documentation of the cloudFPGA project, including the description of the cloudFPGA 
-components, tutorials, etc. The documentation of the cloudFPGA source code is maintained in a 
-[separate repository](https://github.ibm.com/cloudFPGA/Dox/) and 
-[is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
+# About _cloudFPGA_
+The _cloudFPGA (cF)_ proposal is to set the FPGAs free from the traditional CPU-bus attachments and 
+ to make make them plentiful in hyperscale datacenters (DC). 
+* The first proposition is carried out by disaggregating the FPGAs from the server nodes and by 
+  connecting the FPGAs directly to the DC network. 
+  ![Network Attached FPGA](./imgs/about1.png#center)
+* The second is achieved by turning the FPGAs into standalone network attached compute nodes 
+  while densely packing them into DC chassis and racks.
+  ![Banner for cF](./imgs/about2.png#center)
+ 
+ 
+# About this _GitHub_ organization
+This Github organization is a central places for hosting _cloudFPGA_ projects and repositories, 
+ as well as the _cloudFPGA_ development kit required to develop and deploy hardware 
+ accelerated applications on a cluster of standalone network-attached FPGAs in the Cloud.
+ The following repositories can be found in the current organization:
+ * `[cFDK]` is the  _cloudFPGA Development Kit (cFDK)_. It is contains a framework to help 
+    implement your FPGA application on a cF platform.
+ * `[cFBuild]` can be used for creating or updating a _cloudFPGA project_ (cFp) based on
+    the **_cFDK_**.
+ * `[cFp_<ProjectName>]` are a set of cF projects provided here as reference...    
+ * `[Doc]` contains the file that you are currently reading. This repository also used to build
+    the _cloudFPGA_ documentation which is provided as github pages under the [Documentation](#documentation) section.
+ * `[Dox]` is a repository for generating Doxygen-related html static pages for the  **_cFDK_**. 
+ 
+ 
+# Documentation
+The _cloudFPFA_ documentation is provided as github pages at:
+ * **https://pages.github.ibm.com/cloudFPGA/Doc/**
+ 
+If you need to re-build and update this documentation, please checkout the file **[BuildDoc.md](./BuildDoc.md)**
 
 
-![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/images/doc_repo_overview.png?raw=true)
+# Getting started
+Section [FIXME] of the **_cF_** documentation takes you through a step-by-step quick start example. Next, 
+please consider cloning and going through one of the following **_cFp_Projects_**:
+
+| cFp_Project        | Description                    
+|:-------------------|:---------------------------------------------
+| cFp_Echo           | An application that echos the received UDP and TCP traffic back to the initiator node.   
+| cFp_Uppercase      | An application that receives a string from a user and returns it back in uppercase. 
+| cFp_Triangle       | A triangle communication example between a host and 2 FPGAs. 
+
+# Contributing
+
+# Contact and Support
 
 
-There are two ways to contribute to the documentation of cloudFPGA project, the automated compilation and and the manual compilation.
-
-### Automated documentation compilation
-
-We adopt the following tools for automating the documentation of cloudFPGA project:
-* [Sphinx](https://www.sphinx-doc.org/en/master/) is a tool that makes it easy to create intelligent and beautiful documentation.
-* [Read the Docs (sphinx_rtd_theme)](https://readthedocs.org/) is a sphinx theme designed to look modern and be mobile-friendly.
-* [Travis CI](https://travis-ci.org/) is a hosted continuous integration service used to build and test software projects hosted at GitHub (both on our public and IBM enterprise repositories).
-
-The overall documentation compilation process is triggered by a new commit to 
-[cloudFPGA Doc repository](https://github.ibm.com/cloudFPGA/Doc). Then `Travis CI` is building the documentation 
-for the cloudFPGA (general information, tutorials, etc.) on a containerized environment and pushes the generated 
-static HTML files on the `gh_pages` branch of [cloudFPGA Doc repository](https://github.ibm.com/cloudFPGA/Doc). 
-The repository is configured to match this branch to 
-[GitHub Pages](https://help.github.com/en/github/working-with-github-pages/getting-started-with-github-pages) and 
-also bypass [jekyll](https://jekyllrb.com/) processing of `GitHub Pages` by creating an empty file named `.nojekyll` 
-on the repository. Eventually the final documentation is available [here](https://pages.github.ibm.com/cloudFPGA/Doc/).
-
-#### Update cloudFPGA Generic Documentation
-Since in this repository we don't host any cloudFPGA source code, the actual source code is pulled from 
-other repositiories in order to parse the `Markdown` files and generate the respective html output.
-The following repositories are being parsed for `Markdown` files:
-
-* [cloudFPGA/cFDK](https://github.ibm.com/cloudFPGA/cFDK)
-* [cloudFPGA/cFp_Monolithic](https://github.ibm.com/cloudFPGA/cFp_Monolithic)
-* [cloudFPGA/cFp_Vitis](https://github.ibm.com/cloudFPGA/cFp_Vitis)
-
-In order to edit the documentation of the aforementioned repositiories, you should apply the changes 
-directly on the `Markdown` files in those repositories.
-
-Then, to make the changes being reflected onto the html pages, there are two options:
-1. Force a `Restart Build` job on [the Travis CI page of this repository](https://travis.ibm.com/cloudFPGA/Doc). This is useful when you don't have any changes for this actual documentation repository and you only intend to keep the cloudFPGA generic documentation up to date with the Markdown files of the cloudFPGA repositories listed above.
-2. Clone this repo, create a minor commit and push. This is useful when you also have some changes for this actual documentation repository (i.e. pipeline of tasks). The `push` request will trigger a new Travis CI building process.
-
-#### Update this documentation
-```bash
-git clone git@github.ibm.com:cloudFPGA/Doc.git cloudFPGA-Doc
-cd cloudFPGA-Doc
-< ... make your changes ... >
-git commit -am "my changes in Doc repo"
-git push
-firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
-```
-
-**NOTE**: the documentation compilation on Travis CI is expected to take several minutes, so be patient when you submit changes as they won't take effect instantly.
-
-***
-
-### Manual documentation compilation
-If you need to manually compile the documentation of the cloudFPGA project on your local development environment, please follow these steps:
-
-#### Step 1/3: Sphinx and dependencies setup
-
-To generate the Sphinx based python documentations, you have to setup:
-```bash
-which python3.6
-virtualenv sphinx -p /usr/bin/python3.6
-. sphinx/bin/activate
-git clone git@github.ibm.com:cloudFPGA/Doc.git cloudFPGA-Doc
-pip install -r ./cloudFPGA-Doc/docsrc/requirements.txt
-```
-#### Step 2/3: Rebuild Documentation
-
-```bash
-. sphinx/bin/activate
-git checkout gh-pages  (assuming you are on cloudFPGA-Doc folder)
-< ... make your changes ... >
-make clean
-make localhtml
-firefox _build/html/index.html & (view your changes locally)
-```
-
-**NOTE**: To avoid the long-time for building documentation for the source code, you can run `make html` 
-instead `make localhtml` on the script above.
-
-#### Step 3/3: Update Documentation
-
-```
-git checkout gh-pages (ensure you are on this branch)
-git commit -am "rebuild docs"
-git push
-```
