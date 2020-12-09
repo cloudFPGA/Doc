@@ -108,7 +108,7 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': True,
     'sticky_navigation': True,
-    'navigation_depth': 8,
+    'navigation_depth': 4,
     'includehidden': True,
     'titles_only': False
 }
@@ -118,6 +118,10 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static', '../notes']
 html_extra_path = ['../notes']
+
+html_css_files = [
+    'custom.css',
+]
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #

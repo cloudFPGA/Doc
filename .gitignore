@@ -65,3 +65,4 @@ docsrc/doxyoutput
 # wherever you told Exhale containmentFolder is
 docsrc/api
 
+repos_for_Doxygen
