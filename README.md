@@ -6,12 +6,15 @@ Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and pr
  
  
 # Table of Contents
-1. [About cloudFPGA](#about-_cloudfpga_)
-2. [About this GitHub Organization](#about-this-_github_-organization)
+1. [About cloudFPGA](#about-cloudfpga)
+    * [Overview of the Development Flow](#overview-of-the-development-flow)
+    * [Overview of the cloudFPGA Development Kit](#overview-of-the-cloudfpga-development-kit-(cfdk))
+    * [Overview of the cloudFPGA Research Platform](#overview-of-the-cloudfpga-research-platform-(cfrp))
+2. [About this Organization](#about-this-github-organization)
+    * [How to contribute](#how-to-contribute)
 3. [Documentation](#documentation)
-4. [Getting Started](#getting-started)
-5. [Contributing](#contributing)
-6. [Contact and Support](#contact-and-support)
+    * [Getting Started](#getting-started)
+4. [Contact and Support](#contact-and-support)
 
 
 # About _cloudFPGA_
@@ -28,29 +31,41 @@ The _cloudFPGA (cF)_ proposal is to promote FPGAs to become 1st class-citizens i
   ![How-to-make-FPGAs-plentiful-in-DC](./imgs/about-cf-2.png)
  
 For users to experiment, design and build hardware accelerated applications with _cloudFPGA_, we 
- provide a **_cloudFPGA Development Kit (cFDK)_** and we grant free access to instances of our 
- **_cloudFPGA Research Platform (cFRP)_** in the Cloud.
+ provide a 
+ [**_cloudFPGA Development Kit (cFDK)_**](#overview-of-the-cloudfpga-development-kit-(cfdk)) 
+ and we grant free access to instances of our 
+ [**_cloudFPGA Research Platform (cFRP)_**](#overview-of-the-cloudfpga-research-platform-(cfrp)) 
+ in the Cloud.
 
 ## Overview of the Development Flow
 
-A **_cloudFPGA_** application is referred to as a **_Role_** and is typically deployed using _Partial 
- Reconfiguration_ over the DC network. The various design flows for developing and deploying the _partial 
- bitstream_ of such an application are presented in the figure below.  
+A _cloudFPGA_ application is referred to as a **_Role_** and it is typically deployed using _Partial 
+ Reconfiguration_ over the DC network. The various design flows for developing and deploying _partial bitstreams_ 
+ of such **_Role_** applications are presented in the figure below.  
  * the leftmost situation depicts a user working on its local **_desktop_** to develop his application and later 
-   deploy it on a single _cloudFPGA_ instance. In this scenario, the user's desktop is expected to supervise
-   the FPGA accelerator and to feed it with appropriate data and commands.    
+   deploy it on a single _cloudFPGA_ instance (represented here as a little _yellow_ square box at the bottom of
+   the figure). In this scenario, the user's desktop is expected to supervise the FPGA instance and to feed it 
+   with appropriate data and commands.    
  * the middle case shows a user developing on a **_Virtual Machine (VM)_** hosted in the Cloud and later 
    deploying the same application on multiple _cF_ instances. Obviously, the preferred way to manage these 
-   duplicated _cF_ instances is to use the same or similar _VM_. 
+   duplicated _cF_ instances is to use that same _VM_ or a similar one in the Cloud. 
  * the rightmost columns exemplifies a user who is deploying multiple VMs as well as multiple clusters of
    FPGAs in the Cloud.
+   ![Overviw-of-the-development-flow](./imgs/dev-flow.png)
 
+## Overview of the cloudFPGA Development Kit (cFDK)
 
-    [TODO - Add a picture that supports the text of the development flow section]
+The cFDK [repository](#../cFDK/README.doc) contains documentation, examples, simulation and the build scripts
+ that are necessary to create a new cloudFPGA project (cFp).
 
-            Warning: The **_cFDK_** is only available for Linux operating systems.
+    [TODO - what is the purpose of the cFDK when designing partial bitstream?] 
+    [TODO - cloudFPGA is designed to support different types of Shells (SHELL or SHL) and FPGA Modules (MOD).]  
+ [TODO --> Warning: The **_cFDK_** is only available for Linux operating systems.]
 
+## Overview of the cloudFPGA Research Platform (cFRP)
 
+    [TODO]
+ 
  
 # About this _GitHub_ Organization
 This Github organization is a central places for hosting _cloudFPGA_ projects and repositories, 
@@ -65,8 +80,10 @@ This Github organization is a central places for hosting _cloudFPGA_ projects an
  * `[Doc]` contains the file that you are reading. This repository is also used to build
     the _cloudFPGA_ documentation which is provided as github pages under the [Documentation](#documentation) section.
  * `[Dox]` is a repository for generating Doxygen-related html static pages for the  **_cFDK_**. 
- 
- 
+
+## How to Contribute
+
+
 # Documentation
 The _cloudFPFA_ documentation is provided as github pages at:
  * **https://pages.github.ibm.com/cloudFPGA/Doc/**
@@ -84,7 +101,8 @@ please consider cloning and going through one of the following **_cFp_Projects_*
 | cFp_Uppercase      | An application that receives a string from a user and returns it back in uppercase. 
 | cFp_Triangle       | A triangle communication example between a host and 2 FPGAs. 
 
-# Contributing
+
+
 
 # Contact and Support
 
