@@ -4,4 +4,4 @@
 
 ## Why & How to create a project
 
-## Existing projects
+## Featured projects
