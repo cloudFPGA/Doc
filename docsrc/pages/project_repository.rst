@@ -2,19 +2,14 @@
 
 .. _project_repository:
 
-.. mdinclude:: ./Project_repository.md
+.. include:: ./projects/projects_info.rst
 
-.. mdinclude:: ../../repos_for_Doxygen/cFp_EchoThemisto/README.md
+.. toctree::
 
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Monolithic/README.md
+   ./projects/cFp_Monolithic
+   ./projects/cFp_Uppercase
+   ./projects/cFp_EchoThemisto  
+   ./projects/cFp_Triangle 
+   ./projects/cFp_Vitis
 
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Uppercase/README.md
-
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Vitis/README.md
-
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Vitis/ROLE/vision/hls/harris/README.md
-
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Vitis/HOST/vision/harris/README.md
-
-.. mdinclude:: ../../repos_for_Doxygen/cFp_Vitis/ROLE/quantitative_finance/hls/mceuropeanengine/README.md
 

@@ -21,12 +21,13 @@ clean:
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_cfdk_repo:
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/Dox.git repos_for_Doxygen/Dox
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Monolithic.git repos_for_Doxygen/cFp_Monolithic
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git repos_for_Doxygen/cFp_EchoThemisto
-	git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Uppercase.git repos_for_Doxygen/cFp_Uppercase
+	git -C 'repos_for_Doxygen/cFDK' pull             || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFDK.git repos_for_Doxygen/cFDK
+	git -C 'repos_for_Doxygen/Dox' pull              || git clone --depth=1 git@github.ibm.com:cloudFPGA/Dox.git repos_for_Doxygen/Dox
+	git -C 'repos_for_Doxygen/cFp_Monolithic' pull   || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Monolithic.git repos_for_Doxygen/cFp_Monolithic
+	git -C 'repos_for_Doxygen/cFp_Vitis' pull        || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Vitis.git repos_for_Doxygen/cFp_Vitis
+	git -C 'repos_for_Doxygen/cFp_EchoThemisto' pull || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git repos_for_Doxygen/cFp_EchoThemisto
+	git -C 'repos_for_Doxygen/cFp_Uppercase' pull    || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Uppercase.git repos_for_Doxygen/cFp_Uppercase
+	git -C 'repos_for_Doxygen/cFp_Triangle' pull     || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Triangle.git repos_for_Doxygen/cFp_Triangle
 
 change_links:
 	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../
