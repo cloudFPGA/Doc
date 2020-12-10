@@ -8,9 +8,9 @@ Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and pr
 # Table of Contents
 1. [About cloudFPGA](#about-cloudfpga)
     * [Overview of the Development Flow](#overview-of-the-development-flow)
-    * [Overview of the cloudFPGA Development Kit](#overview-of-the-cloudfpga-development-kit-(cfdk))
-    * [Overview of the cloudFPGA Research Platform](#overview-of-the-cloudfpga-research-platform-(cfrp))
-2. [About this Organization](#about-this-github-organization)
+    * [Overview of the cloudFPGA Development Kit](#overview-of-the-cloudfpga-development-kit-cfdk)
+    * [Overview of the cloudFPGA Research Platform](#overview-of-the-cloudfpga-research-platform-cfrp)
+2. [About this Organization](#about-this-organization)
     * [How to contribute](#how-to-contribute)
 3. [Documentation](#documentation)
     * [Getting Started](#getting-started)
@@ -55,7 +55,7 @@ A _cloudFPGA_ application is referred to as a **_Role_** and it is typically dep
 
 ## Overview of the cloudFPGA Development Kit (cFDK)
 
-The cFDK [repository](#../cFDK/README.doc) contains documentation, examples, simulation and the build scripts
+The cFDK [repository](../cFDK/README.doc) contains documentation, examples, simulation and the build scripts
  that are necessary to create a new cloudFPGA project (cFp).
 
     [TODO - what is the purpose of the cFDK when designing partial bitstream?] 
@@ -67,8 +67,8 @@ The cFDK [repository](#../cFDK/README.doc) contains documentation, examples, sim
     [TODO]
  
  
-# About this _GitHub_ Organization
-This Github organization is a central places for hosting _cloudFPGA_ projects and repositories, 
+# About this Organization
+This _Github_ organization is a central places for hosting _cloudFPGA_ projects and repositories, 
  as well as the _cloudFPGA_ development kit required to build and deploy hardware 
  accelerated applications on a cluster of standalone network-attached FPGAs in the Cloud.
  The following repositories can be found in the current organization:
