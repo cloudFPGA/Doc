@@ -55,7 +55,7 @@ A _cloudFPGA_ application is referred to as a **_Role_** and it is typically dep
 
 ## Overview of the cloudFPGA Development Kit (cFDK)
 
-The cFDK [repository](#../cFDK/README.doc) contains documentation, examples, simulation and the build scripts
+The cFDK [repository](../../../cFDK) contains documentation, examples, simulation and the build scripts
  that are necessary to create a new cloudFPGA project (cFp).
 
     [TODO - what is the purpose of the cFDK when designing partial bitstream?] 
