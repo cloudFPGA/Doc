@@ -8,8 +8,8 @@ Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and pr
 # Table of Contents
 1. [About cloudFPGA](#about-cloudfpga)
     * [Overview of the Development Flow](#overview-of-the-development-flow)
-    * [Overview of the cloudFPGA Development Kit](#overview-of-the-cloudfpga-development-kit-cfdk)
-    * [Overview of the cloudFPGA Research Platform](#overview-of-the-cloudfpga-research-platform-cfrp)
+    * [Overview of the cloudFPGA Development Kit (cFDK)](#overview-of-the-cloudfpga-development-kit-cfdk)
+    * [Overview of the cloudFPGA Research Platform (cFRP)](#overview-of-the-cloudfpga-research-platform-cfrp)
 2. [About this Organization](#about-this-organization)
     * [How to contribute](#how-to-contribute)
 3. [Documentation](#documentation)
@@ -51,21 +51,48 @@ A _cloudFPGA_ application is referred to as a **_Role_** and it is typically dep
    duplicated _cF_ instances is to use that same _VM_ or a similar one in the Cloud. 
  * the rightmost columns exemplifies a user who is deploying multiple VMs as well as multiple clusters of
    FPGAs in the Cloud.
-   ![Overviw-of-the-development-flow](./imgs/dev-flow.png)
+   ![Overview-of-the-development-flow](./imgs/dev-flow.png)
 
 ## Overview of the cloudFPGA Development Kit (cFDK)
 
-The cFDK [repository](../../../cFDK) contains documentation, examples, simulation and the build scripts
- that are necessary to create a new cloudFPGA project (cFp).
+The cFDK [repository](../../../cFDK) contains source code, documentation, simulation and build scripts that 
+ are necessary to create a new cloudFPGA project (cFp). 
+ 
+Such a _cF_ project builds on the design pattern referred to as **_Shell Role Architecture (SRA)_**. This design 
+ separates the platform-specific parts (i.e. _Shell_) from the application-specific parts (i.e. _Role_) to 
+ increase the re-usability and to isolate the two parts. 
+ 
+The **_Shell (SHL)_** contains all necessary I/O components, the run-time modules and the network stack 
+ that hooks the FPGA to the DC network. It further abstracts all these hardware components by exposing 
+ standard _AXI_ interfaces to the user. From a computer operating system perspective, the _Shell_ can be 
+ seen as the conceptual counterpart of the kernel space.
 
-    [TODO - what is the purpose of the cFDK when designing partial bitstream?] 
-    [TODO - cloudFPGA is designed to support different types of Shells (SHELL or SHL) and FPGA Modules (MOD).]  
- [TODO --> Warning: The **_cFDK_** is only available for Linux operating systems.]
+The **_Role_ (ROL)** is the application-specific part of the FPGA logic. It embeds the user's custom 
+ application and can be assimilated to a CPU application executed in user space. 
+
+_cloudFPGA_  is designed to support different types of _Shells_, different types of _Roles_ and different 
+types of instances.   
+The _cFDK_ offers two development experiences to researchers:
+* **_common users_** make use of the development kit to build their custom hardware accelerated application,
+  generate an FPGA bitstream and run it on a _cloudFPGA_ instance. 
+* **_privileged users_** are granted the right to modify an existing _Shell_ or to create one with new 
+  features. This status must be requested and authorized by the _cF_ team.  
+ 
+Warning: The **_cFDK_** is only available for Linux operating systems.
 
 ## Overview of the cloudFPGA Research Platform (cFRP)
 
-    [TODO]
+The basic building block of the _cFRP_ is a 2U height by 19 inches wide chassis featuring 64 FPGA instances.
+ The chassis is equipped with two **_Sleds (S0 and S1)_**, each _Sled_ consisting of a 32 FPGA instances 
+ connected to an Intel FM6000 switch via a carrier board. The FM6000 acts as a leaf switch that aggregates 
+ 32x10GbE links from the FPGAs and exposes them to a higher-level spin network via 8x40GbE up-links. This 
+ amounts to a bi-sectional bandwidth of 640 Gb/s per Sled.
  
+ ![Overview-of-the-research-platform](./imgs/cfrp.png)
+
+The above details are mainly relevant for users who seek ultra low-latency via spacial locality of the FPGA
+ cluster. Otherwise, traditional users do not need to care since IP-based switching and routing provides 
+ DC-wide end-to-end connectivity and flexibility. 
  
 # About this Organization
 This _Github_ organization is a central places for hosting _cloudFPGA_ projects and repositories, 
@@ -76,13 +103,13 @@ This _Github_ organization is a central places for hosting _cloudFPGA_ projects 
     implement your FPGA application on a **_cF_** platform.
  * `[cFBuild]` can be used for creating or updating a _cloudFPGA project_ (cFp) based on
     the **_cFDK_**.
- * `[cFp_<ProjectName>]` are a set of cF projects provided here as reference [TODO].    
+ * `[cFp_<ProjectName>]` are a set of projects developed by the _cF_ community and provided here as reference. 
  * `[Doc]` contains the file that you are reading. This repository is also used to build
     the _cloudFPGA_ documentation which is provided as github pages under the [Documentation](#documentation) section.
  * `[Dox]` is a repository for generating Doxygen-related html static pages for the  **_cFDK_**. 
 
 ## How to Contribute
-
+    [TODO]
 
 # Documentation
 The _cloudFPFA_ documentation is provided as github pages at:
@@ -90,10 +117,9 @@ The _cloudFPFA_ documentation is provided as github pages at:
  
 If you need to re-build and update this documentation, please checkout the file **[BuildDoc.md](./BuildDoc.md)**
 
-
-# Getting Started
-Section [FIXME] of the **_cF_** documentation takes you through a step-by-step quick start example. Next, 
-please consider cloning and going through one of the following **_cFp_Projects_**:
+## Getting Started
+If you are new to _cF_, we recommend you start as a _common user_ and clone one of the following example 
+ designs which provide a step-by-step quick start guide. 
 
 | cFp_Project        | Description                    
 |:-------------------|:---------------------------------------------
@@ -101,8 +127,14 @@ please consider cloning and going through one of the following **_cFp_Projects_*
 | cFp_Uppercase      | An application that receives a string from a user and returns it back in uppercase. 
 | cFp_Triangle       | A triangle communication example between a host and 2 FPGAs. 
 
-
-
+_cloudFPGA_ is designed to support different types of _Shells_ and FPGA instances. If you want to contribute 
+ and collaborate at the _Shell_ design or at an FPGA module level, please consider going through the  
+ following projects:
+ 
+| cFp_Project        | Description                    
+|:-------------------|:---------------------------------------------
+| cFp_Monolithic     | A project that builds on the shell _Kale_.   
+| cFp_[TODO]         | A project that uses the shell _Themisto_. 
 
 # Contact and Support
 
