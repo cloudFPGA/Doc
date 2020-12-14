@@ -1,9 +1,15 @@
 ![Banner for cF](./imgs/banner.png)
 
-Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and projects related to the **_cloudFPGA 
- Research Platform_**, a disaggregated data processing platform based on standalone and network attached FPGAs in
- the Cloud.
+Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and projects related to 
+ the [*_cloudFPGA system_*](https://www.zurich.ibm.com/cci/cloudFPGA/), a disaggregated data processing platform based on standalone and network 
+ attached FPGAs in the Cloud.
  
+ For users to experiment, design and build hardware accelerated applications with _cloudFPGA_, we 
+ provide a 
+ [**_cloudFPGA Development Kit (cFDK)_**](#overview-of-the-cloudfpga-development-kit-(cfdk)) 
+ and we grant free access to instances of our 
+ [**_cloudFPGA Research Platform (cFRP)_**](#overview-of-the-cloudfpga-research-platform-(cfrp)) 
+ in the Cloud.
  
 # Table of Contents
 1. [About cloudFPGA](#about-cloudfpga)
@@ -71,12 +77,13 @@ The **_Role_ (ROL)** is the application-specific part of the FPGA logic. It embe
  application and can be assimilated to a CPU application executed in user space. 
 
 _cloudFPGA_  is designed to support different types of _Shells_, different types of _Roles_ and different 
-types of instances.   
+types of instances.
 The _cFDK_ offers two development experiences to researchers:
-* **_common users_** make use of the development kit to build their custom hardware accelerated application,
-  generate an FPGA bitstream and run it on a _cloudFPGA_ instance. 
-* **_privileged users_** are granted the right to modify an existing _Shell_ or to create one with new 
-  features. This status must be requested and authorized by the _cF_ team.  
+* **_common users <a name="common_user"> </a>_** make use of the development kit to build their custom 
+  hardware accelerated application, generate an FPGA bitstream and run it on a _cloudFPGA_ instance. 
+* **_privileged users <a name="privileged_user"> </a>_** are granted the right to modify an existing 
+  _Shell_ or to create one with new features. This status must be requested and authorized by the 
+  _cF_ team.  
  
 Warning: The **_cFDK_** is only available for Linux operating systems.
 
@@ -115,11 +122,13 @@ This _Github_ organization is a central places for hosting _cloudFPGA_ projects 
 The _cloudFPFA_ documentation is provided as github pages at:
  * **https://pages.github.ibm.com/cloudFPGA/Doc/**
  
-If you need to re-build and update this documentation, please checkout the file **[BuildDoc.md](./BuildDoc.md)**
+FYI - The documentation is automatically compiled and re-generated after a commit to this repository. 
+However, if you need to re-build and update this documentation locally, please checkout the file 
+**_[BuildDoc.md](./BuildDoc.md)_**.
 
 ## Getting Started
-If you are new to _cF_, we recommend you start as a _common user_ and clone one of the following example 
- designs which provide a step-by-step quick start guide. 
+If you are new to _cF_, we recommend you start as a _[common user](#common_user)_ and clone one of the 
+ following example designs which provide a step-by-step quick start guide. 
 
 | cFp_Project        | Description                    
 |:-------------------|:---------------------------------------------
@@ -127,15 +136,15 @@ If you are new to _cF_, we recommend you start as a _common user_ and clone one 
 | cFp_Uppercase      | An application that receives a string from a user and returns it back in uppercase. 
 | cFp_Triangle       | A triangle communication example between a host and 2 FPGAs. 
 
-_cloudFPGA_ is designed to support different types of _Shells_ and FPGA instances. If you want to contribute 
- and collaborate at the _Shell_ design or at an FPGA module level, please consider going through the  
- following projects:
+_cloudFPGA_ is designed to support different types of _Shells_ and FPGA instances. If you are a 
+ _[privileged user](#privileged_user)_ who wants to contribute and collaborate at the _Shell_ design level
+  or at an FPGA module level, please consider going through the following projects:
  
 | cFp_Project        | Description                    
 |:-------------------|:---------------------------------------------
-| cFp_Monolithic     | A project that builds on the shell _Kale_.   
-| cFp_[TODO]         | A project that uses the shell _Themisto_. 
+| cFp_Monolithic     | A project that builds on the shell _[Kale](../../../cFDK/DOC/Kale.md)_.   
+| cFp_[TODO]         | A project that uses the shell __[Themisto](../../../cFDK/DOC/Themisto.md)_. 
 
 # Contact and Support
-
+    [TODO]
 
