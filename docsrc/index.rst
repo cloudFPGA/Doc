@@ -3,24 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to cloudFPGA documentation!
+Welcome to cloudFPGA documentation
 ==================================
 
-This page is the documentation of `cloudFPGA project <https://www.zurich.ibm.com/cci/cloudFPGA/>`_.
+**cloudFPGA** is a disaggregated data processing system based on **standalone** and **network attached** FPGAs in the **Cloud**.
+
+For users to experiment, design and build hardware accelerated applications with cloudFPGA, we provide a
+**cloudFPGA Development Kit (cFDK)** and we grant free access to instances of our **cloudFPGA Research Platform (cFRP)** in the Cloud.
 
 .. image:: ./images/fig1.png
-
-Field programmable gate arrays (FPGAs) are making their way into data centers (DC). They serve to offload and accelerate service-oriented tasks such as web-page ranking, memory caching, deep learning, network encryption, video conversion and high-frequency trading.
-
-However, FPGAs are not yet available at scale to general cloud users who want to accelerate their own workload processing. This puts the cloud deployment of compute-intensive workloads at a disadvantage compared with on-site infrastructure installations, where the performance and energy efficiency of FPGAs are increasingly being exploited.
-
-cloudFPGA solves this issue by offering FPGAs as an IaaS resource to cloud users. Using the cloudFPGA system, users can rent FPGAs — similarly to renting VMs in the cloud — thus paving the way for large-scale utilization of FPGAs in DCs.
-
-The cloudFPGA system is built on three main pillars:
-
-* the use of standalone network-attached FPGAs,
-* a hyperscale infrastructure for deploying the above FPGAs at large scale and in a cost-effective way,
-* an accelerator service that integrates and manages the standalone network-attached FPGAs in the cloud.
 
 Indices and Search
 ==================
@@ -39,7 +30,12 @@ Indices and Search
    self
    pages/overview
    pages/getting_started
+   pages/cfdk
    pages/ZYC2/getting_started_on_zyc2
    pages/project_repository
-   pages/cfdk
    pages/contrib_and_rtdocs
+
+.. pages/introduction
+.. pages/quick_start
+.. pages/how_to_deploy
+.. pages/cfdk
