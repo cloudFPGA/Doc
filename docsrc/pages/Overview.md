@@ -28,19 +28,17 @@ servers and virtual machines when considering the following case of correlation:
 * in cF, the equivalent of the OS image is a _bitstream_ that contains the custom interfaces and
   run-time logic to host and run a workload. We refer to such a design as a **_Shell (SHL)_**. 
  
-As a result, the counter part of a CPU instance is an **_FPGA Instance <a name="fpga_instance"> </a>_** 
- and we can draw the following parallels:
+As a result, the counter part of a CPU instance is an [FPGA Instance](#fpga_instance)
+and we can draw the following parallels:
 
-<center>
 
 |                 |                             |
 |-----------------|-----------------------------| 
 |**CPU_Instance** |= **Hw_Resource + OS_Image** |
-|**CPU_Cluster**  |= **_N_ * CPU_Instances**    |
+|**CPU_Cluster**  |= **N * CPU_Instances**    |
 |**FPGA_Instance**|= **FPGA_Module + Shell**    |
-|**FPGA_Cluster** |= **_N_ * FPGA_Instances**   |
+|**FPGA_Cluster** |= **N * FPGA_Instances**   |
 
-</center>
   
 ### cloudFPGA Development Flow
 
