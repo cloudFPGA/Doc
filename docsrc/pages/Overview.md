@@ -95,8 +95,9 @@ cloudFPGA is designed to support multiple combinations of shell-role architectur
 a _SHL_ to run hiS _ROL_, it is the purposes of the **cloudFPGA Development Kit (cFDK)** to assemble
 the three _{MOD, SHL, ROL}_ components into a so-called **cloudFPGA Project (cFp)**.     
 
-The cFDK [repository](../../../../cFDK/README.md) contains source code, documentation, simulation 
-and all the build scripts that are necessary to create such a cloudFPGA project. 
+The cFDK [repository](https://github.ibm.com/cloudFPGA/cFDK/blob/master/README.md) contains source 
+code, documentation, simulation and all the build scripts that are necessary to create such a 
+cloudFPGA project. 
 
 #### User Privilege Layers
 Depending on the commitment sought by the user, the cFDK offers two kind of development experiences 
