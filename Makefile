@@ -30,7 +30,7 @@ clone_local_cfdk_repo:
 	git -C 'repos_for_Doxygen/cFp_Triangle' pull     || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Triangle.git repos_for_Doxygen/cFp_Triangle
 
 change_links:
-	cd repos_for_Doxygen && python3 modify_links_cf.py && cd ../
+	cd repos_for_Doxygen && python3 modify_links_cf.py ./ && cd ../
 
 doxygen:
 	cd docsrc && doxygen Doxyfile && cd ../

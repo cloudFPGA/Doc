@@ -1,6 +1,7 @@
 
 import pathlib
 import os
+import sys
 import shutil
 from re import search
 
@@ -69,41 +70,65 @@ def insert_in_markdown_source(repo, full_md_file, tail):
     shutil.copyfile(full_md_file, full_md_file+"_backup")
     shutil.move(full_md_file+"_new", full_md_file)
 
-for md_file in pathlib.Path('./').glob('**/*.md'):
+
+
+print("Number of arguments:" + str(len(sys.argv)))
+print("Argument List:" + str(sys.argv))
+
+if len(sys.argv) != 2:
+  print("Usage: python3 modify_links_cf.py <path>")
+  exit(-1)
+else:
+  path_to_parse = sys.argv[1]
+  print("INFO: Parsing recursively path : " + path_to_parse)
+
+for md_file in pathlib.Path(path_to_parse).glob('**/*.md'):
     full_md_file = str(pathlib.Path().absolute()) + '/' + str(md_file)
     print("#################\n"+full_md_file+"\n----------------")
 
     head, tail = os.path.split(str(md_file))
-    #print("head is : " + head)
-    #print("tail is : " + tail)
+    print("head is : " + head)
+    print("tail is : " + tail)
     repo = head.split('/')[0]
-    #print("repo is : " + repo)
+    print("repo is : " + repo)
     subdir = "/".join(head.strip("/").split('/')[1:])
-    #print("subdir is : " + subdir)
-    replace_str = repo_organization_url + repo + "/blob/master/" + subdir + "/"
-    #print("replace_str is : " + replace_str)
+    print("subdir is : " + subdir)
+    
+    
+    if "docsrc/pages" in subdir:
+      print("This is a local folder of Doc repository (inside docsrc/pages).")
+      repo = "cFDK"
+      replace_str = repo_organization_url + repo + "/blob/master/"
+      print("replace_str is : " + replace_str)
+      
+      link_type = ".md"
+      replace_markdown_links(full_md_file, link_type, replace_str)
+      
+    else:
+      replace_str = repo_organization_url + repo + "/blob/master/" + subdir + "/"
+      #print("replace_str is : " + replace_str)
 
-    insert_in_markdown_source(repo, full_md_file, tail)
+      insert_in_markdown_source(repo, full_md_file, tail)
 
-    link_type = ".md"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".md"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".png"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".png"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".PNG"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".PNG"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".bmp"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".bmp"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".BMP"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".BMP"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".pdf"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".pdf"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
-    link_type = ".PDF"
-    replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type = ".PDF"
+      replace_markdown_links(full_md_file, link_type, replace_str)
 
     #exit(0)
