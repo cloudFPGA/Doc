@@ -16,10 +16,10 @@ The **_cloudFPGA (cF)_** proposal is to promote FPGAs to become 1st class-citize
 ### cloudFPGA Service Architecture
 
 In the cloud computing universe, a **CPU Instance** is a hardware resource (such as a server or a 
- virtual machine) combined with the image of an operating system (such as _Linux_ or _Windows_). 
- Next, different types of CPU instances are offered in the Cloud based on varying hardware capabilities 
- such as clock frequency, #cores, memory size, computing power, etc. Finally, when deploying a workload 
- on the Cloud, users select the CPU instance that best matches the requirements of their application.
+virtual machine) combined with the image of an operating system (such as _Linux_ or _Windows_). 
+Next, different types of CPU instances are offered in the Cloud based on varying hardware capabilities 
+such as clock frequency, #cores, memory size, computing power, etc. Finally, when deploying a workload 
+on the Cloud, users select the CPU instance that best matches the requirements of their application.
  
 The cloud service architecture of cloudFPGA is comparable to a cloud service hosting traditional 
 servers and virtual machines when considering the following case of correlation:
@@ -43,8 +43,8 @@ and we can draw the following parallels:
 ### cloudFPGA Development Flow
 
 A cloudFPGA application is referred to as a **_Role (ROL)_** and it is typically deployed using 
- **_Partial Reconfiguration (PR)_** over the DC network. The various design flows for developing and 
- deploying _bitstreams_ of such ROL applications are presented in the figure below.  
+**_Partial Reconfiguration (PR)_** over the DC network. The various design flows for developing and 
+deploying _bitstreams_ of such ROL applications are presented in the figure below.  
  * the leftmost situation depicts a user working on its local **_desktop_** to develop his application 
    and later deploy it on a single cloudFPGA instance (represented here as a little _yellow_ square 
    box at the bottom of the figure). In this scenario, the user's desktop is expected to supervise 
@@ -60,28 +60,28 @@ A cloudFPGA application is referred to as a **_Role (ROL)_** and it is typically
 ### cloudFPGA Research Platform (cFRP)
 
 The **_cloudFPGA Research Platform (cFRP)_** is a 2U height by 19 inches wide chassis featuring 64 
- FPGA instances. The chassis is equipped with two **_sleds (S0, S1)_**, each sled consisting of 
- 32 FPGA instances connected to an Intel FM6000 switch via a carrier board. The FM6000 acts as a 
- leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spin 
- network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb/s per sled.
+FPGA instances. The chassis is equipped with two **_sleds (S0, S1)_**, each sled consisting of 
+32 FPGA instances connected to an Intel FM6000 switch via a carrier board. The FM6000 acts as a 
+leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spin 
+network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb/s per sled.
 
 Next, a **_cloudFPGA Infrastructure_** consists of multiple such cFRMs assembled into numerous DC racks.
  
 ![Overview-of-the-research-platform](../../imgs/cfrp.png)
  
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. The only concept that 
- a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 
- end-to-end connectivity and flexibility. 
+a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 
+end-to-end connectivity and flexibility. 
 
 However, the above cFRP details might be relevant to advanced users who seek ultra low-latency and 
- who may want to deploy their cluster on FPGAs which are spatially close in a sled, a chassis or 
- a rack.  
+who may want to deploy their cluster on FPGAs which are spatially close in a sled, a chassis or 
+a rack.  
 
 ### cloudFPGA Development Kit (cFDK)
 
 A cloudFPGA application builds on the design pattern referred to as **_Shell Role 
- Architecture (SRA)_**. This design separates the platform-specific parts (i.e. _Shell_) from the 
- application-specific parts (i.e. _Role_) to increase the re-usability and to isolate the two parts. 
+Architecture (SRA)_**. This design separates the platform-specific parts (i.e. _Shell_) from the 
+application-specific parts (i.e. _Role_) to increase the re-usability and to isolate the two parts. 
 
 * The **_Shell (SHL)_** contains all necessary I/O components, the run-time modules and the network stack 
  that hooks the FPGA to the DC network. It further abstracts all these hardware components by exposing 
@@ -92,15 +92,15 @@ A cloudFPGA application builds on the design pattern referred to as **_Shell Rol
  application and can be assimilated to a CPU application executed in user space. 
 
 cloudFPGA is designed to support multiple combinations of shell-role architectures on various 
- [FPGA instances (MOD)](#fpga_instance). Once a designer has decided for a _MOD_ and a _SHL_ to run
- his _ROL_, it is the purposes of the **_cloudFPGA Development Kit (cFDK)_** to assemble the three
-  _{MOD, SHL, ROL}_ components into a so-called **_cloudFPGA Project (cFp)_**.     
+[FPGA instances (MOD)](#fpga_instance). Once a designer has decided for a _MOD_ and a _SHL_ to run
+his _ROL_, it is the purposes of the **_cloudFPGA Development Kit (cFDK)_** to assemble the three
+_{MOD, SHL, ROL}_ components into a so-called **_cloudFPGA Project (cFp)_**.     
 
 The cFDK [repository](../../../cFDK) contains source code, documentation, simulation and all the 
- build scripts that are necessary to create such a cloudFPGA project. 
+build scripts that are necessary to create such a cloudFPGA project. 
 
 Finally, the following two development experiences are offered by the cFDK depending on the commitment 
- sought by the user.
+sought by the user.
 
 * **_common users <a name="common_user"> </a>_** make use of the development kit to build their custom 
   hardware accelerated application, generate an FPGA bitstream and run it on a cloudFPGA instance. 
