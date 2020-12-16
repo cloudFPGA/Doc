@@ -121,8 +121,8 @@ cloudFPGA is designed to support multiple combinations of shell-role architectur
  his _ROL_, it is the purposes of the **_cloudFPGA Development Kit (cFDK)_** to assemble the three
   _{MOD, SHL, ROL}_ components into a so-called **_cloudFPGA Project (cFp)_**.     
 
-The cFDK [repository](../../../cFDK) contains source code, documentation, simulation and all the 
- build scripts that are necessary to create such a cloudFPGA project. 
+The cFDK [repository](https://github.ibm.com/cloudFPGA/cFDK/) contains source code, documentation, 
+simulation and all the build scripts that are necessary to create such a cloudFPGA project. 
 
 #### User Privilege Layers
 Depending on the commitment sought by the user, the cFDK offers two kind of development experiences 
@@ -180,8 +180,8 @@ cloudFPGA is designed to support different types of shells and FPGA instances. I
  
 | cFp_Project        | Description                    
 |:-------------------|:---------------------------------------------
-| cFp_Monolithic     | A project that builds on the shell _[Kale](../../../cFDK/DOC/Kale.md)_.   
-| cFp_[TODO]         | A project that uses the shell __[Themisto](../../../cFDK/DOC/Themisto.md)_. 
+| cFp_Monolithic     | A project that builds on the shell _[Kale](https://github.ibm.com/cloudFPGA/cFDK/blob/master/DOC/Kale.md)_.   
+| cFp_[TODO]         | A project that uses the shell __[Themisto](https://github.ibm.com/cloudFPGA/cFDK/blob/master/DOC/Themisto.md)_. 
 
 # Contact and Support
     [TODO]
