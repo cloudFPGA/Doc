@@ -124,14 +124,14 @@ cloudFPGA is designed to support multiple combinations of shell-role architectur
 The cFDK [repository](../../../cFDK) contains source code, documentation, simulation and all the 
  build scripts that are necessary to create such a cloudFPGA project. 
 
-Finally, the following two development experiences are offered by the cFDK depending on the commitment 
- sought by the user.
+#### User Privilege Layers
+Depending on the commitment sought by the user, the cFDK offers two kind of development experiences 
+characterized by different levels of protection.
 
-* **_common users <a name="common_user"> </a>_** make use of the development kit to build their custom 
+* **common users** are unprivileged users who use the development kit to build their custom 
   hardware accelerated application, generate an FPGA bitstream and run it on a cloudFPGA instance. 
-* **_privileged users <a name="privileged_user"> </a>_** are granted the right to modify an existing 
-  shell or to create one with new features. This status must be requested and authorized by the 
-  cF team.  
+* **privileged users** are granted the right to modify an existing shell or to create one with new
+   features. This status must be requested and authorized by the cF team. 
  
 Warning: The cFDK is only available for **Linux** operating systems.
 
@@ -165,8 +165,8 @@ However, if you need to re-build and update this documentation locally, please c
 **[BuildDoc.md](./BuildDoc.md)**.
 
 ## Getting Started
-If you are new to _cF_, we recommend you start as a _[common user](#common_user)_ and clone one of the 
- following example designs which provide a step-by-step quick start guide. 
+If you are new to _cF_, we recommend you start as an _[unprivileged user](#user-privilege-layers)_ 
+and clone one of the following example designs which provide a step-by-step quick start guide. 
 
 | cFp_Project        | Description                    
 |:-------------------|:---------------------------------------------
