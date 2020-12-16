@@ -2,8 +2,8 @@
 ## Overview of _cloudFPGA_ 
 
 The **_cloudFPGA (cF)_** proposal is to promote FPGAs to become 1st class-citizens in **_datacenters
- (DC)_** by setting the FPGAs free from the traditional CPU-bus attachments and by making them 
- plentiful in modern hyperscale DCs. 
+(DC)_** by setting the FPGAs free from the traditional CPU-bus attachments and by making them 
+plentiful in modern hyperscale DCs. 
 * The first proposition is carried out by disaggregating the FPGAs from the server nodes and by 
   connecting the FPGAs directly to the DC network. As a result, FPGAs can communicate with other 
   CPUs and FPGAs in the DC network with low latency and high bandwidth .
