@@ -92,8 +92,8 @@ application-specific parts (i.e. _Role_) to increase the re-usability and to iso
 
 cloudFPGA is designed to support multiple combinations of shell-role architectures on various 
 [FPGA instances (MOD)](#cloudfpga-service-architecture). Once a designer has decided for a _MOD_ and
-a _SHL_ to run hiS _ROL_, it is the purposes of the **cloudFPGA Development Kit (cFDK)** to assemble
-the three _{MOD, SHL, ROL}_ components into a so-called **cloudFPGA Project (cFp)**.     
+a _SHL_ to run his _ROL_, it is the purposes of the **cloudFPGA Development Kit (cFDK)** to assemble
+the tuple _{MOD, SHL, ROL}_ into a so-called **cloudFPGA Project (cFp)**.     
 
 The cFDK [repository](https://github.ibm.com/cloudFPGA/cFDK/) contains source 
 code, documentation, simulation and all the build scripts that are necessary to create such a 

@@ -31,6 +31,7 @@ Indices and Search
    pages/overview
    pages/getting_started
    pages/cfdk
+   pages/cFHW/cf_hardware
    pages/ZYC2/getting_started_on_zyc2
    pages/project_repository
    pages/contrib_and_rtdocs

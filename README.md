@@ -40,31 +40,27 @@ The **_cloudFPGA (cF)_** proposal is to promote FPGAs to become 1st class-citize
 ## Overview of the Cloud Service Architecture
 
 In the cloud computing universe, a **CPU Instance** is a hardware resource (such as a server or a 
- virtual machine) combined with the image of an operating system (such as _Linux_ or _Windows_). 
- Next, different types of CPU instances are offered in the Cloud based on varying hardware capabilities 
- such as clock frequency, #cores, memory size, computing power, etc. Finally, when deploying a workload 
- on the Cloud, users select the CPU instance that best matches the requirements of their application.
+virtual machine) combined with the image of an operating system (such as _Linux_ or _Windows_). 
+Next, different types of CPU instances are offered in the Cloud based on varying hardware capabilities 
+such as clock frequency, #cores, memory size, computing power, etc. Finally, when deploying a workload 
+on the Cloud, users select the CPU instance that best matches the requirements of their application.
  
 The cloud service architecture of cloudFPGA is comparable to a cloud service hosting traditional 
 servers and virtual machines when considering the following case of correlation:
 * in cF, the equivalent of the CPU-based hardware resource is an _FPGA device_ and its surrounding 
-  board components. We refer to such an FPGA card as an **_FPGA module (MOD)_**. 
+  board components. We refer to such an FPGA card as an **FPGA module (MOD)**. 
 * in cF, the equivalent of the OS image is a _bitstream_ that contains the custom interfaces and
-  run-time logic to host and run a workload. We refer to such a design as a **_Shell (SHL)_**. 
+  run-time logic to host and run a workload. We refer to such a design as a *Shell*. 
  
-As a result, the counter part of a CPU instance is an **_FPGA Instance_** and we can draw the 
- following parallels:
-
-<center>
+As a result, the counter part of a CPU instance is an FPGA Instance and we can draw the following 
+parallels:
 
 |                 |                             |
 |-----------------|-----------------------------| 
 |**CPU_Instance** |= **Hw_Resource + OS_Image** |
-|**CPU_Cluster**  |= **_N_ * CPU_Instances**    |
+|**CPU_Cluster**  |= **N * CPU_Instances**      |
 |**FPGA_Instance**|= **FPGA_Module + Shell**    |
-|**FPGA_Cluster** |= **_N_ * FPGA_Instances**   |
-
-</center>
+|**FPGA_Cluster** |= **N * FPGA_Instances**     |
  
 ## Overview of the Development Flow
 
@@ -117,9 +113,9 @@ A cloudFPGA application builds on the design pattern referred to as **_Shell Rol
  application and can be assimilated to a CPU application executed in user space. 
 
 cloudFPGA is designed to support multiple combinations of shell-role architectures on various 
- [FPGA instances (MOD)](#fpga_instance). Once a designer has decided for a _MOD_ and a _SHL_ to run
- his _ROL_, it is the purposes of the **_cloudFPGA Development Kit (cFDK)_** to assemble the three
-  _{MOD, SHL, ROL}_ components into a so-called **_cloudFPGA Project (cFp)_**.     
+ [FPGA instances (MOD)](#cloudfpga-service-architecture). Once a designer has decided for a _MOD_ and a _SHL_ to run
+ his _ROL_, it is the purposes of the **_cloudFPGA Development Kit (cFDK)_** to assemble the tuple 
+ _{MOD, SHL, ROL}_ into a so-called **_cloudFPGA Project (cFp)_**.     
 
 The cFDK [repository](https://github.ibm.com/cloudFPGA/cFDK/) contains source code, documentation, 
 simulation and all the build scripts that are necessary to create such a cloudFPGA project. 
