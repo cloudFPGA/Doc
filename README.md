@@ -69,8 +69,8 @@ A cloudFPGA application is referred to as a **_Role (ROL)_** and it is typically
  deploying partial bitstreams of such ROL applications are presented in the figure below.  
  * the leftmost situation depicts a user working on its local **desktop** to develop his application
    and later deploy it on a single cloudFPGA instance (represented here as a little _yellow_ square 
-   box at the bottom of the figure). In this scenario, the user's desktop is expected to supervise 
-   the FPGA instance and to feed it with appropriate data and commands.    
+   box at the bottom of the figure). In this _on-premise_ scenario, the user's desktop is expected 
+   to supervise the FPGA instance and to feed it with appropriate data and commands.    
  * the middle case shows a user developing on a **_Virtual Machine (VM)_** hosted in the Cloud and 
    later deploying the same application on multiple cF instances. Obviously, the preferred way to 
    manage these duplicated cF instances is to use that same VM or a similar one in the Cloud. 

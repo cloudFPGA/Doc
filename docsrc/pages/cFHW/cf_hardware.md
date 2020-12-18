@@ -14,5 +14,7 @@ Such a cloudFPGA Hardware is expected to support numerous FPGAs types on various
 terminology, an FPGA card is referred to as a **FPGA Module (MOD)**. 
 
 The following cloudFPGA hardware platforms are currently supported:
-* [IBM cloudFPGA Research Platform](./cFRP/platform.md)
+                                    /ZYC2/getting_started_on_zyc2.html#how-to-deploy-an-application
+
+* [IBM cloudFPGA Research Platform](https://pages.github.ibm.com/cloudFPGA/Doc/pages/cFHW/cFRP/platform.html#hardware-overview)
 * [YNI cloudFPGA System XYZ](./YOU_NAME_IT/system_xyz.md)
