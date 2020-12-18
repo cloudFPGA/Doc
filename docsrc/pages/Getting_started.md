@@ -6,62 +6,47 @@ This quick start guide will take you through simple "_Hello World_" applications
 If you are new to _cloudFPGA_, we recommend you start with [*STEP-1-FIXME*](). otherwise, advanced 
 and [*privileged user*](../pages/Overview.md#user-privilege-layers) may start from [*STEP-2-FIXME*]().
 
-### Step-1: On-Premise Development
+### STEP-1: On-Premise Development
 
-The _on-premise_ development flow is depicted in the 
-Enabling on-premises development with Xilinx tools
+This section only covers the development and the build of your application on a local computer. 
+You can visualize the _on-premise_ development flow graphically [here](TODO), on the leftmost side
+of the picture. After you generated you bitstream, refer to section [STEP-?](TODO) for deploying 
+and executing it the Cloud. 
 
-NOTE: If you are developing on the AWS cloud and using AWS FPGA Developer AMI provided on AWS Marketplace, you can skip this document.
+#### Prerequisites
 
-This document helps developers who choose to develop on-premises with specifying and licensing AWS-compatible Xilinx tools for use with the AWS FPGA HDK.
+1) Install the Xilinx development tools (*Vivado 2017.4* or above).
 
+2) Ensure that you have the Xilinx '_UltraScale_ FPGA family installed. 
+    * Otherwise, install the family with the menu `Help`/`Add Designs Tools or Devices` of the 
+       _Vivado GUI_. 
 
+3) Set the _XILINXD_LICENSE_FILE_ variable with your license server(s) and source the Xilinx 
+   setting script:
+    ```
+      # Set your license server(s) 
+      export XILINXD_LICENSE_FILE=xxxxx@yyyyyy.com            
 
+      # Execute the Vivado settings script
+      export VIVADO_VERSION=<Your_Installed_Version>   # E.g. 2019.1
+      export XILINX_PATH=<Your_Installation_Path>      # E.g. /opt/xilinx
+      source ${XILINX_PATH}/Vivado/${VIVADO_VERSION}/settings64.sh
+    ```
 
+#### Step-by-Step
+4) Change to your work directory and clone the cloudFPGA project _cFp_ThemistoEcho_      
+    ```
+      git clone git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git
+    ```     
 
-
-and clone one of the following example designs which provide a step-by-step quick start guide. 
-
-| cFp_Project        | Description                    
-|:-------------------|:---------------------------------------------
+5) To-be-continued
 | cFp_Echo           | An application that echos the received UDP and TCP traffic back to the initiator node.   
-| cFp_Uppercase      | An application that receives a string from a user and returns it back in uppercase. 
-| cFp_Triangle       | A triangle communication example between a host and 2 FPGAs. 
-
-cloudFPGA is designed to support different types of shells and FPGA instances. If you are a 
- _[privileged user](#privileged_user)_ who wants to contribute and collaborate at the shell design level
-  or at an FPGA module level, please consider going through the following projects:
- 
-| cFp_Project        | Description                    
-|:-------------------|:---------------------------------------------
-| cFp_Monolithic     | A project that builds on the shell _[Kale](https://github.ibm.com/cloudFPGA/cFDK/blob/master/DOC/Kale.md)_.   
-| cFp_[TODO]         | A project that uses the shell __[Themisto](https://github.ibm.com/cloudFPGA/cFDK/blob/master/DOC/Themisto.md)_. 
-
-
-
-
-
 
    
     
 
 
-### Step-2 / VM@ZYC2 / Clone, make, UploadImage, RequestInstance, TestCases
+### STEP-2 / In the Cloud Development 
 
+####  Prerequisites 
 
-    
-    
-[//]: # (This may be the most platform independent comment)
-
-<!---
-## Guide the user through a ‘Hello World’ example (i.e. ThemistoEcho) )
-
-### How to clone, build, csim, cosim
-
-## How to upload an image & and to deploy an instance
-
-## How to execute the host counter-part of the example
-
-## How to remote debugging
-
--->
