@@ -66,7 +66,7 @@ network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb
 
 Next, a **cloudFPGA Infrastructure** consists of multiple such cFRMs assembled into numerous DC racks.
  
-![Overview-of-the-research-platform](imgs/cfrp.png)
+![Overview-of-the-research-platform](../cFHW/cFRP/imgs/cfrp1.png)
  
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. The only concept that 
 a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 

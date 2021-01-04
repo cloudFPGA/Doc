@@ -30,7 +30,7 @@ Indices and Search
    self
    pages/INTRODUCTION/introduction
    pages/STARTER_GUIDE/getting_started
-   pages/cfdk
+   pages/cFDK/cf_dev_kit
    pages/cFHW/cf_hardware
    pages/ZYC2/getting_started_on_zyc2
    pages/project_repository

@@ -12,7 +12,7 @@ FPGA instances. The chassis is equipped with two **sleds (S0, S1)**, each sled c
 leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spin 
 network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb/s per sled.
 
-![Overview-of-the-ibm-research-platform](./imgs/cfrp.png)
+![Overview-of-the-ibm-research-platform](imgs/cfrp.png)
  
  
 ### Supported Modules

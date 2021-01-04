@@ -89,7 +89,7 @@ The **_cloudFPGA Research Platform (cFRP)_** is a 2U height by 19 inches wide ch
 
 Next, a **_cloudFPGA Infrastructure_** consists of multiple such cFRMs assembled into numerous DC racks.
  
-![Overview-of-the-research-platform](docsrc/pages/INTRODUCTION/imgs/cfrp.png)
+![Overview-of-the-research-platform](docsrc/pages/cFHW/cFRP/imgs/cfrp1.png)
  
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. The only concept that 
  a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 
