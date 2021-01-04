@@ -28,7 +28,7 @@ Indices and Search
    :numbered:
 
    self
-   pages/OVERVIEW/overview
+   pages/INTRODUCTION/introduction
    pages/getting_started
    pages/cfdk
    pages/cFHW/cf_hardware

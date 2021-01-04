@@ -4,7 +4,7 @@
 This quick start guide will take you through simple "_Hello World_" applications to get you started.
 
 If you are new to _cloudFPGA_, we recommend you start with [*STEP-1-FIXME*](). otherwise, advanced 
-and [*privileged user*](OVERVIEW/Overview.md#user-privilege-layers) may start from [*STEP-2-FIXME*]().
+and [*privileged user*](INTRODUCTION/Overview.md#user-privilege-layers) may start from [*STEP-2-FIXME*]().
 
 ### STEP-1: On-Premise Development
 
