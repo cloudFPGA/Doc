@@ -31,11 +31,11 @@ The **_cloudFPGA (cF)_** proposal is to promote FPGAs to become 1st class-citize
 * The first proposition is carried out by disaggregating the FPGAs from the server nodes and by 
   connecting the FPGAs directly to the DC network. As a result, FPGAs can communicate with other 
   CPUs and FPGAs in the DC network with low latency and high bandwidth .
-  ![Bus-attached vs Network-attached FPGAs](./imgs/about-cf-1.png)
+  ![Bus-attached vs Network-attached FPGAs](docsrc/pages/OVERVIEW/imgs/about-cf-1.png)
 * The second is achieved by turning the FPGAs into standalone network attached FPGAs while densely
   packing them into DC chassis and racks. From that prospect, FPGAs become autonomous and 1st class-compute
   nodes that can be reached anywhere in the DC via their IP address. 
-  ![How-to-make-FPGAs-plentiful-in-DC](./imgs/about-cf-2.png)
+  ![How-to-make-FPGAs-plentiful-in-DC](docsrc/pages/OVERVIEW/imgs/about-cf-2.png)
  
 ## Overview of the Cloud Service Architecture
 
@@ -77,7 +77,7 @@ A cloudFPGA application is referred to as a **_Role (ROL)_** and it is typically
  * the rightmost columns exemplifies a user who is deploying **multiple VMs** as well as **multiple 
    clusters of FPGAs** in the Cloud.
    
-![Overview-of-the-development-flow](./imgs/dev-flow.png)
+![Overview-of-the-development-flow](docsrc/pages/OVERVIEW/imgs/dev-flow.png)
 
 ## Overview of the cloudFPGA Research Platform (cFRP)
  
@@ -89,7 +89,7 @@ The **_cloudFPGA Research Platform (cFRP)_** is a 2U height by 19 inches wide ch
 
 Next, a **_cloudFPGA Infrastructure_** consists of multiple such cFRMs assembled into numerous DC racks.
  
-![Overview-of-the-research-platform](./imgs/cfrp.png)
+![Overview-of-the-research-platform](docsrc/pages/OVERVIEW/imgs/cfrp.png)
  
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. The only concept that 
  a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 

@@ -7,11 +7,11 @@ plentiful in modern hyperscale DCs.
 * The first proposition is carried out by disaggregating the FPGAs from the server nodes and by 
   connecting the FPGAs directly to the DC network. As a result, FPGAs can communicate with other 
   CPUs and FPGAs in the DC network with low latency and high bandwidth .
-  ![Bus-attached vs Network-attached FPGAs](../../imgs/about-cf-1.png)
+  ![Bus-attached vs Network-attached FPGAs](imgs/about-cf-1.png)
 * The second is achieved by turning the FPGAs into standalone network attached FPGAs while densely
   packing them into DC chassis and racks. From that prospect, FPGAs become autonomous and 1st class-compute
   nodes that can be reached anywhere in the DC via their IP address. 
-  ![How-to-make-FPGAs-plentiful-in-DC](../../imgs/about-cf-2.png)
+  ![How-to-make-FPGAs-plentiful-in-DC](imgs/about-cf-2.png)
  
 ### cloudFPGA Service Architecture
 
@@ -54,7 +54,7 @@ deploying _bitstreams_ of such ROL applications are presented in the figure belo
  * the rightmost columns exemplifies a user who is deploying **multiple VMs** as well as **multiple 
    clusters of FPGAs** in the Cloud.
    
-![Overview-of-the-development-flow](../../imgs/dev-flow.png)
+![Overview-of-the-development-flow](imgs/dev-flow.png)
 
 ### cloudFPGA Research Platform (cFRP)
 
@@ -66,7 +66,7 @@ network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb
 
 Next, a **cloudFPGA Infrastructure** consists of multiple such cFRMs assembled into numerous DC racks.
  
-![Overview-of-the-research-platform](../../imgs/cfrp.png)
+![Overview-of-the-research-platform](imgs/cfrp.png)
  
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. The only concept that 
 a user must grasp, is that IP-based switching and routing among FPGAs and CPU servers provide DC-wide 
@@ -94,6 +94,7 @@ cloudFPGA is designed to support multiple combinations of shell-role architectur
 [FPGA instances (MOD)](#cloudfpga-service-architecture). Once a designer has decided for a _MOD_ and
 a _SHL_ to run his _ROL_, it is the purposes of the **cloudFPGA Development Kit (cFDK)** to assemble
 the tuple _{MOD, SHL, ROL}_ into a so-called **cloudFPGA Project (cFp)**.     
+[TEST-FMKU60](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/pages/cFHW/cFRP/FMKU60/fmku60.md)
 
 The cFDK [repository](https://github.ibm.com/cloudFPGA/cFDK/) contains source 
 code, documentation, simulation and all the build scripts that are necessary to create such a 
