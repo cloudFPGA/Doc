@@ -29,7 +29,7 @@ Indices and Search
 
    self
    pages/INTRODUCTION/introduction
-   pages/getting_started
+   pages/STARTER_GUIDE/getting_started
    pages/cfdk
    pages/cFHW/cf_hardware
    pages/ZYC2/getting_started_on_zyc2
