@@ -1,7 +1,7 @@
 ## IBM cloudFPGA Research Platform
 The **IBM cloudFPGA Research Platform (cFRP)** is a cF hardware system that was designed to deploy 
 standalone FPGAs in DCs. As the name indicates, it as prototype platform that was developed at 
-[*IBM Zurich Research Laboratory*](https://www.zurich.ibm.com/cci/cloudFPGA/) to experiment with 
+*[IBM Zurich Research Laboratory](https://www.zurich.ibm.com/cci/cloudFPGA/)* to experiment with 
 network-attached FPGAs in the Cloud. 
 
 
@@ -20,6 +20,6 @@ The cFRP is designed to support different types of FPGA modules.
 
 The following MODs are currently supported:
 
-* [**FMKU60**](./FMKU60/fmku60.md): A module equipped with a _Xilinx Kintex UltraScale XCKU060_ 
-  and 2x8GB of _DDR4_ memory.
+* [FMKU60](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/pages/cFHW/cFRP/FMKU60/fmku60.md): 
+    A module equipped with a _Xilinx Kintex UltraScale XCKU060_ and 2x8GB of _DDR4_ memory.
  

@@ -32,11 +32,5 @@ Indices and Search
    pages/STARTER_GUIDE/getting_started
    pages/cFDK/cf_dev_kit
    pages/cFHW/cf_hardware
-   pages/ZYC2/getting_started_on_zyc2
-   pages/project_repository
-   pages/contrib_and_rtdocs
-
-.. pages/introduction
-.. pages/quick_start
-.. pages/how_to_deploy
-.. pages/cfdk
+   pages/PROJECTS/cf_projects
+   pages/CONTRIBUTING/contributing

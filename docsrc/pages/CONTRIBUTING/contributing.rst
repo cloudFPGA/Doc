@@ -1,0 +1,3 @@
+
+
+.. mdinclude:: ./contributing.md

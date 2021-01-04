@@ -3,15 +3,16 @@
 ## Quick Start Guide
 This quick start guide will take you through simple "_Hello World_" applications to get you started.
 
-If you are new to _cloudFPGA_, we recommend you start with [*STEP-1-FIXME*](). otherwise, advanced 
-and [*privileged user*](INTRODUCTION/Overview.md#user-privilege-layers) may start from [*STEP-2-FIXME*]().
+If you are new to _cloudFPGA_, we recommend you start with [STEP-1](#step-1-on-premise-development). 
+Otherwise, advanced and [*privileged user*](../INTRODUCTION/introduction.md#user-privilege-layers) 
+may start from [STEP-2](#step-2--development-in-the-cloud).
 
 ### STEP-1: On-Premise Development
 
 This section only covers the development and the build of your application on a local computer. 
-You can visualize the _on-premise_ development flow graphically [here](TODO), on the leftmost side
-of the picture. After you generated you bitstream, refer to section [STEP-?](TODO) for deploying 
-and executing it the Cloud. 
+You can visualize the _on-premise_ development flow graphically [here](../INTRODUCTION/imgs/dev-flow.png), 
+on the leftmost side of the picture. After you generated you bitstream, refer to section [STEP-3](#step-3--deploy-an-application-in-the-cloud) 
+for deploying and executing it the Cloud. 
 
 #### Prerequisites
 
@@ -46,7 +47,12 @@ and executing it the Cloud.
     
 
 
-### STEP-2 / In the Cloud Development 
+### STEP-2 / Development in the Cloud  
 
 ####  Prerequisites 
 
+
+
+### STEP-3 / Deploy an application in the Cloud 
+
+####  Prerequisites 
