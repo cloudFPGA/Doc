@@ -160,7 +160,7 @@ FYI - The documentation is automatically compiled and re-generated after a commi
 However, if you need to re-build and update this documentation locally, please checkout the file 
 **[BuildDoc.md](./BuildDoc.md)**.
 
-## Getting Started
+# Getting Started
 If you are new to _cF_, we recommend you start as an _[unprivileged user](#user-privilege-layers)_ 
 and clone one of the following example designs which provide a step-by-step quick start guide. 
 
