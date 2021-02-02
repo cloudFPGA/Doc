@@ -20,8 +20,8 @@ Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and pr
 2. [About this Organization](#about-this-organization)
     * [How to contribute](#how-to-contribute)
 3. [Documentation](#documentation)
-    * [Getting Started](#getting-started)
-4. [Contact and Support](#contact-and-support)
+4. [Getting Started](#getting-started)
+5. [Contact and Support](#contact-and-support)
 
 
 # About _cloudFPGA_
