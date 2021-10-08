@@ -84,7 +84,7 @@ A cloudFPGA application is referred to as a **_Role (ROL)_** and it is typically
 The **_cloudFPGA Research Platform (cFRP)_** is a 2U height by 19 inches wide chassis featuring 64 
  FPGA instances. The chassis is equipped with two **_sleds (S0, S1)_**, each sled consisting of 
  32 FPGA instances connected to an Intel FM6000 switch via a carrier board. The FM6000 acts as a 
- leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spin 
+ leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spine 
  network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb/s per sled.
 
 Next, a **_cloudFPGA Infrastructure_** consists of multiple such cFRMs assembled into numerous DC racks.
