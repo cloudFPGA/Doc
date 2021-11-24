@@ -21,7 +21,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'cloudFPGA'
-copyright = '2020, cloudFPGA'
+copyright = '2021, cloudFPGA'
 author = 'cloudFPGA team'
 
 # The short X.Y version
