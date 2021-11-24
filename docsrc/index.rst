@@ -6,7 +6,7 @@
 Welcome to cloudFPGA documentation
 ==================================
 
-**cloudFPGA** is a disaggregated data processing system based on **standalone** and **network attached** FPGAs in the **Cloud**.
+**cloudFPGA** is a disaggregated data processing system based on **standalone** and **network attached** FPGAs in the **Cloud**..
 
 For users to experiment, design and build hardware accelerated applications with cloudFPGA, we provide a
 **cloudFPGA Development Kit (cFDK)** and we grant free access to instances of our **cloudFPGA Research Platform (cFRP)** in the Cloud.
