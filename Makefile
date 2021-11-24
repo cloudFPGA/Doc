@@ -51,7 +51,7 @@ latexpdf:
 	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
 	@echo "pdflatex finished; see $(PDF)"
 
-dhtml: mv_doc_from_githubcom change_links
+dhtml:  change_links
 	@make html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
