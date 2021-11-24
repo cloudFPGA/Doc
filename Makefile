@@ -32,7 +32,7 @@ clone_local_repos:
 	git -C 'repos_for_Doc/cFp_Triangle' pull     || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Triangle.git       repos_for_Doc/cFp_Triangle
 
 mv_doc_from_githubcom:
-	rsync -arv --exclude=.git --exclude=.gitignore repos_for_Doc/Doc/ ./
+	rsync -arv --exclude=.git --exclude=.gitignore --exclude=.travis.yml repos_for_Doc/Doc/ ./
 	cp repos_for_Doc/Doc/repos_for_Doc/modify_links_cf.py repos_for_Doc/
 
 change_links:
