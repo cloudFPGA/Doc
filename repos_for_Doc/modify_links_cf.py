@@ -5,7 +5,7 @@ import sys
 import shutil
 from re import search
 
-repo_organization_url = "https://github.ibm.com/cloudFPGA/"
+repo_organization_url = "https://github.com/cloudFPGA/"
 
 # Limitiation : we assume that a single markdown line has only one link (i.e.
 #               either a link to another .md file or a .png and so on. Thus,
