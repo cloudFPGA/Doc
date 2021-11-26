@@ -17,7 +17,7 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doc/cFDK ./repos_for_Doc/Dox ./repos_for_Doc/cFp_Vitis ./repos_for_Doc/cFp_Monolithic ./repos_for_Doc/cFp_EchoThemisto ./repos_for_Doc/cFp_Uppercase ./repos_for_Doc/cFp_Triangle
+	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doc/cFDK ./repos_for_Doc/Dox ./repos_for_Doc/cFp_Zoo ./repos_for_Doc/cFp_HelloKale ./repos_for_Doc/cFp_Uppercase ./repos_for_Doc/cFp_Triangle
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_repos:
@@ -45,7 +45,7 @@ latexpdf:
 	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
 	@echo "pdflatex finished; see $(PDF)"
 
-dhtml:  change_links
+dhtml: change_links
 	@make html
 
 # Catch-all target: route all unknown targets to Sphinx using the new
