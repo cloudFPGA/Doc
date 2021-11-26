@@ -3,9 +3,12 @@
 .. _cFp_Zoo:
 
 
+*******
+cFp_Zoo 
+*******
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
 
    cFp_Zoo_overview.rst
-   cFp_Zoo_vision_harris.rst
-   cFp_Zoo_quantitative_finance_mceuropean_engine.rst 
+   cFp_Zoo_projects.rst

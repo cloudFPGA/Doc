@@ -3,8 +3,6 @@
 .. _cFp_HelloKale:
 
 
-.. toctree::
-   :maxdepth: 2
+.. mdinclude:: ../../../repos_for_Doc/cFp_HelloKale/README.md
 
-   cFp_HelloKale_overview.rst
 
