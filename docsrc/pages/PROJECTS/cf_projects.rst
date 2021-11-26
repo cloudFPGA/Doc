@@ -5,5 +5,6 @@
 
 .. toctree::
 
+   ./cFp_HelloKale
    ./cFp_Zoo
 
