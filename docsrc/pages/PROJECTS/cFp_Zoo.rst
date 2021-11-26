@@ -1,12 +1,11 @@
 
 
-.. _project_cFp_Vitis:
+.. _cFp_Zoo:
 
-.. mdinclude:: ../../../repos_for_Doc/cFp_Zoo/README.md
 
-.. mdinclude:: ../../../repos_for_Doc/cFp_Zoo/ROLE/vision/hls/harris/README.md
+.. toctree::
+   :maxdepth: 2
 
-.. mdinclude:: ../../../repos_for_Doc/cFp_Zoo/HOST/vision/harris/README.md
-
-.. mdinclude:: ../../../repos_for_Doc/cFp_Zoo/ROLE/quantitative_finance/hls/mceuropeanengine/README.md
+   cFp_Zoo_overview.rst
+   cFp_Zoo_vision_harris.rst
 
