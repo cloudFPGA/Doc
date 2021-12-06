@@ -1,7 +1,7 @@
 # Getting Started
 
-## Quick Start Guide
-This quick start guide will take you through simple "_Hello World_" applications to get you started.
+## HowTo Monolithic
+This quick start guide will take you through simple "_Hello Themisto_" project (cFp_HellThemisto) to get you started.
 
 If you are new to _cloudFPGA_, we recommend you start with [STEP-1](#step-1-on-premise-development). 
 Otherwise, advanced and [*privileged user*](../INTRODUCTION/introduction.md#user-privilege-layers) 
@@ -24,6 +24,7 @@ for deploying and executing it the Cloud.
 
 3) Set the _XILINXD_LICENSE_FILE_ variable with your license server(s) and source the Xilinx 
    setting script:
+
     ```
       # Set your license server(s) 
       export XILINXD_LICENSE_FILE=xxxxx@yyyyyy.com            
@@ -56,3 +57,10 @@ for deploying and executing it the Cloud.
 ### STEP-3 / Deploy an application in the Cloud 
 
 ####  Prerequisites 
+
+
+## HowTo Partial Reconfiguration
+
+
+## HowTo ZYC2
+
