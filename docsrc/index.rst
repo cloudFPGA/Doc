@@ -28,9 +28,9 @@ Indices and Search
    :numbered:
 
    self
-   pages/INTRODUCTION/introduction
-   pages/STARTER_GUIDE/getting_started
-   pages/cFDK/cf_dev_kit
-   pages/cFHW/cf_hardware
-   pages/PROJECTS/cf_projects
+   pages/OVERVIEW/overview
+   pages/GETTING_STARTED/getting_started
+   pages/CFSPHERE/cfsphere
+   pages/cFHW/cfhardware
+   pages/PROJECTS/cfprojects
    pages/CONTRIBUTING/contributing

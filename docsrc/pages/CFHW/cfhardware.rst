@@ -1,6 +1,6 @@
-.. _cf_hardware:
+.. _cfhardware:
 
-.. mdinclude:: ./cf_hardware.md
+.. mdinclude:: ./cfhardware.md
 
 .. toctree::
     ./cFRP/platform.md

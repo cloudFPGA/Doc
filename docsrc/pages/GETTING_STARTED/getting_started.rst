@@ -1,3 +1,3 @@
-.. _overview:
+.. _getting_started:
 
 .. mdinclude:: ./getting_started.md

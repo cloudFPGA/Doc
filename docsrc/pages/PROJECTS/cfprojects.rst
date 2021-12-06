@@ -1,7 +1,7 @@
 
-.. _cf_projects:
+.. _cfprojects:
 
-.. mdinclude:: ./cf_projects.md
+.. mdinclude:: ./cfprojects.md
 
 .. toctree::
 
