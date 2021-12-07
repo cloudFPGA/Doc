@@ -11,7 +11,7 @@ Welcome to cloudFPGA documentation
 For users to experiment, design and build hardware accelerated applications with cloudFPGA, we provide a
 **cloudFPGA Development Kit (cFDK)** and we grant free access to instances of our **cloudFPGA Research Platform (cFRP)** in the Cloud.
 
-.. image:: ./images/fig1.png
+.. image:: ./images/fig1.jpeg
 
 Indices and Search
 ==================
