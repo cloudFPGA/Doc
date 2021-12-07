@@ -1,7 +1,7 @@
 # About the _cloudFPGA_ documentation
 This file provides a step-by-step procedure to re-build and update the documentation of the 
 _cloudFPGA_ organization located at:
- * **https://pages.github.ibm.com/cloudFPGA/Doc/**
+ * **https://cloudfpga.github.io/Doc/**
 
 
 ## Generic cloudFPGA Documentation
@@ -11,8 +11,8 @@ _cloudFPGA_ organization located at:
 **NOTE**: This repository acts as a building pipeline of tasks that results in the actual documentation in static
 html pages. This is the generic documentation of the cloudFPGA project, including the description of the cloudFPGA 
 components, tutorials, etc. The documentation of the cloudFPGA source code is maintained in a 
-[separate repository](https://github.ibm.com/cloudFPGA/Dox/) and 
-[is available here ](https://pages.github.ibm.com/cloudFPGA/Dox/).
+[separate repository](https://github.com/cloudFPGA/Dox/) and 
+[is available here ](https://cloudfpga.github.io/Dox/).
 
 
 ![Overview of Doc repository](https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/images/doc_repo_overview.png?raw=true)
@@ -41,9 +41,9 @@ Since in this repository we don't host any cloudFPGA source code, the actual sou
 other repositiories in order to parse the `Markdown` files and generate the respective html output.
 The following repositories are being parsed for `Markdown` files:
 
-* [cloudFPGA/cFDK](https://github.ibm.com/cloudFPGA/cFDK)
-* [cloudFPGA/cFp_Monolithic](https://github.ibm.com/cloudFPGA/cFp_Monolithic)
-* [cloudFPGA/cFp_Vitis](https://github.ibm.com/cloudFPGA/cFp_Vitis)
+* [cloudFPGA/cFDK](https://github.com/cloudFPGA/cFDK)
+* [cloudFPGA/cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale)
+* [cloudFPGA/cFp_Zoo](https://github.com/cloudFPGA/cFp_Zoo)
 
 In order to edit the documentation of the aforementioned repositiories, you should apply the changes 
 directly on the `Markdown` files in those repositories.
