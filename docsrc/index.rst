@@ -6,10 +6,14 @@
 Welcome to cloudFPGA documentation
 ==================================
 
-**cloudFPGA** is a disaggregated data processing system based on **standalone** and **network attached** FPGAs in the **Cloud**..
+**cloudFPGA** is a research platform developed at the [IBM Research, Zurich, Switzerland](https://www.zurich.ibm.com/cci/cloudFPGA/).
 
-For users to experiment, design and build hardware accelerated applications with cloudFPGA, we provide a
-**cloudFPGA Development Kit (cFDK)** and we grant free access to instances of our **cloudFPGA Research Platform (cFRP)** in the Cloud.
+We built the **cloudFPGA (cF)** system because we wanted to research the use and the deployment of 
+standalone network-attached FPGAs into the Cloud, but could not find such an off the shelf hardware.
+
+Now that we have a few cF platforms up and running in our on-prem Cloud, we are willing to share 
+them with other researchers around the world. Therefore, if you want to experiment, work with or 
+help us develop such a cluster of network-attached FPGAs, please get in touch.
 
 .. image:: ./images/fig1.jpeg
 

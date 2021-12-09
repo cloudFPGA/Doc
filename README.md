@@ -1,16 +1,14 @@
 ![Banner for cF](./imgs/banner.png)
 
-Welcome to **_cloudFPGA_**. This organization hosts a set of repositories and projects related to 
- the [*_cloudFPGA system_*](https://www.zurich.ibm.com/cci/cloudFPGA/), a disaggregated data processing platform based on standalone and network 
- attached FPGAs in the Cloud.
- 
- For users to experiment, design and build hardware accelerated applications with _cloudFPGA_, we 
- provide a 
- [**_cloudFPGA Development Kit (cFDK)_**](#overview-of-the-cloudfpga-development-kit-(cfdk)) 
- and we grant free access to instances of our 
- [**_cloudFPGA Research Platform (cFRP)_**](#overview-of-the-cloudfpga-research-platform-(cfrp)) 
- in the Cloud.
- 
+**cloudFPGA** is a research platform developed at the [IBM Research, Zurich, Switzerland](https://www.zurich.ibm.com/cci/cloudFPGA/).
+
+We built the **cloudFPGA (cF)** system because we wanted to research the use and the deployment of 
+standalone network-attached FPGAs into the Cloud, but could not find such an off the shelf hardware.
+
+Now that we have a few cF platforms up and running in our on-prem Cloud, we are willing to share 
+them with other researchers around the world. Therefore, if you want to experiment, work with or 
+help us develop such a cluster of network-attached FPGAs, please get in touch.
+
 # Table of Contents
 1. [About cloudFPGA](#about-cloudfpga)
     * [Overview of the Cloud Service Architecture](#overview-of-the-cloud-service-architecture)
