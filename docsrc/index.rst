@@ -16,11 +16,10 @@ Welcome to cloudFPGA's documentation
 .. comment    :members:
 
 .. toctree::
-   :maxdepth: 8
+   :maxdepth: 3
    :caption: Table of Contents
    :numbered:
 
-   self
    pages/INTRODUCTION/introduction
    pages/OVERVIEW/overview
    pages/GETTING_STARTED/getting_started
