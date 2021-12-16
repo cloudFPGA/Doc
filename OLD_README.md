@@ -147,17 +147,6 @@ This _GitHub_ organization is a central places for hosting cloudFPGA projects an
     [Documentation](#documentation) section.
  * `[Dox]` is a repository for generating _Doxygen_ related HTML static pages for the cFDK. 
 
-## How to Contribute
-    [TODO]
-
-# Documentation
-The cloudFPFA documentation is provided as GitHub pages at:
- * **https://pages.github.ibm.com/cloudFPGA/Doc/**
- 
-FYI - The documentation is automatically compiled and re-generated after a commit to this repository. 
-However, if you need to re-build and update this documentation locally, please checkout the file 
-**[BuildDoc.md](./BuildDoc.md)**.
-
 # Getting Started
 If you are new to _cF_, we recommend you start as an _[unprivileged user](#user-privilege-layers)_ 
 and clone one of the following example designs which provide a step-by-step quick start guide. 
