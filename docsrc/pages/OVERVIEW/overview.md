@@ -154,5 +154,5 @@ and collaborations. As of today, the organization consists of two main types of 
 :Info: By convention, the repository's name of a cloudFPGA project is always 
     pre-pended with the string \"**cFp_**\" for *cloudFPGA project*.
     
-: ℹ ️: See here for ....  
+    
     

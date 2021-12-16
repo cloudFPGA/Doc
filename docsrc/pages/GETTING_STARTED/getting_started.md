@@ -3,126 +3,96 @@
 This quick start guide will take you through two "*Hello World*" examples. The first one 
 demonstrates the generation of a static bitstream for a single FPGA and its deployment in 
 the cloudFPGA infrastructure. The second exhibits the creation of a cluster of FPGAs operated 
-with Partial Reconfiguration (PR) of the application roles.  
+with Partial Reconfiguration (PR) of the application roles. 
 
+Both examples can be cloned, synthesized, placed and routed on your local computer. 
+However, you will need to connect to our cloudFPGA infrastructure via a VPN client if you want to 
+test your generated bitstreams on a standalone network-attached FPGA. 
+
+:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here (under construction)](TODO).   
+
+## How to Monolithic
+
+If you are new to cloudFPGA, we recommend  you start with the deployment of a single FPGA and you 
+get yourself a first experience with the network attachment paradigm.  
  
+This can be achieved with the project [cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale) 
+which demonstrates the generation of a static bitstream for a cloudFPGA instance and its 
+deployment in the cF infrastructure.
+
+### Overview
+
+The project builds on the shell [Kale](https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md) 
+which is a shell with minimalist support for accessing the hardware components of the FPGA 
+instance, and a role that implements a set of TCP and UDP loopback mechanisms for echoing the 
+incoming traffic and forwarding it back to its emitter. The resulting traffic scenario is shown 
+in the following figure.
+
+![Setup-of-the cFp_HelloKale project](imgs/Fig-HelloKale-Setup.png)        
+
+### Selecting The Design Development Flow
+
+When you create or clone a cloudFPGA design you can opt to design on your local machine or design 
+on a virtual machine hosted in our data center infrastructure 
+([as mentioned here](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)).
+
+:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the Xilinx Vivado tools (Vivado 2017.4 or higher) installed and the corresponding licenses for you to use.
+
+### Quick Trial
+
+Step-1: Clone, setup, generate bitstream.
+```
+$ git clone -recursive git@github.com:cloudFPGA/cFp_HelloKale.git
+$ cd cFp_HelloKale
+$ source env/setenv.sh
+$ make monolithic
+``` 
+
+Step-2: Upload bitstream, request instance, ping instance.
+```
+$ cd .. 
+$ git clone git@github.com:cloudFPGA/cFSP.git
+$ cd cFp_HelloKale
+$ cFSP post_image(dcps/4_topFMKU60_impl_default_monolithic.bit)
+$ cFSP post_instance(image_id)
+$ ping <image_ip>
+``` 
+
+Step-3: TCP and UDP Netcat (a.k.a 'nc') 
+```
+$ which nc
+$ nc <image_ip> 8803
+...Type in something at the console, it will be echoed back by the TCP I/F of the FPGA...
+...Type CTRL-C to quit ...
+$ nc <image_ip> -u 8803
+...Type in something at the console, it will be echoed back by the UDP I/F of the FPGA...
+...Type CTRL-C to quit ...
+$ 
+```
+
+For more information and a more detailed step-by-step procedure please visit 
+[cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale).
 
 
-## Selecting The Design Development Flow
-When you create a cloudFPGA design you can select between 
-[two development flows](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)
-: i) design on your local machine or ii) design on a virtual machine hosted in our data center 
-infrastructure.
+## How to Partial Reconfiguration
 
-This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your 
-local computer.
-❗❗❗:heavy_exclamation_mark: It is therefore assumed that you have the Xilinx Vivado tools (Vivado 
-2017.4 or higher) installed and the corresponding licenses for you to use. 
-  
-ℹ️ 
+For the second *Hello-world*, we suggest you to experiment with the deployment of a cluster of 
+FPGAs.
 
-:info:
+This can be achieved with the project [cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto) 
+which demonstrates the generation of a set of partial bitstreams intended for a cluster of 
+FPGAs. This cluster is then deployed and its FPGAs are reconfigured via the TCP/IP network of the 
+data center.
 
-between two developments flows: have the choice to develop it with cloudFPGA, The various design flows for developing and deploying FPGA bitstreams of such ROL applications, are presented in the figure below.
-As depicted in the overview 
-This 
-With respect to the cloudFPGA design flows presented in section 2, 
-pplications, are presented in the figure below.
-[sub-section](./child.md#sub-section)
+### Overview
 
-
-
-
-
-
-
-
-## Hello-Themisto
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-If you are new to _cloudFPGA_, we recommend you start with [STEP-1](#step-1-on-premise-development). 
-Otherwise, advanced and [*privileged user*](../INTRODUCTION/introduction.md#user-privilege-layers) 
-may start from [STEP-2](#step-2--development-in-the-cloud).
-
-### STEP-1: On-Premise Development
-
-This section only covers the development and the build of your application on a local computer. 
-You can visualize the _on-premise_ development flow graphically [here](../INTRODUCTION/imgs/dev-flow.png), 
-on the leftmost side of the picture. After you generated you bitstream, refer to section [STEP-3](#step-3--deploy-an-application-in-the-cloud) 
-for deploying and executing it the Cloud. 
-
-#### Prerequisites
-
-1) Install the Xilinx development tools (*Vivado 2017.4* or above).
-
-2) Ensure that you have the Xilinx '_UltraScale_ FPGA family installed. 
-    * Otherwise, install the family with the menu `Help`/`Add Designs Tools or Devices` of the 
-       _Vivado GUI_. 
-
-3) Set the _XILINXD_LICENSE_FILE_ variable with your license server(s) and source the Xilinx 
-   setting script:
-
-    ```
-      # Set your license server(s) 
-      export XILINXD_LICENSE_FILE=xxxxx@yyyyyy.com            
-
-      # Execute the Vivado settings script
-      export VIVADO_VERSION=<Your_Installed_Version>   # E.g. 2019.1
-      export XILINX_PATH=<Your_Installation_Path>      # E.g. /opt/xilinx
-      source ${XILINX_PATH}/Vivado/${VIVADO_VERSION}/settings64.sh
-    ```
-
-#### Step-by-Step
-4) Change to your work directory and clone the cloudFPGA project _cFp_ThemistoEcho_      
-    ```
-      git clone git@github.ibm.com:cloudFPGA/cFp_EchoThemisto.git
-    ```     
-
-5) To-be-continued
-| cFp_Echo           | An application that echos the received UDP and TCP traffic back to the initiator node.   
-
-   
-    
-
-
-### STEP-2 / Development in the Cloud  
-
-####  Prerequisites 
+The project builds on the shell [Themisto](https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md) 
+which is a shell with enhanced routing support and a set of roles that implement a TCP and a UDP 
+loopback mechanism for echoing the incoming traffic and forwarding it to the next node in the 
+cluster. The resulting traffic scenario is shown in the following figure.
 
 
 
-### STEP-3 / Deploy an application in the Cloud 
-
-####  Prerequisites 
 
 
-## HowTo Partial Reconfiguration
-
-
-## HowTo ZYC2
 
