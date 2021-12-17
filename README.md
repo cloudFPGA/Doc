@@ -71,15 +71,14 @@ pip install -r ./cloudFPGA-Doc/docsrc/requirements.txt
 
 ```bash
 . sphinx/bin/activate
-git checkout gh-pages  (assuming you are on cloudFPGA-Doc folder)
+cd cloudFPGA-Doc
+git checkout master
 < ... make your changes ... >
 make clean
 make localhtml
 firefox _build/html/index.html & (to view your changes locally)
 ```
 
-:Note: To avoid the long-time for building documentation for the source code, 
-you can run `make html` instead `make localhtml` on the script above.
 #### Step 3/3: Update Documentation
 
 ```
@@ -102,12 +101,9 @@ The following cF repositories are currently parsed for `Markdown` files:
 * [cloudFPGA/cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto)
 * [cloudFPGA/cFp_Zoo](https://github.com/cloudFPGA/cFp_Zoo)
 
-:Info: 
-In order to edit the documentation of the aforementioned repositories, you should apply the 
-changes directly on the `Markdown` files in those repositories.
-
-Next, to make the changes being reflected onto the HTML pages, you can use the following automated 
-or manual procedure. 
+> **_NOTE:_** In order to edit the documentation of the aforementioned repositories, you should apply the 
+changes directly on the `Markdown` files in those repositories. Next, to make the changes being reflected 
+onto the HTML pages, you can use the following automated or manual procedure. 
 
 ### HowTo - Automated update of a cF repository documentation
 
@@ -134,7 +130,7 @@ git push
 firefox https://pages.github.ibm.com/cloudFPGA/Doc/ & (view your changes)
 ```
 
-:Info: The documentation compilation on Travis CI is expected to take several minutes, so be 
+> **_NOTE:_** The documentation compilation on Travis CI is expected to take several minutes, so be 
 patient when you submit changes as they won't take effect instantly.
 
 ## Documenting the cF Source Codes
