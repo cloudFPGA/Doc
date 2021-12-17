@@ -6,7 +6,7 @@ The cloudFPFA documentation is available as *GitHub* pages at:
 
 |             |
 |:----------: | 
-| **https://pages.github.ibm.com/cloudFPGA/Doc/** |
+| **https://cloudfpga.github.io/Doc/** |
 
 These pages are generated automatically from three sources:
 * the so-called [**Organization Documentation**](#documenting-the-organization) provided by this `README.md` and the `Markdown` 
