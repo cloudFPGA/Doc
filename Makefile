@@ -27,7 +27,6 @@ clone_local_repos:
 	git -C 'repos_for_Doc/cFp_HelloKale' pull     || git clone --depth=1 git@github.com:cloudFPGA/cFp_HelloKale.git          repos_for_Doc/cFp_HelloKale
 	git -C 'repos_for_Doc/cFp_HelloThemisto' pull || git clone --depth=1 git@github.com:cloudFPGA/cFp_HelloThemisto.git      repos_for_Doc/cFp_HelloThemisto
 	git -C 'repos_for_Doc/cFp_Zoo' pull           || git clone --depth=1 git@github.com:cloudFPGA/cFp_Zoo.git                repos_for_Doc/cFp_Zoo
-	git -C 'repos_for_Doc/cFp_Triangle' pull      || git clone --depth=1 git@github.ibm.com:cloudFPGA/cFp_Triangle.git       repos_for_Doc/cFp_Triangle
 
 change_links:
 	cd repos_for_Doc && python3 modify_links_cf.py ./ && cd ../
