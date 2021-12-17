@@ -9,11 +9,11 @@ The cloudFPFA documentation is available as *GitHub* pages at:
 | **https://pages.github.ibm.com/cloudFPGA/Doc/** |
 
 These pages are generated automatically from three sources:
-* the so-called **Organization Documentation** provided by this `README.md` and the `Markdown` 
+* the so-called [**Organization Documentation**](#documenting-the-organization) provided by this `README.md` and the `Markdown` 
   files located in the `./docsrc/pages/` folders of this repository,
-* the so-called **cF Repository Documentation** provided by the `README.md` and the `Markdown` 
+* the so-called [**cF Repository Documentation**](#documenting-the-cf-repositories) provided by the `README.md` and the `Markdown` 
   files located in each cF repository,
-* the so-called **cF Source Code Documentation** retrieved from the declarations and documentation 
+* the so-called [**cF Source Code Documentation**](#documenting-the-cf-source-codes) retrieved from the declarations and documentation 
   comments in the software source files of the cF repositories.
   
 We adopt the following tools for automating this documentation:
@@ -142,7 +142,7 @@ patient when you submit changes as they won't take effect instantly.
 The generation of the code documentation from the software source files is maintained in 
 [Dox](https://github.com/cloudFPGA/Dox/), a separate repository of the cF organization. 
 This documentation is in-lined as chapter [4.1](https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfsphere.html#application-programming-interface-api) 
-of the global cloudFPGA documentation, but it is can also [available here ](https://cloudfpga.github.io/Dox/).
+of the global cloudFPGA documentation, but it is also [available here ](https://cloudfpga.github.io/Dox/).
  
 
 
