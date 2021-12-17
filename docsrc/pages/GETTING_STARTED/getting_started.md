@@ -9,8 +9,7 @@ Both examples can be cloned, synthesized, placed and routed on your local comput
 However, you will need to connect to our cloudFPGA infrastructure via a VPN client if you want to 
 test your generated bitstreams on a standalone network-attached FPGA. 
 
-:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering 
-[here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
+:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
 
 ## How to Monolithic
 
@@ -60,16 +59,16 @@ $ git clone git@github.com:cloudFPGA/cFSP.git
 $ cd cFp_HelloKale
 $ cFSP post_image(dcps/4_topFMKU60_impl_default_monolithic.bit)
 $ cFSP post_instance(image_id)
-$ ping <image_ip>
+$ ping <instance_ip>
 ``` 
 
 Step-3: TCP and UDP Netcat (a.k.a 'nc') 
 ```
 $ which nc
-$ nc <image_ip> 8803
+$ nc <instance_ip> 8803
 ...Type in something at the console, it will be echoed back by the TCP I/F of the FPGA...
 ...Type CTRL-C to quit ...
-$ nc <image_ip> -u 8803
+$ nc <instance_ip> -u 8803
 ...Type in something at the console, it will be echoed back by the UDP I/F of the FPGA...
 ...Type CTRL-C to quit ...
 $ 
@@ -102,54 +101,51 @@ the next FPGA in the chain. This goes on for every other FPGA in the chain until
 passes the received line back to the host client. The resulting traffic scenario is shown in the 
 following figure.
 
-The resulting traffic scenario is shown in the following figure.
+The resulting traffic scenario for a cluster of two FPGAs and one CPU is shown in the following 
+figure.
 
 ![Setup-of-the cFp_HelloThemisto project](imgs/Fig-HelloThemisto-Setup.png)
 
 ### Selecting The Design Development Flow
 
-This second quickstart example will , we are  When you create or clone a cloudFPGA design you can opt to design on your local machine or design 
-on a virtual machine hosted in our data center infrastructure 
-([as mentioned here](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)).
+This second quickstart example let you generate the FPGA bitstreams of the cluster on your 
+computer again, but this time you won't be able to access the cluster without connecting to the 
+cloudFPGA infrastructure via VPN.  
 
-:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream 
-on your local computer. It is therefore assumed that you have the Xilinx Vivado tools (Vivado 2017.4 or higher) installed and the corresponding licenses for you to use.
+:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
 
 ### Quick Trial
 
 Step-1: Clone, setup, generate bitstream.
 ```
-$ git clone -recursive git@github.com:cloudFPGA/cFp_HelloKale.git
-$ cd cFp_HelloKale
+$ git clone -recursive git@github.com:cloudFPGA/cFp_HelloThemisto.git
+$ cd cFp_HelloThemisto
 $ source env/setenv.sh
-$ make monolithic
+$ ./sra/build pr
 ``` 
 
-Step-2: Upload bitstream, request instance, ping instance.
+Step-2: Upload bitstream, request cluster.
 ```
 $ cd .. 
 $ git clone git@github.com:cloudFPGA/cFSP.git
-$ cd cFp_HelloKale
-$ cFSP post_image(dcps/4_topFMKU60_impl_default_monolithic.bit)
-$ cFSP post_instance(image_id)
-$ ping <image_ip>
+$ cd cFp_HelloThemisto
+$ cFSP post_image_app_logic(<image_file>, <sig_file>, <pr_verify_rpt>)
+$ cFSP post_cluster(<project_name> , <cluster_details>)
 ``` 
 
-Step-3: TCP and UDP Netcat (a.k.a 'nc') 
+Step-3: Ping instances, TCP Netcat (a.k.a 'nc') 
 ```
-$ which nc
-$ nc <image_ip> 8803
-...Type in something at the console, it will be echoed back by the TCP I/F of the FPGA...
-...Type CTRL-C to quit ...
-$ nc <image_ip> -u 8803
-...Type in something at the console, it will be echoed back by the UDP I/F of the FPGA...
-...Type CTRL-C to quit ...
+$ ping <fpga_instance_ip1>
+$ ping <fpga_instance_ip2>
+$ ssh <vm_instance_ip>
+...Open a 1st terminal...
+$ nc -l 2718
+...Open a 2nd terminal...
+$ nc -u <fpga_instance_ip2> 2718
+...Type in something at the terminal 2, it will be echoed in terminal 1...
+...Type CTRL-C to quit...
 $ 
 ```
 
 For more information and a more detailed step-by-step procedure please visit 
-[cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale).
-
-
-
-
+[cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto).
