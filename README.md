@@ -28,11 +28,11 @@ test software projects hosted at *GitHub* (both on our public and IBM enterprise
 
 # Table of Contents
 
-1. [Documenting the Organization](documenting-the-organization)  
-    1.1 [HowTo - Automated documentation compilation](howto-automated-documentation-compilation)  
-    1.2 [HowTo - Manual documentation compilation](howto-manual-documentation-compilation)  
-2. [Documenting the cF Repositories]()  
-3. [Documenting the cF Source Codes](documenting-the-cf-source-codes)  
+1. [Documenting the Organization](#1-documenting-the-organization)  
+    1.1 [How to automatically compile the documentation](#11-how-to-automatically-compile-the-documentation)  
+    1.2 [How to manually compile the documentation](#12-how-to-manually-compile-the-documentation)        
+2. [Documenting the cF Repositories](#2-documenting-the-cf-repositories)  
+3. [Documenting the cF Source Codes](#3-documenting-the-cf-source-codes)  
 
 ## 1. Documenting the Organization
 
@@ -48,7 +48,7 @@ of the *GitHub* pages. However, if you need to re-build and update this document
 please follow the step-by-step procedure in the 
 [Manual documentation compilation](#howto-manual-documentation-compilation) section. 
 
-### 1.1 HowTo - Automated documentation compilation
+### 1.1 How to automatically compile the documentation
 
 As mentioned above, an new compilation of the overall cloudFPGA documentation is triggered 
 whenever a commit to this current [Doc](https://github.com/cloudFPGA/Doc) repository occurs.
@@ -61,12 +61,12 @@ and also bypass [jekyll](https://jekyllrb.com/) processing of `GitHub Pages` by 
 file named `.nojekyll` on the repository. Eventually the final documentation is available 
 [here](https://pages.github.ibm.com/cloudFPGA/Doc/).
 
-### 1.2 HowTo - Manual documentation compilation
+### 1.2 How to manually compile the documentation
 
 If you need to manually compile the overall cloudFPGA documentation on your local development 
 environment, please follow these steps:
 
-#### 1.2.1 Step 1/3: Sphinx and dependencies setup
+#### 1.2.1 Sphinx and dependencies setup (Step 1/3)
 
 To generate the Sphinx based python documentations, you need to setup:
 ```bash
@@ -77,7 +77,7 @@ git clone git@github.com:cloudFPGA/Doc.git cloudFPGA-Doc
 pip install -r ./cloudFPGA-Doc/docsrc/requirements.txt
 
 ```
-#### 1.2.2 Step 2/3: Rebuild Documentation
+#### 1.2.2 Rebuild documentation (Step 2/3)
 
 ```bash
 . sphinx/bin/activate
@@ -89,7 +89,7 @@ make localhtml
 firefox _build/html/index.html & (to view your changes locally)
 ```
 
-#### 1.2.3 Step 3/3: Update Documentation
+#### 1.2.3 Update documentation (Step 3/3)
 
 ```
 git checkout gh-pages (ensure you are on this branch)
@@ -115,14 +115,14 @@ The following cF repositories are currently parsed for `Markdown` files:
 changes directly on the `Markdown` files in those repositories. Next, to make the changes being reflected 
 onto the HTML pages, you can use the following automated or manual procedure. 
 
-### 2.1 HowTo - Automated update of a cF repository documentation
+### 2.1 Automated update of a cF repository documentation
 
 Force a [Restart Build](https://travis.ibm.com/cloudFPGA/Doc) job on the Travis CI page. 
 This is useful when you don't have any changes for the current 
 [Organization Documentation](#documenting-the-organization)
 but you want update the documentation of a [specific cF repository](#documenting-the-cf-repositories). 
 
-### 2.2 HowTo - Manual update of a cF repository documentation
+### 2.2 Manual update of a cF repository documentation
 
 Clone the [Doc](https://github.com/cloudFPGA/Doc) repo, create a minor commit and push it. 
 This is useful when you made changes in both the [Organization Documentation](#documenting-the-organization) 
