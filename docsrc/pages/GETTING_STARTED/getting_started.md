@@ -9,7 +9,8 @@ Both examples can be cloned, synthesized, placed and routed on your local comput
 However, you will need to connect to our cloudFPGA infrastructure via a VPN client if you want to 
 test your generated bitstreams on a standalone network-attached FPGA. 
 
-:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here (under construction)](TODO).   
+:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering 
+[here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
 
 ## How to Monolithic
 
@@ -25,8 +26,12 @@ deployment in the cF infrastructure.
 The project builds on the shell [Kale](https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md) 
 which is a shell with minimalist support for accessing the hardware components of the FPGA 
 instance, and a role that implements a set of TCP and UDP loopback mechanisms for echoing the 
-incoming traffic and forwarding it back to its emitter. The resulting traffic scenario is shown 
-in the following figure.
+incoming traffic and forwarding it back to its emitter. 
+
+This setup corresponds to an FPGA server implementing a unique UDP and TCP echo service. 
+The FPGA accepts connections on port `8803` and echoes every incoming lines back to the client 
+(using the carriage-return/line-feed sequence as line separator). The resulting traffic scenario 
+is shown in the following figure.
 
 ![Setup-of-the cFp_HelloKale project](imgs/Fig-HelloKale-Setup.png)        
 
@@ -87,11 +92,63 @@ data center.
 ### Overview
 
 The project builds on the shell [Themisto](https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md) 
-which is a shell with enhanced routing support and a set of roles that implement a TCP and a UDP 
-loopback mechanism for echoing the incoming traffic and forwarding it to the next node in the 
-cluster. The resulting traffic scenario is shown in the following figure.
+which is a shell with enhanced routing support and a set of roles that implement TCP and a UDP 
+forwarding services to the next node in the cluster. 
 
+The setup of this FPGA cluster can be thought as a micro-service architecture in which a few 
+loosely coupled FPGAs operate together to achieve a common application goal. In this case, the 
+first FPGA of the cluster accepts connections on port `8803` and forwards every incoming lines to 
+the next FPGA in the chain. This goes on for every other FPGA in the chain until the last one 
+passes the received line back to the host client. The resulting traffic scenario is shown in the 
+following figure.
 
+The resulting traffic scenario is shown in the following figure.
+
+![Setup-of-the cFp_HelloThemisto project](imgs/Fig-HelloThemisto-Setup.png)
+
+### Selecting The Design Development Flow
+
+This second quickstart example will , we are  When you create or clone a cloudFPGA design you can opt to design on your local machine or design 
+on a virtual machine hosted in our data center infrastructure 
+([as mentioned here](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)).
+
+:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream 
+on your local computer. It is therefore assumed that you have the Xilinx Vivado tools (Vivado 2017.4 or higher) installed and the corresponding licenses for you to use.
+
+### Quick Trial
+
+Step-1: Clone, setup, generate bitstream.
+```
+$ git clone -recursive git@github.com:cloudFPGA/cFp_HelloKale.git
+$ cd cFp_HelloKale
+$ source env/setenv.sh
+$ make monolithic
+``` 
+
+Step-2: Upload bitstream, request instance, ping instance.
+```
+$ cd .. 
+$ git clone git@github.com:cloudFPGA/cFSP.git
+$ cd cFp_HelloKale
+$ cFSP post_image(dcps/4_topFMKU60_impl_default_monolithic.bit)
+$ cFSP post_instance(image_id)
+$ ping <image_ip>
+``` 
+
+Step-3: TCP and UDP Netcat (a.k.a 'nc') 
+```
+$ which nc
+$ nc <image_ip> 8803
+...Type in something at the console, it will be echoed back by the TCP I/F of the FPGA...
+...Type CTRL-C to quit ...
+$ nc <image_ip> -u 8803
+...Type in something at the console, it will be echoed back by the UDP I/F of the FPGA...
+...Type CTRL-C to quit ...
+$ 
+```
+
+For more information and a more detailed step-by-step procedure please visit 
+[cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale).
 
 
 
