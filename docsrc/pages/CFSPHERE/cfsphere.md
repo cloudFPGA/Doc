@@ -26,7 +26,7 @@ cF repository.
     is a graphical web API for the user to access the features provided by the cFRM.     
   
 * The [cloudFPGA Create (cFCreate)](https://github.com/cloudFPGA/cFCreate) is a framework 
-  that to assist a user during the creation and the update of a cloudFPGA project.
+  to assist a user during the creation and the update of a cloudFPGA project.
   
 
 For more information on these components, please visit the documentation of the corresponding 
