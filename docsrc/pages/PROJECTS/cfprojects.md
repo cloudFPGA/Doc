@@ -36,13 +36,9 @@ $ tree <cFp_ProjectName>
     ip/ (contains the IP cores (generated during build))
     Makefile
     env/
-    └── setenv.sh (sets the envrionments)
+    └── setenv.sh (sets the envrionment)
     <possible_addons/>
 ```
-
-
-
-
 
 ## How to cFCreate
 
@@ -50,7 +46,7 @@ To facilitate the creation of a new project from scratch or to manage and update
 we provide you with the **cFCreate** framework. 
 
 To use this framework, you need to clone the [cFCreate](https://github.com/cloudFPGA/cFCreate) 
-repository into **\<your-path\>** and setup a virtual environment for it.
+repository into **\<your-path>** and setup a virtual environment for it.
 ```
 $ cd <your-path>
 $ git clone git@github.com:cloudFPGA/cFCreate.git
@@ -61,8 +57,7 @@ $ virtualenv -p /usr/bin/python3.8 cfenv
 $ source cfenv/bin/activate
 $ pip install -r requirements.txt
 ```
-
-From now on, you can create a new empty `cFp` by entering the following command: 
+From now on, you can create a new empty `cFp` with the following command: 
  ```
 $ cd <your-path>
 $ ./cFCreate new --cfdk-version=latest --git-init <path-to-the-new-project-folder>
@@ -77,3 +72,5 @@ For more information and more advanced options, please consult the documentation
 If you want to create a repository in the cF organization, please contact us 
 [here](https://github.com/cloudFPGA/Doc/blob/master/imgs/COMING_SOON.md) and we will 
 create one for your project to live in *github.com/cloudFPGA*.  
+
+## Project Repositories 
