@@ -39,7 +39,7 @@ find information:
 ### Contact and Authors
 
 Francois Abel ([fab7](https://github.com/fab7)), 
-Dionysios Diamantopoulos ([diamantopuolos](https://github.com/diamantopoulos)), 
+Dionysios Diamantopoulos ([diamantopoulos](https://github.com/diamantopoulos)), 
 Burkhard Ringlein ([bringlein](https://github.com/bringlein)), 
 Beat Weiss (wei@zurich.ibm.com)
  
