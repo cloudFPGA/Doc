@@ -49,7 +49,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'm2r',
+    'm2r2',
     'sphinx_rtd_theme',
 #    'breathe',
 #    'exhale',
@@ -90,6 +90,8 @@ pygments_style = None
 #
 #html_theme = 'alabaster'
 html_theme = "sphinx_rtd_theme"
+#html_theme = "furo"
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
