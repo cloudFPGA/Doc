@@ -5,7 +5,7 @@ The **cloudFPGA Sphere** or **cFSphere** is what constitutes the core of a cloud
 It is composed of several major software components, each of them being provided as a standalone 
 cF repository.       
 
-![Bus-attached vs Network-attached FPGAs](../imgs/cf_overview.png)
+![Bus-attached vs Network-attached FPGAs](./imgs/cfsphere.png)
 
 * The [cloudFPGA Development Kit (cFDK)](https://github.com/cloudFPGA/cFDK) provides all the
   design files that are necessary to instantiate a cloudFPGA **SHELL** once a Shell-Role 
