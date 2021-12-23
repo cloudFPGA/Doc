@@ -5,5 +5,7 @@
 
 .. toctree::
 
-   ./cfsp
+   ./cfdk
    ./cfcreate
+   ./cfsp
+
