@@ -26,8 +26,9 @@ The cloud service architecture of cloudFPGA is comparable to a cloud service hos
 servers and virtual machines when considering the following correlation cases:
 * in cF, the equivalent of the CPU-based hardware resource is an FPGA device and its surrounding 
   board components. We refer to such an FPGA card as an **FPGA module (MOD)**. 
-* in cF, the equivalent of the OS image is a **bitstream** that contains the custom interfaces and
-  run-time logic to host and run a workload. We refer to such a design as a **Shell**. 
+* in cF, the equivalent of the OS kernel is a piece of reconfigurable logic that contains the 
+  custom interfaces and run-time logic to host and run a workload. We refer to such a kernel  
+  implemented in logic gates as a **Shell**. 
  
 As a result, the counter part of a CPU instance is an **FPGA Instance** and we can draw the 
 following parallels:
