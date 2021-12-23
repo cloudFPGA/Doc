@@ -17,7 +17,7 @@ help:
 .PHONY: help Makefile clean
 
 clean:
-	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doc/cFDK repos_for_Doc/Doc ./repos_for_Doc/Dox ./repos_for_Doc/cFp_Zoo ./repos_for_Doc/cFp_HelloKale ./repos_for_Doc/cFp_HelloThemisto
+	rm -rf ./doxyoutput/ ./docsrc/cFDK_api/ ./repos_for_Doc/cFDK repos_for_Doc/Doc ./repos_for_Doc/Dox ./repos_for_Doc/cFp_Zoo ./repos_for_Doc/cFp_HelloKale ./repos_for_Doc/cFp_HelloThemisto ./repos_for_Doc/cFSP ./repos_for_Doc/cFCreate
 	@$(SPHINXBUILD) -M clean "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 clone_local_repos:
@@ -27,6 +27,8 @@ clone_local_repos:
 	git -C 'repos_for_Doc/cFp_HelloKale' pull     || git clone --depth=1 git@github.com:cloudFPGA/cFp_HelloKale.git          repos_for_Doc/cFp_HelloKale
 	git -C 'repos_for_Doc/cFp_HelloThemisto' pull || git clone --depth=1 git@github.com:cloudFPGA/cFp_HelloThemisto.git      repos_for_Doc/cFp_HelloThemisto
 	git -C 'repos_for_Doc/cFp_Zoo' pull           || git clone --depth=1 git@github.com:cloudFPGA/cFp_Zoo.git                repos_for_Doc/cFp_Zoo
+	git -C 'repos_for_Doc/cFSP' pull              || git clone --depth=1 git@github.com:cloudFPGA/cFSP.git                   repos_for_Doc/cFSP
+	git -C 'repos_for_Doc/cFCreate' pull          || git clone --depth=1 git@github.com:cloudFPGA/cFCreate.git               repos_for_Doc/cFCreate
 
 change_links:
 	cd repos_for_Doc && python3 modify_links_cf.py ./ && cd ../

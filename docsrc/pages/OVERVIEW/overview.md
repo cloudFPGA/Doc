@@ -131,7 +131,11 @@ Warning: The cFDK is only available for **Linux** operating systems.
 ### The cloudFPGA Organization
 
 The cloudFPGA organization is a central places for sharing and hosting cloudFPGA related projects
-and collaborations. As of today, the organization consists of two main types of repositories: 
+and collaborations. 
+
+![cloudfpga-organization](./imgs/cloudfpga-organization.png)
+
+As of today, the organization consists of two main types of repositories: 
 * repositories which are part of the cloudFPGA core system such as:
     * the [cFDK](https://github.com/cloudFPGA/cFDK/) which contains a framework to help implement 
       your FPGA application on a cloudFPGA research platform,

@@ -1,3 +1,7 @@
 
 
-.. mdinclude:: ./contributing.md
+.. _cfp_contribute:
+
+.. include:: ../../../repos_for_Doc/Dox/CONTRIBUTING.rst
+   
+
