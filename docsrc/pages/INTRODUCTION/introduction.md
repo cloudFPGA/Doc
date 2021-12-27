@@ -18,7 +18,7 @@ experiment, or work with such a cluster of network-attached FPGAs, please get in
 
 ### Documentation
 
-You are currently reading the main entry point of the cloudFPGA documentation. These *GitHup* pages  
+You are currently reading the main entry point of the cloudFPGA documentation. These *GitHup* pages
 are automatically collected and assembled here from various sources throughout the cloudFPGA
 organization. The following list summarizes the various documentation sources to help developers 
 find information:
