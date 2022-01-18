@@ -112,7 +112,7 @@ forwarding services to the next node in the cluster.
 
 The setup of this FPGA cluster can be thought as a micro-service architecture in which a few 
 loosely coupled FPGAs operate together to achieve a common application goal. In this case, the 
-first FPGA of the cluster accepts connections on port `8803` and forwards every incoming lines to 
+first FPGA of the cluster accepts connections on port `2718` and forwards every incoming lines to 
 the next FPGA in the chain. This goes on for every other FPGA in the chain until the last one 
 passes the received line back to the host client. The resulting traffic scenario is shown in the 
 following figure.
