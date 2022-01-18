@@ -41,6 +41,6 @@ find information:
 Francois Abel ([fab7](https://github.com/fab7)), 
 Dionysios Diamantopoulos ([diamantopoulos](https://github.com/diamantopoulos)), 
 Burkhard Ringlein ([bringlein](https://github.com/bringlein)), 
-Beat Weiss (wei@zurich.ibm.com)
+Beat Weiss [BeatWeiss](https://github.com/BeatWeiss)
  
 
