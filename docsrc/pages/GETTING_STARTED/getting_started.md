@@ -9,7 +9,8 @@ Both examples can be cloned, synthesized, placed and routed on your local comput
 However, you will need to connect to our cloudFPGA infrastructure via a VPN client if you want to 
 test your generated bitstreams on a standalone network-attached FPGA. 
 
-:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
+:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering 
+[here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
 
 ## How to Monolithic
 
@@ -40,12 +41,18 @@ When you create or clone a cloudFPGA design you can opt to design on your local 
 on a virtual machine hosted in our data center infrastructure 
 ([as mentioned here](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)).
 
-:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the *Xilinx Vivado* tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the *Vivado* versions **2017.4** to **2020.1** (included).        
+:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the *Xilinx Vivado* tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the *Vivado* versions **2017.4** to **2020.1** (included).
 
 ### Quick Trial
+
+This quickstart demonstrates the essentials steps to build, deploy and test a monolithic  
+*Hello World* example without going into details and explanations. For more information and 
+a detailed step-by-step tutorial, please visit the project  [cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale).
+
 ```
-    $ SANDBOX=`pwd`  (a short for your working directory)
+    $ SANDBOX=`pwd`     # (a short for your working directory)
 ```
+
 Step-1: Clone, setup and generate bitstream
 ```
     $ cd ${SANDBOX}
@@ -64,6 +71,7 @@ Step-2: Setup a cloudFPGA Support Package (cFSP) for this project
     $ cd cFSP
     $ which python3     # (we recommend python 3.6 or higher) 
     /usr/bin/python3
+    
     $ virtualenv -p /usr/bin/python3 cfenv
     $ source cfenv/bin/activate
     $ pip install -r requirements.txt
@@ -100,9 +108,11 @@ Step-5: TCP and UDP Netcat (a.k.a 'nc')
 ```       
     $ which nc          # (check if 'netcat' is installed)
     nc is /bin/nc
+    
     $ nc <role_ip> 8803
     ...Type in something at the console, it will be echoed back by the TCP I/F of the FPGA...
     ...Type CTRL-C to quit ...
+    
     $ nc <role_ip> -u 8803
     ...Type in something at the console, it will be echoed back by the UDP I/F of the FPGA...
     ...Type CTRL-C to quit ...
@@ -118,14 +128,10 @@ Step-6: Clean-up by deleting the instance and the image (optional).
     $ ./cfsp image delete <id>
 ```
 
-For more information and a more detailed step-by-step procedure please visit 
-[cFp_HelloKale](https://github.com/cloudFPGA/cFp_HelloKale).
-
-
 ## How to Partial Reconfiguration
 
-For the second *Hello-world*, we suggest you to experiment with the deployment of a cluster of 
-FPGAs.
+For the second *Hello-world* example, we suggest you to experiment with the deployment of a cluster 
+of FPGAs.
 
 This can be achieved with the project [cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto) 
 which demonstrates the generation of a set of partial bitstreams intended for a cluster of 
@@ -154,67 +160,106 @@ figure.
 
 This second quickstart example let you generate the FPGA bitstreams of the cluster on your 
 computer again, but this time you won't be able to access the cluster without connecting to the 
-cloudFPGA infrastructure via VPN.  
+cloudFPGA infrastructure via VPN. To get such an access granted, you need to request a cloudFPGA 
+account [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).  
 
-:Info: To get access to the cF infrastructure, you must request a cloudFPGA account by registering [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).   
+:Info: It is also assumed that you have the *Xilinx Vivado* tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the *Vivado* versions **2019.2** to **2020.1** (included).
 
 ### Quick Trial
+
+Similar to the monolithic example, this second quickstart demonstrates the essentials steps to build, 
+deploy and test a cluster of FPGAs without going into details and explanations. For more information 
+and a detailed step-by-step tutorial, please visit the project 
+[cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto).
 ```
-    $ SANDBOX=`pwd`  (a short for your working directory)
+    $ SANDBOX=`pwd`         # (a short for your working directory)
 ```
 
-Step-1: Clone, setup, generate bitstream.
+Step-1: Clone and setup your environment
 ```
     $ cd ${SANDBOX}
     
     $ git clone --recursive https://github.com/cloudFPGA/cFp_HelloThemisto.git
-    $ cd cFp_HelloThemisto
+    $ cd ${SANDBOX}/cFp_HelloThemisto
     $ source env/setenv.sh
-    $ ./sra/build pr
 ``` 
 
-Step-2: Setup cFSP.
+Step-2: Setup a cloudFPGA Support Package (cFSP) for this project
 ```
-    $ cd .. 
-    $ git clone git@github.com:cloudFPGA/cFSP.git
-    $ cd cFSP
-    $ virtualenv -p /usr/bin/python3.8 cfenv
+    $ cd ${SANDBOX}
+    
+    $ git clone https://github.com/cloudFPGA/cFSP.git
+    $ cd ${SANDBOX}/cFSP
+    $ which python3     # (we recommend python 3.6 or higher) 
+    /usr/bin/python3
+    
+    $ virtualenv -p /usr/bin/python3 cfenv
     $ source cfenv/bin/activate
     $ pip install -r requirements.txt
-    $ ./cfsp user load  --username=<YOUR_USERNAME> --password=<YOUR_PASSWORD> --project=<YOUR_PROJECTNAME>
-        (in the command above add your ZYC2 username, password and project)
 ``` 
 
-Step-3: Upload bitstream, request cluster. TODO
-```
-    $ cFSP post_image_app_logic(<image_file>, <sig_file>, <pr_verify_rpt>)
-    $ cFSP post_cluster(<project_name> , <cluster_details>)
+Step-3: Add your cloudFPGA credentials
 
-    $ ./cfsp image post --image_file=../cFp_HelloKale/dcps/4_topFMKU60_impl_default_monolithic.bit 
-      (In the previous command add to `--image_file` the path to the bitstream which was generated by Step-1.)
-      (The previous command will upload the bitstream and you will get a hash id, e.g. `74462cd5-20e3-4228-a47d-258b7e5e583a`)
-    $ ./cfsp cluster post --image_id=<image_id> --node_ip=<node_ip> (replace with yours)
-      (The previous command will return details of the cluster id, including the instance IP, under the field `role_ip`, e.g. `10.12.200.8`)
+Create a file called `user.json` and add your cloudFPGA credentials in it. The credentials 
+consist of the `username`, the `password` and the `projectname` that were provided to you when 
+you registered.
+```
+    $ cd ${SANDBOX}/cFSP
+    $ ./cfsp user load --username=<YOUR_USERNAME> --password=<YOUR_PASSWORD> --project=<YOUR_PROJECTNAME>
+    
+    $ cd ${SANDBOX}/cFp_HelloThemisto
+    $ cp ${SANDBOX}/cFSP/user.json ./user.json
+```
+
+Step-4: Retrieve latest static Shell and generate partial bitstreams for the cluster
+```
+    $ cd ${SANDBOX}/cFp_HelloThemisto
+    
+    $ ./sra update-shell
+    $ ./sra config use-role "msg-ring-app"          # (activate 1st role)
+    $ ./sra build pr                                # (takes ~40 minutes)
+    $ ./sra config use-role "invertcase-ring-app"   # (activate 2nd role)
+    $ ./sra build pr                                # (takes ~40 minutes)                                
+```
+
+Step-5: Upload bitstreams and request a cluster
+
+:Note: To be able to create a cluster and one or more virtual machines (VM) in the cF infrastructure, 
+you must own a cloudFPGA account. See registration details [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).  
+```
+    $ cd ${SANDBOX}/cFp_HelloThemisto
+
+    $ ./${SANDBOX}/cfsp image post-app-logic --image_file=${SANDBOX}/cFp_HelloThemisto/dcps/4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.bin
+          (write down the image 'id', e.g. '7891e291-8847-4302-9b07-248c4feefd69')
+    $ ./${SANDBOX}/cfsp image post-app-logic --image_file=${SANDBOX}/cFp_HelloThemisto/dcps/4_topFMKU60_impl_invercase-ring-app_pblock_ROLE_partial.bin
+          (write down the image 'id', e.g. 'f23b8025-7beb-4662-8d73-30563593ffbe')
+    
+    $ ./${SANDBOX}/cfsp cluster post --image_id=7891e291-8847-4302-9b07-248c4feefd69 --image_id=f23b8025-7beb-4662-8d73-30563593ffbe --node_ip=<YOUR_cF_VM_IP>
+          (write down the two 'role_ip', e.g. '10.12.200.73' and '10.12.200.74')
+          (write down the 'cluster_id', e.g. '244')
 ``` 
 
-Step-4: Ping instances, TCP Netcat (a.k.a 'nc') 
+Step-6: Connect to your cloudFPGA VM, ping and test your FPGA instances
 ```
-    $ ping <fpga_instance_ip1>
-    $ ping <fpga_instance_ip2>
-    $ ssh <vm_instance_ip>
     ...Open a 1st terminal...
-    $ nc -l 2718
+    $ ssh <YOUR_USERNAME>@<YOUR_cF_VM_IP>
+    $ ping <role_ip_1>         # (e.g. '10.12.200.73)
+    $ nc   <role_ip_1> 2718    # Add `-u` for a UDP connection 
+    
     ...Open a 2nd terminal...
-    $ nc -u <fpga_instance_ip2> 2718
-    ...Type in something at the terminal 2, it will be echoed in terminal 1...
+    $ ping <role_ip_2>         # (e.g. '10.12.200.74)
+    $ nc -l 2718               # Add `-u` for a UDP connection
+
+    ...Type in something at the terminal 1, it will be echoed in terminal 2...
     ...Type CTRL-C to quit... 
 ```
 
-Step-5: Clean-up by deleting the cluster and the image (optional).
+Step-7: Clean-up by deleting the cluster and the image (optional).
 ```
-    $ ./cfsp cluster delete <cluster id>
-    $ ./cfsp image delete <image id>
+    $ cd ${SANDBOX}/cFp_HelloThemisto
+    
+    $ ./${SANDBOX}/cfsp cluster delete <cluster_id>     # (e.g. '244')
+    $ ./${SANDBOX}/cfsp image delete <id_1>             # (e.g. '7891e291-8847-4302-9b07-248c4feefd69')
+    $ ./${SANDBOX}/cfsp image delete <id_2>             # (e.g. 'f23b8025-7beb-4662-8d73-30563593ffbe')
 ```
 
-For more information and a more detailed step-by-step procedure please visit 
-[cFp_HelloThemisto](https://github.com/cloudFPGA/cFp_HelloThemisto).
