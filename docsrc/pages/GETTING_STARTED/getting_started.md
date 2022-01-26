@@ -40,7 +40,7 @@ When you create or clone a cloudFPGA design you can opt to design on your local 
 on a virtual machine hosted in our data center infrastructure 
 ([as mentioned here](https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow)).
 
-:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the Xilinx Vivado tools (Vivado 2017.4 or higher) installed and the corresponding licenses for you to use.
+:Info: This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the *Xilinx Vivado* tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the *Vivado* versions **2017.4** to **2020.1** (included).        
 
 ### Quick Trial
 ```
@@ -181,7 +181,7 @@ Step-2: Setup cFSP.
     $ virtualenv -p /usr/bin/python3.8 cfenv
     $ source cfenv/bin/activate
     $ pip install -r requirements.txt
-    $ ./cfsp user load  --username=did --password=****** --project=cf_Test_2
+    $ ./cfsp user load  --username=<YOUR_USERNAME> --password=<YOUR_PASSWORD> --project=<YOUR_PROJECTNAME>
         (in the command above add your ZYC2 username, password and project)
 ``` 
 
@@ -196,7 +196,6 @@ Step-3: Upload bitstream, request cluster. TODO
     $ ./cfsp cluster post --image_id=<image_id> --node_ip=<node_ip> (replace with yours)
       (The previous command will return details of the cluster id, including the instance IP, under the field `role_ip`, e.g. `10.12.200.8`)
 ``` 
-
 
 Step-4: Ping instances, TCP Netcat (a.k.a 'nc') 
 ```
