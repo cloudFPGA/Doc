@@ -36,10 +36,12 @@ find information:
     * The corresponding source files in *Doxygen* style are available
     [here](https://cloudfpga.github.io/Dox/group__cFp.html)
 
-### Contact and Authors
+### Contacts and Authors
 
 Francois Abel ([fab7](https://github.com/fab7)), 
-Dionysios Diamantopoulos ([diamantopoulos](https://github.com/diamantopoulos)), 
+Dionysios Diamantopoulos ([diamantopoulos](https://github.com/diamantopoulos)),
+Christoph Hagleitner ([zrlhle](https://github.com/zrlhle)),
+Mark Lantz ([MLA-CH](https://github.com/MLA-CH)),
 Burkhard Ringlein ([bringlein](https://github.com/bringlein)), 
 Beat Weiss ([BeatWeiss](https://github.com/BeatWeiss))
  
