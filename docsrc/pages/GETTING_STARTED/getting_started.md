@@ -245,8 +245,7 @@ Step-5: Upload the generated bitstreams
 
 Step-6: Request a cloudFPGA cluster
 
-:Note: To be able to create a cluster and one or more virtual machines (VM) in the cF infrastructure, 
-you must own a cloudFPGA account. See registration details [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).  
+:Note: To be able to create a cluster and one or more virtual machines (VM) in the cF infrastructure, you must own a cloudFPGA account. See registration details [here](https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md).  
 ```
     $ cd ${SANDBOX}/cFp_HelloThemisto
   
