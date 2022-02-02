@@ -36,7 +36,9 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                     s2 = s2.replace(".png", ".png?raw=true")
                     s2 = s2.replace(".PNG", ".PNG?raw=true")
                     s2 = s2.replace(".bmp", ".bmp?raw=true")
-                    s2 = s2.replace(".BMP", ".bmp?raw=true")
+                    s2 = s2.replace(".BMP", ".BMP?raw=true")
+                    s2 = s2.replace(".jpg", ".jpg?raw=true")
+                    s2 = s2.replace(".JPG", ".JPG?raw=true")                    
                     replaced = replaced + 1
                     #print("after:"+s2)
                 else:
