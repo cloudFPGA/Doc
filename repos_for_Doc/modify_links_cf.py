@@ -39,6 +39,8 @@ def replace_markdown_links(full_md_file, link_type, replace_str):
                     s2 = s2.replace(".BMP", ".BMP?raw=true")
                     s2 = s2.replace(".jpg", ".jpg?raw=true")
                     s2 = s2.replace(".JPG", ".JPG?raw=true")                    
+                    s2 = s2.replace(".jpeg", ".jpeg?raw=true")
+                    s2 = s2.replace(".JPEG", ".JPEG?raw=true")
                     replaced = replaced + 1
                     #print("after:"+s2)
                 else:
@@ -112,25 +114,8 @@ for md_file in pathlib.Path(path_to_parse).glob('**/*.md'):
 
       insert_in_markdown_source(repo, full_md_file, tail)
 
-      link_type = ".md"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".png"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".PNG"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".bmp"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".BMP"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".pdf"
-      replace_markdown_links(full_md_file, link_type, replace_str)
-
-      link_type = ".PDF"
-      replace_markdown_links(full_md_file, link_type, replace_str)
+      link_type_lst = [".md", ".png", ".PNG", ".bmp", ".BMP", ".pdf", ".PDF", ".jpg", ".JPG", ".jpeg", ".JPEG"]
+      for link_type in link_type_lst:
+        replace_markdown_links(full_md_file, link_type, replace_str)
 
     #exit(0)
