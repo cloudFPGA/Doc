@@ -116,14 +116,14 @@ Step-6: Connect with cloudFPGA instance over TCP and UDP
     $ nc <role_ip> 8803         # (e.g. nc 10.12.200.8 8803)
     Hello Kale
     Hello Kale
-    $ Ctlr-C
+    $ Ctrl-C
 ```
 :Info: The above netcat (a.k.a 'nc') command establishes a TCP connection between your computer and the cloudFPGA instance on the port number 8803, and lets you enter arbitrary text on the console. After you hit `Enter`, the text is echoed back by the cloudFPGA instance and is displayed in the same console. You can repeat this several times or end the connection with `Ctrl-C`.
 ```   
     $ nc <role_ip> -u 8803      # (e.g. nc 10.12.200.8 -u 8803)
     Hello world
     Hello world
-    $ Ctlr-C
+    $ Ctrl-C
 ```
 :Info: The above netcat command establishes a UDP connection between your computer and the cloudFPGA instance on the port number 8803. Enter arbitrary text on the console and close the connection with `Ctrl-C`.
 
@@ -266,7 +266,7 @@ Open a 1st terminal and type in the following commands:
     $ nc   <role_ip_1> 2718    # (e.g. nc        10.12.200.73 2718)
     Hello Themisto
     How are you?
-    $ Ctlr-C
+    $ Ctrl-C
 ```
 
 Open a 2nd terminal and type in the following commands:
@@ -276,7 +276,7 @@ Open a 2nd terminal and type in the following commands:
     $ nc -l 2718
     Hello Themisto
     How are you?
-    $ Ctlr-C
+    $ Ctrl-C
  ```
 :Info: The 1st netcat command establishes a TCP connection between your cloudFPGA VM and the 1st FPGA of the cluster, while the 2nd netcat opens a connection between the 2nd FPGA of the cluster and the cloudFPGA VM. This lets you enter arbitrary text on the 1st terminal and it will be echoed back by the cloudFPGA cluster in the 2nd terminal after you hit `Enter`. You can repeat this several times or end the two connections with `Ctrl-C` in each terminal.
 
