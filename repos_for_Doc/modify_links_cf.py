@@ -109,7 +109,11 @@ for md_file in pathlib.Path(path_to_parse).glob('**/*.md'):
       replace_markdown_links(full_md_file, link_type, replace_str)
       
     else:
-      replace_str = repo_organization_url + repo + "/blob/master/" + subdir + "/"
+      if repo == "cFDK":
+          blob_branch = "/blob/main/"
+      else:
+          blob_branch = "/blob/master/"
+      replace_str = repo_organization_url + repo + blob_branch + subdir + "/"
       #print("replace_str is : " + replace_str)
 
       insert_in_markdown_source(repo, full_md_file, tail)
