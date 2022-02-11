@@ -8,6 +8,8 @@ plentiful in modern hyperscale DCs.
   connecting the FPGAs directly to the DC network. As a result, FPGAs can communicate with other 
   CPUs and FPGAs in the DC network with low latency and high bandwidth .
   ![Bus-attached vs Network-attached FPGAs](imgs/about-cf-1.png)
+
+
 * The second is achieved by turning the FPGAs into **standalone network attached** FPGAs while densely
   packing them into DC chassis and racks. From that prospect, FPGAs become autonomous and 1st class-compute
   nodes that can be reached anywhere in the DC via their IP address. 
@@ -27,7 +29,7 @@ servers and virtual machines when considering the following correlation cases:
 * in cF, the equivalent of the CPU-based hardware resource is an FPGA device and its surrounding 
   board components. We refer to such an FPGA card as an **FPGA module (MOD)**. 
 * in cF, the equivalent of the OS kernel is a piece of reconfigurable logic that contains the 
-  custom interfaces and run-time logic to host and run a workload. We refer to such a kernel  
+  custom interfaces and run-time logic to host and run a workload. We refer to such a kernel 
   implemented in logic gates as a **Shell**. 
  
 As a result, the counter part of a CPU instance is an **FPGA Instance** and we can draw the 
@@ -62,7 +64,7 @@ are presented in the figure below.
    on-premises Cloud infrastructure and later deploying his application on multiple FPGA 
    instances. Obviously, the preferred way to manage these duplicated FPGA instances is to re-use 
    that VM or a similar one located in the same Cloud infrastructure. 
- * the rightmost columns exemplifies a user deploying **multiple VMs** as well as **multiple 
+ * the rightmost column exemplifies a user deploying **multiple VMs** as well as **multiple 
    clusters of FPGAs**.
    
 ![Overview-of-the-development-flow](imgs/dev-flow.png)
@@ -84,14 +86,14 @@ higher-level spin network via 8x40GbE up-links. This amounts to a bi-sectional b
  
 ![Overview-of-the-research-platform](../CFHW/cFRP/imgs/cfrp1.png)
  
-Next, a **cloudFPGA Infrastructure** consists of numerous such cFRMs assembled into one or  
-multiple DC racks. Note that knowledge of the cFRP is not required for developing with cloudFPGA. 
-The only concept that a user must grasp, is that IP-based switching and routing among FPGAs and 
-CPU servers provide DC-wide end-to-end connectivity and flexibility.
+Next, a **cloudFPGA Infrastructure** consists of numerous such cFRMs assembled into one or 
+multiple DC racks. 
 
-However, the above cFRP details might be relevant to advanced users who seek ultra low-latency and 
-who may want to deploy their cluster on FPGAs which are spatially close in a sled, a chassis or 
-a rack.  
+Note that knowledge of the cFRP is not required for developing with cloudFPGA. 
+The only concept that a user must grasp, is that IP-based switching and routing among FPGAs and 
+CPU servers provide DC-wide end-to-end connectivity and flexibility. However, the above cFRP 
+details might be relevant to advanced users who seek ultra low-latency and who may want to deploy 
+their cluster on FPGAs which are spatially close in a sled, a chassis or a rack.  
 
 ### The cloudFPGA Development Kit
 
