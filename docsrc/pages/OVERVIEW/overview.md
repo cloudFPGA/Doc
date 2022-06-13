@@ -86,7 +86,7 @@ higher-level spin network via 8x40GbE up-links. This amounts to a bi-sectional b
  
 ![Overview-of-the-research-platform](../CFHW/cFRP/imgs/cfrp1.png)
  
-Next, a **cloudFPGA Infrastructure** consists of numerous such cFRMs assembled into one or 
+Next, a **cloudFPGA Infrastructure** consists of numerous such cFRPs assembled into one or 
 multiple DC racks. 
 
 Note that knowledge of the cFRP is not required for developing with cloudFPGA. 
