@@ -132,7 +132,7 @@ Warning: The cFDK is only available for **Linux** operating systems.
 
 ### The cloudFPGA Organization
 
-The cloudFPGA organization is a central places for sharing and hosting cloudFPGA related projects
+The cloudFPGA organization is a central place for sharing and hosting cloudFPGA related projects
 and collaborations. 
 
 ![cloudfpga-organization](./imgs/cloudfpga-organization.png)
