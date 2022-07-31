@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.5.3.1. cFp_Zoo Overview &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5.3.2. cFp_Zoo Projects" href="cFp_Zoo_projects.html" />
+    <link rel="prev" title="5.5.3. cFp_Zoo" href="cFp_Zoo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfprojects.html">5. Project repository</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cfprojects.html#project-repositories">5.5. Project Repositories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">5.5.3.1. cFp_Zoo Overview</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#system-configurattion">5.5.3.1.1. System configurattion</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#vivado-vitis-tool-support">5.5.3.1.2. Vivado/Vitis tool support</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cfp-zoo-supported-libraries">5.5.3.1.3. cFp_Zoo supported libraries</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#getting-started">5.5.3.1.4. Getting started</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cfp-zoo-essentials">5.5.3.1.5. cFp_Zoo Essentials</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_projects.html">5.5.3.2. cFp_Zoo Projects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfprojects.html"><span class="section-number">5. </span>Project repository</a> &raquo;</li>
+        
+          <li><a href="cFp_Zoo.html"><span class="section-number">5.5.3. </span>cFp_Zoo</a> &raquo;</li>
+        
+      <li><span class="section-number">5.5.3.1. </span>cFp_Zoo Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cFp_Zoo_overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfp-zoo-overview">
+<span id="id1"></span><h1><span class="section-number">5.5.3.1. </span>cFp_Zoo Overview<a class="headerlink" href="#cfp-zoo-overview" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//README.md">This HTML section is rendered based on the Markdown file in cFp_Zoo.</a></p>
+<a class="reference external image-reference" href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
+<p>cFp_Zoo is a cloudFPGA project (cFp) featuring domain-specific accelerators for the hybrid multi-cloud era.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cloudfpga.github.io/Doc/pages/PROJECTS/cFp_Zoo_overview.html">Project documentation</a></p></li>
+<li><p><a class="reference external" href="https://cloudfpga.github.io/Dox/group__cFp__Zoo.html">Code documentation</a></p></li>
+</ul>
+<p><strong>Idea</strong>: The <code class="docutils literal notranslate"><span class="pre">cFp_Zoo</span></code> project develops numerous domain-specific accelerators, incuding those from the open source library <a class="reference external" href="https://github.com/Xilinx/Vitis_Libraries">Vitis Libraries</a> to the <a class="reference external" href="https://cloudfpga.github.io/Doc/index.html">cloudFPGA</a> platform.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/cFp_Zoo.png?raw=true"><img alt="Oveview of cFp_Zoo" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/cFp_Zoo.png?raw=true" /></a>
+<div class="section" id="system-configurattion">
+<h2><span class="section-number">5.5.3.1.1. </span>System configurattion<a class="headerlink" href="#system-configurattion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu">
+<h3><span class="section-number">5.5.3.1.1.1. </span>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>Assuming Ubuntu &gt;16.04 the folowing packages should be installed:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="w"> </span><span class="n">build</span><span class="o">-</span><span class="n">essential</span><span class="w"> </span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span><span class="w"> </span><span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">opencv</span><span class="w"> </span><span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libpng</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libopencv</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">libopencv</span><span class="o">-</span><span class="n">contrib</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">rename</span><span class="w"> </span><span class="n">rpl</span><span class="w"> </span><span class="n">dialog</span><span class="w"> </span><span class="n">cmake</span><span class="w"> </span><span class="n">swig</span><span class="w"> </span><span class="n">python3</span><span class="o">-</span><span class="n">dev</span><span class="w"> </span><span class="n">python3</span><span class="mf">.8</span><span class="o">-</span><span class="n">venv</span><span class="w"> </span><span class="n">gcc</span><span class="o">-</span><span class="n">multilib</span><span class="p">(</span><span class="o">=</span><span class="k">for</span><span class="w"> </span><span class="n">vitis</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You may also need these steps for Ubuntu 18.04 &amp; Vitis 2019.2 :</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">libjpeg62</span><span class="w"></span>
+<span class="n">wget</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="c1">//se.archive.ubuntu.com/ubuntu/pool/main/libp/libpng/libpng12-0_1.2.54-1ubuntu1_amd64.deb</span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">apt</span><span class="o">-</span><span class="n">get</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">libpng12</span><span class="mi">-0</span><span class="n">_1</span><span class="mf">.2.54</span><span class="mi">-1u</span><span class="n">buntu1_amd64</span><span class="p">.</span><span class="n">deb</span><span class="w"></span>
+<span class="n">rm</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">libpng12</span><span class="mi">-0</span><span class="n">_1</span><span class="mf">.2.54</span><span class="mi">-1u</span><span class="n">buntu1_amd64</span><span class="p">.</span><span class="n">deb</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="centos-el7">
+<h3><span class="section-number">5.5.3.1.1.2. </span>CentOS/EL7<a class="headerlink" href="#centos-el7" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>sudo yum groupinstall &#39;Development Tools&#39;
+sudo yum install cmake opencv-devel dialog python-numpy libxml2-devel python3 wireshark wireshark-gnome xauth rpl
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="vivado-vitis-tool-support">
+<h2><span class="section-number">5.5.3.1.2. </span>Vivado/Vitis tool support<a class="headerlink" href="#vivado-vitis-tool-support" title="Permalink to this headline">¶</a></h2>
+<p>The versions below are supported by cFp_Zoo.</p>
+<div class="section" id="for-the-shell-cfdk-s-code">
+<h3><span class="section-number">5.5.3.1.2.1. </span>For the SHELL (cFDK’s code)<a class="headerlink" href="#for-the-shell-cfdk-s-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] 2017</p>
+<ul>
+<li><p>[x] 2017.4</p></li>
+</ul>
+</li>
+<li><p>[x] 2018</p></li>
+<li><p>[x] 2019</p>
+<ul>
+<li><p>[x] 2019.1</p></li>
+<li><p>[x] 2019.2</p></li>
+</ul>
+</li>
+<li><p>[X] 2020</p>
+<ul>
+<li><p>[x] 2020.1</p></li>
+<li><p>[ ] 2020.2</p></li>
+</ul>
+</li>
+<li><p>[ ] 2021</p></li>
+</ul>
+</div>
+<div class="section" id="for-the-role-user-s-code">
+<h3><span class="section-number">5.5.3.1.2.2. </span>For the ROLE (user’s code)<a class="headerlink" href="#for-the-role-user-s-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[ ] 2017</p></li>
+<li><p>[ ] 2018</p></li>
+<li><p>[x] 2019</p>
+<ul>
+<li><p>[x] 2019.1</p></li>
+<li><p>[x] 2019.2</p></li>
+</ul>
+</li>
+<li><p>[x] 2020</p>
+<ul>
+<li><p>[x] 2020.1</p></li>
+<li><p>[ ] 2020.2</p></li>
+</ul>
+</li>
+<li><p>[ ] 2021</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cfp-zoo-supported-libraries">
+<h2><span class="section-number">5.5.3.1.3. </span>cFp_Zoo supported libraries<a class="headerlink" href="#cfp-zoo-supported-libraries" title="Permalink to this headline">¶</a></h2>
+<p>cFp_Zoo features several accelerated functionalities in the form of libraries which include:</p>
+<ul class="simple">
+<li><p>the C++ code that can be synthesized through Xilinx Vivado HLS tool into RTL code and further implemented into a network-attached FPGA through <a class="reference external" href="https://github.com/cloudFPGA/cFDK/">cFDK</a>. This code is under the <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/tree/master/ROLE">ROLE</a> directory.</p></li>
+<li><p>the C++ and/or Python host code, which can be executed on a bare-metal or VM-based host, which is in the same network with the aforementioned network-attached FPGA, and interact with it using network sockets. This code is under the <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/tree/master/HOST">HOST</a> directory.</p></li>
+</ul>
+<p>We provide support for the following libraries:</p>
+<div class="section" id="ibm-zrl-libraries-support">
+<h3><span class="section-number">5.5.3.1.3.1. </span>IBM ZRL libraries support<a class="headerlink" href="#ibm-zrl-libraries-support" title="Permalink to this headline">¶</a></h3>
+<p>The following accelerated libraries are developed from IBM ZRL and are supported by cFp_Zoo:</p>
+<ul class="simple">
+<li><p>[x] <a class="reference external" href="./ROLE/custom/hls/uppercase">Uppercase</a></p></li>
+<li><p>[x] <a class="reference external" href="./ROLE/custom/hls/memtest">Memory Test</a></p></li>
+</ul>
+</div>
+<div class="section" id="vitis-libraries-support">
+<h3><span class="section-number">5.5.3.1.3.2. </span>Vitis libraries support<a class="headerlink" href="#vitis-libraries-support" title="Permalink to this headline">¶</a></h3>
+<p>The following Vitis accelerated libraries are supported by cFp_Zoo:</p>
+<ul class="simple">
+<li><p>[ ] BLAS</p></li>
+<li><p>[ ] Codec</p></li>
+<li><p>[ ] Database</p></li>
+<li><p>[ ] Data Analytics</p></li>
+<li><p>[ ] Data Compression</p></li>
+<li><p>[ ] DSP</p></li>
+<li><p>[ ] Graph</p></li>
+<li><p>[ ] HPC</p></li>
+<li><p>[x] Quantitative Finance</p>
+<ul>
+<li><p>[x] <a class="reference external" href="./ROLE/quantitative_finance/hls/mceuropeanengine">MC European Engine</a></p></li>
+</ul>
+</li>
+<li><p>[ ] Security</p></li>
+<li><p>[ ] Solver</p></li>
+<li><p>[ ] Sparce</p></li>
+<li><p>[ ] Utilities</p></li>
+<li><p>[x] Vision</p>
+<ul>
+<li><p>[x] <a class="reference external" href="./ROLE/vision/hls/gammacorrection">Gamma Correction</a></p></li>
+<li><p>[x] <a class="reference external" href="./ROLE/vision/hls/harris/">Harris</a></p></li>
+<li><p>[x] <a class="reference external" href="./ROLE/vision/hls/median_blur/">MedianBlur</a></p></li>
+<li><p>[x] <a class="reference external" href="./ROLE/vision/hls/sobel/">Sobel Filter</a></p></li>
+<li><p>[x] <a class="reference external" href="./ROLE/vision/hls/warp_transform/">Warp Transform</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2><span class="section-number">5.5.3.1.4. </span>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>We provide a 6-steps flow to create an FPGA bitstream with a cFp_Zoo accelerated application and and launch it on cloudFPGA platform.</p>
+<div class="section" id="step-1-clone-the-project">
+<h3><span class="section-number">5.5.3.1.4.1. </span>Step-1: Clone the project<a class="headerlink" href="#step-1-clone-the-project" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="o">--</span><span class="n">recursive</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/cloudFPGA/cFp_Zoo.git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-setup-your-environment">
+<h3><span class="section-number">5.5.3.1.4.2. </span>Step-2: Setup your environment<a class="headerlink" href="#step-2-setup-your-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">cFp_Zoo</span><span class="w"></span>
+<span class="n">source</span><span class="w"> </span><span class="n">env</span><span class="o">/</span><span class="n">setenv</span><span class="p">.</span><span class="n">sh</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-configure-cfp-zoo">
+<h3><span class="section-number">5.5.3.1.4.3. </span>Step-3: Configure cFp_Zoo<a class="headerlink" href="#step-3-configure-cfp-zoo" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config1.png?raw=true"><img alt="Step 1 - Terminal" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config1.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config2.png?raw=true"><img alt="Step 2 - Info" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config2.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config3.png?raw=true"><img alt="Step 3 - Load configuration" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config3.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config4.png?raw=true"><img alt="Step 4 - Select TCP/UDP" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config4.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config5.png?raw=true"><img alt="Step 5 - Select Domain" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config5.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config6.png?raw=true"><img alt="Step 6 - Select Kernel" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config6.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config7.png?raw=true"><img alt="Step 7 - Select MTU" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config7.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config8.png?raw=true"><img alt="Step 8 - Select Port" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config8.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config9.png?raw=true"><img alt="Step 9 - Select DDR" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config9.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config10.png?raw=true"><img alt="Step 10 - Confirm" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config10.png?raw=true" /></a>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config11.png?raw=true"><img alt="Step 11 - Finish" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master//./doc/config11.png?raw=true" /></a>
+</div>
+<div class="section" id="step-4-generate-a-static-bitstream">
+<h3><span class="section-number">5.5.3.1.4.4. </span>Step-4: Generate a static bitstream<a class="headerlink" href="#step-4-generate-a-static-bitstream" title="Permalink to this headline">¶</a></h3>
+<p>After configuring a project with a selected accerelated kernel, you can initiate the synthesis and bitstream generation by issuing the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="w"> </span><span class="n">monolithic</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You find your newly created bitstream in the folder <code class="docutils literal notranslate"><span class="pre">cFp_Zoo/dcps</span></code>, under the name <code class="docutils literal notranslate"><span class="pre">4_topFMKU60_impl_&lt;ROLE&gt;_monolithic.bit</span></code>.</p>
+</div>
+<div class="section" id="step-5-upload-the-bitstream-to-cloudfpga-resource-manager">
+<h3><span class="section-number">5.5.3.1.4.5. </span>Step-5: Upload the bitstream to cloudFPGA Resource Manager<a class="headerlink" href="#step-5-upload-the-bitstream-to-cloudfpga-resource-manager" title="Permalink to this headline">¶</a></h3>
+<p>After generated a bitstream you can upload it to the cloudFPGA Resource Manager (cFRM).
+There are two ways to interact with cFRM:</p>
+<ul class="simple">
+<li><p>A web-based graphical user interface to cFRM’s API. It is available as a <a class="reference external" href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> at <a class="reference external" href="http://10.12.0.132:8080/ui">http://10.12.0.132:8080/ui</a>.</p></li>
+<li><p>A command-line tool which interacts with cFRM’s API: <a class="reference external" href="https://github.com/cloudFPGA/cFSP">cFSP</a>.</p></li>
+</ul>
+<p>Here we cover the 2nd option, i.e. cFSP.</p>
+<ul>
+<li><p><a class="reference external" href="https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfsp.html#installation-usage">Install cFSP</a></p></li>
+<li><p><a class="reference external" href="https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfsp.html#id3">Load your credentials</a></p></li>
+<li><p>Upload the image <code class="docutils literal notranslate"><span class="pre">4_topFMKU60_impl_vision_monolithic.bit</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=&lt;</span><span class="n">path</span><span class="o">&gt;/</span><span class="n">cFp_Zoo</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_vision_monolithic</span><span class="p">.</span><span class="n">bit</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master/doc/img/4.png?raw=true#center"><img alt="cFSP-Image-Post-Upload-Res" src="https://github.com/cloudFPGA/cFSP/blob/master/doc/img/4.png?raw=true#center" /></a>
+<p>Write down the image “<em>id</em>” for use in the next step, e.g. <code class="docutils literal notranslate"><span class="pre">74462cd5-20e3-4228-a47d-258b7e5e583a</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="step-6-launch-the-application">
+<h3><span class="section-number">5.5.3.1.4.6. </span>Step-6: Launch the application<a class="headerlink" href="#step-6-launch-the-application" title="Permalink to this headline">¶</a></h3>
+<p>After uploading a bitstream you can program an FPGA with it. In addition, to launch the application you need a host where you can execute the software that interacts with this FPGA. Both the host and the FPGA need to be in the same network to communicate through network sockets. To help with such configurations, we have extended cFRM with the ability to create <code class="docutils literal notranslate"><span class="pre">clusters</span></code> of hosts and FPGAs.</p>
+<p>Assuming you want to create a cluster with</p>
+<ul class="simple">
+<li><p>one CPU node from ZYC2 with <code class="docutils literal notranslate"><span class="pre">ip=10.12.2.100</span></code></p></li>
+<li><p>one FPGA from cloudFPGA platform with the previously uloaded FPGA image with id <code class="docutils literal notranslate"><span class="pre">74462cd5-20e3-4228-a47d-258b7e5e583a</span></code></p></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=</span><span class="mi">74462</span><span class="n">cd5</span><span class="mf">-20e3</span><span class="mi">-4228</span><span class="o">-</span><span class="n">a47d</span><span class="mi">-258</span><span class="n">b7e5e583a</span><span class="w"> </span><span class="o">--</span><span class="n">node_ip</span><span class="o">=</span><span class="mf">10.12.2.100</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master/doc/img/6.png?raw=true#center"><img alt="cFSP-Cluster-Post-Create-Res" src="https://github.com/cloudFPGA/cFSP/blob/master/doc/img/6.png?raw=true#center" /></a>
+<p>Write down the “<em>role_ip</em>” for later accessing your cluster’s FPGA. e.g. 10.12.200.184</p>
+<p>Then you need to login to the host:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>ssh centos@10.12.2.100
+</pre></div>
+</div>
+<p>Prepare the environment to execute the host software:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="o">--</span><span class="n">recursive</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/cloudFPGA/cFp_Zoo.git</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">cFp_Zoo</span><span class="w"></span>
+<span class="n">source</span><span class="w"> </span><span class="n">env</span><span class="o">/</span><span class="n">setenv</span><span class="p">.</span><span class="n">sh</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Execute the host software (e.g. for the <code class="docutils literal notranslate"><span class="pre">harris</span></code> kernel of <code class="docutils literal notranslate"><span class="pre">vision</span></code> domain):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="n">HOST</span><span class="o">/</span><span class="n">vision</span><span class="o">/</span><span class="n">harris</span><span class="o">/</span><span class="n">languages</span><span class="o">/</span><span class="n">cplusplus</span><span class="w"></span>
+<span class="n">mkdir</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">build</span><span class="w"></span>
+<span class="n">cmake</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="w"></span>
+<span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="p">.</span><span class="o">/</span><span class="n">harris_host</span><span class="w"> </span><span class="mf">10.12.200.184</span><span class="w"> </span><span class="mi">2718</span><span class="w"> </span><span class="o">&lt;</span><span class="n">image</span><span class="p">.</span><span class="n">png</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cfp-zoo-essentials">
+<h2><span class="section-number">5.5.3.1.5. </span>cFp_Zoo Essentials<a class="headerlink" href="#cfp-zoo-essentials" title="Permalink to this headline">¶</a></h2>
+<p>Some firewalls may block network packets if there is not a connection to the remote machine/port.
+Hence, to get the Triangle example to work, the following commands may be necessary to be executed
+(as root):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="k">public</span><span class="w"> </span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">2718-2750</span><span class="o">/</span><span class="n">udp</span><span class="w"> </span><span class="o">--</span><span class="n">permanent</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="k">public</span><span class="w"> </span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">2718-2750</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="o">--</span><span class="n">permanent</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">reload</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Also, ensure that the network secuirty group settings are updated (e.g. in case of the ZYC2 OpenStack).</p>
+<div class="section" id="usefull-commands">
+<h3><span class="section-number">5.5.3.1.5.1. </span>Usefull commands<a class="headerlink" href="#usefull-commands" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Connect to ZYC2 network through openvpn:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">openvpn</span> <span class="pre">--config</span> <span class="pre">zyc2-vpn-user.ovpn</span> <span class="pre">--auth-user-pass</span> <span class="pre">up-user</span></code></p>
+</li>
+<li><p>Connect to a ZYC2 x86 node:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-Y</span> <span class="pre">ubuntu&#64;10.12.2.100</span></code></p>
+</li>
+<li><p>On Wireshark filter line:</p>
+<p><code class="docutils literal notranslate"><span class="pre">udp.port==2718</span></code> or <code class="docutils literal notranslate"><span class="pre">tcp.port==2718</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ip.addr</span> <span class="pre">==</span> <span class="pre">10.12.200.0/24</span></code></p>
+</li>
+<li><p>Set maximum net buffer:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">sysctl</span> <span class="pre">-w</span> <span class="pre">net.core.rmem_max=2147483647</span></code></p></li>
+<li><p>On the host code (cpp)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">//increase buffer size</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">recvBufSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1000000</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">setsockopt</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="w"> </span><span class="n">SO_RCVBUF</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">recvBufSize</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">recvBufSize</span><span class="p">));</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="s">&quot; error socket buffer: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">err</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">real_buffer_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="kt">socklen_t</span><span class="w"> </span><span class="n">len2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">real_buffer_size</span><span class="p">);</span><span class="w"></span>
+<span class="n">err</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getsockopt</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="w"> </span><span class="n">SOL_SOCKET</span><span class="p">,</span><span class="w"> </span><span class="n">SO_RCVBUF</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">real_buffer_size</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">len2</span><span class="p">);</span><span class="w"></span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;got %d as buffer size (requested %d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">real_buffer_size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">recvBufSize</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="n">real_buffer_size</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">recvBufSize</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;set SO_RCVBUF failed! got only: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">real_buffer_size</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;; trying to continue...&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Quick bitgen:</p>
+<p>sometimes it accelerates the build process of <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">monolithic</span></code> if:
+execute after a successfull build <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">save_mono_incr</span></code> and then build the new with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">monolithic_incr</span></code> or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">monolithic_debug_incr</span></code></p>
+</li>
+<li><p>Update subrepositories (e.g. for Vitis_Libraries)</p>
+<p>On the pc that you want to change the subrepo to a new version</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>cd Vitis_Libraries
+git checkout origin master` (or any other version)
+git commit -am &quot;Updated Vitis_Libraries to master&quot;
+</pre></div>
+</div>
+<p>On the pc you want to sync with the new subrepo</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">submodule</span><span class="w"> </span><span class="n">update</span><span class="w"> </span><span class="o">--</span><span class="n">init</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="n">Vitis_Libraries</span><span class="o">/</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Add user to wireshark group in order to capture packets without advanced privileges. (needs logout)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span><span class="w"> </span><span class="n">usermod</span><span class="w"> </span><span class="o">-</span><span class="n">aG</span><span class="w"> </span><span class="n">wireshark</span><span class="w"> </span><span class="n">$USER</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cFp_Zoo_projects.html" class="btn btn-neutral float-right" title="5.5.3.2. cFp_Zoo Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cFp_Zoo.html" class="btn btn-neutral float-left" title="5.5.3. cFp_Zoo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
