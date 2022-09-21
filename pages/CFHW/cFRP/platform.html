@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IBM cloudFPGA Research Platform &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>IBM cloudFPGA Research Platform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/pages/CFHW/cFRP/platform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ibm-cloudfpga-research-platform">
+<span id="platform"></span><h1>IBM cloudFPGA Research Platform<a class="headerlink" href="#ibm-cloudfpga-research-platform" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>IBM cloudFPGA Research Platform (cFRP)</strong> is a cF hardware system that was designed to deploy
+standalone FPGAs in DCs. As the name indicates, it as prototype platform that was developed at
+<a href="#id1"><span class="problematic" id="id2">*</span></a><a class="reference external" href="https://www.zurich.ibm.com/cci/cloudFPGA/">IBM Zurich Research Laboratory</a>* to experiment with
+network-attached FPGAs in the Cloud.</p>
+<div class="section" id="hardware-overview">
+<h2>Hardware Overview<a class="headerlink" href="#hardware-overview" title="Permalink to this headline">¶</a></h2>
+<p>The cFRP is a 2U height by 19 inches wide chassis featuring 64
+FPGA instances. The chassis is equipped with two <strong>sleds (S0, S1)</strong>, each sled consisting of
+32 FPGA instances connected to an Intel FM6000 switch via a carrier board. The FM6000 acts as a
+leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a higher-level spin
+network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of 640 Gb/s per sled.</p>
+<a class="reference external image-reference" href="imgs/cfrp.png"><img alt="Overview-of-the-ibm-research-platform" src="../../../_images/cfrp.png" /></a>
+</div>
+<div class="section" id="supported-modules">
+<h2>Supported Modules<a class="headerlink" href="#supported-modules" title="Permalink to this headline">¶</a></h2>
+<p>The cFRP is designed to support different types of FPGA modules.</p>
+<p>The following MODs are currently supported:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.ibm.com/cloudFPGA/Doc/blob/master/docsrc/pages/cFHW/cFRP/FMKU60/fmku60.md">FMKU60</a>:</dt><dd><p>A module equipped with a <em>Xilinx Kintex UltraScale XCKU060</em> and 2x8GB of <em>DDR4</em> memory.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

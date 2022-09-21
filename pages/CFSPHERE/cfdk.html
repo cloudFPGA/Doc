@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.1. cFDK &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.2. cFCreate" href="cfcreate.html" />
+    <link rel="prev" title="4. The cloudFPGA Sphere" href="cfsphere.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfsphere.html">4. The cloudFPGA Sphere</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. cFDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction">4.1.1. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-cf-module">4.1.2. The cF Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-cf-shell">4.1.3. The cF Shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#the-shell-role-architecture">4.1.3.1. The Shell-Role-Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-cf-project">4.1.3.2. The cF Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-create-a-cloudfpga-project">4.1.3.3. How to create a cloudFPGA Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#typical-cfp-file-structure">4.1.3.4. Typical cFp file structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html">4.2. cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html">4.3. cFSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfsphere.html"><span class="section-number">4. </span>The cloudFPGA Sphere</a> &raquo;</li>
+        
+      <li><span class="section-number">4.1. </span>cFDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CFSPHERE/cfdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfdk">
+<span id="id1"></span><h1><span class="section-number">4.1. </span>cFDK<a class="headerlink" href="#cfdk" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main//README.md">This HTML section is rendered based on the Markdown file in cFDK.</a></p>
+<p>The <strong>cloudFPGA Development Kit</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">information_source</dt>
+<dd class="field-odd"><p>The cloudFPGA documentation is available at <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/INTRODUCTION/introduction.html">https://cloudfpga.github.io/Doc</a></p>
+</dd>
+</dl>
+<div class="section" id="introduction">
+<h2><span class="section-number">4.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The cloud service architecture of cloudFPGA is comparable to a cloud service hosting traditional
+servers and virtual machines.</p>
+<ul class="simple">
+<li><p>In cF, the equivalent of the <em>CPU-based hardware resource</em> is an <em>FPGA device</em> and its
+surrounding board components. We refer to such an FPGA card as a cloudFPGA <strong>Module</strong> (MOD).</p></li>
+<li><p>In cF, the equivalent of the <em>OS kernel</em> is a piece of <em>reconfigurable logic</em> that contains
+the custom interfaces and run-time logic to host and run a workload. We refer to such a kernel
+implemented in logic gates as a cloudFPGA <strong>Shell</strong> (SHL).</p></li>
+<li><p>In cF, the equivalent of a <em>CPU application</em> executed in user space is another piece of the
+FPGA <em>reconfigurable logic</em>. We refer to this user’s custom logic as a cloudFPGA <strong>Role</strong> (ROL).</p></li>
+</ul>
+<p>Multiple combinations exist between various Modules, Shells and Roles. Once a user has decided
+for a Module and a Shell to run his Role, it is the duty of the <strong>cloudFPGA Development Kit</strong>
+(cFDK) to assemble the tuple <em>{``MOD``, ``SHL``, ``ROL``}</em> into a so-called <strong>cloudFPGA Project</strong> (cFp),
+and to produce one or multiple corresponding <em>bitsream(s)</em>.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/shell-role.png?raw=true"><img alt="SRA concept" src="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/shell-role.png?raw=true" /></a>
+</div>
+<div class="section" id="the-cf-module">
+<h2><span class="section-number">4.1.2. </span>The cF Module<a class="headerlink" href="#the-cf-module" title="Permalink to this headline">¶</a></h2>
+<p>The cloudFPGA service is designed to offer different types of FPGAs on various kinds of cards.
+As mentioned above, a specific assembly of an FPGA and its electronic card is referred to as a
+cloudFPGA <strong>Module</strong> (MOD).</p>
+<p>The following picture shows an example of such a cloudFPGA Module. It is called <strong>FMKU60</strong> to
+reflect its equipped <em>Xilinx Kintex UltraScale XCKU060</em> FPGA with <em>2x8GB</em> of DDR4 memory*.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/fmku60.png?raw=true"><img alt="FMKU60 module" src="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/fmku60.png?raw=true" /></a>
+</div>
+<div class="section" id="the-cf-shell">
+<h2><span class="section-number">4.1.3. </span>The cF Shell<a class="headerlink" href="#the-cf-shell" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned in the introduction, a cloudFPGA <strong>Shell</strong> (SHL) contains all necessary I/O
+components, the run-time modules and the network stack that hooks the FPGA to the DC network.
+It further abstracts all these hardware components by exposing standard AXI interfaces to the user.</p>
+<p>A <em>cloudFPGA Module</em> is designed to support different types of Shells. Therefore, a developer must
+decide for a specific <code class="docutils literal notranslate"><span class="pre">SHL</span></code> to use before creating a new application.</p>
+<p>Currently, the following shells are available:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/Kale.md">Kale</a> - This shell provides minimalist support for accessing the hardware
+components of the FPGA Module. The shell <em>Kale</em> can only be used within a static implementation
+of the Shell and the Role, and must therefore be programmed via JTAG. The following interfaces
+are exposed to the Role:</p>
+<ul>
+<li><p>a set of AXI-Stream interfaces for the UDP data and control paths,</p></li>
+<li><p>a set of AXI-Stream interfaces for the TCP data and control paths,</p></li>
+<li><p>one stream-based memory interface,</p></li>
+<li><p>one memory-mapped interface.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/Themisto.md">Themisto</a> - This shell provides enhanced routing support for node-to-node
+communications. <em>Themisto</em> is the current default cF Shell because it supports <strong>Partial
+Reconfiguration</strong> (PR) and can therefore be paired with a dynamically configured <code class="docutils literal notranslate"><span class="pre">ROL</span></code>.
+Additionally, the reconfiguration of such a role is performed by the <em>Themisto</em> shell itself,
+upon reception of a new partial bitstream for the role via the TCP/IP network of the data center.
+The following interfaces
+are exposed to the Role:</p>
+<ul>
+<li><p>an AXI-Stream interface for the UDP data path,</p></li>
+<li><p>an AXI-Stream interface for the TCP data path,</p></li>
+<li><p>one stream-based memory interface,</p></li>
+<li><p>one memory-mapped interface.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="the-shell-role-architecture">
+<h3><span class="section-number">4.1.3.1. </span>The Shell-Role-Architecture<a class="headerlink" href="#the-shell-role-architecture" title="Permalink to this headline">¶</a></h3>
+<p>We refer to the concept of pairing a platform-specific part (i.e. the <code class="docutils literal notranslate"><span class="pre">SHL</span></code>) with an
+application-specific part (i.e. the <code class="docutils literal notranslate"><span class="pre">ROL</span></code>) as the <strong>Shell-Role-Architecture</strong> (SRA).
+This architectural approach is the base of the design pattern used by cFDK to assemble a
+pair of <em>{``SHL``, ``ROL``}</em> into a so-called <strong>Toplevel</strong> (TOP). Note that such an arrangement is
+always made of a statically configured <code class="docutils literal notranslate"><span class="pre">SHL</span></code>, while the <code class="docutils literal notranslate"><span class="pre">ROL</span></code> can either statically or dynamically
+configured, as depicted in the following figure.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/sra_flow.png?raw=true"><img alt="SRA concept" src="https://github.com/cloudFPGA/cFDK/blob/main//./DOC/imgs/sra_flow.png?raw=true" /></a>
+</div>
+<div class="section" id="the-cf-project">
+<h3><span class="section-number">4.1.3.2. </span>The cF Project<a class="headerlink" href="#the-cf-project" title="Permalink to this headline">¶</a></h3>
+<p>Finally, the pairing of an FPGA design (i.e. a <code class="docutils literal notranslate"><span class="pre">SRA</span></code>) with a specific FPGA card (.i.e, a <code class="docutils literal notranslate"><span class="pre">MOD</span></code>) is
+what makes up a so-called <strong>cloudFPGA Project</strong> (cFp). The current <code class="docutils literal notranslate"><span class="pre">cFDK</span></code> repository contains all
+the source codes, the documentation and the build scripts that are necessary to create such a <code class="docutils literal notranslate"><span class="pre">cFp</span></code>.</p>
+<p>A the end, a <code class="docutils literal notranslate"><span class="pre">cFp</span></code> is what a designer uses to develop its application in <em>cloudFPGA</em>.</p>
+</div>
+<div class="section" id="how-to-create-a-cloudfpga-project">
+<h3><span class="section-number">4.1.3.3. </span>How to create a cloudFPGA Project<a class="headerlink" href="#how-to-create-a-cloudfpga-project" title="Permalink to this headline">¶</a></h3>
+<p>They are two ways to get started with a <code class="docutils literal notranslate"><span class="pre">cFp</span></code>.</p>
+<p>If you are new to cloudFPGA, we recommend that you clone or copy an existing project
+(e.g. <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">cFp_HelloThemisto</a>) and that you
+start experimenting by modifying or removing its <code class="docutils literal notranslate"><span class="pre">ROL</span></code>.</p>
+<p>For the second and highly recommended approach, use the <strong>cFCreate</strong> framework when you need to
+create a new project from scratch or to manage and update an existing one.
+To use this framework, you need to clone the <a class="reference external" href="https://github.com/cloudFPGA/cFCreate">cFCreate</a>
+repository into your <a href="#id2"><span class="problematic" id="id3">*</span></a>\ <span class="raw-html-m2r"><sandbox></span>* and setup a virtual environment for it.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd &lt;sandbox&gt;
+$ git clone git@github.com:cloudFPGA/cFCreate.git
+$ cd cFCreate/
+$ which python3
+/usr/bin/python3.8
+$ virtualenv -p /usr/bin/python3.8 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>From now on, you can create a new empty <code class="docutils literal notranslate"><span class="pre">cFp</span></code> with the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">&lt;</span><span class="n">sandbox</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cFCreate</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="o">--</span><span class="n">cfdk</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="n">latest</span><span class="w"> </span><span class="o">--</span><span class="n">git</span><span class="o">-</span><span class="n">init</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="k">new</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>By convention, we recommend naming a project folder after the project itself while prefixing it with the string “<em>cFp_</em>” (e.g. <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo">cFp_Zoo</a>).</p>
+</dd>
+</dl>
+<p>For more information and more advanced options, please consult the documentation of the
+<a class="reference external" href="https://github.com/cloudFPGA/cFCreate">cFCreate</a> repository.</p>
+</div>
+<div class="section" id="typical-cfp-file-structure">
+<h3><span class="section-number">4.1.3.4. </span>Typical cFp file structure<a class="headerlink" href="#typical-cfp-file-structure" title="Permalink to this headline">¶</a></h3>
+<p>A typical <code class="docutils literal notranslate"><span class="pre">cFp</span></code> file structure looks as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ tree &lt;cFp_ProjectName&gt;
+    cFDK/ (the cloudFPGA development kit as a submodule)
+    TOP/  (the toplevel that integrates a SHELL and a ROLE)
+    └──tcl/ (don&#39;t touch, is copied from cFDK)
+    └──xdc/ (user added constraints; you add your debug nets here)
+    └──hdl/ (HDL version of the toplevel)
+       └──top.vhdl
+       └── a.s.o. (if custom hdl files for TOP)
+    ROLE/ (the user application(s))
+    └── role1 (or not, depends on PR, etc.)
+    └── role2 (or not, depends on cluster)
+    └── a.s.o.
+    dcps/ (contains the dcps and bitfiles)
+    xpr/ (contains the Vivado project)
+    ip/ (contains the IP cores (generated during build))
+    Makefile
+    env/
+    └── setenv.sh (sets the envrionment)
+    &lt;possible_addons/&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cfcreate.html" class="btn btn-neutral float-right" title="4.2. cFCreate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cfsphere.html" class="btn btn-neutral float-left" title="4. The cloudFPGA Sphere" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

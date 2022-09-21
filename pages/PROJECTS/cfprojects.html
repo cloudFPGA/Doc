@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. Project repository &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5.1. cFp_HelloKale" href="cFp_HelloKale.html" />
+    <link rel="prev" title="4.3. cFSP" href="../CFSPHERE/cfsp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Project repository</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-repositories">5.5. Project Repositories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>Project repository</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cfprojects.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="project-repository">
+<span id="cfprojects"></span><h1><span class="section-number">5. </span>Project repository<a class="headerlink" href="#project-repository" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-cf-projects">
+<h2><span class="section-number">5.1. </span>About cF Projects<a class="headerlink" href="#about-cf-projects" title="Permalink to this headline">¶</a></h2>
+<p>In cloudFPGA, a user application is referred to as a <strong>ROLE</strong>. To be functional in a cF system,
+this ROLE must be integrated with a specific <strong>SHELL</strong>.</p>
+<p>The integration of a ROLE along with its associated SHELL into a top-level design (TOP)
+is what constitutes a <strong>cloudFPGA project</strong> which is typically stored as a <code class="docutils literal notranslate"><span class="pre">cFp</span></code> repository of the
+cloudFPGA organization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>By convention, we recommend naming a project repository after the project itself while prefixing it with the string “<em>cFp_</em>” (e.g. <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo">cFp_Zoo</a>).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="getting-started-with-a-cf-project">
+<h2><span class="section-number">5.2. </span>Getting started with a cF project<a class="headerlink" href="#getting-started-with-a-cf-project" title="Permalink to this headline">¶</a></h2>
+<p>If you are new to cloudFPGA, we recommend that you clone or copy an existing <code class="docutils literal notranslate"><span class="pre">cFp</span></code> project
+(e.g. <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">cFp_HelloThemisto</a>) and that you
+start experimenting by modifying or removing its <em>ROLE</em>.</p>
+<p>The typical structure of a cF project is a follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ tree &lt;cFp_ProjectName&gt;
+    cFDK/ (the cloudFPGA development kit as a submodule)
+    TOP/  (the toplevel that integrates a SHELL and a ROLE)
+    └──tcl/ (don&#39;t touch, is copied from cFDK)
+    └──xdc/ (user added constraints; you add your debug nets here)
+    └──hdl/ (HDL version of the toplevel)
+       └──top.vhdl
+       └── a.s.o. (if custom hdl files for TOP)
+    ROLE/ (the user application(s))
+    └── role1 (or not, depends on PR, etc.)
+    └── role2 (or not, depends on cluster)
+    └── a.s.o.
+    dcps/ (contains the dcps and bitfiles)
+    xpr/ (contains the Vivado project)
+    ip/ (contains the IP cores (generated during build))
+    Makefile
+    env/
+    └── setenv.sh (sets the envrionment)
+    &lt;possible_addons/&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-cfcreate">
+<h2><span class="section-number">5.3. </span>How to cFCreate<a class="headerlink" href="#how-to-cfcreate" title="Permalink to this headline">¶</a></h2>
+<p>To facilitate the creation of a new project from scratch or to manage and update an existing one,
+we provide you with the <strong>cFCreate</strong> framework.</p>
+<p>To use this framework, you need to clone the <a class="reference external" href="https://github.com/cloudFPGA/cFCreate">cFCreate</a>
+repository into <a href="#id1"><span class="problematic" id="id2">**</span></a>\ <span class="raw-html-m2r"><your-path></span>** and setup a virtual environment for it.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd &lt;your-path&gt;
+$ git clone git@github.com:cloudFPGA/cFCreate.git
+$ cd cFCreate/
+$ which python3.8
+/usr/bin/python3.8
+$ virtualenv -p /usr/bin/python3.8 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>From now on, you can create a new empty <code class="docutils literal notranslate"><span class="pre">cFp</span></code> with the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">path</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cFCreate</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="o">--</span><span class="n">cfdk</span><span class="o">-</span><span class="n">version</span><span class="o">=</span><span class="n">latest</span><span class="w"> </span><span class="o">--</span><span class="n">git</span><span class="o">-</span><span class="n">init</span><span class="w"> </span><span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">the</span><span class="o">-</span><span class="k">new</span><span class="o">-</span><span class="n">project</span><span class="o">-</span><span class="n">folder</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For more information and more advanced options, please consult the documentation of the
+<a class="reference external" href="https://github.com/cloudFPGA/cFCreate">cFCreate</a> repository.</p>
+</div>
+<div class="section" id="how-to-create-a-project-in-the-cf-organization">
+<h2><span class="section-number">5.4. </span>How to create a project in the cF organization<a class="headerlink" href="#how-to-create-a-project-in-the-cf-organization" title="Permalink to this headline">¶</a></h2>
+<p>If you want to create a repository in the cF organization, please contact us
+<a class="reference external" href="https://github.com/cloudFPGA/Doc/blob/master/imgs/COMING_SOON.md">here</a> and we will
+create one for your project to live in <em>github.com/cloudFPGA</em>.</p>
+</div>
+<div class="section" id="project-repositories">
+<h2><span class="section-number">5.5. </span>Project Repositories<a class="headerlink" href="#project-repositories" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#overview">5.5.1.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#shell-role-architecture">5.5.1.2. Shell-Role-Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#how-to-build-the-project">5.5.1.3. How to build the project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-1-clone-the-project">5.5.1.3.1. Step-1: Clone the project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-2-setup-your-environment">5.5.1.3.2. Step-2: Setup your environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-3-generate-a-static-bitstream">5.5.1.3.3. Step-3: Generate a static bitstream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-3-1-save-a-checkpoint-optional">5.5.1.3.3.1. Step-3.1: Save a checkpoint (optional)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#how-to-deploy-a-cloudfpga-instance">5.5.1.4. How to deploy a cloudFPGA instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-4-upload-the-generated-bitstream">5.5.1.4.1. Step-4: Upload the generated bitstream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-4a-upload-image-with-the-gui-api">5.5.1.4.1.1. Step-4a: Upload image with the GUI-API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-4b-upload-image-with-the-cfsp-api">5.5.1.4.1.2. Step-4b: Upload image with the cFSP-API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-5-request-a-cloudfpga-instance-and-deploy-it">5.5.1.4.2. Step-5: Request a cloudFPGA instance and deploy it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-5a-create-an-instance-with-the-gui-api">5.5.1.4.2.1. Step-5a: Create an instance with the GUI-API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-5b-create-an-instance-with-the-cfsp-api">5.5.1.4.2.2. Step-5b: Create an instance with the cFSP-API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#how-to-access-your-cloudfpga-instance">5.5.1.5. How to access your cloudFPGA instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-6-ping-the-deployed-fpga">5.5.1.5.1. Step-6: Ping the deployed FPGA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-7-network-tools-and-socket-communication">5.5.1.5.2. Step-7: Network tools and Socket communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloKale.html#how-to-cleanup-optional">5.5.1.6. How to cleanup (optional)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-8-how-to-remove-a-bitstream-from-the-image-database-optional">5.5.1.6.1. Step-8: How to remove a bitstream from the image database (optional)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-8a-delete-an-image-with-the-gui-api">5.5.1.6.1.1. Step-8a: Delete an image with the GUI-API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-8b-delete-the-image-with-the-cfsp-api">5.5.1.6.2. Step-8b: Delete the image with the cFSP-API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-9-how-to-delete-an-instance-optional">5.5.1.6.3. Step-9: How to delete an instance (optional)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloKale.html#step-9a-delete-an-instance-with-the-gui-api">5.5.1.6.3.1. Step-9a: Delete an instance with the GUI-API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html#step-9b-delete-the-instance-with-the-cfsp-api">5.5.1.6.4. Step-9b: Delete the instance with the cFSP-API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloThemisto.html#overview">5.5.2.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloThemisto.html#shell-role-architecture">5.5.2.2. Shell-Role-Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloThemisto.html#how-to-build-the-project">5.5.2.3. How to build the project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-1-clone-and-configure-the-project">5.5.2.3.1. Step-1: Clone and configure the project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-2-setup-your-environment">5.5.2.3.2. Step-2: Setup your environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-3-add-your-cloudfpga-credentials">5.5.2.3.3. Step-3: Add your cloudFPGA credentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-4-retrieve-the-latest-static-shell">5.5.2.3.4. Step-4: Retrieve the latest static shell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-5-activate-the-1st-role-optional-and-generate-corresponding-partial-bitstream">5.5.2.3.5. Step-5: Activate the 1st role (optional) and generate corresponding partial bitstream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-6-activate-and-generate-a-partial-bitstream-for-the-2nd-role">5.5.2.3.6. Step-6: Activate and generate a partial bitstream for the 2nd role</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_HelloThemisto.html#how-to-deploy-the-cluster">5.5.2.4. How to deploy the cluster</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-7-upload-the-generated-pr-bitstreams">5.5.2.4.1. Step-7: Upload the generated PR bitstreams</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloThemisto.html#step-7a-upload-the-application-images-with-the-gui-api">5.5.2.4.1.1. Step-7a: Upload the application images with the GUI-API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloThemisto.html#step-7b-upload-image-with-the-cfsp-api">5.5.2.4.1.2. Step-7b: Upload image with the cFSP-API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-8-request-a-cloudfpga-cluster-and-deploy-it">5.5.2.4.2. Step-8: Request a cloudFPGA cluster and deploy it</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloThemisto.html#step-8a-create-a-cluster-with-the-gui-api">5.5.2.4.2.1. Step-8a: Create a cluster with the GUI-API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_HelloThemisto.html#step-8b-create-a-cluster-with-the-cfsp-api">5.5.2.4.2.2. Step-8b: Create a cluster with the cFSP-API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-9-how-to-test-the-deployed-cluster">5.5.2.4.3. Step-9: How to test the deployed cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html#step-10-for-further-experiments">5.5.2.4.4. Step-10: For further experiments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cFp_Zoo_overview.html">5.5.3.1. cFp_Zoo Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_overview.html#system-configurattion">5.5.3.1.1. System configurattion</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#ubuntu">5.5.3.1.1.1. Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#centos-el7">5.5.3.1.1.2. CentOS/EL7</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_overview.html#vivado-vitis-tool-support">5.5.3.1.2. Vivado/Vitis tool support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#for-the-shell-cfdk-s-code">5.5.3.1.2.1. For the SHELL (cFDK’s code)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#for-the-role-user-s-code">5.5.3.1.2.2. For the ROLE (user’s code)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_overview.html#cfp-zoo-supported-libraries">5.5.3.1.3. cFp_Zoo supported libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#ibm-zrl-libraries-support">5.5.3.1.3.1. IBM ZRL libraries support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#vitis-libraries-support">5.5.3.1.3.2. Vitis libraries support</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_overview.html#getting-started">5.5.3.1.4. Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-1-clone-the-project">5.5.3.1.4.1. Step-1: Clone the project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-2-setup-your-environment">5.5.3.1.4.2. Step-2: Setup your environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-3-configure-cfp-zoo">5.5.3.1.4.3. Step-3: Configure cFp_Zoo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-4-generate-a-static-bitstream">5.5.3.1.4.4. Step-4: Generate a static bitstream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-5-upload-the-bitstream-to-cloudfpga-resource-manager">5.5.3.1.4.5. Step-5: Upload the bitstream to cloudFPGA Resource Manager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#step-6-launch-the-application">5.5.3.1.4.6. Step-6: Launch the application</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_overview.html#cfp-zoo-essentials">5.5.3.1.5. cFp_Zoo Essentials</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html#usefull-commands">5.5.3.1.5.1. Usefull commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cFp_Zoo_projects.html">5.5.3.2. cFp_Zoo Projects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html">5.5.3.2.1. cFp Uppercase</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#system-configurattion">5.5.3.2.1.1. System configurattion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#full-stack-software-support">5.5.3.2.1.2. Full-stack software support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#vivado-tool-support">5.5.3.2.1.3. Vivado tool support</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#repository-and-environment-setup">5.5.3.2.1.3.1. Repository and environment setup</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#uppercase-simulation">5.5.3.2.1.3.2. Uppercase Simulation</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#run-simulation">5.5.3.2.1.3.2.1. Run simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#uppercase-synthesis">5.5.3.2.1.3.3. Uppercase Synthesis</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#uppercase-demo-c">5.5.3.2.1.3.4. Uppercase Demo (C++)</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#jupyterlab-example">5.5.3.2.1.3.4.1. JupyterLab example</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html#working-with-zyc2">5.5.3.2.1.3.5. Working with ZYC2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_custom_memtest.html">5.5.3.2.2. cFp_Memtest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#system-configurattion">5.5.3.2.2.1. System configurattion</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#ubuntu">5.5.3.2.2.1.1. Ubuntu</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#centos-el7">5.5.3.2.2.1.2. CentOS/EL7</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#full-stack-software-support">5.5.3.2.2.2. Full-stack software support</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#vivado-tool-support">5.5.3.2.2.3. Vivado tool support</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#for-the-shell-cfdk-s-code">5.5.3.2.2.3.1. For the SHELL (cFDK’s code)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#for-the-role-user-s-code">5.5.3.2.2.3.2. For the ROLE (user’s code)</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#repository-and-environment-setup">5.5.3.2.2.3.2.1. Repository and environment setup</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#memtest-simulation">5.5.3.2.2.3.2.2. Memtest Simulation</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#simulation-example">5.5.3.2.2.3.2.2.1. Simulation example:</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#memory-test-modularity">5.5.3.2.2.3.2.2.1.1. Memory test modularity</a></li>
+<li class="toctree-l8"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#run-simulation">5.5.3.2.2.3.2.2.1.2. Run simulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#memtest-synthesis">5.5.3.2.2.3.2.3. Memtest Synthesis</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#the-themisto-shell">5.5.3.2.2.3.2.3.1. The Themisto SHELL</a></li>
+<li class="toctree-l7"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#the-complete-cfp-memtest">5.5.3.2.2.3.2.3.2. The complete cFp_Memtest</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#memtest-cf-demo">5.5.3.2.2.3.2.4. Memtest cF Demo</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#jupyterlab-example">5.5.3.2.2.3.2.4.1. JupyterLab example</a></li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#usefull-commands">5.5.3.2.2.3.2.5. Usefull commands</a></li>
+<li class="toctree-l6"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#working-with-zyc2">5.5.3.2.2.3.2.6. Working with ZYC2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#firewall-issues">5.5.3.2.2.4. Firewall issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#memory-test-results">5.5.3.2.2.5. Memory test Results</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#bandwidth-burst-control-results">5.5.3.2.2.5.1. Bandwidth Burst Control Results</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html#bandwidth-read-and-write-results-comparison-simple-and-complex-memory-tests-i-e-free-running-vs-burst-cntrlled">5.5.3.2.2.5.2. Bandwidth read and write results comparison simple and complex memory tests (i.e. free-running vs burst cntrlled)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_vision_harris.html">5.5.3.2.3. cFp Harris Corner Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#repository-and-environment-setup">5.5.3.2.3.1. Repository and environment setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#intergration-of-vitis-vision-harris-with-cloudfpga">5.5.3.2.3.2. Intergration of Vitis Vision Harris with cloudFPGA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-simulation">5.5.3.2.3.3. Harris Simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-image-size">5.5.3.2.3.3.1. Harris image size</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#run-simulation">5.5.3.2.3.3.2. Run simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-synthesis">5.5.3.2.3.4. Harris Synthesis</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#the-harris-ip">5.5.3.2.3.4.1. The Harris IP</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#the-themisto-shell">5.5.3.2.3.4.2. The Themisto SHELL</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#the-complete-cfp-zoo">5.5.3.2.3.4.3. The complete cFp_Zoo</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#troubleshooting">5.5.3.2.3.4.4. Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-host-testbench">5.5.3.2.3.5. Harris Host Testbench</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-cf-end-to-end-demo">5.5.3.2.3.6. Harris cF End-to-End Demo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#harris-usefull-commands">5.5.3.2.3.7. Harris usefull commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_vision_harris.html#working-with-zyc2">5.5.3.2.3.8. Working with ZYC2</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html#acknowledgement-and-copyright">5.5.3.2.3.8.1. Acknowledgement and Copyright</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html">5.5.3.2.4. cFp Monte Carlo European Pricing Engine</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#quick-start">5.5.3.2.4.1. Quick start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#run-c-simulation">5.5.3.2.4.2. Run C++ simulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#simulation-with-vivado-vitis-hls-tool">5.5.3.2.4.2.1. Simulation with Vivado/Vitis HLS tool</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#simulation-with-native-gcc">5.5.3.2.4.2.2. Simulation with native gcc</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#run-hls-with-vivado-vitis-hls-tool">5.5.3.2.4.3. Run HLS with Vivado/Vitis HLS tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#device-utilization">5.5.3.2.4.4. Device Utilization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html#usefull-commands">5.5.3.2.4.5. Usefull commands</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cFp_HelloKale.html" class="btn btn-neutral float-right" title="5.5.1. cFp_HelloKale" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../CFSPHERE/cfsp.html" class="btn btn-neutral float-left" title="4.3. cFSP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

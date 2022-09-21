@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Getting Started &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4. The cloudFPGA Sphere" href="../CFSPHERE/cfsphere.html" />
+    <link rel="prev" title="2. Overview of cloudFPGA" href="../OVERVIEW/overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-monolithic">3.1. How to Monolithic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">3.1.1. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-the-design-development-flow">3.1.2. Selecting The Design Development Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick-trial">3.1.3. Quick Trial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-partial-reconfiguration">3.2. How to Partial Reconfiguration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.1. Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.2. Selecting The Design Development Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.2.3. Quick Trial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/GETTING_STARTED/getting_started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="id1"></span><h1><span class="section-number">3. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>This quick start guide will take you through two “<em>Hello World</em>” examples. The first one
+demonstrates the generation of a static bitstream for a single FPGA and its deployment in
+the <strong>cloudFPGA</strong> (cF) infrastructure. The second exhibits the creation of a cluster of FPGAs operated
+with <strong>Partial Reconfiguration</strong> (PR) of the application roles.</p>
+<p>Both examples can be cloned, synthesized, placed and routed on your local computer.
+However, you will need to connect to our cloudFPGA infrastructure via a VPN client if you want to
+test your generated bitstreams on a standalone network-attached FPGA.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>To get access to the cF infrastructure, you must request a cloudFPGA account by registering</p>
+</dd>
+</dl>
+<p><a class="reference external" href="https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md">here</a>.</p>
+<div class="section" id="how-to-monolithic">
+<h2><span class="section-number">3.1. </span>How to Monolithic<a class="headerlink" href="#how-to-monolithic" title="Permalink to this headline">¶</a></h2>
+<p>If you are new to cloudFPGA, we recommend  you start with the deployment of a single FPGA and you
+get yourself a first experience with the network attachment paradigm.</p>
+<p>This can be achieved with the project <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale">cFp_HelloKale</a>
+which demonstrates the generation of a static bitstream for a cloudFPGA instance and its
+deployment in the cF infrastructure.</p>
+<div class="section" id="overview">
+<h3><span class="section-number">3.1.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
+<p>The project builds on the shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md">Kale</a>
+which is a shell with minimalist support for accessing the hardware components of the FPGA
+instance, and a role that implements a set of TCP and UDP loopback mechanisms for echoing the
+incoming traffic and forwarding it back to its emitter.</p>
+<p>This setup corresponds to an FPGA server implementing a unique UDP and TCP echo service.
+The FPGA accepts connections on port <code class="docutils literal notranslate"><span class="pre">8803</span></code> and echoes every incoming lines back to the client
+(using the carriage-return/line-feed sequence as line separator). The resulting traffic scenario
+is shown in the following figure.</p>
+<a class="reference external image-reference" href="imgs/Fig-HelloKale-Setup.png"><img alt="Setup-of-the cFp_HelloKale project" src="../../_images/Fig-HelloKale-Setup.png" /></a>
+</div>
+<div class="section" id="selecting-the-design-development-flow">
+<h3><span class="section-number">3.1.2. </span>Selecting The Design Development Flow<a class="headerlink" href="#selecting-the-design-development-flow" title="Permalink to this headline">¶</a></h3>
+<p>When you create or clone a cloudFPGA design you can opt to design on your local machine or design
+on a virtual machine hosted in our data center infrastructure
+(<a class="reference external" href="https://cloudfpga.github.io/Doc/pages/OVERVIEW/overview.html#cloudfpga-development-flow">as mentioned here</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>This getting started procedure will exemplify the generation of a cloudFPGA bitstream on your local computer. It is therefore assumed that you have the <em>Xilinx Vivado</em> tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the <em>Vivado</em> versions <strong>2017.4</strong> to <strong>2020.1</strong> (included).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="quick-trial">
+<h3><span class="section-number">3.1.3. </span>Quick Trial<a class="headerlink" href="#quick-trial" title="Permalink to this headline">¶</a></h3>
+<p>This quickstart demonstrates the essentials steps to build, deploy and test a monolithic<span class="raw-html-m2r"><br></span>
+<em>Hello World</em> example. The idea is to walk the user through these steps without going into details
+and explanations, but focusing on the workflow. For more information and a detailed step-by-step
+tutorial, please visit the project  <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale">cFp_HelloKale</a>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ SANDBOX=`pwd`     # (a short for your working directory)
+</pre></div>
+</div>
+<p>Step-1: Clone, setup and generate bitstream</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone --recursive https://github.com/cloudFPGA/cFp_HelloKale.git
+$ cd cFp_HelloKale
+$ source env/setenv.sh
+$ make monolithic
+&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; ##  DONE WITH BITSTREAM GENERATION RUN
+&lt;cloudFPGA&gt; ################################################################################
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>It takes ~90 minutes to generate the bitstream.</p>
+</dd>
+</dl>
+<p>Step-2: Setup a cloudFPGA Support Package (cFSP) for this project</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone https://github.com/cloudFPGA/cFSP.git
+$ cd cFSP
+$ which python3     # (we recommend python 3.6 or higher)
+/usr/bin/python3
+
+$ virtualenv -p /usr/bin/python3 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Step-3: Add your cloudFPGA credentials</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">YOUR_USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">YOUR_PASSWORD</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">project</span><span class="o">=&lt;</span><span class="n">YOUR_PROJECTNAME</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>The cloudFPGA credentials consist of <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_USERNAME&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_PASSWORD&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_PROJECTNAME&gt;</span></code>. These were provided to you when you registered.</p>
+</dd>
+</dl>
+<p>Step-4: Upload the generated bitstream</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloKale</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_default_monolithic</span><span class="p">.</span><span class="n">bit</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attention</dt>
+<dd class="field-odd"><p>Please write down the image <code class="docutils literal notranslate"><span class="pre">id</span></code> returned by the server for use in the next step (e.g. ‘74462cd5-20e3-4228-a47d-258b7e5e583a’).</p>
+</dd>
+</dl>
+<p>Step-5: Request a cloudFPGA instance</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFSP
+
+$ ./cfsp instance post --image_id=&lt;id&gt;  # (e.g. ./cfsp instance post --image_id=74462cd5-20e3-4228-a47d-258b7e5e583a)
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attention</dt>
+<dd class="field-odd"><p>Please write down the <code class="docutils literal notranslate"><span class="pre">role_ip</span></code> (e.g. ‘10.12.200.8’) and the <code class="docutils literal notranslate"><span class="pre">instance_id</span></code> (e.g. ‘28’) returned by the server for later use.</p>
+</dd>
+</dl>
+<p>Step-6: Connect with cloudFPGA instance over TCP and UDP</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ ping -c 4 &lt;role_ip&gt;       # (check if your cF instance is reachable on the network)
+
+$ which nc                  # (check if &#39;netcat&#39; is installed)
+nc is /bin/nc
+
+$ nc &lt;role_ip&gt; 8803         # (e.g. nc 10.12.200.8 8803)
+Hello Kale
+Hello Kale
+$ Ctrl-C
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>The above netcat (a.k.a ‘nc’) command establishes a TCP connection between your computer and the cloudFPGA instance on the port number 8803, and lets you enter arbitrary text on the console. After you hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, the text is echoed back by the cloudFPGA instance and is displayed in the same console. You can repeat this several times or end the connection with <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code>.</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ nc &lt;role_ip&gt; -u 8803      # (e.g. nc 10.12.200.8 -u 8803)
+Hello world
+Hello world
+$ Ctrl-C
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>The above netcat command establishes a UDP connection between your computer and the cloudFPGA instance on the port number 8803. Enter arbitrary text on the console and close the connection with <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code>.</p>
+</dd>
+</dl>
+<p>Step-7: Clean-up by deleting the instance and the image (optional).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFSP
+
+$ ./cfsp instance delete &lt;instance_id&gt;  # (e.g. ./cfsp instance delete 28)
+
+$ ./cfsp image delete &lt;id&gt;              # (e.g. ./cfsp image delete 74462cd5-20e3-4228-a47d-258b7e5e583a)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-partial-reconfiguration">
+<h2><span class="section-number">3.2. </span>How to Partial Reconfiguration<a class="headerlink" href="#how-to-partial-reconfiguration" title="Permalink to this headline">¶</a></h2>
+<p>For the second <em>Hello-world</em> example, we suggest you to experiment with the deployment of a cluster
+of FPGAs.</p>
+<p>This can be achieved with the project <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">cFp_HelloThemisto</a>
+which demonstrates the generation of a set of partial bitstreams intended for a cluster of
+FPGAs. This cluster is then deployed and its FPGAs are reconfigured via the TCP/IP network of the
+data center.</p>
+<div class="section" id="id3">
+<h3><span class="section-number">3.2.1. </span>Overview<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The project builds on the shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto</a>
+which is a shell with enhanced routing support and a set of roles that implement TCP and a UDP
+forwarding services to the next node in the cluster.</p>
+<p>The setup of this FPGA cluster can be thought as a micro-service architecture in which a few
+loosely coupled FPGAs operate together to achieve a common application goal. In this case, the
+first FPGA of the cluster accepts connections on port <code class="docutils literal notranslate"><span class="pre">2718</span></code> and forwards every incoming lines to
+the next FPGA in the chain. This goes on for every other FPGA in the chain until the last one
+passes the received line back to the host client. The resulting traffic scenario is shown in the
+following figure.</p>
+<p>The resulting traffic scenario for a cluster of two FPGAs and one CPU is shown in the following
+figure.</p>
+<a class="reference external image-reference" href="imgs/Fig-HelloThemisto-Setup.png"><img alt="Setup-of-the cFp_HelloThemisto project" src="../../_images/Fig-HelloThemisto-Setup.png" /></a>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">3.2.2. </span>Selecting The Design Development Flow<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>This second quickstart example let you generate the FPGA bitstreams of the cluster on your
+computer again, but this time you won’t be able to access the cluster without connecting to the
+cloudFPGA infrastructure via VPN. To get such an access granted, you need to request a cloudFPGA
+account <a class="reference external" href="https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md">here</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>It is also assumed that you have the <em>Xilinx Vivado</em> tools installed and the corresponding licenses for you to use. However, note that the following quick start is only compatible with the <em>Vivado</em> versions <strong>2019.2</strong> to <strong>2020.1</strong> (included).</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">3.2.3. </span>Quick Trial<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Similar to the monolithic example, this second quickstart demonstrates the essentials steps to build,
+deploy and test a cluster of FPGAs without going into details and explanations. For more information
+and a detailed step-by-step tutorial, please visit the project
+<a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">cFp_HelloThemisto</a>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ SANDBOX=`pwd`         # (a short for your working directory)
+</pre></div>
+</div>
+<p>Step-1: Clone and setup your environment</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="o">--</span><span class="n">recursive</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/cloudFPGA/cFp_HelloThemisto.git</span>
+<span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">env</span><span class="o">/</span><span class="n">setenv</span><span class="p">.</span><span class="n">sh</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Step-2: Setup a cloudFPGA Support Package (cFSP) for this project</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone https://github.com/cloudFPGA/cFSP.git
+$ cd ${SANDBOX}/cFSP
+$ which python3     # (we recommend python 3.6 or higher)
+/usr/bin/python3
+
+$ virtualenv -p /usr/bin/python3 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Step-3: Add your cloudFPGA credentials</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">YOUR_USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">YOUR_PASSWORD</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">project</span><span class="o">=&lt;</span><span class="n">YOUR_PROJECTNAME</span><span class="o">&gt;</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="o">/</span><span class="n">user</span><span class="p">.</span><span class="n">json</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">user</span><span class="p">.</span><span class="n">json</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>The cloudFPGA credentials consist of <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_USERNAME&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_PASSWORD&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;YOUR_PROJECTNAME&gt;</span></code>. These were provided to you when you registered.</p>
+</dd>
+</dl>
+<p>Step-4: Retrieve latest static Shell and generate partial bitstreams for the cluster</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFp_HelloThemisto
+
+$ ./sra update-shell
+$ ./sra config use-role &quot;msg-ring-app&quot;          # (activate 1st role)
+$ ./sra build pr                                # (takes ~40 minutes)
+&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; ##  DONE WITH BITSTREAM GENERATION RUN
+&lt;cloudFPGA&gt; ################################################################################
+
+$ ./sra config use-role &quot;invertcase-ring-app&quot;   # (activate 2nd role)
+$ ./sra build pr                                # (takes ~40 minutes)
+&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; ##  DONE WITH BITSTREAM GENERATION RUN
+&lt;cloudFPGA&gt; ################################################################################
+</pre></div>
+</div>
+<p>Step-5: Upload the generated bitstreams</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">logic</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">logic</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_invercase</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attention</dt>
+<dd class="field-odd"><p>Please write down the two image <code class="docutils literal notranslate"><span class="pre">id</span></code> returned by the server for use in the next step (e.g. ‘7891e291-8847-4302-9b07-248c4feefd69’ and ‘f23b8025-7beb-4662-8d73-30563593ffbe).</p>
+</dd>
+</dl>
+<p>Step-6: Request a cloudFPGA cluster</p>
+<dl class="field-list simple">
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>To be able to create a cluster and one or more virtual machines (VM) in the cF infrastructure, you must own a cloudFPGA account. See registration details <a class="reference external" href="https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md">here</a>.</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=&lt;</span><span class="n">IMAGE_ID_1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=&lt;</span><span class="n">IMAGE_ID_2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">node_ip</span><span class="o">=&lt;</span><span class="n">YOUR_VM_IP</span><span class="o">&gt;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cp"># (e.g. ./${SANDBOX}/cfsp cluster post --image_id=7891e291-8847-4302-9b07-248c4feefd69</span>
+<span class="w">    </span><span class="cp">#                                      --image_id=f23b8025-7beb-4662-8d73-30563593ffbe --node_ip=&lt;YOUR_cF_VM_IP&gt; )</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Attention</dt>
+<dd class="field-odd"><p>Please write down the two <code class="docutils literal notranslate"><span class="pre">role_ip</span></code> (e.g. ‘10.12.200.73’ and ‘10.12.200.74’) and the <code class="docutils literal notranslate"><span class="pre">cluster_id</span></code> (e.g. ‘244’) returned by the server for later use.</p>
+</dd>
+</dl>
+<p>Step-7: Connect with the VM of the cF cluster, ping and test the cluster</p>
+<p>Open a 1st terminal and type in the following commands:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ ssh &lt;YOUR_USERNAME&gt;@&lt;YOUR_cF_VM_IP&gt;
+$ ping -c 4 &lt;role_ip_1&gt;    # (e.g. ping -c 4 10.12.200.73)
+$ nc   &lt;role_ip_1&gt; 2718    # (e.g. nc        10.12.200.73 2718)
+Hello Themisto
+How are you?
+$ Ctrl-C
+</pre></div>
+</div>
+<p>Open a 2nd terminal and type in the following commands:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ ssh &lt;YOUR_USERNAME&gt;@&lt;YOUR_cF_VM_IP&gt;
+$ ping -c 4 &lt;role_ip_2&gt;    # (e.g. ping -c 4 10.12.200.74)
+$ nc -l 2718
+Hello Themisto
+How are you?
+$ Ctrl-C
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>The 1st netcat command establishes a TCP connection between your cloudFPGA VM and the 1st FPGA of the cluster, while the 2nd netcat opens a connection between the 2nd FPGA of the cluster and the cloudFPGA VM. This lets you enter arbitrary text on the 1st terminal and it will be echoed back by the cloudFPGA cluster in the 2nd terminal after you hit <code class="docutils literal notranslate"><span class="pre">Enter</span></code>. You can repeat this several times or end the two connections with <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code> in each terminal.</p>
+</dd>
+</dl>
+<p>Step-7: Clean-up by deleting the cluster and the image (optional).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFp_HelloThemisto
+
+$ ./${SANDBOX}/cfsp cluster delete &lt;cluster_id&gt;  # (e.g. ./${SANDBOX}/cfsp cluster delete 244)
+$ ./${SANDBOX}/cfsp image delete &lt;id_1&gt;          # (e.g. ./${SANDBOX}/cfsp image delete 7891e291-8847-4302-9b07-248c4feefd69)
+$ ./${SANDBOX}/cfsp image delete &lt;id_2&gt;          # (e.g. ./${SANDBOX}/cfsp image delete f23b8025-7beb-4662-8d73-30563593ffbe)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CFSPHERE/cfsphere.html" class="btn btn-neutral float-right" title="4. The cloudFPGA Sphere" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../OVERVIEW/overview.html" class="btn btn-neutral float-left" title="2. Overview of cloudFPGA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

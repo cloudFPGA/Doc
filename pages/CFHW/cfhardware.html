@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cloudFPGA Hardware (cFHW) &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>cloudFPGA Hardware (cFHW)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CFHW/cfhardware.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cloudfpga-hardware-cfhw">
+<span id="cfhardware"></span><h1>cloudFPGA Hardware (cFHW)<a class="headerlink" href="#cloudfpga-hardware-cfhw" title="Permalink to this headline">¶</a></h1>
+<p>A cF system integrates several FPGAs at the scale of a <a class="reference external" href="https://en.wikipedia.org/wiki/Rack_unit">rackmount unit</a>
+(a.k.a. <em>chassis</em>, <em>drawer</em> or <em>blade</em>) or the entire rack itself. Whatever the system size and the
+assembly means, every FPGA of a cF system must come with a network stack (e.g. <em>TCP/IP</em>) and must
+be able to hook itself to a <strong>datacenter (DC)</strong> network (e.g. <em>Ethernet</em>).</p>
+<p>The <strong>cloudFPGA Hardware (cFHW)</strong> defines all the physical parts making up such a cF system. It
+encompasses every hardware components including semiconductor devices, circuit boards, back-planes,
+cooling, power supply, etc.</p>
+<p>Such a cloudFPGA Hardware is expected to support numerous FPGAs types on various FPGA cards. In cF
+terminology, an FPGA card is referred to as a <strong>FPGA Module (MOD)</strong>.</p>
+<dl class="simple">
+<dt>The following cloudFPGA hardware platforms are currently supported:</dt><dd><p>/ZYC2/getting_started_on_zyc2.html#how-to-deploy-an-application</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pages.github.ibm.com/cloudFPGA/Doc/pages/cFHW/cFRP/platform.html#hardware-overview">IBM cloudFPGA Research Platform</a></p></li>
+<li><p><a class="reference external" href="./YOU_NAME_IT/system_xyz.md">YNI cloudFPGA System XYZ</a></p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cFRP/platform.html">IBM cloudFPGA Research Platform</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cFRP/platform.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cFRP/platform.html#supported-modules">Supported Modules</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

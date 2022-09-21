@@ -1,0 +1,342 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.5.3.2.4. cFp Monte Carlo European Pricing Engine &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. How to Contribute" href="../CONTRIBUTING/contributing.html" />
+    <link rel="prev" title="5.5.3.2.3. cFp Harris Corner Detection" href="cFp_Zoo_vision_harris.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfprojects.html">5. Project repository</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cfprojects.html#project-repositories">5.5. Project Repositories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html">5.5.3.1. cFp_Zoo Overview</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cFp_Zoo_projects.html">5.5.3.2. cFp_Zoo Projects</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html">5.5.3.2.1. cFp Uppercase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html">5.5.3.2.2. cFp_Memtest</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_vision_harris.html">5.5.3.2.3. cFp Harris Corner Detection</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">5.5.3.2.4. cFp Monte Carlo European Pricing Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfprojects.html"><span class="section-number">5. </span>Project repository</a> &raquo;</li>
+        
+          <li><a href="cFp_Zoo.html"><span class="section-number">5.5.3. </span>cFp_Zoo</a> &raquo;</li>
+        
+          <li><a href="cFp_Zoo_projects.html"><span class="section-number">5.5.3.2. </span>cFp_Zoo Projects</a> &raquo;</li>
+        
+      <li><span class="section-number">5.5.3.2.4. </span>cFp Monte Carlo European Pricing Engine</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cFp_Zoo_quantitative_finance_mceuropean_engine.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfp-monte-carlo-european-pricing-engine">
+<span id="cfp-zoo-quantitative-finance-mceuropean-engine"></span><h1><span class="section-number">5.5.3.2.4. </span>cFp Monte Carlo European Pricing Engine<a class="headerlink" href="#cfp-monte-carlo-european-pricing-engine" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/quantitative_finance/hls/mceuropeanengine/README.md">This HTML section is rendered based on the Markdown file in cFp_Zoo.</a></p>
+<p>This is the implementation of a common option pricing engine, specifically the Monte Carlo European Option pricing engine (MCEuropeanEngine), on cloudFPGA platform.
+The MCEuropeanEngine IP is privided by the open source Xilinx ® Vitis™ Quantitative Finance library, which is a fundamental library aimed at providing a comprehensive FPGA acceleration library for quantitative finance.
+It is a free/open-source for a variety of real use cases, such as modeling, trading, evaluation, and risk management.
+The Vitis Quantitative Finance library provides comprehensive tools from the bottom up for quantitative finance.
+It includes the lowest level modules and functions, the pre-defined middle kernel level, and the third level as pure software APIs working with pre-defined hardware overlays.</p>
+<p>In Quantitative finance, option pricing is to calculate the perineum for purchasing for selling options.
+In options trading, option pricing models provide the finance professional a fair value to adjust their trading strategies and portfolios.
+The value of the options are calculated based on current value of the underlying asset, volatility of the underlying asset, dividends paid on the underlying asset, strike price of the option, time to expiration on the option and riskless interest rate.
+The European option pricing engine estimates the value of option based on Monte Carlo simulation method and Black-Scholes model.</p>
+<p>As the below figure shows, the Monte Carlo simulation process is accelerated by multiple Monte Carlo model (MCM) units operating in dataflow, and each sub-module in MCM working in pipeline.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/quantitative_finance/hls/mceuropeanengine/../../../../doc/cFp_Vitis_mce.png?raw=true"><img alt="Oveview of Vitis Quantitative Finance MCEuropeanEngine workflow" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/quantitative_finance/hls/mceuropeanengine/../../../../doc/cFp_Vitis_mce.png?raw=true" /></a>
+<p>All sub-modules in MCM are connected by HLS stream. The latency of pricing engines based on Monte Carlo simulation is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">cycles</span> <span class="pre">=</span> <span class="pre">requiredSamples</span> <span class="pre">*</span> <span class="pre">timeSteps</span> <span class="pre">/</span> <span class="pre">MCM:</span></code></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">MCEuropeanEngine</span> <span class="pre">IP</span></code> is wrapped in an appropriate cFp_Vitis ROLE. Together with a <code class="docutils literal notranslate"><span class="pre">Themisto</span> <span class="pre">SHELL</span></code>, the final design can fit in a single FPGA and offer very low-latency option pricing acceleration.</p>
+<p>More info for the <cite>MCEuropeanEngine IP</cite>: <a class="reference external" href="https://xilinx.github.io/Vitis_Libraries/quantitative_finance/2020.1/rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanengine">https://xilinx.github.io/Vitis_Libraries/quantitative_finance/2020.1/rst_L2/namespace_xf_fintech.html#cid-xf-fintech-mceuropeanengine</a> .</p>
+<div class="section" id="quick-start">
+<h2><span class="section-number">5.5.3.2.4.1. </span>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">&lt;cFp_Vitis_directory&gt;/env/setenv.sh</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">$cFpRootDir/ROLE/quantitative_finance/hls/mceuropeanengine</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="run-c-simulation">
+<h2><span class="section-number">5.5.3.2.4.2. </span>Run C++ simulation<a class="headerlink" href="#run-c-simulation" title="Permalink to this headline">¶</a></h2>
+<p>Since the source code of Vitis libraries is in C++, we have created a C++ testbench in order to simulate the corresponding kernel and verify its functionality.</p>
+<div class="section" id="simulation-with-vivado-vitis-hls-tool">
+<h3><span class="section-number">5.5.3.2.4.2.1. </span>Simulation with Vivado/Vitis HLS tool<a class="headerlink" href="#simulation-with-vivado-vitis-hls-tool" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">csim</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="simulation-with-native-gcc">
+<h3><span class="section-number">5.5.3.2.4.2.2. </span>Simulation with native gcc<a class="headerlink" href="#simulation-with-native-gcc" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">fcsim</span> <span class="pre">-j</span> <span class="pre">4</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="run-hls-with-vivado-vitis-hls-tool">
+<h2><span class="section-number">5.5.3.2.4.3. </span>Run HLS with Vivado/Vitis HLS tool<a class="headerlink" href="#run-hls-with-vivado-vitis-hls-tool" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">csynth</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="device-utilization">
+<h2><span class="section-number">5.5.3.2.4.4. </span>Device Utilization<a class="headerlink" href="#device-utilization" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>MCE</p></th>
+<th class="head"><p>CLBs</p></th>
+<th class="head"><p>CLBs (%)</p></th>
+<th class="head"><p>BRAMs</p></th>
+<th class="head"><p>BRAMs (%)</p></th>
+<th class="head"><p>DSPs</p></th>
+<th class="head"><p>DSPs (%)</p></th>
+<th class="head"><p>IOs</p></th>
+<th class="head"><p>IOss (%)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>41105</p></td>
+<td><p>99.14</p></td>
+<td><p>311.5</p></td>
+<td><p>28.24</p></td>
+<td><p>1271</p></td>
+<td><p>46.05</p></td>
+<td><p>520</p></td>
+<td><p>54.23</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usefull-commands">
+<h2><span class="section-number">5.5.3.2.4.5. </span>Usefull commands<a class="headerlink" href="#usefull-commands" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">snakeviz</span><span class="w"></span>
+<span class="n">python3</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">cProfile</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">profile</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">test</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
+<span class="n">snakeviz</span><span class="w"> </span><span class="n">test</span><span class="p">.</span><span class="n">profile</span><span class="w"></span>
+
+<span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">QuantLib</span><span class="w"></span>
+<span class="n">pip2</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gprof2dot</span><span class="w"></span>
+<span class="n">pip3</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">gprof2dot</span><span class="w"></span>
+<span class="n">python2</span><span class="w"> </span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span><span class="p">.</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python2</span><span class="mf">.7</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">gprof2dot</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">pstats</span><span class="w"> </span><span class="n">test_quantlib</span><span class="p">.</span><span class="n">profile</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">-</span><span class="n">Tpng</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">output_quantlib</span><span class="p">.</span><span class="n">png</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">eog</span><span class="w"> </span><span class="n">output_quantlib</span><span class="p">.</span><span class="n">png</span><span class="w"></span>
+<span class="n">python</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="n">cProfile</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="n">test_quantlib</span><span class="p">.</span><span class="n">profile</span><span class="w"> </span><span class="p">..</span><span class="o">/</span><span class="n">test_quantlib</span><span class="p">.</span><span class="n">py</span><span class="w"></span>
+<span class="n">snakeviz</span><span class="w"> </span><span class="n">test_quantlib</span><span class="p">.</span><span class="n">profile</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../CONTRIBUTING/contributing.html" class="btn btn-neutral float-right" title="6. How to Contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cFp_Zoo_vision_harris.html" class="btn btn-neutral float-left" title="5.5.3.2.3. cFp Harris Corner Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

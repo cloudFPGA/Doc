@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.5.3.2.3. cFp Harris Corner Detection &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5.3.2.4. cFp Monte Carlo European Pricing Engine" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html" />
+    <link rel="prev" title="5.5.3.2.2. cFp_Memtest" href="cFp_Zoo_custom_memtest.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfprojects.html">5. Project repository</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cfprojects.html#project-repositories">5.5. Project Repositories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cFp_Zoo_overview.html">5.5.3.1. cFp_Zoo Overview</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="cFp_Zoo_projects.html">5.5.3.2. cFp_Zoo Projects</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_uppercase.html">5.5.3.2.1. cFp Uppercase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_custom_memtest.html">5.5.3.2.2. cFp_Memtest</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">5.5.3.2.3. cFp Harris Corner Detection</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cFp_Zoo_quantitative_finance_mceuropean_engine.html">5.5.3.2.4. cFp Monte Carlo European Pricing Engine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfprojects.html"><span class="section-number">5. </span>Project repository</a> &raquo;</li>
+        
+          <li><a href="cFp_Zoo.html"><span class="section-number">5.5.3. </span>cFp_Zoo</a> &raquo;</li>
+        
+          <li><a href="cFp_Zoo_projects.html"><span class="section-number">5.5.3.2. </span>cFp_Zoo Projects</a> &raquo;</li>
+        
+      <li><span class="section-number">5.5.3.2.3. </span>cFp Harris Corner Detection</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cFp_Zoo_vision_harris.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfp-harris-corner-detection">
+<span id="cfp-zoo-vision-harris"></span><h1><span class="section-number">5.5.3.2.3. </span>cFp Harris Corner Detection<a class="headerlink" href="#cfp-harris-corner-detection" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/README.md">This HTML section is rendered based on the Markdown file in cFp_Zoo.</a></p>
+<p>This is the implementation of the common Harris corner detector (Harris), on cloudFPGA platform.
+The Harris IP is privided by the open source Xilinx ® Vitis™ Vision library, which is a fundamental library aimed at providing a comprehensive FPGA acceleration library for computer vision algorithms.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_overview.png?raw=true"><img alt="Oveview of Vitis Vision Harris Corner Detector" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_overview.png?raw=true" /></a>
+<div class="section" id="repository-and-environment-setup">
+<h2><span class="section-number">5.5.3.2.3.1. </span>Repository and environment setup<a class="headerlink" href="#repository-and-environment-setup" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --recursive git@github.com:cloudFPGA/cFp_Zoo.git
+<span class="nb">cd</span> cFp_Zoo
+<span class="nb">source</span> ./env/setenv.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="intergration-of-vitis-vision-harris-with-cloudfpga">
+<h2><span class="section-number">5.5.3.2.3.2. </span>Intergration of Vitis Vision Harris with cloudFPGA<a class="headerlink" href="#intergration-of-vitis-vision-harris-with-cloudfpga" title="Permalink to this headline">¶</a></h2>
+<p>In the following figure it is shown how straightforward is to intergrate a function from Vitis libraries with cloudFPGA project.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_dataflow.png?raw=true"><img alt="Oveview of Vitis Vision Harris dataflow" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_dataflow.png?raw=true" /></a>
+<p>Since most of Vitis libraries (in L1) are offered with a AXI stream I/F in dataflow mode, the most obvious approach to connect them to cF is to wrap this
+I/F with anohter I/F that takes care of carefully feeding (as well as sending the results back) to (from) the Harris IP from the network.
+For cFp_Zoo we are using the Themisto Shell already equipeed with a network streaming I/F for the user application.
+A small FSM takes care of the data casting between network and AXI streams.</p>
+</div>
+<div class="section" id="harris-simulation">
+<h2><span class="section-number">5.5.3.2.3.3. </span>Harris Simulation<a class="headerlink" href="#harris-simulation" title="Permalink to this headline">¶</a></h2>
+<p>The testbench of Harris is highlighted below:</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_tb.png?raw=true"><img alt="Oveview of Vitis Vision Harris Testbench" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/../../../../doc/harris_tb.png?raw=true" /></a>
+<p>The testbench is offered in two flavors:</p>
+<ul class="simple">
+<li><p>HLS TB: The testbench of the C++/RTL. This is a typical Vivado HLS testbench but it includes the testing of Harris IP when this is wrapped in a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">cF Themisto Shell</a>.</p></li>
+<li><p>Host TB: This includes the testing of a a host apllication (C++) that send/receives images over Ethernet (TCP/UDP) with a cF FPGA. This testbench establishes a socket-based connection with an intermediate listener which further calls the previous testbench. So practically, the 2nd tb is a wrapper of the 1st tb, but passing the I/O data over socket streams.
+For example this is the <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">command</span></code> inside <code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">TB</span></code> that calls the <code class="docutils literal notranslate"><span class="pre">HLS</span> <span class="pre">TB</span></code>:</p></li>
+</ul>
+<p>This folder contains the mandatory files to proceed withthe 1st option, i.e. HLS TB</p>
+<p>Basic files/module for the HLS TB:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/test/test_harris.cpp">test_harris.cpp</a>: The typical Vivado HLS testbench of Harris IP, when this is wrapped in a Themisto Shell.</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto Shell</a>: The SHELL-ROLE architecture of cF.</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo">cFp_Zoo</a>: The project that bridges Vitis libraries with cF.</p></li>
+</ol>
+<div class="section" id="harris-image-size">
+<h3><span class="section-number">5.5.3.2.3.3.1. </span>Harris image size<a class="headerlink" href="#harris-image-size" title="Permalink to this headline">¶</a></h3>
+<p>The maximum image size, that the Harris IP is configured, is defined at <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/include/config.h">https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/include/config.h</a>
+through the <code class="docutils literal notranslate"><span class="pre">FRAME_HEIGHT</span></code> and <code class="docutils literal notranslate"><span class="pre">FRAME_WIDTH</span></code> definitions. These definitions have an impact of the FPGA resources. In the following simulations if the image
+provided has other dimensions, the <code class="docutils literal notranslate"><span class="pre">cv::resize</span></code> function will be used to adjust the image (scale) to <code class="docutils literal notranslate"><span class="pre">FRAME_HEIGHT</span> <span class="pre">x</span> <span class="pre">FRAME_WIDTH</span></code>.</p>
+<p><strong>Note:</strong> Remember to run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> every time you change those definitions.</p>
+</div>
+<div class="section" id="run-simulation">
+<h3><span class="section-number">5.5.3.2.3.3.2. </span>Run simulation<a class="headerlink" href="#run-simulation" title="Permalink to this headline">¶</a></h3>
+<p><strong>HLS TB</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./ROLE/vision/hls/harris_app
+make fcsim -j <span class="m">4</span>  <span class="c1"># to run simulation using your system&#39;s gcc (with 4 threads)</span>
+make csim   <span class="c1"># to run simulation using Vivado&#39;s gcc</span>
+make cosim  <span class="c1"># to run co-simulation using Vivado</span>
+</pre></div>
+</div>
+<p><strong>Optional steps</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./ROLE/vision/hls/harris_app
+make callgraph <span class="c1"># to run fcsim and then execute the binary in Valgrind&#39;s callgraph tool</span>
+make kcachegrind <span class="c1"># to run callgrah and then view the output in Kcachegrind tool</span>
+make memcheck <span class="c1"># to run fcsim and then execute the binary in Valgrind&#39;s memcheck tool (to inspect memory leaks)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="harris-synthesis">
+<h2><span class="section-number">5.5.3.2.3.4. </span>Harris Synthesis<a class="headerlink" href="#harris-synthesis" title="Permalink to this headline">¶</a></h2>
+<p>Since curretnly the cFDK supports only Vivado(HLS) 2017.4 we are following a 2-steps synthesis
+procedure. Firstly we synthesize the Themisto SHELL with Vivado (HLS) 2017.4 and then we synthesize
+the rest of the project (including P&amp;R and bitgen) with Vivado (HLS) &gt; 2019.1.</p>
+<div class="section" id="the-harris-ip">
+<h3><span class="section-number">5.5.3.2.3.4.1. </span>The Harris IP<a class="headerlink" href="#the-harris-ip" title="Permalink to this headline">¶</a></h3>
+<p>This is only for the HLS of Harris (e.g. to check synthesizability)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cFp_Zoo/ROLE/vision/hls
+make harris <span class="c1"># with Vivado HLS &gt;= 2019.1</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cFp_Zoo/ROLE/vision/hls/harris
+make csynth <span class="c1"># with Vivado HLS &gt;= 2019.1</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cFp_Zoo/ROLE/vision/hls/harris
+vivado_hls -f run_hls.tcl <span class="c1"># with Vivado HLS &gt;= 2019.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-themisto-shell">
+<h3><span class="section-number">5.5.3.2.3.4.2. </span>The Themisto SHELL<a class="headerlink" href="#the-themisto-shell" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cFp_Zoo/cFDK/SRA/LIB/SHELL/Themisto
+make all <span class="c1"># with Vivado HLS == 2019.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-complete-cfp-zoo">
+<h3><span class="section-number">5.5.3.2.3.4.3. </span>The complete cFp_Zoo<a class="headerlink" href="#the-complete-cfp-zoo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> cFp_Zoo
+make monolithic <span class="c1"># with Vivado HLS &gt;= 2019.1</span>
+</pre></div>
+</div>
+<p>More info for the Harris IP: <a class="reference external" href="https://xilinx.github.io/Vitis_Libraries/vision/api-reference.html#harris-corner-detection">https://xilinx.github.io/Vitis_Libraries/vision/api-reference.html#harris-corner-detection</a></p>
+</div>
+<div class="section" id="troubleshooting">
+<h3><span class="section-number">5.5.3.2.3.4.4. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>Vivado libstdc++.so.6: version CXXABI_1.3.11 not found (required by /lib64/libtbb.so.2)`
+</pre></div>
+</div>
+<p>Fix: <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/lib64/libstdc++.so.6</span> <span class="pre">/tools/Xilinx/Vivado/2020.1/lib/lnx64.o/Default/libstdc++.so.6</span></code></p>
+</li>
+<li></li>
+</ul>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>   /lib64/libtbb.so.2: undefined reference to `__cxa_init_primary_exception@CXXABI_1.3.11&#39;
+   /lib64/libtbb.so.2: undefined reference to `std::__exception_ptr::exception_ptr::exception_ptr(void*)@CXXABI_1.3.11&#39;
+
+Fix: ``csim_design -ldflags &quot;-L/usr/lib/gcc/x86_64-redhat-linux/8/ ${OPENCV_LIB_FLAGS} ${OPENCV_LIB_REF}&quot; -clean -argv &quot;${SimFile}&quot;``
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="harris-host-testbench">
+<h2><span class="section-number">5.5.3.2.3.5. </span>Harris Host Testbench<a class="headerlink" href="#harris-host-testbench" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/README.md">This HTML section is rendered based on the Markdown file in cFp_Zoo.</a></p>
+<p>The testbench of Harris is highlighted below:</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/../../../doc/harris_tb.png?raw=true"><img alt="Oveview of Vitis Vision Harris Testbench" src="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/../../../doc/harris_tb.png?raw=true" /></a>
+<p>The testbench is offered in two flavors:</p>
+<ul>
+<li><p>HLS TB: The testbench of the C++/RTL. This is a typical Vivado HLS testbench but it includes the testing of Harris IP when this is wrapped in a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">cF Themisto Shell</a>.</p></li>
+<li><p>Host TB: This includes the testing of a a host apllication (C++) that send/receives images over Ethernet (TCP/UDP) with a cF FPGA. This testbench establishes a socket-based connection with an intermediate listener which further calls the previous testbench. So practically, the 2nd tb is a wrapper of the 1st tb, but passing the I/O data over socket streams.
+For example this is the <code class="docutils literal notranslate"><span class="pre">system</span> <span class="pre">command</span></code> inside <code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">TB</span></code> that calls the <code class="docutils literal notranslate"><span class="pre">HLS</span> <span class="pre">TB</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Calling the actual TB over its typical makefile procedure, but passing the save file</span>
+<span class="n">string</span><span class="w"> </span><span class="n">str_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cd ../../../../ROLE/vision/hls/harris/ &amp;&amp; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">clean_cmd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;\</span>
+<span class="s">INPUT_IMAGE=./test/input_from_udp_to_fpga.png &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">exec_cmd</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &amp;&amp; \</span>
+<span class="s">cd ../../../../HOST/vision/harris/build/ &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str_command</span><span class="p">.</span><span class="n">c_str</span><span class="p">();</span><span class="w"></span>
+<span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Calling TB with command:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">command</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="n">system</span><span class="p">(</span><span class="n">command</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>This folder contains the mandatory files to proceed with the 2nd option, i.e. Host TB</p>
+<p>Basic files/modules for the Host TB:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/src/harris_host.cpp">harris_host.cpp</a>: The end-user application. This is the application that a user can execute on a x86 host and send an image to the FPGA for processing with Harris Corner Detector algorithm. This file is part of both the <code class="docutils literal notranslate"><span class="pre">HLS</span> <span class="pre">TB</span></code> and the <code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">TB</span></code></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/src/harris_host_fwd_tb.cpp">harris_host_fw_tb.cpp</a>: The intermediate listener for socket connections from an end-user application. This file is part only of the <code class="docutils literal notranslate"><span class="pre">Host</span> <span class="pre">TB</span></code>.</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/ROLE/vision/hls/harris/test/test_harris.cpp">test_harris.cpp</a>: The typical Vivado HLS testbench of Harris IP, when this is wrapped in a Themisto Shell.</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto Shell</a>: The Themisto SHELL-ROLE architecture of cF.</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo">cFp_Zoo</a>: The project that bridges Vitis libraries with cF.</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile sources</span>
+<span class="nb">cd</span> ./HOST/vision/harris
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+cmake ../
+make -j <span class="m">2</span>
+
+<span class="c1"># Start the intermediate listener</span>
+<span class="c1"># Usage: ./harris_host_fwd_tb &lt;Server Port&gt; &lt;optional simulation mode&gt;</span>
+./harris_host_fwd_tb <span class="m">1234</span> <span class="m">0</span>
+
+<span class="c1"># Start the actual user application on host</span>
+<span class="c1"># Open another terminal and prepare env</span>
+<span class="nb">cd</span> cFp_Zoo
+<span class="nb">source</span> ./env/setenv.sh
+<span class="nb">cd</span> ./HOST/vision/harris/build
+<span class="c1"># Usage: ./harris_host &lt;Server&gt; &lt;Server Port&gt; &lt;optional input image&gt;</span>
+./harris_host localhost <span class="m">1234</span> ../../../../ROLE/vision/hls/harris/test/8x8.png
+
+<span class="c1"># What happens is that the user application (harris_host) is sending an input image file to</span>
+<span class="c1"># intermediate listener (harris_host_fwd_tb) through socket. The latter receives the payload and</span>
+<span class="c1"># reconstructs the image. Then it is calling the HLS TB by firstly compiling the HLS TB files. The</span>
+<span class="c1"># opposite data flow is realized for taking the results back and reconstruct the FPGA output image.</span>
+<span class="c1"># You should expect the output in the file &lt;optional input image&gt;_fpga_out_frame_#.png</span>
+eog ../../../../ROLE/vision/hls/harris/test/8x8.png_fpga_points_out_frame_1.png
+</pre></div>
+</div>
+</div>
+<div class="section" id="harris-cf-end-to-end-demo">
+<h2><span class="section-number">5.5.3.2.3.6. </span>Harris cF End-to-End Demo<a class="headerlink" href="#harris-cf-end-to-end-demo" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Flash a cF FPGA node with the generated bitstream and note down the IP of this FPGA node. e.g. assuming <code class="docutils literal notranslate"><span class="pre">10.12.200.153</span></code> and port <code class="docutils literal notranslate"><span class="pre">2718</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ./ROLE/vision/host/harris
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+cmake ../
+make -j <span class="m">2</span>
+<span class="nb">cd</span> cFp_Zoo/ROLE/vision/host/harris/build
+<span class="c1"># Usage: ./harris_host &lt;Server&gt; &lt;Server Port&gt; &lt;optional input image&gt;</span>
+./harris_host <span class="m">10</span>.12.200.153 <span class="m">2718</span> ../../../../ROLE/vision/hls/harris/test/8x8.png
+<span class="c1"># You should expect the output in the file &lt;optional input image&gt;_fpga_out_frame_#.png</span>
+eog ../../../../ROLE/vision/hls/harris/test/8x8.png_fpga_points_out_frame_1.png
+</pre></div>
+</div>
+<p><strong>NOTE:</strong> The cFp_Zoo ROLE (FPGA part) is equipped with both the UDP and TCP offload engines. At
+runtime, on host, to select one over the other, you simply need to change in <a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/blob/master/HOST/vision/harris/languages/cplusplus/include/config.h">config.h</a>
+file the define <code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">NET_TYPE</span> <span class="pre">udp</span></code> (choose either udp or tcp).</p>
+</div>
+<div class="section" id="harris-usefull-commands">
+<h2><span class="section-number">5.5.3.2.3.7. </span>Harris usefull commands<a class="headerlink" href="#harris-usefull-commands" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Editing videos for input to the Harris example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">The_Mast_Walk_by_Alex_Thomson.mp4</span> <span class="pre">-ss</span> <span class="pre">00:00:39</span> <span class="pre">-t</span> <span class="pre">00:00:17</span> <span class="pre">-async</span> <span class="pre">1</span> <span class="pre">-strict</span> <span class="pre">-2</span> <span class="pre">cut.mp4</span> <span class="pre">-c</span> <span class="pre">copy</span></code>
+<code class="docutils literal notranslate"><span class="pre">frame=</span> <span class="pre">1025</span> <span class="pre">fps=</span> <span class="pre">42</span> <span class="pre">q=-1.0</span> <span class="pre">Lsize=</span>&#160;&#160; <span class="pre">10487kB</span> <span class="pre">time=00:00:41.00</span> <span class="pre">bitrate=2095.0kbits/s</span></code>
+<code class="docutils literal notranslate"><span class="pre">ffmpeg</span> <span class="pre">-i</span> <span class="pre">cut.mp4</span> <span class="pre">-filter:v</span> <span class="pre">&quot;crop=720:720:200:20&quot;</span> <span class="pre">-strict</span> <span class="pre">-2</span> <span class="pre">cut_720x720.mp4</span></code></p>
+</li>
+</ul>
+</div>
+<div class="section" id="working-with-zyc2">
+<h2><span class="section-number">5.5.3.2.3.8. </span>Working with ZYC2<a class="headerlink" href="#working-with-zyc2" title="Permalink to this headline">¶</a></h2>
+<p>All communication goes over the <em>UDP/TCP port 2718</em>. Hence, the CPU should run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./harris_host &lt;Server&gt; &lt;Server Port&gt; &lt;optional input image&gt;
+</pre></div>
+</div>
+<p>The packets will be send from Host (CPU) Terminal 1 to FPGA and they will be received back in the
+same terminal by a single host application using the <code class="docutils literal notranslate"><span class="pre">sendTo()</span></code> and <code class="docutils literal notranslate"><span class="pre">receiveFrom()</span></code> socket methods.</p>
+<p>For more details, <code class="docutils literal notranslate"><span class="pre">tcpdump</span> <span class="pre">-i</span> <span class="pre">&lt;interface&gt;</span> <span class="pre">-nn</span> <span class="pre">-s0</span> <span class="pre">-vv</span> <span class="pre">-X</span> <span class="pre">port</span> <span class="pre">2718</span></code> could be helpful.</p>
+<p>The <em>Role</em> can be replicated to many FPGA nodes in order to create a pipline of processing.
+Which destination the packets will have is determined by the <code class="docutils literal notranslate"><span class="pre">node_id</span></code>/<code class="docutils literal notranslate"><span class="pre">node_rank</span></code> and <code class="docutils literal notranslate"><span class="pre">cluster_size</span></code>
+(VHDL ports<code class="docutils literal notranslate"><span class="pre">piFMC_ROLE_rank</span></code> and <code class="docutils literal notranslate"><span class="pre">piFMC_ROLE_size</span></code>).</p>
+<p>The <a href="#id6"><span class="problematic" id="id7">**</span></a>Role can be configured to forward the packet always to <code class="docutils literal notranslate"><span class="pre">(node_rank</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">%</span> <span class="pre">cluster_size</span></code>**
+(for UDP and TCP packets), so this example works also for more or less then two FPGAs, actually.
+curretnly, the default example supports one CPU node and one FPGA node.</p>
+<div class="section" id="acknowledgement-and-copyright">
+<h3><span class="section-number">5.5.3.2.3.8.1. </span>Acknowledgement and Copyright<a class="headerlink" href="#acknowledgement-and-copyright" title="Permalink to this headline">¶</a></h3>
+<p>This software part of this project is built upon various open-source libraries, like <a class="reference external" href="http://cs.ecs.baylor.edu/~donahoo/practical/CSockets/practical/">Practical C++ Sockets</a> and <a class="reference external" href="http://opencv.org/">OpenCV 3</a> ; please refer to their original license accordingly (GPL/BSD). Code of this project is puslished under Apache v2 License.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cFp_Zoo_quantitative_finance_mceuropean_engine.html" class="btn btn-neutral float-right" title="5.5.3.2.4. cFp Monte Carlo European Pricing Engine" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cFp_Zoo_custom_memtest.html" class="btn btn-neutral float-left" title="5.5.3.2.2. cFp_Memtest" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

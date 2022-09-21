@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. The cloudFPGA Sphere &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.1. cFDK" href="cfdk.html" />
+    <link rel="prev" title="3. Getting Started" href="../GETTING_STARTED/getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. The cloudFPGA Sphere</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html">4.1. cFDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html">4.2. cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html">4.3. cFSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>The cloudFPGA Sphere</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CFSPHERE/cfsphere.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-cloudfpga-sphere">
+<span id="cfsphere"></span><h1><span class="section-number">4. </span>The cloudFPGA Sphere<a class="headerlink" href="#the-cloudfpga-sphere" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>cloudFPGA Sphere</strong> or <strong>cFSphere</strong> is what constitutes the core of a cloudFPGA system.
+It is composed of several software components, each of them being provided as a standalone
+cF repository.</p>
+<a class="reference external image-reference" href="./imgs/cfsphere.png"><img alt="Bus-attached vs Network-attached FPGAs" src="../../_images/cfsphere.png" /></a>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfdk.html">cloudFPGA Development Kit (cFDK)</a>
+provides all the design files that are necessary to instantiate a cloudFPGA <strong>SHELL</strong> once a
+Shell-Role architecture has been chosen by the user.</p>
+<ul>
+<li><p>The cFDK is provided as a cloudFPGA repository <a class="reference external" href="https://github.com/cloudFPGA/cFDK/">(cFDK Repo)</a>
+and the documentation of its API is available in Doxygen style
+<a class="reference external" href="https://cloudfpga.github.io/Dox/index.html">(cFDK Dox)</a></p></li>
+</ul>
+</li>
+<li><p>The <strong>cloudFPGA Resource Manager (cFRM)</strong> is a software component for acquiring, distributing,
+configuring and operating our stand-alone network-attached FPGAs in the DC infrastructure.
+This is a complex 3-tier hierarchical architecture
+<a class="reference external" href="https://www.zurich.ibm.com/pdf/fpga/FPL_2019.pdf">[Ringlein-2019]</a> for which we provide the
+following two RESTful web APIs for a user to interact with:</p>
+<ul>
+<li><p>The <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfsp.html">cloudFPGA Support Package (cFSP)</a>
+is a software library for accessing the control and the data path of a cloudFPGA instance.
+The cFSP is provided as a cloudFPGA repository <a class="reference external" href="https://github.com/cloudFPGA/cFSP">(cFSP Repo)</a>.</p></li>
+<li><p>The <strong>cloudFPGA REST (cFREST)</strong> is a graphical web API for the user to access the features
+provided by the cFRM. This API is available as a Swagger UI with a look and feel similar to
+this <a class="reference external" href="./imgs/cFREST.jpeg">screenshot</a>.</p></li>
+</ul>
+</li>
+<li><p>The <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/CFSPHERE/cfcreate.html">cloudFPGA Create (cFCreate)</a> is a framework
+to assist a user during the creation and the update of a cloudFPGA project. It is also provided
+as a cloudFPGA repository <a class="reference external" href="https://github.com/cloudFPGA/cFCreate">(cFCreate Rep)</a></p></li>
+</ul>
+<p>For more information on these components, please visit the documentation of the corresponding
+repositories.</p>
+<!---
+
+# ## Application Programming Interface (API)
+
+# The documentation of the cFDK's API is available
+  [**\<HERE\>**](https://cloudfpga.github.io/Dox/index.html) in *Doxygen* style.
+
+---><div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cfdk.html">4.1. cFDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html#introduction">4.1.1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html#the-cf-module">4.1.2. The cF Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html#the-cf-shell">4.1.3. The cF Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfdk.html#the-shell-role-architecture">4.1.3.1. The Shell-Role-Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfdk.html#the-cf-project">4.1.3.2. The cF Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfdk.html#how-to-create-a-cloudfpga-project">4.1.3.3. How to create a cloudFPGA Project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfdk.html#typical-cfp-file-structure">4.1.3.4. Typical cFp file structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cfcreate.html">4.2. cFCreate</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#requirements">4.2.1. Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#setup-your-virtualenv">4.2.1.1. Setup your Virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#usage">4.2.2. Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#create-new-cloudfpga-project-cfp">4.2.2.1. 1. Create new cloudFPGA project (cFp)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#update-an-existing-cfp">4.2.2.2. 2. Update an existing cFp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#add-a-cloudfpga-addon-cfa-to-an-existing-cfp">4.2.2.3. 3. Add a cloudFPGA addon (cFa) to an existing cFp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#structure-of-a-cfp">4.2.3. Structure of a cFp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#build-a-cfp">4.2.4. Build a cFp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#id2">4.2.5. Git integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#push-new-cfp-to-a-git-repository">4.2.5.1. Push new cFp to a git repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfcreate.html#cfdk-as-git-submodule">4.2.5.2. cFDK as git submodule</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#sra-tools-as-bash-alias">4.2.6. <code class="docutils literal notranslate"><span class="pre">sra</span> <span class="pre">tools</span></code> as bash alias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#mantle-support">4.2.7. Mantle support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html#known-limitations-bugs">4.2.8. Known Limitations/Bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cfsp.html">4.3. cFSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html#requirements">4.3.1. Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html#installation">4.3.2. Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#installation-through-github">4.3.2.1. Installation through github</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#installation-through-pypi">4.3.2.2. Installation through PyPi</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html#getting-started">4.3.3. Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#contents">4.3.3.1. Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id4">4.3.3.2. Getting help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id5">4.3.3.3. Setting up the credentials file for a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id8">4.3.3.4. Show the credentials of a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id9">4.3.3.5. Load new credentials for a user</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id10">4.3.3.6. Upload an image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#upload-an-image-for-partial-reconfiguration">4.3.3.7. Upload an image for partial reconfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id11">4.3.3.8. Get an image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id12">4.3.3.9. Create a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id17">4.3.3.10. Create a multi-node cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id18">4.3.3.11. Update the nodes of a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id21">4.3.3.12. Get a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id22">4.3.3.13. Extend a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id25">4.3.3.14. Reduce a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id26">4.3.3.15. Restart a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id27">4.3.3.16. Debug a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id30">4.3.3.17. Delete a cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id33">4.3.3.18. Create an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id36">4.3.3.19. Get an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id37">4.3.3.20. Restart an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id38">4.3.3.21. Debug an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id42">4.3.3.22. Delete an instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#debug-using-the-flight-recorder-data">4.3.3.23. Debug using the flight recorder data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cfsp.html#id50">4.3.3.24. Use cFSP as a Python module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html#update-of-the-python-python-api">4.3.4. Update of the python Python API</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cfdk.html" class="btn btn-neutral float-right" title="4.1. cFDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../GETTING_STARTED/getting_started.html" class="btn btn-neutral float-left" title="3. Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

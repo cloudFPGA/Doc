@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Overview of cloudFPGA &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Getting Started" href="../GETTING_STARTED/getting_started.html" />
+    <link rel="prev" title="1. Introduction" href="../INTRODUCTION/introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Overview of cloudFPGA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-cloudfpga-service-architecture">2.1. The cloudFPGA Service Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cloudfpga-development-flows">2.2. The cloudFPGA Development Flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cloudfpga-research-platform">2.3. The cloudFPGA Research Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cloudfpga-development-kit">2.4. The cloudFPGA Development Kit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-privilege-layers">2.4.1. User Privilege Layers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-cloudfpga-organization">2.5. The cloudFPGA Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>Overview of cloudFPGA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/OVERVIEW/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview-of-cloudfpga">
+<span id="overview"></span><h1><span class="section-number">2. </span>Overview of cloudFPGA<a class="headerlink" href="#overview-of-cloudfpga" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>cloudFPGA (cF)</strong> proposal is to promote FPGAs to become 1st class-citizens in <strong>data centers
+(DC)</strong> by setting the FPGAs free from the traditional CPU-bus attachments and by making them
+plentiful in modern hyperscale DCs.</p>
+<ul>
+<li><p>The first proposition is carried out by <strong>disaggregating</strong> the FPGAs from the server nodes and by
+connecting the FPGAs directly to the DC network. As a result, FPGAs can communicate with other
+CPUs and FPGAs in the DC network with low latency and high bandwidth .</p>
+<a class="reference external image-reference" href="imgs/about-cf-1.png"><img alt="Bus-attached vs Network-attached FPGAs" src="../../_images/about-cf-1.png" /></a>
+</li>
+<li><p>The second is achieved by turning the FPGAs into <strong>standalone network attached</strong> FPGAs while densely
+packing them into DC chassis and racks. From that prospect, FPGAs become autonomous and 1st class-compute
+nodes that can be reached anywhere in the DC via their IP address.</p>
+<a class="reference external image-reference" href="imgs/about-cf-2.png"><img alt="How-to-make-FPGAs-plentiful-in-DC" src="../../_images/about-cf-2.png" /></a>
+</li>
+</ul>
+<div class="section" id="the-cloudfpga-service-architecture">
+<h2><span class="section-number">2.1. </span>The cloudFPGA Service Architecture<a class="headerlink" href="#the-cloudfpga-service-architecture" title="Permalink to this headline">¶</a></h2>
+<p>In the cloud computing universe, a <strong>CPU Instance</strong> is a hardware resource (such as a server or a
+virtual machine) combined with the image of an operating system (such as <em>Linux</em> or <em>Windows</em>).
+Next, different types of CPU instances are offered in the Cloud based on varying hardware
+capabilities such as clock frequency, #cores, memory size, computing power, etc. Finally, when
+deploying a workload on the Cloud, users select the CPU instance that best matches the requirements
+of their application.</p>
+<p>The cloud service architecture of cloudFPGA is comparable to a cloud service hosting traditional
+servers and virtual machines when considering the following correlation cases:</p>
+<ul class="simple">
+<li><p>in cF, the equivalent of the CPU-based hardware resource is an FPGA device and its surrounding
+board components. We refer to such an FPGA card as an <strong>FPGA module (MOD)</strong>.</p></li>
+<li><p>in cF, the equivalent of the OS kernel is a piece of reconfigurable logic that contains the
+custom interfaces and run-time logic to host and run a workload. We refer to such a kernel
+implemented in logic gates as a <strong>Shell</strong>.</p></li>
+</ul>
+<p>As a result, the counter part of a CPU instance is an <strong>FPGA Instance</strong> and we can draw the
+following parallels:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Instance Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU_Instance</p></td>
+<td><p>Hw_Resource + OS_Image</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_Instance</p></td>
+<td><p>FPGA_Module + Shell</p></td>
+</tr>
+</tbody>
+</table>
+<p>With respect to the above definition of an FPGA Instance, we further refer to an <strong>FPGA Cluster</strong>
+as a set of <em>N</em> FPGA Instances.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Cluster Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU_Cluster</p></td>
+<td><p><em>N</em> * CPU_Instances</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_Cluster</p></td>
+<td><p><em>N</em> * FPGA_Instances</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-cloudfpga-development-flows">
+<h2><span class="section-number">2.2. </span>The cloudFPGA Development Flows<a class="headerlink" href="#the-cloudfpga-development-flows" title="Permalink to this headline">¶</a></h2>
+<p>A cloudFPGA application is referred to as a <strong>Role (ROL)</strong> and it is typically deployed using
+<strong>Partial Reconfiguration (PR)</strong> over the data center network.
+The various design flows for developing and deploying FPGA bitstreams of such ROL applications,
+are presented in the figure below.</p>
+<ul class="simple">
+<li><p>the leftmost situation depicts a user working on a <strong>remote machine</strong> to develop his application
+and later deploy it on a single cloudFPGA instance (represented here as a little <em>yellow square
+box</em> at the bottom of the figure). In this remote scenario, the user’s computer is expected
+to supervise the FPGA instance located in our on-premises Cloud infrastructure, and to feed it
+with appropriate data and commands.</p></li>
+<li><p>the middle case shows a user developing with a <strong>Virtual Machine (VM)</strong> hosted in our
+on-premises Cloud infrastructure and later deploying his application on multiple FPGA
+instances. Obviously, the preferred way to manage these duplicated FPGA instances is to re-use
+that VM or a similar one located in the same Cloud infrastructure.</p></li>
+<li><p>the rightmost column exemplifies a user deploying <strong>multiple VMs</strong> as well as <strong>multiple
+clusters of FPGAs</strong>.</p></li>
+</ul>
+<a class="reference external image-reference" href="imgs/dev-flow.png"><img alt="Overview-of-the-development-flow" src="../../_images/dev-flow.png" /></a>
+<p>To produce a bitstream in the above scenario #1, you may use the Xilinx design tool version of your
+choice. In return, you must be able to check out any corresponding product license (if required)
+on your own.
+For the scenario #2, we offer a pre-installed <em>Linux</em> distribution (typically <em>CentOS</em>) and a free
+Xilinx Vivado installation (typically <em>Vivado 2017.4</em>).</p>
+</div>
+<div class="section" id="the-cloudfpga-research-platform">
+<h2><span class="section-number">2.3. </span>The cloudFPGA Research Platform<a class="headerlink" href="#the-cloudfpga-research-platform" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>cloudFPGA Research Platform (cFRP)</strong> is a 2U height by 19 inches wide chassis featuring 64
+FPGA instances. The chassis is equipped with two sleds (S0, S1), each sled consisting of
+32 FPGA instances connected to an Intel FM6000 Ethernet switch via a carrier board. The FM6000
+acts as a leaf switch that aggregates 32x10GbE links from the FPGAs and exposes them to a
+higher-level spin network via 8x40GbE up-links. This amounts to a bi-sectional bandwidth of
+640 Gb/s per sled.</p>
+<a class="reference external image-reference" href="../CFHW/cFRP/imgs/cfrp1.png"><img alt="Overview-of-the-research-platform" src="../../_images/cfrp1.png" /></a>
+<p>Next, a <strong>cloudFPGA Infrastructure</strong> consists of numerous such cFRPs assembled into one or
+multiple DC racks.</p>
+<p>Note that knowledge of the cFRP is not required for developing with cloudFPGA.
+The only concept that a user must grasp, is that IP-based switching and routing among FPGAs and
+CPU servers provide DC-wide end-to-end connectivity and flexibility. However, the above cFRP
+details might be relevant to advanced users who seek ultra low-latency and who may want to deploy
+their cluster on FPGAs which are spatially close in a sled, a chassis or a rack.</p>
+</div>
+<div class="section" id="the-cloudfpga-development-kit">
+<h2><span class="section-number">2.4. </span>The cloudFPGA Development Kit<a class="headerlink" href="#the-cloudfpga-development-kit" title="Permalink to this headline">¶</a></h2>
+<p>A cloudFPGA application builds on the design pattern referred to as <strong>Shell Role
+Architecture (SRA)</strong>. This design separates the platform-specific parts (i.e. the <em>Shell</em>) from the
+application-specific parts (i.e. the <em>Role</em>) to increase the re-usability and to isolate the two
+parts.</p>
+<ul class="simple">
+<li><p>The <strong>Shell (SHL)</strong> contains all necessary I/O components, the run-time modules and the network
+stack that hooks the FPGA to the DC network. It further abstracts all these hardware components
+by exposing standard <em>AXI interfaces</em> to the user. From a computer operating system perspective,
+the Shell can be seen as the conceptual counterpart of the kernel space.</p></li>
+<li><p>The <strong>Role (ROL)</strong> is the application-specific part of the FPGA logic. It embeds the user’s
+custom application and can be assimilated to a CPU application executed in user space.</p></li>
+</ul>
+<a class="reference external image-reference" href="./imgs/shell-role.png"><img alt="Overview-of-the-shell-role-architecture" src="../../_images/shell-role.png" /></a>
+<p>Multiple shell architectures might be available for a given
+<a class="reference external" href="#the-cloudfpga-service-architecture">FPGA module (MOD)</a>. Once a user has decided for a module<span class="raw-html-m2r"><br></span>
+and a shell to run his role, it is the duty of the cloudFPGA development kit to assemble
+the tuple <em>{MOD, SHL, ROL}</em> into a so-called <strong>cloudFPGA Project (cFp)</strong>. The
+<a class="reference external" href="https://github.com/cloudFPGA/cFDK/">cFDK</a> repository contains all the source code, the
+documentation and the build scripts that are necessary to create such a cloudFPGA project.</p>
+<div class="section" id="user-privilege-layers">
+<h3><span class="section-number">2.4.1. </span>User Privilege Layers<a class="headerlink" href="#user-privilege-layers" title="Permalink to this headline">¶</a></h3>
+<p>Depending on the commitment sought by the user, the cFDK offers two kind of development experiences
+characterized by different levels of protection.</p>
+<ul class="simple">
+<li><p><strong>common users</strong> are unprivileged users who use the development kit to build their custom
+hardware accelerated application, generate an FPGA bitstream and run it on a cloudFPGA instance.</p></li>
+<li><p><strong>privileged users</strong> are granted the right to modify an existing shell or to create one with new
+features. This status must be requested and authorized by the <em>cF team</em>.</p></li>
+</ul>
+<p>Warning: The cFDK is only available for <strong>Linux</strong> operating systems.</p>
+</div>
+</div>
+<div class="section" id="the-cloudfpga-organization">
+<h2><span class="section-number">2.5. </span>The cloudFPGA Organization<a class="headerlink" href="#the-cloudfpga-organization" title="Permalink to this headline">¶</a></h2>
+<p>The cloudFPGA organization is a central place for sharing and hosting cloudFPGA related projects
+and collaborations.</p>
+<a class="reference external image-reference" href="./imgs/cloudfpga-organization.png"><img alt="cloudfpga-organization" src="../../_images/cloudfpga-organization.png" /></a>
+<p>As of today, the organization consists of two main types of repositories:</p>
+<ul class="simple">
+<li><p>repositories which are part of the cloudFPGA core system such as:</p>
+<ul>
+<li><p>the <a class="reference external" href="https://github.com/cloudFPGA/cFDK/">cFDK</a> which contains a framework to help implement
+your FPGA application on a cloudFPGA research platform,</p></li>
+<li><p>the <a class="reference external" href="https://github.com/cloudFPGA/cFSP">cFSP</a> which includes a support library for accessing
+the data and control paths of a cloudFPGA instance.</p></li>
+<li><p>the <a class="reference external" href="https://github.com/cloudFPGA/cFCreate">cFCreate</a> tool which eases the creation and the
+update of cloudFPGA projects,</p></li>
+<li><p>the <a class="reference external" href="https://github.com/cloudFPGA/Doc">Doc</a> repository which contains the generic cloudFPGA
+documentation used to build the <em>GitHub</em> pages that you are currently reading.</p></li>
+<li><p>the <a class="reference external" href="https://github.com/cloudFPGA/Dox">Dox</a> which is used to generate the <em>Doxygen</em> formatted
+documentation of the cFDK.</p></li>
+</ul>
+</li>
+<li><p>repositories which contain specific cloudFPGA projects developed by the community such as:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale">cFp_HelloKale</a> a ‘<em>Hello world</em>’ project based
+upon the shell ‘<em>Kale</em>’,</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">cFp_HelloThemisto</a> a ‘<em>Hello world</em>’ project
+based upon the shell ‘<em>Themisto</em>’,</p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo">cFp_Zoo</a> a set of domain-specific accelerators for
+the hybrid multi-cloud era, including some of the open source <em>Vitis Library</em> adapted for
+the cloudFPGA platform.</p></li>
+</ul>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>By convention, the repository’s name of a cloudFPGA project is always
+pre-pended with the string “<strong>cFp_</strong>” for <em>cloudFPGA project</em>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../GETTING_STARTED/getting_started.html" class="btn btn-neutral float-right" title="3. Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../INTRODUCTION/introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

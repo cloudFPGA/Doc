@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.3. cFSP &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5. Project repository" href="../PROJECTS/cfprojects.html" />
+    <link rel="prev" title="4.2. cFCreate" href="cfcreate.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfsphere.html">4. The cloudFPGA Sphere</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html">4.1. cFDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfcreate.html">4.2. cFCreate</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. cFSP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">4.3.1. Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">4.3.2. Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-through-github">4.3.2.1. Installation through github</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation-through-pypi">4.3.2.2. Installation through PyPi</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">4.3.3. Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#contents">4.3.3.1. Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.3.3.2. Getting help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.3.3.3. Setting up the credentials file for a user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">4.3.3.4. Show the credentials of a user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.3.3.5. Load new credentials for a user</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.3.3.6. Upload an image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-an-image-for-partial-reconfiguration">4.3.3.7. Upload an image for partial reconfiguration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">4.3.3.8. Get an image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">4.3.3.9. Create a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">4.3.3.10. Create a multi-node cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">4.3.3.11. Update the nodes of a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">4.3.3.12. Get a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">4.3.3.13. Extend a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">4.3.3.14. Reduce a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">4.3.3.15. Restart a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id27">4.3.3.16. Debug a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">4.3.3.17. Delete a cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">4.3.3.18. Create an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">4.3.3.19. Get an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37">4.3.3.20. Restart an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">4.3.3.21. Debug an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">4.3.3.22. Delete an instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#debug-using-the-flight-recorder-data">4.3.3.23. Debug using the flight recorder data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id50">4.3.3.24. Use cFSP as a Python module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update-of-the-python-python-api">4.3.4. Update of the python Python API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfsphere.html"><span class="section-number">4. </span>The cloudFPGA Sphere</a> &raquo;</li>
+        
+      <li><span class="section-number">4.3. </span>cFSP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CFSPHERE/cfsp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p align="center">
+**Note:** [This HTML section is rendered based on the Markdown file in cFSP.](https://github.com/cloudFPGA/cFSP/blob/master//README.md)
+
+  <a aria-label="License" href="https://github.com/cloudFPGA/cFSP/blob/master/LICENSE">
+    <img alt="" src="https://img.shields.io/github/license/cloudFPGA/cFSP?style=for-the-badge&labelColor=000000">
+  </a>
+  <a aria-label="PyPi" href="https://pypi.org/project/cfsp/">
+    <img alt="" src="https://img.shields.io/pypi/v/cfsp?style=for-the-badge&labelColor=000000">
+  </a>
+  <a aria-label="Python" href="#cFSP">
+    <img alt="" src="https://img.shields.io/pypi/pyversions/cfsp?style=for-the-badge&labelColor=000000">
+  </a>
+</p><a class="reference external image-reference" href="https://jenkins.cloudfpga.zc2.ibm.com/job/cFSP/"><img alt="Build Status" src="https://jenkins.cloudfpga.zc2.ibm.com/buildStatus/icon?job=cFSP" /></a>
+<div class="section" id="id1">
+<h1><span class="section-number">4.3. </span>cFSP<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>cloudFPGA Support Package (cFSP)</strong> for the cloudFPGA project.</p>
+<p>Currently, the cFSP includes a library for the control plane of cloudFPGA.</p>
+<p>The cFSP control plane includes a <a class="reference external" href="cFSPlib/python_api_client/README.md">Python package</a> which is automatically generated by the <a class="reference external" href="https://github.com/swagger-api/swagger-codegen">Swagger Codegen</a> project:</p>
+<ul class="simple">
+<li><p>API version: 0.8</p></li>
+<li><p>Package version: 1.0.0</p></li>
+</ul>
+<p><a class="reference external" href="#update-of-the-python-python-api">Instrunctions to update the Python API Client</a></p>
+<div class="section" id="requirements">
+<h2><span class="section-number">4.3.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Python 3.6+</p>
+</div>
+<div class="section" id="installation">
+<h2><span class="section-number">4.3.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>We recommend the installation at an isolated Python environment, e.g. through <a class="reference external" href="https://virtualenv.pypa.io">Virtualenv</a>.</p>
+<div class="section" id="installation-through-github">
+<h3><span class="section-number">4.3.2.1. </span>Installation through github<a class="headerlink" href="#installation-through-github" title="Permalink to this headline">¶</a></h3>
+<p>Use this option for the most up-to-date installation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:cloudFPGA/cFSP.git
+<span class="nb">cd</span> cFSP/
+virtualenv -p /usr/bin/python3.8 cfenv
+<span class="nb">source</span> cfenv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="installation-through-pypi">
+<h3><span class="section-number">4.3.2.2. </span>Installation through PyPi<a class="headerlink" href="#installation-through-pypi" title="Permalink to this headline">¶</a></h3>
+<p>We maintain <code class="docutils literal notranslate"><span class="pre">cFSP</span></code> at <a class="reference external" href="https://pypi.org/project/cfsp/">PyPi</a>.
+Use this option for fast installation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virtualenv -p /usr/bin/python3.8 cfenv
+<span class="nb">source</span> cfenv/bin/activate
+pip install --upgrade pip
+pip install cfsp
+</pre></div>
+</div>
+<blockquote>
+<div><p><a href="#id2"><span class="problematic" id="id3">**</span></a><em>NOTE:</em>** If you install <code class="docutils literal notranslate"><span class="pre">cfsp</span></code> through <code class="docutils literal notranslate"><span class="pre">PyPi</span></code>, then the top-level script <code class="docutils literal notranslate"><span class="pre">cfsp</span></code> can be executed from any directory location, and not necessarily from the cFSP root path. Thus, in the following commands you should replace <code class="docutils literal notranslate"><span class="pre">./cfsp</span></code> by <code class="docutils literal notranslate"><span class="pre">cfsp</span></code>.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="getting-started">
+<h2><span class="section-number">4.3.3. </span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="contents">
+<h3><span class="section-number">4.3.3.1. </span>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="#getting-help">Getting help</a>.</p></li>
+<li><p><a class="reference external" href="#setting-up-the-credentials-file-for-a-user">Setting up the credentials file for a user</a>.</p></li>
+<li><p><a class="reference external" href="#show-the-credentials-of-a-user">Show the credentials of a user</a>.</p></li>
+<li><p><a class="reference external" href="#load-new-credentials-for-a-user">Load new credentials for a user</a>.</p></li>
+<li><p><a class="reference external" href="#upload-an-image">Upload an image</a>.</p></li>
+<li><p><a class="reference external" href="#upload-an-image-for-partial-reconfiguration">Upload an image for pr</a>.</p></li>
+<li><p><a class="reference external" href="#get-an-image">Get an image</a>.</p></li>
+<li><p><a class="reference external" href="#create-a-cluster">Create a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#create-a-multi-node-cluster">Create a multi-node cluster</a>.</p></li>
+<li><p><a class="reference external" href="#update-the-nodes-of-a-cluster">Update the nodes of a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#get-a-cluster">Get a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#extend-a-cluster">Extend a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#reduce-a-cluster">Reduce a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#restart-a-cluster">Restart a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#debug-a-cluster">Debug a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#delete-a-cluster">Delete a cluster</a>.</p></li>
+<li><p><a class="reference external" href="#create-an-instance">Create an instance</a>.</p></li>
+<li><p><a class="reference external" href="#get-an-instance">Get an instance</a>.</p></li>
+<li><p><a class="reference external" href="#restart-an-instance">Restart an instance</a>.</p></li>
+<li><p><a class="reference external" href="#debug-an-instance">Debug an instance</a>.</p></li>
+<li><p><a class="reference external" href="#delete-an-instance">Delete an instance</a>.</p></li>
+<li><p><a class="reference external" href="#debug-using-the-flight-recorder-data">Debug using the flight-record data</a>.</p></li>
+<li><p><a class="reference external" href="#use-cfsp-as-a-python-module">Use cFSP as a Python module</a>.</p></li>
+</ul>
+<p>A comprehensive example that tests all the supported functions of cFSP is provided in <a class="reference external" href="https://github.com/cloudFPGA/cFSP/blob/master/test/test_cfsp_module.py">tests/test_cfsp_module.py</a>.</p>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">4.3.3.2. </span>Getting help<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Please follow the <a class="reference external" href="#installation--usage">installation procedure</a> and then run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp --help
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/1.png?raw=true"><img alt="cfsp-help" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/1.png?raw=true" /></a>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">4.3.3.3. </span>Setting up the credentials file for a user<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Load the credentials for a user. If no credentials file exists, a new one be created. The default filename is <code class="docutils literal notranslate"><span class="pre">user.json</span></code> and it is strored in the cFSP folder. You need to provide your ZYC2 username and password, as well as a project you are member of.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp user load  --username<span class="o">=</span>my_username --password<span class="o">=</span>my_password --project<span class="o">=</span>my_project
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2.png?raw=true"><img alt="cfsp-user-load" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2.png?raw=true" /></a>
+<p>The file has the following JSON format:</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/3.png?raw=true"><img alt="cfsp-user-json" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/3.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id6"><span class="problematic" id="id7">**</span></a><em>NOTE:</em>** You may provide a specific configuration file instead of the default (user.json), by using the option <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">my_custom_file</span></code> (or <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">my_custom_file</span></code>), e.g.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp user load --config /home/user/user.json
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">4.3.3.4. </span>Show the credentials of a user<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Show the credentials of a user from a credentials file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp user show
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2a.png?raw=true"><img alt="cfsp-user-show" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2a.png?raw=true" /></a>
+</div>
+<div class="section" id="id9">
+<h3><span class="section-number">4.3.3.5. </span>Load new credentials for a user<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>You can easily load new credentials by:</p>
+<ul>
+<li><p>either editing the configuration file (e.g. user.json),</p></li>
+<li><p>or by providing any of the supported command line options (<code class="docutils literal notranslate"><span class="pre">--username</span></code>, <code class="docutils literal notranslate"><span class="pre">--password</span></code>, <code class="docutils literal notranslate"><span class="pre">--project</span></code>). In the latter case, the configuration file is being overwritten.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp user load --username<span class="o">=</span>anotherUser  --password<span class="o">=</span>anotherPassword  --project<span class="o">=</span>anotherProject
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2b.png?raw=true"><img alt="cfsp-user-load-new" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/2b.png?raw=true" /></a>
+</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><span class="section-number">4.3.3.6. </span>Upload an image<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to upload the FPGA image which is stored at <code class="docutils literal notranslate"><span class="pre">/tmp/4_topFMKU60_impl_monolithic.bit</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp image post --image_file<span class="o">=</span>4_topFMKU60_impl_monolithic.bit
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4.png?raw=true"><img alt="cfsp-image-post" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4.png?raw=true" /></a>
+</div>
+<div class="section" id="upload-an-image-for-partial-reconfiguration">
+<h3><span class="section-number">4.3.3.7. </span>Upload an image for partial reconfiguration<a class="headerlink" href="#upload-an-image-for-partial-reconfiguration" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to upload the FPGA image for pr which is stored at <code class="docutils literal notranslate"><span class="pre">/tmp/example_files_PR/4_topFMKU60_impl_2_pblock_ROLE_partial.bin</span></code>. In that case you will also need the corresponding signature file that was produced by the build (<code class="docutils literal notranslate"><span class="pre">/tmp/example_files_PR/4_topFMKU60_impl_2_pblock_ROLE_partial.bin.sig</span></code>), as well as the result of the pr_verify command <code class="docutils literal notranslate"><span class="pre">/tmp/example_files_PR/5_topFMKU60_impl_2_pblock_ROLE_partial.rpt</span></code>. In addition, a configuration json file is selected by default in the parent folder of the provided image file. An example follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp image post-app-logic --image_file<span class="o">=</span>/tmp/example_files_PR/4_topFMKU60_impl_2_pblock_ROLE_partial.bin --sig_file<span class="o">=</span>/tmp/example_files_PR/4_topFMKU60_impl_2_pblock_ROLE_partial.bin.sig --pr_verify_rpt<span class="o">=</span>/tmp/example_files_PR/5_topFMKU60_impl_2_pblock_ROLE_partial.rpt
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4a.png?raw=true"><img alt="cfsp-image-post-pr" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4a.png?raw=true" /></a>
+<p>Please note that those last two files are automatically selected by default, if only the image file is provided, like in the following example:</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4b.png?raw=true"><img alt="cfsp-image-post" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/4b.png?raw=true" /></a>
+</div>
+<div class="section" id="id11">
+<h3><span class="section-number">4.3.3.8. </span>Get an image<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to get the details of the previously uloaded FPGA image with id <code class="docutils literal notranslate"><span class="pre">74462cd5-20e3-4228-a47d-258b7e5e583a</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp image get 74462cd5-20e3-4228-a47d-258b7e5e583a
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/5.png?raw=true"><img alt="cfsp-image-get" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/5.png?raw=true" /></a>
+</div>
+<div class="section" id="id12">
+<h3><span class="section-number">4.3.3.9. </span>Create a cluster<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to create a cluster with</p>
+<ul class="simple">
+<li><p>one CPU node from ZYC2 with ip=<code class="docutils literal notranslate"><span class="pre">10.12.2.100</span></code></p></li>
+<li><p>one FPGA from cloudFPGA platform with the previously uloaded FPGA image with id <code class="docutils literal notranslate"><span class="pre">74462cd5-20e3-4228-a47d-258b7e5e583a</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster post --image_id<span class="o">=</span>74462cd5-20e3-4228-a47d-258b7e5e583a --node_ip<span class="o">=</span><span class="m">10</span>.12.2.100
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6.png?raw=true"><img alt="cfsp-cluster-post" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id13"><span class="problematic" id="id14">**</span></a><em>NOTE:</em>** By using the option <code class="docutils literal notranslate"><span class="pre">--node_id</span></code> after every <code class="docutils literal notranslate"><span class="pre">--image_id</span></code> and <code class="docutils literal notranslate"><span class="pre">--node_ip</span></code>, you can define the specific rank that this CPU node or FPGA node is associated with. If no such (an) option(s) (is)are provided, then incremental <code class="docutils literal notranslate"><span class="pre">node_id</span></code>s will be assigned, as shown in the figure above. Please note that if you provide <code class="docutils literal notranslate"><span class="pre">--node_id</span></code>s, it is mandatory to firstly define those of CPU(s) and secondly of FPGA(s).</p>
+<p><a href="#id15"><span class="problematic" id="id16">**</span></a><em>NOTE:</em>** You may want to create many clusters of the previous type. For such cases, there is an extra option <code class="docutils literal notranslate"><span class="pre">--repeat=&lt;num&gt;</span></code>, which specifies how many times the command should be issued. Please note that this applies to all supported commands of <code class="docutils literal notranslate"><span class="pre">cfsp</span></code>, e.g. :</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster post --image_id<span class="o">=</span>74462cd5-20e3-4228-a47d-258b7e5e583a --node_id <span class="m">0</span> --node_ip<span class="o">=</span><span class="m">10</span>.12.2.100 --node_id <span class="m">1</span> --repeat<span class="o">=</span><span class="m">2</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6a.png?raw=true"><img alt="cfsp-cluster-post-repeat" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6a.png?raw=true" /></a>
+</div>
+<div class="section" id="id17">
+<h3><span class="section-number">4.3.3.10. </span>Create a multi-node cluster<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>You can add to a cluster an arbitrary number of</p>
+<ul class="simple">
+<li><p>CPU nodes from ZYC2, by using the <code class="docutils literal notranslate"><span class="pre">--node_ip=</span></code> identifier</p></li>
+<li><p>FPGA nodes from cloudFPGA, by using the <code class="docutils literal notranslate"><span class="pre">--image_id=</span></code> identifier</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster post --image_id<span class="o">=</span>74462cd5-20e3-4228-a47d-258b7e5e583a --image_id<span class="o">=</span>d031b5a9-c3d8-4775-98db-e3de936a63e3  --node_ip<span class="o">=</span><span class="m">10</span>.12.2.100 --node_ip<span class="o">=</span><span class="m">10</span>.12.2.101 --node_ip<span class="o">=</span><span class="m">10</span>.12.2.103 --node_ip<span class="o">=</span><span class="m">10</span>.12.2.104 --node_ip<span class="o">=</span><span class="m">10</span>.12.2.105
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6b.png?raw=true"><img alt="cfsp-cluster-post-many" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6b.png?raw=true" /></a>
+</div>
+<div class="section" id="id18">
+<h3><span class="section-number">4.3.3.11. </span>Update the nodes of a cluster<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>You can update:</p>
+<ul class="simple">
+<li><p>the images of some or all of the FPGA nodes of a cluster.</p></li>
+<li><p>the IPs of some or all CPU nodes of a cluster</p></li>
+</ul>
+<p>For example to update only the image of the <code class="docutils literal notranslate"><span class="pre">node_id=0</span></code>, of the previously created cluster with id <code class="docutils literal notranslate"><span class="pre">257</span></code>, to the <code class="docutils literal notranslate"><span class="pre">image_id=3f0427af-d37a-453d-b8c4-a813c4573d12</span></code>, you may use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/cfsp cluster update --cluster_id<span class="o">=</span><span class="m">257</span> --node_id<span class="o">=</span><span class="m">0</span> --image_id<span class="o">=</span>3f0427af-d37a-453d-b8c4-a813c4573d12
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6c.png?raw=true"><img alt="cfsp-cluster-post-many" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6c.png?raw=true" /></a>
+<p>And to update only the IP of one of the CPU nodes, e.g. from <code class="docutils literal notranslate"><span class="pre">10.12.2.103</span></code> to <code class="docutils literal notranslate"><span class="pre">10.12.2.109</span></code>, you may use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/cfsp cluster update --cluster_id<span class="o">=</span><span class="m">257</span> --node_id<span class="o">=</span><span class="m">4</span> --node_ip<span class="o">=</span><span class="m">10</span>.12.2.109
+</pre></div>
+</div>
+<blockquote>
+<div><p><a href="#id19"><span class="problematic" id="id20">**</span></a><em>NOTE:</em>** You may use the option <code class="docutils literal notranslate"><span class="pre">--node_id</span></code> as many times as you want to specify the CPU or FPGA nodes of the cluster to update. Depending on the type of the node_id which will be provided, either FPGA or CPU node(s), will be updated. If no <code class="docutils literal notranslate"><span class="pre">--node_id</span></code> argument will be provided, the tool will search for any available FPGA or CPU nodes in the specified <code class="docutils literal notranslate"><span class="pre">cluster_id</span></code>, and it will attempt to update all of them to the specified <code class="docutils literal notranslate"><span class="pre">image_id</span></code> (for FPGA nodes) or <code class="docutils literal notranslate"><span class="pre">node_ip</span></code> (for CPU nodes). Currently there is no option to simultanously update FPGA and CPU nodes of a cluster and an exception will be raised in such an attempt.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id21">
+<h3><span class="section-number">4.3.3.12. </span>Get a cluster<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to get the details of a cluster with id <code class="docutils literal notranslate"><span class="pre">259</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster get <span class="m">259</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7.png?raw=true"><img alt="cfsp-cluster-get" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7.png?raw=true" /></a>
+</div>
+<div class="section" id="id22">
+<h3><span class="section-number">4.3.3.13. </span>Extend a cluster<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to extend the previously created cluster with id <code class="docutils literal notranslate"><span class="pre">259</span></code>, with one more FPGA with image id <code class="docutils literal notranslate"><span class="pre">d031b5a9-c3d8-4775-98db-e3de936a63e3</span></code>, and one more CPU node from ZYC2 with ip=<code class="docutils literal notranslate"><span class="pre">10.12.2.106</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster extend --cluster_id <span class="m">259</span> --image_id<span class="o">=</span>d031b5a9-c3d8-4775-98db-e3de936a63e3  --node_id <span class="m">7</span> --node_ip<span class="o">=</span><span class="m">10</span>.12.2.106 --node_id <span class="m">8</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7a.png?raw=true"><img alt="cfsp-cluster-extend" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7a.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id23"><span class="problematic" id="id24">**</span></a><em>NOTE:</em>** You may extend a cluster with numerous FPGA and CPU nodes by using the <code class="docutils literal notranslate"><span class="pre">--image_id</span></code> and <code class="docutils literal notranslate"><span class="pre">--node_ip</span></code> options. For these nodes you must also provide the rank id through <code class="docutils literal notranslate"><span class="pre">--node_id</span></code> option.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id25">
+<h3><span class="section-number">4.3.3.14. </span>Reduce a cluster<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to reduce the previously extended cluster with id <code class="docutils literal notranslate"><span class="pre">259</span></code>, with the two extra nodes, the FPGA node with <code class="docutils literal notranslate"><span class="pre">node_id=7</span></code> and the CPU node with <code class="docutils literal notranslate"><span class="pre">node_id=8</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster reduce --cluster_id<span class="o">=</span><span class="m">259</span> --node_id <span class="m">7</span> --node_id <span class="m">8</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7b.png?raw=true"><img alt="cfsp-cluster-reduce" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/7b.png?raw=true" /></a>
+</div>
+<div class="section" id="id26">
+<h3><span class="section-number">4.3.3.15. </span>Restart a cluster<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to restart a cluster with id <code class="docutils literal notranslate"><span class="pre">383</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster restart <span class="m">383</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster restart --cluster_id<span class="o">=</span><span class="m">383</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6d.png?raw=true"><img alt="cfsp-cluster-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/6d.png?raw=true" /></a>
+</div>
+<div class="section" id="id27">
+<h3><span class="section-number">4.3.3.16. </span>Debug a cluster<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>Assuming you want to debug a cluster with id <code class="docutils literal notranslate"><span class="pre">383</span></code>, by fetching the status information of the</dt><dd><p>Network Routing Core of this cluster</p>
+</dd>
+</dl>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id28"><span class="problematic" id="id29">**</span></a><em>Attention:</em>** There may be a delay of a few seconds until the counters are updated after</dt><dd><p>the packets were processed.</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster get flight_recorder_data cluster <span class="m">383</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Information: The <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto Shell</a> is required to obtain these status information.</p>
+</div></blockquote>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/14a.png?raw=true"><img alt="cfsp-instance-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/14a.png?raw=true" /></a>
+</div>
+<div class="section" id="id30">
+<h3><span class="section-number">4.3.3.17. </span>Delete a cluster<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to delete the previously created cluster with id <code class="docutils literal notranslate"><span class="pre">259</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster delete <span class="m">259</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/8.png?raw=true"><img alt="cfsp-cluster-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/8.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id31"><span class="problematic" id="id32">**</span></a><em>NOTE:</em>** You may delete all uploaded clusters of a user by not providing a specific cluster id, e.g.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster delete
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/9.png?raw=true"><img alt="cfsp-cluster-delete-all" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/9.png?raw=true" /></a>
+</div>
+<div class="section" id="id33">
+<h3><span class="section-number">4.3.3.18. </span>Create an instance<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to create an instance with:</p>
+<ul class="simple">
+<li><p>one FPGA from cloudFPGA platform with the previously uloaded FPGA image with id <code class="docutils literal notranslate"><span class="pre">74462cd5-20e3-4228-a47d-258b7e5e583a</span></code></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance post --image_id<span class="o">=</span>74462cd5-20e3-4228-a47d-258b7e5e583a
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/10.png?raw=true"><img alt="cfsp-instance-post" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/10.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id34"><span class="problematic" id="id35">**</span></a><em>NOTE:</em>** You may want to create many instances of the previous type. For such cases, there is an extra option <code class="docutils literal notranslate"><span class="pre">--repeat=&lt;num&gt;</span></code>, which specifies how many times the command should be issued. Please note that this applies to all supported commands of <code class="docutils literal notranslate"><span class="pre">cfsp</span></code>, e.g. :</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance post --image_id<span class="o">=</span>74462cd5-20e3-4228-a47d-258b7e5e583a --repeat<span class="o">=</span><span class="m">2</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/10a.png?raw=true"><img alt="cfsp-instance-post-many" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/10a.png?raw=true" /></a>
+</div>
+<div class="section" id="id36">
+<h3><span class="section-number">4.3.3.19. </span>Get an instance<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to get the details of the previously created instance with id <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance get <span class="m">5</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/11.png?raw=true"><img alt="cfsp-instance-get" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/11.png?raw=true" /></a>
+</div>
+<div class="section" id="id37">
+<h3><span class="section-number">4.3.3.20. </span>Restart an instance<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to restart an instance with id <code class="docutils literal notranslate"><span class="pre">84</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance restart <span class="m">84</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/13a.png?raw=true"><img alt="cfsp-instance-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/13a.png?raw=true" /></a>
+</div>
+<div class="section" id="id38">
+<h3><span class="section-number">4.3.3.21. </span>Debug an instance<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>Assuming you want to debug an instance with id <code class="docutils literal notranslate"><span class="pre">84</span></code>, by fetching the status information of the</dt><dd><p>Network Routing Core of this cluster</p>
+</dd>
+</dl>
+<blockquote>
+<div><dl class="simple">
+<dt><a href="#id39"><span class="problematic" id="id40">**</span></a><em>Attention:</em>** There may be a delay of a few seconds until the counters are updated after</dt><dd><p>the packets were processed.</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp cluster get flight_recorder_data instance <span class="m">84</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Information: The <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto Shell</a> is required to obtain these status information.</p>
+</div></blockquote>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/14b.png?raw=true"><img alt="cfsp-instance-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/14b.png?raw=true" /></a>
+</div>
+<div class="section" id="id42">
+<h3><span class="section-number">4.3.3.22. </span>Delete an instance<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<p>Assuming you want to delete the previously created instance with id <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance delete <span class="m">5</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/12.png?raw=true"><img alt="cfsp-instance-delete" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/12.png?raw=true" /></a>
+<blockquote>
+<div><p><a href="#id43"><span class="problematic" id="id44">**</span></a><em>NOTE:</em>** You may delete all uploaded instances of a user by not providing a specific cluster id, e.g.</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cfsp instance delete
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/13.png?raw=true"><img alt="cfsp-instance-delete-all" src="https://github.com/cloudFPGA/cFSP/blob/master//doc/img/13.png?raw=true" /></a>
+</div>
+<div class="section" id="debug-using-the-flight-recorder-data">
+<h3><span class="section-number">4.3.3.23. </span>Debug using the flight recorder data<a class="headerlink" href="#debug-using-the-flight-recorder-data" title="Permalink to this headline">¶</a></h3>
+<p>The status information returned by the <a class="reference external" href="#debug-a-cluster">Debug a cluster</a> or <a class="reference external" href="#debug-an-instance">Debug an instance</a> commands are called “flight recorder data” and contain a number of status information of each FPGA instance.
+The <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto Shell</a> is required to obtain these status information.</p>
+<p>An example of this flight recorder data is given below:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;72&quot;</span><span class="p">:</span> <span class="p">[</span>
+   <span class="s2">&quot;Rank: 12&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Size: 23&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Last RX port: 2718&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Last RX id: 22&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Last TX port: 2718&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Last TX id: 22&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;RX packet count: 6026&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TX packet count: 4017&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;cFDK/FMC version: 1.0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;FPGA uptime: 17:11:06&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;current ROLE version: 318&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Layer 4 (TCP/UDP) is ENABLED.&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Layer 6 (Network Routing) is ENABLED.&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Layer 7 (ROLE) is ENABLED.&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;UDP RX drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Invalid node-id/ip-address RX count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Invalid port TX count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Invalid node-id/ip-address TX count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;Failed creation of TCP connections (TX) count : 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX notif drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX meta drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX data drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX CRC drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX Session drop count: 0&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;TCP RX Out-of-Order drop count: 0&quot;</span>
+ <span class="p">]</span>
+</pre></div>
+</div>
+<p>The information can be interpreted as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Rank</span></code>: The rank / node-id of the FPGA instance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Size</span></code>: The total size of the FPGA cluster.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">RX</span> <span class="pre">port</span></code>: The port of the last received UDP packet or TCP connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">RX</span> <span class="pre">id</span></code>: The rank of the last received UDP packet or TCP connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">TX</span> <span class="pre">port</span></code>: The port of the last transmitted UDP packet or TCP connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">TX</span> <span class="pre">id</span></code>: The rank of the last transmitted UDP packet or TCP connection.</p></li>
+<li><p><cite>cFDK/FMC version</cite>: The cFDK version of the configured Shell (c.f. [cfdk.hpp](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/SRA/LIB/hls/cfdk.hpp">https://github.com/cloudFPGA/cFDK/blob/main/SRA/LIB/hls/cfdk.hpp</a>)).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FPGA</span> <span class="pre">uptime</span></code>: The time since boot in 24h format.</p></li>
+<li><p><cite>current ROLE version</cite>: The content of the <cite>poSHL_Mmio_RdReg</cite> signal, written by the [Themisto Role.vhdl](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md</a>).</p></li>
+<li><p><cite>Layer 4/6/7 ENABLED/DISABLED</cite>: The reset state of the reset layers 4, 6, and 7 (analog the [OSI model](<a class="reference external" href="https://en.wikipedia.org/wiki/OSI_model">https://en.wikipedia.org/wiki/OSI_model</a>)). The Role is on Layer 7.</p></li>
+<li><p><cite>UDP RX drop count</cite>: <em>The number of packets dropped by the Shell,</em> <strong>because the application inside the Role didn’t read them fast enough</strong>. The Themisto Shell can store roughly 10KB UDP data in FIFOs (see details [here](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/NAL/NAL.md">https://github.com/cloudFPGA/cFDK/blob/main/DOC/NAL/NAL.md</a>)). If these FIFOs are full, because the Role doesn’t read the packets from the NAL interface (or not fast enough), then the Shell drops all further incoming UDP packets, which are counted by the <code class="docutils literal notranslate"><span class="pre">UDP</span> <span class="pre">RX</span> <span class="pre">drop</span> <span class="pre">count</span></code> (until there is sufficient space in the FIFOs again). This happens frequently, if the processes in the Role that are responsible for reading the network traffic, don’t have an initial pipeline interval of 1 (i.e. <code class="docutils literal notranslate"><span class="pre">#pragma</span> <span class="pre">HLS</span> <span class="pre">pipeline</span> <span class="pre">II=1</span></code> must be used for these processes).</p></li>
+<li><p><cite>Invalid node-id/ip-address RX count</cite>: The Role is only allowed to receive packets from IP addresses that are configured within the cluster (FPGA and CPU nodes, see details [here](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#packet-addressing">https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#packet-addressing</a>)). If packets are received from different ip addresses, they are dropped and this counter is increased.</p></li>
+<li><p><cite>Invalid port TX count</cite>: The Themisto Shell can only send (and receive) to ports in a given range (see details [here](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#port-opening">https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#port-opening</a>)), if the Role wants to send a packet to a port outside this range, the default port (i.e. <code class="docutils literal notranslate"><span class="pre">2718</span></code>) is used instead and this counter is increased. This counter is for UDP packets and TCP connections.</p></li>
+<li><p><cite>Invalid node-id/ip-address TX count</cite>: The Role is only allowed to send packets to IP addresses that are configured within the cluster (FPGA and CPU nodes, see details [here](<a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#packet-addressing">https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md#packet-addressing</a>)). If packets are received from different ip addresses, they are dropped and this counter is increased.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Failed</span> <span class="pre">creation</span> <span class="pre">of</span> <span class="pre">TCP</span> <span class="pre">connections</span> <span class="pre">(TX)</span> <span class="pre">count</span></code>: This counter is increased if the initialization of a new TCP connection timed out. This happens if the Role want’s to connect to an IP address in the cluster (otherwise the invalid counter above is increased), but the contacted node is not listening on the requested port.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TCP</span> <span class="pre">RX</span> <span class="pre">*</span> <span class="pre">drop</span> <span class="pre">count</span></code>: These counters are for debugging the TCP stack and NAL layer in the Shell. If they are not 0 and you loose <em>TCP</em> (not UDP) packets, please contact developers.</p></li>
+</ul>
+<p>All counters in the flight recorder data are reset if the Role is reset, as done by the <a class="reference external" href="#restart-a-cluster">Restart a cluster</a> and <a class="reference external" href="#restart-an-instance">Restart an instance</a> commands.</p>
+</div>
+<div class="section" id="id50">
+<h3><span class="section-number">4.3.3.24. </span>Use cFSP as a Python module<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<p>cFSP is both a standalone command-line tool as well as a Python module that can be imported to a
+Python file. This allows the integration of cFSP into programming or CI/CD flows.</p>
+<p>To use cFSP as a Python module you need to import the <code class="docutils literal notranslate"><span class="pre">cFSP</span></code> module from the
+<code class="docutils literal notranslate"><span class="pre">cFSPlib</span></code> library, like below:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="n">sys</span><span class="w"></span>
+
+<span class="cp"># make sure cFSPlib&#39;s folder is in the PYTHONPATH, or add a line as below</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;../&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">from</span><span class="w"> </span><span class="n">cFSPlib</span><span class="w"> </span><span class="k">import</span><span class="w"> </span><span class="n">cFSP</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Then you can use the <code class="docutils literal notranslate"><span class="pre">main</span></code> function of the <code class="docutils literal notranslate"><span class="pre">cFSP</span></code> module for all the supported cFSP capabilities.
+The option arguments and commands are inherinted from <code class="docutils literal notranslate"><span class="pre">args=docopt(cFSP.__doc__)</span></code>. Then the desired
+arguments and command can be provided through the folllowing:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>args[&#39;&lt;command&gt;&#39;] = &#39;put_a_command_here&#39;
+args[&#39;&lt;put_an_option&gt;&#39;] = [&#39;put_the_value_of_that_option&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="update-of-the-python-python-api">
+<h2><span class="section-number">4.3.4. </span>Update of the python Python API<a class="headerlink" href="#update-of-the-python-python-api" title="Permalink to this headline">¶</a></h2>
+<p>In case that a new yaml swagger file is available (e.g. when new fields/features are added in the
+swagger yaml), then a new Python API client needs to be generated. This will replace the existing one.
+To generate a new Python API Client you need the <code class="docutils literal notranslate"><span class="pre">swagger-codegen</span></code> tool which can be downloade at
+<a class="reference external" href="https://swagger.io/tools/swagger-codegen/">https://swagger.io/tools/swagger-codegen/</a>. Then you may use this command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">swagger</span><span class="o">-</span><span class="n">codegen</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="o">-</span><span class="n">i</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="c1">//10.12.0.132:8080/swagger.json -l python -o python_api_client</span>
+</pre></div>
+</div>
+<p>Afterwads the generated folder <code class="docutils literal notranslate"><span class="pre">python_api_client</span></code> can replace the existing one in
+<a class="reference external" href="https://github.com/cloudFPGA/cFSP/tree/master/cFSPlib/python_api_client">https://github.com/cloudFPGA/cFSP/tree/master/cFSPlib/python_api_client</a>
+(e.g. <code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">./python_api_client/*</span> <span class="pre">cFSP/cFSPlib/python_api_client/</span></code>).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../PROJECTS/cfprojects.html" class="btn btn-neutral float-right" title="5. Project repository" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cfcreate.html" class="btn btn-neutral float-left" title="4.2. cFCreate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

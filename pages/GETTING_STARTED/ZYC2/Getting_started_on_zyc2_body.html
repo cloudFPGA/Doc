@@ -1,0 +1,332 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Part-2: Development Kit for cloudFPGA &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Part-2: Development Kit for cloudFPGA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/pages/GETTING_STARTED/ZYC2/Getting_started_on_zyc2_body.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="part-2-development-kit-for-cloudfpga">
+<h1>Part-2: Development Kit for cloudFPGA<a class="headerlink" href="#part-2-development-kit-for-cloudfpga" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-1-fetch-the-cloudfpga-development-kit">
+<h2>Step-1: Fetch the cloudFPGA Development Kit<a class="headerlink" href="#step-1-fetch-the-cloudfpga-development-kit" title="Permalink to this headline">¶</a></h2>
+<p>Clone the git repository located at:</p>
+<a class="reference external image-reference" href="images/toDo_red.png"><img alt="image" src="../../../_images/toDo_red.png" /></a>
+<p>[TODO: The cFDK will become Open Source at GitHub]</p>
+<p>Until available, use “SRA-r0.2.zip” and extract it in your VM.</p>
+</div>
+<div class="section" id="step-2-test-of-the-implementation-flow">
+<h2>Step-2: Test of the Implementation Flow<a class="headerlink" href="#step-2-test-of-the-implementation-flow" title="Permalink to this headline">¶</a></h2>
+<p>TopFlash → Project used to create the content of the Flash</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">SRA</span><span class="o">/</span><span class="n">FMKU60</span><span class="o">/</span><span class="n">TOP</span><span class="o">/</span><span class="n">TopFlash</span><span class="w"></span>
+<span class="n">make</span><span class="w"> </span><span class="n">monolithic</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="images/cf-EndOfBuild.png"><img alt="image" src="../../../_images/cf-EndOfBuild.png" /></a>
+</div>
+</div>
+<div class="section" id="part-3-upload-image-request-and-program-fpga">
+<h1>Part-3: Upload Image, Request and Program FPGA<a class="headerlink" href="#part-3-upload-image-request-and-program-fpga" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-1-access-cloudfpga-resource-manager">
+<h2>Step-1: Access cloudFPGA Resource Manager<a class="headerlink" href="#step-1-access-cloudfpga-resource-manager" title="Permalink to this headline">¶</a></h2>
+<p>Point your browser at <a class="reference external" href="http://10.12.0.132:8080/ui">http://10.12.0.132:8080/ui</a>
+and expand the “Images” section</p>
+<a class="reference external image-reference" href="images/cf-Resource_Manager.png"><img alt="image" src="../../../_images/cf-Resource_Manager.png" /></a>
+</div>
+<div class="section" id="step-2-upload-an-image">
+<h2>Step-2: Upload an Image<a class="headerlink" href="#step-2-upload-an-image" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-2a-expand-the-post-operation">
+<h3>Step-2a: Expand the “POST” operation<a class="headerlink" href="#step-2a-expand-the-post-operation" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_Images.png"><img alt="image" src="../../../_images/cf-RM_Images.png" /></a>
+</div>
+<div class="section" id="step-2b-fill-in-the-parameter-fields">
+<h3>Step-2b: Fill in the parameter fields<a class="headerlink" href="#step-2b-fill-in-the-parameter-fields" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_POST_Image.png"><img alt="image" src="../../../_images/cf-RM_POST_Image.png" /></a>
+</div>
+<div class="section" id="step-2c-check-the-response-body">
+<h3>Step-2c: Check the “Response Body”<a class="headerlink" href="#step-2c-check-the-response-body" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_POST_Image_Response.png"><img alt="image" src="../../../_images/cf-RM_POST_Image_Response.png" /></a>
+</div>
+</div>
+<div class="section" id="step-3-request-and-program-fpga-instance">
+<h2>Step-3: Request and Program FPGA Instance<a class="headerlink" href="#step-3-request-and-program-fpga-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3a-expand-the-instance-section">
+<h3>Step-3a: Expand the “Instance” section<a class="headerlink" href="#step-3a-expand-the-instance-section" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-Resource_Manager_API.png"><img alt="image" src="../../../_images/cf-Resource_Manager_API.png" /></a>
+</div>
+<div class="section" id="step-3b-expand-the-post-operation">
+<h3>Step-3b: Expand the “POST” operation<a class="headerlink" href="#step-3b-expand-the-post-operation" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_Instances.png"><img alt="image" src="../../../_images/cf-RM_Instances.png" /></a>
+</div>
+<div class="section" id="step-3c-fill-in-the-parameter-fields">
+<h3>Step-3c: Fill in the parameter fields<a class="headerlink" href="#step-3c-fill-in-the-parameter-fields" title="Permalink to this headline">¶</a></h3>
+<p>And press the “Try it out!” button</p>
+<a class="reference external image-reference" href="images/cf-RM_POST_Instance.png"><img alt="image" src="../../../_images/cf-RM_POST_Instance.png" /></a>
+</div>
+<div class="section" id="step-3d-check-the-response-body">
+<h3>Step-3d: Check the “Response Body”<a class="headerlink" href="#step-3d-check-the-response-body" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_POST_Instance_Response.png"><img alt="image" src="../../../_images/cf-RM_POST_Instance_Response.png" /></a>
+</div>
+</div>
+<div class="section" id="step-4-ping-the-ip-address-of-the-fpga">
+<h2>Step-4: Ping the IP Address of the FPGA<a class="headerlink" href="#step-4-ping-the-ip-address-of-the-fpga" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="images/cf-Ping.png"><img alt="image" src="../../../_images/cf-Ping.png" /></a>
+</div>
+</div>
+<div class="section" id="part-4-remote-debugging-with-vivado">
+<h1>Part-4: Remote Debugging with Vivado<a class="headerlink" href="#part-4-remote-debugging-with-vivado" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="step-1-request-connection-to-hw-server">
+<h2>Step-1: Request Connection to HW Server<a class="headerlink" href="#step-1-request-connection-to-hw-server" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1a-point-your-browser-at-http-10-12-0-132-8080-ui">
+<h3>Step-1a: Point your browser at <a class="reference external" href="http://10.12.0.132:8080/ui">http://10.12.0.132:8080/ui</a><a class="headerlink" href="#step-1a-point-your-browser-at-http-10-12-0-132-8080-ui" title="Permalink to this headline">¶</a></h3>
+<p>and expand the “Debug” section</p>
+<a class="reference external image-reference" href="images/cf-Resource_Manager_Debug.png"><img alt="image" src="../../../_images/cf-Resource_Manager_Debug.png" /></a>
+</div>
+<div class="section" id="step-1b-expand-the-get-debug-ila-connection-instance-id-operation">
+<h3>Step-1b: Expand the “Get /debug/ila_connection/{instance_id}” operation<a class="headerlink" href="#step-1b-expand-the-get-debug-ila-connection-instance-id-operation" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_Debug.png"><img alt="image" src="../../../_images/cf-RM_Debug.png" /></a>
+</div>
+<div class="section" id="step-1c-fill-in-the-parameter-fields">
+<h3>Step-1c: Fill in the parameter fields<a class="headerlink" href="#step-1c-fill-in-the-parameter-fields" title="Permalink to this headline">¶</a></h3>
+<p>Press the “Try it out!” button</p>
+<a class="reference external image-reference" href="images/cf-RM_Get_ILAD_Connection.png"><img alt="image" src="../../../_images/cf-RM_Get_ILAD_Connection.png" /></a>
+</div>
+<div class="section" id="step-1d-check-the-response-body">
+<h3>Step-1d: Check the “Response Body”<a class="headerlink" href="#step-1d-check-the-response-body" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-RM_Get_ILAD_Connection_Response.png"><img alt="image" src="../../../_images/cf-RM_Get_ILAD_Connection_Response.png" /></a>
+</div>
+</div>
+<div class="section" id="step-2-launch-vivado">
+<h2>Step-2: Launch Vivado<a class="headerlink" href="#step-2-launch-vivado" title="Permalink to this headline">¶</a></h2>
+<p>The Xilinx installation path on the ZYC2 VM:
+<code class="docutils literal notranslate"><span class="pre">/tools/Xilinx/Vivado/2017.4/</span></code></p>
+<a class="reference external image-reference" href="images/cf-Launch_Vivado_HW_Manager.png"><img alt="image" src="../../../_images/cf-Launch_Vivado_HW_Manager.png" /></a>
+</div>
+<div class="section" id="step-3">
+<h2>Step-3:<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3a-open-the-hardware-server">
+<h3>Step-3a: Open the Hardware Server<a class="headerlink" href="#step-3a-open-the-hardware-server" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-OpenNewVivadoTarget_1.png"><img alt="image" src="../../../_images/cf-OpenNewVivadoTarget_1.png" /></a>
+</div>
+<div class="section" id="step-3b-select-your-hardware-target">
+<h3>Step-3b: Select your Hardware Target<a class="headerlink" href="#step-3b-select-your-hardware-target" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-Open_NewVivadoTarget_2.png"><img alt="image" src="../../../_images/cf-Open_NewVivadoTarget_2.png" /></a>
+</div>
+<div class="section" id="step-3c-here-you-go">
+<h3>Step-3c: Here you go…<a class="headerlink" href="#step-3c-here-you-go" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="images/cf-Vivado_Hardware_Manager_Window.png"><img alt="image" src="../../../_images/cf-Vivado_Hardware_Manager_Window.png" /></a>
+</div>
+</div>
+<div class="section" id="step-4-further-instance-operations">
+<h2>Step-4: Further Instance Operations<a class="headerlink" href="#step-4-further-instance-operations" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="images/cf-RM_Instances_Operations.png"><img alt="image" src="../../../_images/cf-RM_Instances_Operations.png" /></a>
+</div>
+</div>
+<div class="section" id="backup">
+<h1>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="howto-hello-world">
+<h2>HowTo: “Hello World”<a class="headerlink" href="#howto-hello-world" title="Permalink to this headline">¶</a></h2>
+<p>TopEchoHls (is a kind of ‘Hello World’)</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">SRA</span><span class="o">/</span><span class="n">FMKU60</span><span class="o">/</span><span class="n">TOP</span><span class="o">/</span><span class="n">TopEchoHls</span><span class="w"></span>
+<span class="n">make</span><span class="w"> </span><span class="n">monolithic</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="images/cf-HelloWorld_underConstruction.png"><img alt="image" src="../../../_images/cf-HelloWorld_underConstruction.png" /></a>
+</div>
+<div class="section" id="howto-test-the-udp-loopback-w-netcat">
+<h2>HowTo: Test the UDP Loopback w/ netcat<a class="headerlink" href="#howto-test-the-udp-loopback-w-netcat" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="images/cf-Netcat.png"><img alt="image" src="../../../_images/cf-Netcat.png" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

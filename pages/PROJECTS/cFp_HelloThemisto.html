@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.5.2. cFp_HelloThemisto &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5.3. cFp_Zoo" href="cFp_Zoo.html" />
+    <link rel="prev" title="5.5.1. cFp_HelloKale" href="cFp_HelloKale.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfprojects.html">5. Project repository</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cfprojects.html#project-repositories">5.5. Project Repositories</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloKale.html">5.5.1. cFp_HelloKale</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.5.2. cFp_HelloThemisto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">5.5.2.1. Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell-role-architecture">5.5.2.2. Shell-Role-Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-build-the-project">5.5.2.3. How to build the project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-1-clone-and-configure-the-project">5.5.2.3.1. Step-1: Clone and configure the project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-2-setup-your-environment">5.5.2.3.2. Step-2: Setup your environment</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-3-add-your-cloudfpga-credentials">5.5.2.3.3. Step-3: Add your cloudFPGA credentials</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-4-retrieve-the-latest-static-shell">5.5.2.3.4. Step-4: Retrieve the latest static shell</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-5-activate-the-1st-role-optional-and-generate-corresponding-partial-bitstream">5.5.2.3.5. Step-5: Activate the 1st role (optional) and generate corresponding partial bitstream</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-6-activate-and-generate-a-partial-bitstream-for-the-2nd-role">5.5.2.3.6. Step-6: Activate and generate a partial bitstream for the 2nd role</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-deploy-the-cluster">5.5.2.4. How to deploy the cluster</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-7-upload-the-generated-pr-bitstreams">5.5.2.4.1. Step-7: Upload the generated PR bitstreams</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-8-request-a-cloudfpga-cluster-and-deploy-it">5.5.2.4.2. Step-8: Request a cloudFPGA cluster and deploy it</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-9-how-to-test-the-deployed-cluster">5.5.2.4.3. Step-9: How to test the deployed cluster</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-10-for-further-experiments">5.5.2.4.4. Step-10: For further experiments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfprojects.html"><span class="section-number">5. </span>Project repository</a> &raquo;</li>
+        
+      <li><span class="section-number">5.5.2. </span>cFp_HelloThemisto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cFp_HelloThemisto.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfp-hellothemisto">
+<span id="project-cfp-hellothemisto"></span><h1><span class="section-number">5.5.2. </span>cFp_HelloThemisto<a class="headerlink" href="#cfp-hellothemisto" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//README.md">This HTML section is rendered based on the Markdown file in cFp_HelloThemisto.</a></p>
+<p>A cloudFPGA project built upon the shell <strong>Themisto</strong>.</p>
+<div class="section" id="overview">
+<h2><span class="section-number">5.5.2.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The integration of a user application and a cloudFPGA shell into a top-level design is what
+constitutes a <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/PROJECTS/cfprojects.html#">cloudFPGA project</a>.</p>
+<p>This project builds on the shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto</a>
+which is a shell with enhanced routing support for node-to-node communications. It exemplifies
+the creation of a cluster consisting of one CPU and two FPGAs organized in a ring topology.</p>
+<p>This setup is shown in the figure below and the scenario is as follows: a <strong>virtual machine</strong> (VM)
+sends data to a 1st FPGA (F1) via a UDP and/or a TCP network connection. When F1 is done with the
+processing of the incoming data, it forwards them to the next FPGA in the ring (i.e. F2), using
+the same network protocol as the incoming traffic. Finally, F2 which is the last FPGA of the
+ring, sends the data back to the VM after applying its own processing.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Fig-HelloThemisto-Setup.png?raw=true"><img alt="Setup-of-the cFp_HelloThemisto project" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Fig-HelloThemisto-Setup.png?raw=true" /></a>
+<p>The shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">Themisto</a> uses the
+concept of <em>MPI communicator</em> in which each cloudFPGA role application is assigned a unique
+number to identify itself. This number is called the <code class="docutils literal notranslate"><span class="pre">node_rank</span></code> (or <code class="docutils literal notranslate"><span class="pre">rank</span></code> for short), its value
+always ranges from 0 to <em>cluster-size-1</em> and that value does not change once the cluster is created.</p>
+<p>The two FPGA applications of this project leverage both their <code class="docutils literal notranslate"><span class="pre">node_rank</span></code> and the <code class="docutils literal notranslate"><span class="pre">cluster_size</span></code>
+to determine the address of the next node in the following manner:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">next_node_rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">curr_node_rank</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">cluster_size</span><span class="w"></span>
+</pre></div>
+</div>
+<p>As a result, the rudimentary size of the proposed ring-based cluster can be extended by simply
+inserting more such FPGA application nodes into the ring.</p>
+</div>
+<div class="section" id="shell-role-architecture">
+<h2><span class="section-number">5.5.2.2. </span>Shell-Role-Architecture<a class="headerlink" href="#shell-role-architecture" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>cloudFPGA</strong> (cF), a user application is referred to as a <strong>ROLE</strong> and is integrated
+along with a <strong>SHELL</strong> that abstracts the hardware components of the FPGA module.
+The combination of a specific ROLE and its associated SHELL into a top-level design (<strong>TOP</strong>) is
+referred to as a <strong>Shell-Role-Architecture</strong> (SRA).</p>
+<p>The shell-role-architecture used by the project <em>cFp_HelloThemisto</em> is shown in the following
+figure. It consists of:</p>
+<ul class="simple">
+<li><p>a SHELL of type <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Themisto.md">***Themisto**_</a>.
+This is the current default cloudFPGA shell because it supports <strong>Partial Reconfiguration</strong> (PR)
+and can therefore be paired with a dynamically configured user role application. Additionally, the
+reconfiguration of such a role is performed by the <em>Themisto</em> shell itself, upon reception of a
+new partial bitstream for the application via the TCP/IP network of the data center. The shell
+<em>Themisto</em> includes the following building blocks:</p>
+<ul>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/ETH/ETH.md">10 Gigabit Ethernet (ETH)</a> sub-system,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/NTS/NTS.md">Network Transport Stack (NTS)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/NAL/NAL.md">Network Abstraction Layer (NAL)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/FMC/FMC.md">FPGA Management Core (FMC)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/MEM/MEM.md">DDR4 Memory sub-system (MEM)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/MMIO/MMIO.md">Memory Mapped IO (MMIO)</a> sub-system.</p></li>
+</ul>
+</li>
+<li><p>a ROLE of type <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/README.md">***HelloThemisto**_</a> which implements the set of TCP- and
+UDP- applications used by this project.</p></li>
+</ul>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Fig-TOP-HelloThemisto.png?raw=true#center"><img alt="Block diagram of the HelloThemistoTop" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Fig-TOP-HelloThemisto.png?raw=true#center" /></a>
+<p align="center">Toplevel block diagram of the cFp_HelloThemisto project</p><p><strong>Info/Warning</strong></p>
+<ul class="simple">
+<li><p>You will be able to generate the FPGA bitstreams of this cluster example project on your
+computer but you won’t be able to deploy and access the cluster without connecting to the
+cloudFPGA infrastructure via VPN. To get such an access granted, you need to request a cloudFPGA
+account <a class="reference external" href="https://github.com/cloudFPGA/Doc/tree/master/imgs/COMING_SOON.md">here</a>.</p></li>
+<li><p>Next, please note that the following PR build procedure is only compatible with <em>Vivado</em>
+<strong>2019.2</strong> to <strong>2020.1</strong> versions included (for the time being).</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-build-the-project">
+<h2><span class="section-number">5.5.2.3. </span>How to build the project<a class="headerlink" href="#how-to-build-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The current directory contains the <code class="docutils literal notranslate"><span class="pre">sra</span></code> build script which handles all the required steps to
+generate the <em>partial bitstreams</em> needed for this project. During the build, both SHELL and
+ROLE dependencies are analyzed to solely re-compile and re-synthesize the components that
+must be recreated.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ SANDBOX=`pwd`           # (a short for your working directory)
+</pre></div>
+</div>
+<div class="section" id="step-1-clone-and-configure-the-project">
+<h3><span class="section-number">5.5.2.3.1. </span>Step-1: Clone and configure the project<a class="headerlink" href="#step-1-clone-and-configure-the-project" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone --recursive git@github.com:cloudFPGA/cFp_HelloThemisto.git
+    (if you don&#39;t have a GitHub account and/or SSH keys set up, use the command:
+     git clone --recursive https://github.com/cloudFPGA/cFp_HelloThemisto.git)
+
+$ cd cFp_HelloThemisto/cFDK
+$ git checkout main
+$ cd ..
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-setup-your-environment">
+<h3><span class="section-number">5.5.2.3.2. </span>Step-2: Setup your environment<a class="headerlink" href="#step-2-setup-your-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">env</span><span class="o">/</span><span class="n">setenv</span><span class="p">.</span><span class="n">sh</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-add-your-cloudfpga-credentials">
+<h3><span class="section-number">5.5.2.3.3. </span>Step-3: Add your cloudFPGA credentials<a class="headerlink" href="#step-3-add-your-cloudfpga-credentials" title="Permalink to this headline">¶</a></h3>
+<p>Create a file called <code class="docutils literal notranslate"><span class="pre">user.json</span></code> and add your cloudFPGA credentials in it. The credentials
+consist of the <code class="docutils literal notranslate"><span class="pre">username</span></code>, the <code class="docutils literal notranslate"><span class="pre">password</span></code> and the <code class="docutils literal notranslate"><span class="pre">projectname</span></code> that were provided to you when
+you registered.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;{</span><span class="se">\&quot;</span><span class="s">credentials</span><span class="se">\&quot;</span><span class="s">: {</span><span class="se">\&quot;</span><span class="s">username</span><span class="se">\&quot;</span><span class="s">: </span><span class="se">\&quot;</span><span class="s">YOUR_USERNAME</span><span class="se">\&quot;</span><span class="s">, </span><span class="se">\&quot;</span><span class="s">password</span><span class="se">\&quot;</span><span class="s">: </span><span class="se">\&quot;</span><span class="s">YOUR_PASSWORD</span><span class="se">\&quot;</span><span class="s">}, </span><span class="se">\&quot;</span><span class="s">project</span><span class="se">\&quot;</span><span class="s">: </span><span class="se">\&quot;</span><span class="s">YOUR_PROJECTNAME</span><span class="se">\&quot;</span><span class="s">}&quot;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">user</span><span class="p">.</span><span class="n">json</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-retrieve-the-latest-static-shell">
+<h3><span class="section-number">5.5.2.3.4. </span>Step-4: Retrieve the latest static shell<a class="headerlink" href="#step-4-retrieve-the-latest-static-shell" title="Permalink to this headline">¶</a></h3>
+<p>Use the command <code class="docutils literal notranslate"><span class="pre">./sra</span> <span class="pre">update-shell</span></code> to download the latest DCP shell from the <em>cloudFPGA Resource
+Manager</em> (cFRM).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFp_HelloThemisto
+
+$ ./sra update-shell
+[cFBuild] Updated dcp of Shell &#39;Themisto&#39; to latest version (2) successfully. DONE.
+    (downloaded dcp to ${SANDBOX}/cFp_HelloThemisto/dcps/3_topFMKU60_STATIC.dcp)
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-activate-the-1st-role-optional-and-generate-corresponding-partial-bitstream">
+<h3><span class="section-number">5.5.2.3.5. </span>Step-5: Activate the 1st role (optional) and generate corresponding partial bitstream<a class="headerlink" href="#step-5-activate-the-1st-role-optional-and-generate-corresponding-partial-bitstream" title="Permalink to this headline">¶</a></h3>
+<p>This project contains two roles but only one role can be active at a time. So we need to specify
+the current active role to build and implicitly deactivate the other one. This step is optional if
+you just cloned this project because the default active role is already set to <code class="docutils literal notranslate"><span class="pre">msg-ring-app</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">sra</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">use</span><span class="o">-</span><span class="n">role</span><span class="w"> </span><span class="s">&quot;msg-ring-app&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now, generate a partial bitstream for the current active role (i.e <code class="docutils literal notranslate"><span class="pre">msg-ring-app</span></code>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">sra</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">pr</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The build is successful if you get the following message after ~40 minutes, indicating that a
+partial bitstream was generated.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; ##  DONE WITH BITSTREAM GENERATION RUN
+&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; End at: HH:MM:SS Day Month Day Year
+</pre></div>
+</div>
+<p>You will find this newly created bitstream together with other generated files in the folder
+<code class="docutils literal notranslate"><span class="pre">${SANDBOX}/cFp_HelloThemisto/dcps</span></code> under the name<span class="raw-html-m2r"><br></span>
+<code class="docutils literal notranslate"><span class="pre">4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.&lt;bin|sig|bit|rtp&gt;</span></code> as shown below:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">al</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="w"></span>
+<span class="mi">2</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_complete_pr</span><span class="p">.</span><span class="n">dcp</span><span class="w"></span>
+<span class="mi">3</span><span class="n">_topFMKU60_STATIC</span><span class="p">.</span><span class="n">dcp</span><span class="w"></span>
+<span class="mi">3</span><span class="n">_topFMKU60_STATIC</span><span class="p">.</span><span class="n">json</span><span class="w"></span>
+<span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+<span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="p">.</span><span class="n">sig</span><span class="w"></span>
+<span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bit</span><span class="w"></span>
+<span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial_clear</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+<span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial_clear</span><span class="p">.</span><span class="n">bit</span><span class="w"></span>
+<span class="mi">5</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">rpt</span><span class="w"></span>
+<span class="n">pr_verify</span><span class="p">.</span><span class="n">rpt</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-activate-and-generate-a-partial-bitstream-for-the-2nd-role">
+<h3><span class="section-number">5.5.2.3.6. </span>Step-6: Activate and generate a partial bitstream for the 2nd role<a class="headerlink" href="#step-6-activate-and-generate-a-partial-bitstream-for-the-2nd-role" title="Permalink to this headline">¶</a></h3>
+<p>You can check the currently active role as well as the list of defined roles for this project with
+the command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">sra</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">show</span><span class="w"></span>
+<span class="p">[</span><span class="nl">sra</span><span class="p">:</span><span class="n">INFO</span><span class="p">]</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">roles</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">currently</span><span class="w"> </span><span class="nl">defined</span><span class="p">:</span><span class="w"></span>
+<span class="n">Role</span><span class="w"> </span><span class="n">msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">ROLE</span><span class="o">/</span><span class="mi">1</span><span class="w"></span>
+<span class="n">Role</span><span class="w"> </span><span class="n">invertcase</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">directory</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">ROLE</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
+<span class="n">Current</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="nl">role</span><span class="p">:</span><span class="w"> </span><span class="n">msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now select and activate the role <code class="docutils literal notranslate"><span class="pre">invertcase-ring-app</span></code>, and generate a partial bitstream for
+this 2nd role:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">sra</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">use</span><span class="o">-</span><span class="n">role</span><span class="w"> </span><span class="s">&quot;invertcase-ring-app&quot;</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">sra</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">pr</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After another ~40 minutes, the following files will be added to the <code class="docutils literal notranslate"><span class="pre">./dcps</span></code> directory:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="n">al</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="cm">/*invertcase*</span>
+<span class="cm">2_topFMKU60_impl_invertcase-ring-app_complete_pr.dcp</span>
+<span class="cm">4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.bin</span>
+<span class="cm">4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.bin.sig</span>
+<span class="cm">4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.bit</span>
+<span class="cm">4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial_clear.bin</span>
+<span class="cm">4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial_clear.bit</span>
+<span class="cm">5_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.rpt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-deploy-the-cluster">
+<h2><span class="section-number">5.5.2.4. </span>How to deploy the cluster<a class="headerlink" href="#how-to-deploy-the-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-7-upload-the-generated-pr-bitstreams">
+<h3><span class="section-number">5.5.2.4.1. </span>Step-7: Upload the generated PR bitstreams<a class="headerlink" href="#step-7-upload-the-generated-pr-bitstreams" title="Permalink to this headline">¶</a></h3>
+<p>Before we can deploy this cluster consisting of one CPU and two FPGAs, we first need to upload the
+newly generated PR bitfiles of our two roles. We refer to such PR bitfiles as <em>application image</em>
+or <strong>app_image</strong> for short. The below step-7a and step-7b cover the two possible options for
+uploading these two generated application images.</p>
+<div class="section" id="step-7a-upload-the-application-images-with-the-gui-api">
+<h4><span class="section-number">5.5.2.4.1.1. </span>Step-7a: Upload the application images with the GUI-API<a class="headerlink" href="#step-7a-upload-the-application-images-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>The cloudFPGA resource manager provides a web-based graphical user interface to its API. It is
+available as a <a class="reference external" href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> at
+<code class="docutils literal notranslate"><span class="pre">http://10.12.0.132:8080/ui/#/</span></code>.</p>
+<p>To upload the <em>app_image</em> corresponding to the role <code class="docutils literal notranslate"><span class="pre">msg-ring-app</span></code>, expand the Swagger menu
+<strong>Images</strong> and the operation <code class="docutils literal notranslate"><span class="pre">[POST]</span> <span class="pre">/images/app_logic</span> <span class="pre">-</span> <span class="pre">Upload</span> <span class="pre">an</span> <span class="pre">image</span> <span class="pre">of</span> <span class="pre">type</span> <span class="pre">app_logic</span></code>.
+Then, fill in the fields 1 to 6 as exemplified below:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>with your <strong>username</strong> for accessing the cloudFPGA infrastructure</p></li>
+<li><p>with your <strong>password</strong></p></li>
+<li><p>with specific <strong>image_details</strong> about the <em>app_image</em> to upload</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  * INFO: You must submit this information in a dictionary format, similar to the following example:
+    ```
+        {
+          &quot;cl_id&quot;      : &quot;2&quot;,
+          &quot;fpga_board&quot; : &quot;FMKU60&quot;,
+          &quot;shell_type&quot; : &quot;Themisto&quot;,
+          &quot;comment&quot;    : &quot;The 1st app_image (msg-ring-app)&quot;
+        }
+    ```
+  * **WARNING**: The &quot;cl_id&quot; field stands for _composable_logic_id_ and its value **MUST BE THE SAME** as the `id` specified in the `dcps/3_topFMKU60_STATIC.json` file **!!**
+
+4) with the **image_file.bin** corresponding to the partial bitfile of the 1st role
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  * With respect to the `msg-ring-app` example --&gt; `4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.bin`
+
+5) with the **signature_file.bin.sig** corresponding to the current *imagefile.bin*
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>  * With respect to the `msg-ring-app` example --&gt; `4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.bin.sig`
+
+6) with the **pr_verify.rpt** file containing the output of *pr_verify* command for this build.
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>* With respect to the `msg-ring-app` example --&gt; `4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.rpt`
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Req.png?raw=true#center"><img alt="Swagger-Images-Post-Upload-Req" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Req.png?raw=true#center" /></a>
+<p>Next, scroll down to the <em>Response body</em> section of the server and write down the image <code class="docutils literal notranslate"><span class="pre">id</span></code> for
+use in the next step.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Res.png?raw=true#center"><img alt="Swagger-Images-Post-Upload-Res" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Res.png?raw=true#center" /></a>
+<p>Repeat step-7a for the second bitstream called <code class="docutils literal notranslate"><span class="pre">invertcase_ring_app</span></code>.</p>
+</div>
+<div class="section" id="step-7b-upload-image-with-the-cfsp-api">
+<h4><span class="section-number">5.5.2.4.1.2. </span>Step-7b: Upload image with the cFSP-API<a class="headerlink" href="#step-7b-upload-image-with-the-cfsp-api" title="Permalink to this headline">¶</a></h4>
+<p>The second option for uploading a PR bitstream is based on a command-line interface to the cFRM API.
+This method is provided by the <strong>cloudFPGA Support Package</strong> (cFSP) which must be installed
+beforehand as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone https://github.com/cloudFPGA/cFSP.git
+$ cd cFSP
+$ which python3     # (we recommend python 3.6 or higher)
+/usr/bin/python3
+$ virtualenv -p /usr/bin/python3 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Once cFSP is installed, add your cloudFPGA credentials. This process creates a file called
+<code class="docutils literal notranslate"><span class="pre">user.json</span></code> which has your cloudFPGA credentials in it. The credentials consist of the <code class="docutils literal notranslate"><span class="pre">username</span></code>,
+the <code class="docutils literal notranslate"><span class="pre">password</span></code> and the <code class="docutils literal notranslate"><span class="pre">projectname</span></code> that were provided to you when you registered.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">YOUR_USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">YOUR_PASSWORD</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">project</span><span class="o">=&lt;</span><span class="n">YOUR_PROJECTNAME</span><span class="o">&gt;</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">show</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The output of these two commands will look like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+Writing credentials template to ./user.json
+[&#39;load&#39;]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 3305.20it/s]
+
+0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+User     : YOUR_USERNAME
+Password : YOUR_PASSWORD
+Project  : YOUR_PROJECTNAME
+[&#39;show&#39;]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 5801.25it/s]
+</pre></div>
+</div>
+<p>Finally, upload the generated bitstreams located in the <code class="docutils literal notranslate"><span class="pre">dcps</span></code> folder of the
+<code class="docutils literal notranslate"><span class="pre">${SANDBOX}/cFp_HelloThemisto</span></code> project as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">logic</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_msg</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">logic</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloThemisto</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_invertcase</span><span class="o">-</span><span class="n">ring</span><span class="o">-</span><span class="n">app_pblock_ROLE_partial</span><span class="p">.</span><span class="n">bin</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Similarly to the GUI-API procedure, do not forget to write down the image <code class="docutils literal notranslate"><span class="pre">id</span></code> returned by the server
+(e.g. ‘dcd9bb0a-7888-4613-a9d3-319c80fcf6e3’).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>0%|                                                                                                                                                                        | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+INFO: This json file will be used: ${SANDBOX}/cFp_HelloThemisto/dcps/3_topFMKU60_STATIC.json
+INFO: No --sig_file provided. Assuming ${SANDBOX}/cFp_HelloThemisto/dcps/4_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.bin.sig
+INFO: No --pr_verify_rpt provided. Assuming ${SANDBOX}/cFp_HelloThemisto/dcps/5_topFMKU60_impl_msg-ring-app_pblock_ROLE_partial.rpt
+{&#39;breed&#39;: None,
+ &#39;comment&#39;: None,
+ &#39;fpga_board&#39;: None,
+ &#39;id&#39;: &#39;dcd9bb0a-7888-4613-a9d3-319c80fcf6e3&#39;,
+ &#39;shell_type&#39;: None}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:04&lt;00:00,  4.21s/it]
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>0%|                                                                                                                                                                        | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+INFO: This json file will be used: ${SANDBOX}/cFp_HelloThemisto/dcps/3_topFMKU60_STATIC.json
+INFO: No --sig_file provided. Assuming ${SANDBOX}/cFp_HelloThemisto/dcps/4_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.bin.sig
+INFO: No --pr_verify_rpt provided. Assuming ${SANDBOX}/cFp_HelloThemisto/dcps/5_topFMKU60_impl_invertcase-ring-app_pblock_ROLE_partial.rpt
+{&#39;breed&#39;: None,
+ &#39;comment&#39;: None,
+ &#39;fpga_board&#39;: None,
+ &#39;id&#39;: &#39;c5e09074-78fa-4585-8621-d7dd4095d749&#39;,
+ &#39;shell_type&#39;: None}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:03&lt;00:00,  3.81s/it
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-8-request-a-cloudfpga-cluster-and-deploy-it">
+<h3><span class="section-number">5.5.2.4.2. </span>Step-8: Request a cloudFPGA cluster and deploy it<a class="headerlink" href="#step-8-request-a-cloudfpga-cluster-and-deploy-it" title="Permalink to this headline">¶</a></h3>
+<p>Now that your FPGA images have been uploaded to the cFRM, you can request a cloudFPGA cluster to
+be programmed and deployed with your images. The below step-8a and step-8b will cover the two
+available options for creating a new cF cluster.</p>
+<div class="section" id="step-8a-create-a-cluster-with-the-gui-api">
+<h4><span class="section-number">5.5.2.4.2.1. </span>Step-8a: Create a cluster with the GUI-API<a class="headerlink" href="#step-8a-create-a-cluster-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>To create a new cluster via the GUI-API, point your web browser at
+<code class="docutils literal notranslate"><span class="pre">http://10.12.0.132:8080/ui/#/</span></code> and expand the <em>Swagger</em> operation
+<code class="docutils literal notranslate"><span class="pre">[POST]</span> <span class="pre">/clusters</span> <span class="pre">-</span> <span class="pre">Request</span> <span class="pre">a</span> <span class="pre">cluster</span></code> of the menu <code class="docutils literal notranslate"><span class="pre">Clusters</span></code>.</p>
+<p>Then, fill in the fields 1 to 4 as exemplified below:
+1) with your <strong>username</strong> for accessing the cloudFPGA infrastructure
+2) with your <strong>password</strong>
+3) with the name of the <strong>OpenStack project</strong> to use (if you own multiple projects), otherwise leave the field setting to “<em>default</em>”.
+4) with specific <strong>cluster_details</strong> about the mapping of node-IDs to images</p>
+<ul>
+<li><p>INFO: You must submit this information in a dictionary format similar to the following example (note that the CPU is not provided with an <em>image_id</em> and is flagged as “NON_FPGA” instead):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>[
+  {
+    &quot;image_id&quot; : &quot;&lt;the-image-id-retrived-at-step-8a&gt;&quot;,  # E.g. &quot;7891e291-8847-4302-9b07-248c4feefd69&quot;
+    &quot;node_id&quot;  : 1
+  },{
+    &quot;image_id&quot; : &quot;&lt;the-image-id-retrived-at-step-8a&gt;&quot;,  # E.g. &quot;f23b8025-7beb-4662-8d73-30563593ffbe&quot;
+    &quot;node_id&quot;  : 2
+  },{
+    &quot;image_id&quot; : &quot;NON_FPGA&quot;,
+    &quot;node_ip&quot;  : &quot;&lt;the-floating-ip-of-your-VM&gt;&quot;,        # E.g. &quot;10.12.2.53&quot;
+    &quot;node_id&quot;  : 0
+  }
+]
+</pre></div>
+</div>
+</li>
+</ul>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Clusters-POST-Request-Req.png?raw=true#center"><img alt="Swagger-Clusters-Post-Request-Req" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Clusters-POST-Request-Req.png?raw=true#center" /></a>
+<p>Next, scroll down to the server’s response and write down the two “<em>role_ip</em>” addresses for later
+accessing your FPGA instances.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Clusters-POST-Request-Res.png?raw=true#center"><img alt="Swagger-Instances-Post-Request-Res" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-Swagger-Clusters-POST-Request-Res.png?raw=true#center" /></a>
+</div>
+<div class="section" id="step-8b-create-a-cluster-with-the-cfsp-api">
+<h4><span class="section-number">5.5.2.4.2.2. </span>Step-8b: Create a cluster with the cFSP-API<a class="headerlink" href="#step-8b-create-a-cluster-with-the-cfsp-api" title="Permalink to this headline">¶</a></h4>
+<p>To create a similar cluster via the cFSP-API, enter the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">cluster</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=</span><span class="mf">7891e291</span><span class="mi">-8847-4302-9</span><span class="n">b07</span><span class="mi">-248</span><span class="n">c4feefd69</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=</span><span class="n">f23b8025</span><span class="mi">-7</span><span class="n">beb</span><span class="mi">-4662-8</span><span class="n">d73</span><span class="mi">-30563593</span><span class="n">ffbe</span><span class="w"> </span><span class="o">--</span><span class="n">node_ip</span><span class="o">=</span><span class="mf">10.12.2.53</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Next, and similarly to the GUI-API procedure, do not forget to write down the two “<em>role_ip</em>”
+returned by the server (see example below).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>0%|                                                                                                                                                                        | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+{&#39;cluster_id&#39;: 265,
+ &#39;instances&#39;: [{&#39;fpga_board&#39;: &#39;FMKU60&#39;,
+                &#39;image_id&#39;: &#39;7891e291-8847-4302-9b07-248c4feefd69&#39;,
+                &#39;instance_id&#39;: 88,
+                &#39;project_name&#39;: &#39;cf_ALL&#39;,
+                &#39;role_ip&#39;: &#39;10.12.200.8&#39;,
+                &#39;shell_type&#39;: &#39;NO_SRA&#39;,
+                &#39;slot_num&#39;: 26,
+                &#39;status&#39;: &#39;USED&#39;,
+                &#39;user_id&#39;: &#39;cfdummy&#39;},
+               {&#39;fpga_board&#39;: &#39;FMKU60&#39;,
+                &#39;image_id&#39;: &#39;f23b8025-7beb-4662-8d73-30563593ffbe&#39;,
+                &#39;instance_id&#39;: 41,
+                &#39;project_name&#39;: &#39;cf_ALL&#39;,
+                &#39;role_ip&#39;: &#39;10.12.200.236&#39;,
+                &#39;shell_type&#39;: &#39;NO_SRA&#39;,
+                &#39;slot_num&#39;: 21,
+                &#39;status&#39;: &#39;USED&#39;,
+                &#39;user_id&#39;: &#39;cfdummy&#39;}],
+ &#39;nodes&#39;: [{&#39;image_id&#39;: &#39;7891e291-8847-4302-9b07-248c4feefd69&#39;,
+            &#39;inst_id&#39;: 88,
+            &#39;node_id&#39;: 0,
+            &#39;node_ip&#39;: &#39;10.12.200.8&#39;,
+            &#39;slot_num&#39;: 26},
+           {&#39;image_id&#39;: &#39;f23b8025-7beb-4662-8d73-30563593ffbe&#39;,
+            &#39;inst_id&#39;: 41,
+            &#39;node_id&#39;: 1,
+            &#39;node_ip&#39;: &#39;10.12.200.236&#39;,
+            &#39;slot_num&#39;: 21},
+           {&#39;image_id&#39;: &#39;NON_FPGA&#39;, &#39;node_id&#39;: 2, &#39;node_ip&#39;: &#39;10.12.2.53&#39;}],
+ &#39;user_id&#39;: &#39;cfdummy&#39;}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [02:58&lt;00:00, 178.31s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-9-how-to-test-the-deployed-cluster">
+<h3><span class="section-number">5.5.2.4.3. </span>Step-9: How to test the deployed cluster<a class="headerlink" href="#step-9-how-to-test-the-deployed-cluster" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned above, the role <code class="docutils literal notranslate"><span class="pre">msg-ring-app</span></code> always forwards the incoming traffic to the
+next node in the cluster ring without modifying it, while the role <code class="docutils literal notranslate"><span class="pre">invertcase-ring-app</span></code> toggles
+the character case of the received data before forwarding them to the next node.</p>
+<p>An easy way to exercise this traffic scenario is to open two terminals on the VM of the created
+cluster, and to use the <em>netcat</em> network utility (often abbreviated as <code class="docutils literal notranslate"><span class="pre">nc</span></code>) for reading from and
+writing to the cluster using TCP or UDP connections. With all the communications of this cluster
+going over the <strong>UDP/TCP port 2718</strong>, enter the following commands in the two terminals:</p>
+<p>Terminal 1 - Set <code class="docutils literal notranslate"><span class="pre">nc</span></code> in TCP transmission mode</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ ping &lt;role_ip_1&gt;         # w/ role_ip_1 = the IP address of the 1st FPGA (retrieve at step-8)
+$ nc   &lt;role_ip_1&gt; 2718    # Add `-u` for a UDP connection
+</pre></div>
+</div>
+<p>Terminal 2 - Set <code class="docutils literal notranslate"><span class="pre">nc</span></code> in TCP listen mode</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ ping &lt;role_ip_2&gt;         # w/ role_ip_2 = the IP address of the 2nd FPGA (retreived at step-8)
+$ nc -l 2718               # Add `-u` for a UDP connection
+</pre></div>
+</div>
+<p>You can now type in some text in the 1st terminal, and this text should be echoed back with all its
+characters inverted in the 2nd terminal as the following example shows.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-HelloThemisto-Demo.png?raw=true"><img alt="Demo-of-the cFp_HelloThemisto project" src="https://github.com/cloudFPGA/cFp_HelloThemisto/blob/master//./DOC/imgs/Img-HelloThemisto-Demo.png?raw=true" /></a>
+<dl class="field-list simple">
+<dt class="field-odd">Info</dt>
+<dd class="field-odd"><p>Some firewalls may block network packets if there is not a connection to the remote machine/port. Hence, to get the <em>HelloThemisto</em> example to work, the following commands might be necessary to be executed (as root):</p>
+</dd>
+</dl>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="k">public</span><span class="w"> </span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">2718-2750</span><span class="o">/</span><span class="n">udp</span><span class="w"> </span><span class="o">--</span><span class="n">permanent</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">zone</span><span class="o">=</span><span class="k">public</span><span class="w"> </span><span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">port</span><span class="o">=</span><span class="mi">2718-2750</span><span class="o">/</span><span class="n">tcp</span><span class="w"> </span><span class="o">--</span><span class="n">permanent</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span><span class="w"> </span><span class="o">--</span><span class="n">reload</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-10-for-further-experiments">
+<h3><span class="section-number">5.5.2.4.4. </span>Step-10: For further experiments<a class="headerlink" href="#step-10-for-further-experiments" title="Permalink to this headline">¶</a></h3>
+<p>Now that your cluster with one CPU and two FPGAs is operational, you may want to try and deploy a
+larger cluster at step-9 or extend the size of the current cluster with the
+<code class="docutils literal notranslate"><span class="pre">[PUT]</span> <span class="pre">/clusters/{cluster_id}/extend</span> <span class="pre">-</span> <span class="pre">Add</span> <span class="pre">nodes</span> <span class="pre">to</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">cluster</span></code> menu of the GUI-API.</p>
+<p>Depending on the combination of <code class="docutils literal notranslate"><span class="pre">msg-ring-app</span></code> and <code class="docutils literal notranslate"><span class="pre">invertcase-ring-app</span></code> roles in your extended
+cluster, the text of the 2nd terminal will have its characters inverted or not.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cFp_Zoo.html" class="btn btn-neutral float-right" title="5.5.3. cFp_Zoo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cFp_HelloKale.html" class="btn btn-neutral float-left" title="5.5.1. cFp_HelloKale" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

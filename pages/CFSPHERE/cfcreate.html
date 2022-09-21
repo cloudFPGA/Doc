@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4.2. cFCreate &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="4.3. cFSP" href="cfsp.html" />
+    <link rel="prev" title="4.1. cFDK" href="cfdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfsphere.html">4. The cloudFPGA Sphere</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfdk.html">4.1. cFDK</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. cFCreate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">4.2.1. Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setup-your-virtualenv">4.2.1.1. Setup your Virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">4.2.2. Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-new-cloudfpga-project-cfp">4.2.2.1. 1. Create new cloudFPGA project (cFp)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-an-existing-cfp">4.2.2.2. 2. Update an existing cFp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-cloudfpga-addon-cfa-to-an-existing-cfp">4.2.2.3. 3. Add a cloudFPGA addon (cFa) to an existing cFp</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#structure-of-a-cfp">4.2.3. Structure of a cFp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-cfp">4.2.4. Build a cFp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.2.5. Git integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#push-new-cfp-to-a-git-repository">4.2.5.1. Push new cFp to a git repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cfdk-as-git-submodule">4.2.5.2. cFDK as git submodule</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sra-tools-as-bash-alias">4.2.6. <code class="docutils literal notranslate"><span class="pre">sra</span> <span class="pre">tools</span></code> as bash alias</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mantle-support">4.2.7. Mantle support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-limitations-bugs">4.2.8. Known Limitations/Bugs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cfsp.html">4.3. cFSP</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfsphere.html"><span class="section-number">4. </span>The cloudFPGA Sphere</a> &raquo;</li>
+        
+      <li><span class="section-number">4.2. </span>cFCreate</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CFSPHERE/cfcreate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p id="cfcreate"><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFCreate/blob/master//README.md">This HTML section is rendered based on the Markdown file in cFCreate.</a></p>
+<div class="section" id="id1">
+<h1><span class="section-number">4.2. </span>cFCreate<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p><strong>Framework for creating and updating cloudFPGA projects</strong></p>
+<div class="section" id="requirements">
+<h2><span class="section-number">4.2.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>The cFCreate script has some python dependencies, hence we recommend the usage of virtualenvs.</p>
+<p><strong>This python Virtual environment is only required for the execution of cFCreate, not for the build of the FPGA bistreams in a cFp!</strong></p>
+<p>However, <code class="docutils literal notranslate"><span class="pre">python3</span></code> is required to build cFp bitstreams.</p>
+<div class="section" id="setup-your-virtualenv">
+<h3><span class="section-number">4.2.1.1. </span>Setup your Virtualenv<a class="headerlink" href="#setup-your-virtualenv" title="Permalink to this headline">¶</a></h3>
+<p>(we recommend the use of python3.8)</p>
+<p>If you received this repository as Zip-folder, extract it into <code class="docutils literal notranslate"><span class="pre">&lt;your-path&gt;/cFCreate</span></code>. Otherwise clone this repositroy into <code class="docutils literal notranslate"><span class="pre">&lt;your-path/cFCreate</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;your-path&gt;/cFCreate/
+$ which python3.8
+/usr/bin/python3.8
+$ virtualenv -p /usr/bin/python3.8 cfenv
+$ <span class="nb">source</span> cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>You may have to install <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> first:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo su
+$ /usr/bin/python3.8-m ensurepip
+$ pip3 install virtualenv
+$ <span class="nb">exit</span>
+</pre></div>
+</div>
+<p>And maybe also python-devel.
+For Centos or Redhat:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo yum install python3-devel.x86_64
+</pre></div>
+</div>
+<p>For Ubuntu:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt install python3.8-dev
+</pre></div>
+</div>
+<p><strong>Important: The absolute path to this virutalenv and the virtualenv itself will be used by other components of
+the cloudFPGA framework!</strong>
+If cFCreate is moved to a different location, all projects must be updated (using <code class="docutils literal notranslate"><span class="pre">cFCreate</span> <span class="pre">update</span></code>).</p>
+</div>
+</div>
+<div class="section" id="usage">
+<h2><span class="section-number">4.2.2. </span>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./cFCreate -h
+cloudFPGA Project Management Framework
+cFCreate creates or updates cloudFPGA projects (cFp) based on the cloudFPGA Development Kit (cFDK).
+
+Usage:
+    cFCreate new (--cfdk-version=&lt;cfdkv&gt; | --cfdk-zip=&lt;path-to-zip&gt;)  [--git-url=&lt;git-url&gt;] [--git-init] &lt;path-to-project-folder&gt;
+    cFCreate update  &lt;path-to-project-folder&gt;
+    cFCreate adorn (--cfa-repo=&lt;cfagit&gt; | --cfa-zip=&lt;path-to-zip&gt;) &lt;folder-name-for-addon&gt; &lt;path-to-project-folder&gt;
+
+    cFCreate -h|--help
+    cFCreate -v|--version
+
+Commands:
+    new             Creates a new cFp based on the given cFDK
+    update          Update the environment setting of an existing cFp
+    adorn           Installs a cloudFPGA addon (cFa) to an existing cFp
+
+Options:
+    -h --help       Show this screen.
+    -v --version    Show version.
+
+    --cfdk-version=&lt;cfdkv&gt;      Specifies that the cFDK can be accessed via Github and which cFDK-version should be used.
+                                &#39;latest&#39; will use the latest available version.
+    --git-url=&lt;git-url&gt;         Uses the given URL to clone cFDK instead the default.
+    --cfdk-zip=&lt;path-to-zip&gt;    If the cFDK can&#39;t be reached via Github, a zip can be used.
+    --git-init                  Creates the new cFp as git-repo; Adds the cFDK as git submodule, if not using a cfdk-zip
+    --cfa-repo=&lt;cfagit&gt;         Link to the cFa git repository
+    --cfa-zip=&lt;path-to-zip&gt;     Path to a cFa zip folder
+
+Copyright IBM Research, licensed under the Apache License 2.0.
+Contact: {ngl,fab,wei}@zurich.ibm.com
+</pre></div>
+</div>
+<p>There are three typical use-cases:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="#1-create-new-cloudfpga-project-cfp">Create a new project from scratch with an empty folder</a></p></li>
+<li><p><a class="reference external" href="#2-update-an-existing-cfp">Update an existing project, e.g. after a fresh clone or to switch Shell types</a></p></li>
+<li><p><a class="reference external" href="#3-add-a-cloudfpga-addon-cfa-to-an-existing-cfp">Beautify an existing project with an addon</a></p></li>
+</ol>
+<p><strong>General notice:</strong> The terms <em>‘git url’</em> or ‘git repo’ always refer to a link that can be <em>used to clone the repository!</em>
+E.g. <code class="docutils literal notranslate"><span class="pre">git&#64;git.example.com:group/repo.git</span></code> or <code class="docutils literal notranslate"><span class="pre">https://git.example.com/group/repo.git</span></code>.
+If <em>‘a zip folder’</em> is mentioned, a zip-file provided by the cloudFPGA team is meant, so that it has the right structure etc.</p>
+<div class="section" id="create-new-cloudfpga-project-cfp">
+<h3><span class="section-number">4.2.2.1. </span>1. Create new cloudFPGA project (cFp)<a class="headerlink" href="#create-new-cloudfpga-project-cfp" title="Permalink to this headline">¶</a></h3>
+<p>To create a new cFp, use the <code class="docutils literal notranslate"><span class="pre">cFCreate</span></code> command:</p>
+<p><strong>The script will ask for the type of SRA or cF module –&gt; see cFDK documentation.</strong>
+The <code class="docutils literal notranslate"><span class="pre">project-folder</span></code> should not exist (yet) or must be empty.</p>
+<ol class="arabic">
+<li><p>New cFp with a cFDK-zip
+.. code-block:: bash</p>
+<blockquote>
+<div><p>./cFCreate new –cfdk-zip=./&lt;path&gt;/cFDK-v0.1.zip &lt;path-to-project-folder&gt;</p>
+</div></blockquote>
+</li>
+<li><p>New cFp using cFDK from Github</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cFCreate new --cfdk-version<span class="o">=</span>v0.1 &lt;path-to-project-folder&gt;
+</pre></div>
+</div>
+<p>If the default Github URL is not accessible, an alternative can be specified with <code class="docutils literal notranslate"><span class="pre">-git-url</span></code>.</p>
+<p><strong>The new project is initalized as git repository, if the option ``–git-init`` is used.</strong>
+In case of using cFDK from Github, this is initialized as git-submodule.
+To init the project as git repository can also be done manually, see the section <a class="reference external" href="#git-integration">Git integration</a> below.</p>
+<p><strong>The use of ``–git-init`` is recommended!</strong></p>
+</div>
+<div class="section" id="update-an-existing-cfp">
+<h3><span class="section-number">4.2.2.2. </span>2. Update an existing cFp<a class="headerlink" href="#update-an-existing-cfp" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>If it is necessary to regenerate the environment of the cFp (e.g. switch of SRA type or cFDK version,</dt><dd><p><strong>or after a fresh clone of an existing cFp</strong>), run:</p>
+</dd>
+</dl>
+<p>in the existing cFp path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git submodule init
+$ git submodule update
+</pre></div>
+</div>
+<p>before you then run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./cFCreate update &lt;path-to-project-folder&gt;
+</pre></div>
+</div>
+<p>You have to answer a few questions to regenerate the environment.
+For example the path to the Xilinx environment which is in case of our ZYC2 VM
+<code class="docutils literal notranslate"><span class="pre">/tools/Xilinx/Vivado/2017.4/</span></code></p>
+</div>
+<div class="section" id="add-a-cloudfpga-addon-cfa-to-an-existing-cfp">
+<h3><span class="section-number">4.2.2.3. </span>3. Add a cloudFPGA addon (cFa) to an existing cFp<a class="headerlink" href="#add-a-cloudfpga-addon-cfa-to-an-existing-cfp" title="Permalink to this headline">¶</a></h3>
+<p>Further features may be available outside the default cFDK.
+There are again two ways to install them to an existing cFp:</p>
+<ol class="arabic">
+<li><p>Using an existing git repository:
+.. code-block:: bash</p>
+<blockquote>
+<div><p>./cFCreate adorn –cfa-repo=&lt;cfagit&gt; &lt;folder-name-for-addon&gt; &lt;path-to-project-folder&gt;</p>
+</div></blockquote>
+</li>
+<li><p>Using a cFa-zip
+.. code-block:: bash</p>
+<blockquote>
+<div><p>./cFCreate adorn –cfa-zip=&lt;path-to-zip&gt; &lt;folder-name-for-addon&gt;  &lt;path-to-project-folder&gt;</p>
+</div></blockquote>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;folder-name-for-addon&gt;</span></code> will be the name of the folder that will be created in <code class="docutils literal notranslate"><span class="pre">&lt;path-to-project-folder&gt;</span></code> for the new cFa.</p>
+<p>If the cFp is a git-repository, all changes will be commited by <code class="docutils literal notranslate"><span class="pre">cFCreate</span></code> (maybe check the output for error messages).
+It is <em>not</em> necessary to run <code class="docutils literal notranslate"><span class="pre">cFCreate</span> <span class="pre">update</span></code> afterwards on any machine.</p>
+</div>
+</div>
+<div class="section" id="structure-of-a-cfp">
+<h2><span class="section-number">4.2.3. </span>Structure of a cFp<a class="headerlink" href="#structure-of-a-cfp" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ tree &lt;cFp_repo&gt;
+    cFDK/ (submodule)
+    TOP/
+    └──tcl/ (don&#39;t touch, is copied from cFDK)
+    └──xdc/ (add debug nets here)
+    └──hdl/
+       └──top.vhdl
+       └── a.s.o. (if custom hdl files for TOP)
+    ROLE/
+    └── role1 (or not, depends on PR, etc.)
+    └── a.s.o.
+    dcps/ (contains the dcps and bitfiles)
+    xpr/ (vivado project)
+    ip/ (contains the IP cores (generated during build))
+    Makefile
+    env/
+    └── setenv.sh (sets the envrionments)
+    &lt;possible_addons/&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-a-cfp">
+<h2><span class="section-number">4.2.4. </span>Build a cFp<a class="headerlink" href="#build-a-cfp" title="Permalink to this headline">¶</a></h2>
+<p>See the documentation of cFDK.
+In short:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> env/setenv.sh  <span class="c1"># DON&#39;T FORGETT!</span>
+$ make monolithic
+<span class="c1"># or</span>
+$ make pr
+</pre></div>
+</div>
+<p>If synthesis fails without an error retry the <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">monolithic</span></code> or open the project with <code class="docutils literal notranslate"><span class="pre">Vivado</span></code> and start synthesis there.
+Resulting bitfiles are in <code class="docutils literal notranslate"><span class="pre">./dcps/</span></code>.</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">4.2.5. </span>Git integration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><strong>If not done with the ``–git-init`` option</strong> during the creation of a new cFp,
+the following steps are necessary to use the cFp as git repository and/or use the cFDK as git-submodule:</p>
+<div class="section" id="push-new-cfp-to-a-git-repository">
+<h3><span class="section-number">4.2.5.1. </span>Push new cFp to a git repository<a class="headerlink" href="#push-new-cfp-to-a-git-repository" title="Permalink to this headline">¶</a></h3>
+<p>Basically, follow <a class="reference external" href="https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line">this steps</a>.
+In short:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;cFp_repo&gt;
+$ git init
+$ git add .
+$ git commit -m <span class="s2">&quot;First commit&quot;</span>
+$ git remote add origin &lt;remote-repository-URL&gt;
+$ git push origin master
+</pre></div>
+</div>
+<p><em>(This could also be done by ``cFCreate`` with the ``–git-init`` option.)</em></p>
+</div>
+<div class="section" id="cfdk-as-git-submodule">
+<h3><span class="section-number">4.2.5.2. </span>cFDK as git submodule<a class="headerlink" href="#cfdk-as-git-submodule" title="Permalink to this headline">¶</a></h3>
+<p><em>If not done automatically with the ``–git-init`` option</em>:
+It is recommended, to declare the cFDK folder as git submodule to the cFp git repository.
+Therefore, execute the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;cFp_repo&gt;
+$ git submodule add --name cFDK file://./cFDK/
+</pre></div>
+</div>
+<p><em>Before commit, you must manually update the path to the remote location</em>, if desired.</p>
+<p>Hence, overwrite the file <code class="docutils literal notranslate"><span class="pre">&lt;cFp_repo&gt;/.gitmodules</span></code> with the following content:</p>
+<div class="highlight-config notranslate"><div class="highlight"><pre><span></span>[submodule &quot;cFDK&quot;]
+    path = cFDK
+    url = git@github.ibm.com:cloudFPGA/cFDK.git
+</pre></div>
+</div>
+<p>also, update <code class="docutils literal notranslate"><span class="pre">.git/config</span></code> accordingly, from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>submodule <span class="s2">&quot;cFDK&quot;</span><span class="o">]</span>
+        <span class="nv">url</span> <span class="o">=</span> file://./cFDK/
+</pre></div>
+</div>
+<p>to</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>submodule <span class="s2">&quot;cFDK&quot;</span><span class="o">]</span>
+        <span class="nv">url</span> <span class="o">=</span> git@github.ibm.com:cloudFPGA/cFDK.git
+</pre></div>
+</div>
+<p>Or use the alternative <code class="docutils literal notranslate"><span class="pre">git-url</span></code> as mentioned above.</p>
+<p>Afterwards, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git submodule init
+$ git submodule update
+$ git commit
+$ git push
+</pre></div>
+</div>
+<p>Further information about git submodules can be found <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">here</a>.</p>
+</div>
+</div>
+<div class="section" id="sra-tools-as-bash-alias">
+<h2><span class="section-number">4.2.6. </span><code class="docutils literal notranslate"><span class="pre">sra</span> <span class="pre">tools</span></code> as bash alias<a class="headerlink" href="#sra-tools-as-bash-alias" title="Permalink to this headline">¶</a></h2>
+<p>If you want to use the <code class="docutils literal notranslate"><span class="pre">./sra</span></code> command withou the <code class="docutils literal notranslate"><span class="pre">./</span></code>, you can add the following lines to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srafunc<span class="o">(){</span>
+    <span class="nv">cur_pwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+    <span class="nv">srat</span><span class="o">=</span><span class="nv">$cur_pwd</span>/sra
+    <span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;</span><span class="nv">$srat</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nv">$srat</span>
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Error: No cloudFPGA sra tools present in this folder.&quot;</span>
+    <span class="k">fi</span>
+<span class="o">}</span>
+
+<span class="nb">alias</span> <span class="nv">sra</span><span class="o">=</span>srafunc
+</pre></div>
+</div>
+<p>Afterwards, activate it by reloading the bashrc (<code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>).</p>
+</div>
+<div class="section" id="mantle-support">
+<h2><span class="section-number">4.2.7. </span>Mantle support<a class="headerlink" href="#mantle-support" title="Permalink to this headline">¶</a></h2>
+<p>Mantles/Middlewares can be configured like any other cFa. Please refer to the documentation of the particular Mantle.</p>
+</div>
+<div class="section" id="known-limitations-bugs">
+<h2><span class="section-number">4.2.8. </span>Known Limitations/Bugs<a class="headerlink" href="#known-limitations-bugs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Only one Middleware per SRA is supported. Hence, the current flexibility is: <code class="docutils literal notranslate"><span class="pre">Shell:Middleware:Role</span> <span class="pre">=</span> <span class="pre">1:1:2</span></code></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cfsp.html" class="btn btn-neutral float-right" title="4.3. cFSP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cfdk.html" class="btn btn-neutral float-left" title="4.1. cFDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

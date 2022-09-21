@@ -1,0 +1,585 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5.5.1. cFp_HelloKale &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.5.2. cFp_HelloThemisto" href="cFp_HelloThemisto.html" />
+    <link rel="prev" title="5. Project repository" href="cfprojects.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="cfprojects.html">5. Project repository</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#about-cf-projects">5.1. About cF Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#getting-started-with-a-cf-project">5.2. Getting started with a cF project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-cfcreate">5.3. How to cFCreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cfprojects.html#how-to-create-a-project-in-the-cf-organization">5.4. How to create a project in the cF organization</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cfprojects.html#project-repositories">5.5. Project Repositories</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">5.5.1. cFp_HelloKale</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">5.5.1.1. Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shell-role-architecture">5.5.1.2. Shell-Role-Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-build-the-project">5.5.1.3. How to build the project</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-1-clone-the-project">5.5.1.3.1. Step-1: Clone the project</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-2-setup-your-environment">5.5.1.3.2. Step-2: Setup your environment</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-3-generate-a-static-bitstream">5.5.1.3.3. Step-3: Generate a static bitstream</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-deploy-a-cloudfpga-instance">5.5.1.4. How to deploy a cloudFPGA instance</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-4-upload-the-generated-bitstream">5.5.1.4.1. Step-4: Upload the generated bitstream</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-5-request-a-cloudfpga-instance-and-deploy-it">5.5.1.4.2. Step-5: Request a cloudFPGA instance and deploy it</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-access-your-cloudfpga-instance">5.5.1.5. How to access your cloudFPGA instance</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-6-ping-the-deployed-fpga">5.5.1.5.1. Step-6: Ping the deployed FPGA</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-7-network-tools-and-socket-communication">5.5.1.5.2. Step-7: Network tools and Socket communication</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-cleanup-optional">5.5.1.6. How to cleanup (optional)</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#step-8-how-to-remove-a-bitstream-from-the-image-database-optional">5.5.1.6.1. Step-8: How to remove a bitstream from the image database (optional)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-8b-delete-the-image-with-the-cfsp-api">5.5.1.6.2. Step-8b: Delete the image with the cFSP-API</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-9-how-to-delete-an-instance-optional">5.5.1.6.3. Step-9: How to delete an instance (optional)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#step-9b-delete-the-instance-with-the-cfsp-api">5.5.1.6.4. Step-9b: Delete the instance with the cFSP-API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_HelloThemisto.html">5.5.2. cFp_HelloThemisto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cFp_Zoo.html">5.5.3. cFp_Zoo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/contributing.html">6. How to Contribute</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="cfprojects.html"><span class="section-number">5. </span>Project repository</a> &raquo;</li>
+        
+      <li><span class="section-number">5.5.1. </span>cFp_HelloKale</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/PROJECTS/cFp_HelloKale.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cfp-hellokale">
+<span id="id1"></span><h1><span class="section-number">5.5.1. </span>cFp_HelloKale<a class="headerlink" href="#cfp-hellokale" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//README.md">This HTML section is rendered based on the Markdown file in cFp_HelloKale.</a></p>
+<p>A cloudFPGA project built upon the shell <strong>Kale</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">information_source</dt>
+<dd class="field-odd"><p>The cloudFPGA documentation is available at <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/INTRODUCTION/introduction.html">https://cloudfpga.github.io/Doc</a></p>
+</dd>
+</dl>
+<div class="section" id="overview">
+<h2><span class="section-number">5.5.1.1. </span>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The integration of a user application and a cloudFPGA shell into a top-level design is what
+constitutes a <a class="reference external" href="https://cloudfpga.github.io/Doc/pages/PROJECTS/cfprojects.html#">cloudFPGA project</a>.</p>
+<p>This project builds on the shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md">Kale</a>
+which is a shell with minimalist support for accessing the hardware components of the FPGA
+instance, and a role that implements a set of TCP and UDP loopback mechanisms for echoing the
+incoming traffic and forwarding it back to its emitter.</p>
+<p>This setup corresponds to an FPGA server implementing only two UDP and TCP echo services.
+The FPGA accepts connections on port <code class="docutils literal notranslate"><span class="pre">8803</span></code> and echoes every incoming lines back to the client
+(using the carriage-return/line-feed sequence as line separator). The resulting traffic scenario
+is shown in the following figure.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//DOC/imgs/Fig-HelloKale-Setup.png?raw=true"><img alt="Setup-of-the cFp_HelloKale project" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//DOC/imgs/Fig-HelloKale-Setup.png?raw=true" /></a>
+</div>
+<div class="section" id="shell-role-architecture">
+<h2><span class="section-number">5.5.1.2. </span>Shell-Role-Architecture<a class="headerlink" href="#shell-role-architecture" title="Permalink to this headline">¶</a></h2>
+<p>In <strong>cloudFPGA</strong> (cF), a user application is referred to as a <strong>ROLE</strong> and is integrated
+along with a <strong>SHELL</strong> that abstracts the hardware components of the FPGA module.
+The combination of a specific ROLE and its associated SHELL into a toplevel design (<strong>TOP</strong>) is
+referred to as a <strong>Shell-Role-Architecture</strong> (SRA).</p>
+<p>The shell-role-architecture used by the project <em>cFp_HelloKale</em> is shown in the following figure.
+It consists of:</p>
+<ul class="simple">
+<li><p>a SHELL of type <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md">***Kale**_</a>
+which is a shell with minimalist support for accessing the hardware components of the
+FPGA module FMKU060. The shell <em>Kale</em> includes the following building blocks:</p>
+<ul>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/ETH/ETH.md">10 Gigabit Ethernet (ETH)</a> sub-system,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/NTS/NTS.md">Network Transport Stack (NTS)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/MEM/MEM.md">DDR4 Memory sub-system (MEM)</a>,</p></li>
+<li><p>a <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/MMIO/MMIO.md">Memory Mapped IO (MMIO)</a> sub-system.</p></li>
+</ul>
+</li>
+<li><p>a ROLE of type <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/README.md">***HelloKale**_</a> which implements a set of TCP-,
+UDP- and DDR4-oriented tests and functions for the bring-up the cloudFPGA module.</p>
+<ul>
+<li><p>the documentation of the <em>HelloKale</em> code is available <a class="reference external" href="https://cloudfpga.github.io/Dox/group__cFp__HelloKale.html">here</a>.</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Fig-TOP-BringUp.png?raw=true#center"><img alt="Block diagram of the BringUpTop" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Fig-TOP-BringUp.png?raw=true#center" /></a>
+<p align="center">Toplevel block diagram of the cFp_HelloKale project</p><p><strong>Info/Warning</strong></p>
+<ul class="simple">
+<li><p>The shell <a class="reference external" href="https://github.com/cloudFPGA/cFDK/blob/main/DOC/Kale.md">***Kale**_</a> does
+not support <strong>Partial Reconfiguration</strong> (PR).
+It was specifically developed for the bring-up of a new FPGA module or for the deployment
+of a static implementation. As a result, the generated bitstream is always a static
+bitstream. Refer to the project <a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto">_cFp*HelloThemisto*</a>
+for an example of a shell that supports PR.</p></li>
+<li><p>The static nature of the generated bitstream precludes its deployment over the
+datacenter network and requires the use of a JTAG interface to download and configure
+the FPGA.</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-build-the-project">
+<h2><span class="section-number">5.5.1.3. </span>How to build the project<a class="headerlink" href="#how-to-build-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The current directory contains a <em>Makefile</em> which handles all the required steps to generate
+a <em>bitfile</em> (a.k.a <em>bitstream</em>). During the build, both SHELL and ROLE dependencies are analyzed
+to solely re-compile and re-synthesize the components that must be recreated.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ SANDBOX=`pwd`  (a short for your working directory)
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">warning</dt>
+<dd class="field-odd"><p>The following build procedure is only compatible with <em>Vivado</em> <strong>2017.4</strong> to <strong>2020.1</strong> versions included (for the time being).</p>
+</dd>
+</dl>
+<div class="section" id="step-1-clone-the-project">
+<h3><span class="section-number">5.5.1.3.1. </span>Step-1: Clone the project<a class="headerlink" href="#step-1-clone-the-project" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone --recursive git@github.com:cloudFPGA/cFp_HelloKale.git
+    (if you don&#39;t have a GitHub account and/or SSH keys set up, use the command:
+     git clone --recursive https://github.com/cloudFPGA/cFp_HelloKale.git)
+
+$ cd cFp_HelloKale/cFDK
+$ git checkout main
+$ cd ../..
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-setup-your-environment">
+<h3><span class="section-number">5.5.1.3.2. </span>Step-2: Setup your environment<a class="headerlink" href="#step-2-setup-your-environment" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloKale</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="n">env</span><span class="o">/</span><span class="n">setenv</span><span class="p">.</span><span class="n">sh</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-generate-a-static-bitstream">
+<h3><span class="section-number">5.5.1.3.3. </span>Step-3: Generate a static bitstream<a class="headerlink" href="#step-3-generate-a-static-bitstream" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloKale</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">monolithic</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The build is successful if you get the following message after ~90 minutes, indicating that a bitsream was
+generated. You will find this newly created bitstream in the folder <code class="docutils literal notranslate"><span class="pre">${SANDBOX}/cFp_HelloKale/dcps</span></code>,
+under the name <code class="docutils literal notranslate"><span class="pre">4_topFMKU60_impl_default_monolithic.bit</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; ##  DONE WITH BITSTREAM GENERATION RUN
+&lt;cloudFPGA&gt; ################################################################################
+&lt;cloudFPGA&gt; End at: HH:MM:SS Day Month Day Year
+</pre></div>
+</div>
+<div class="section" id="step-3-1-save-a-checkpoint-optional">
+<h4><span class="section-number">5.5.1.3.3.1. </span>Step-3.1: Save a checkpoint (optional)<a class="headerlink" href="#step-3-1-save-a-checkpoint-optional" title="Permalink to this headline">¶</a></h4>
+<p>If the design was successfully implemented, you can opt to save its corresponding
+checkpoint in the ‘<em>./dcps</em>’ directory. This will accelerate the next build by exploiting the
+incremental place-and-route features of Vivado.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloKale</span><span class="w"></span>
+<span class="n">$</span><span class="w"> </span><span class="n">make</span><span class="w"> </span><span class="n">save_mono_incr</span><span class="w"></span>
+</pre></div>
+</div>
+<p>To request an incremental build, use the command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">make</span> <span class="pre">monolithic_incr</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">make</span> <span class="pre">monolithic</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-deploy-a-cloudfpga-instance">
+<h2><span class="section-number">5.5.1.4. </span>How to deploy a cloudFPGA instance<a class="headerlink" href="#how-to-deploy-a-cloudfpga-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-4-upload-the-generated-bitstream">
+<h3><span class="section-number">5.5.1.4.1. </span>Step-4: Upload the generated bitstream<a class="headerlink" href="#step-4-upload-the-generated-bitstream" title="Permalink to this headline">¶</a></h3>
+<p>In order to program a cloudFPGA instance with your newly generated bitfile, you first need
+to upload it to the <strong>cloudFPGA Resource Manager</strong> (cFRM). The below step-4a and step-4b
+cover the two offered options for uploading a bitstream.</p>
+<div class="section" id="step-4a-upload-image-with-the-gui-api">
+<h4><span class="section-number">5.5.1.4.1.1. </span>Step-4a: Upload image with the GUI-API<a class="headerlink" href="#step-4a-upload-image-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>The cloudFPGA resource manager provides a web-based graphical user interface to its API. It is
+available as a <a class="reference external" href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> at
+<code class="docutils literal notranslate"><span class="pre">http://10.12.0.132:8080/ui/#/</span></code></p>
+<p>To upload your generated bitstream, expand the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Images</span></code> and the operation
+<code class="docutils literal notranslate"><span class="pre">[POST]</span> <span class="pre">​/images</span> <span class="pre">-</span> <span class="pre">Upload</span> <span class="pre">an</span> <span class="pre">image</span></code>. Then, fill in the requested fields as exemplified below.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Req.png?raw=true#center"><img alt="Swagger-Images-Post-Upload-Req" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Req.png?raw=true#center" /></a>
+<p>Next, scroll down to the “<em>Response body</em> section of the server and write down the image “<em>id</em>” for
+use in the next step.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Res.png?raw=true#center"><img alt="Swagger-Images-Post-Upload-Res" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-POST-Upload-Res.png?raw=true#center" /></a>
+</div>
+<div class="section" id="step-4b-upload-image-with-the-cfsp-api">
+<h4><span class="section-number">5.5.1.4.1.2. </span>Step-4b: Upload image with the cFSP-API<a class="headerlink" href="#step-4b-upload-image-with-the-cfsp-api" title="Permalink to this headline">¶</a></h4>
+<p>The second option for uploading a bitstream is based on a command-line interface to the cFRM API.
+This method is provided by the <a class="reference external" href="https://github.com/cloudFPGA/cFSP">cloudFPGA Support Package (cFSP)</a>
+which must be installed beforehand as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}
+
+$ git clone https://github.com/cloudFPGA/cFSP.git
+$ cd cFSP
+$ which python3     # (we recommend python 3.6 or higher)
+/usr/bin/python3
+$ virtualenv -p /usr/bin/python3 cfenv
+$ source cfenv/bin/activate
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">cFSP</span></code> is installed, you must add your cloudFPGA credentials as follows. with the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">load</span><span class="w"> </span><span class="o">--</span><span class="n">username</span><span class="o">=&lt;</span><span class="n">YOUR_USERNAME</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">password</span><span class="o">=&lt;</span><span class="n">YOUR_PASSWORD</span><span class="o">&gt;</span><span class="w"> </span><span class="o">--</span><span class="n">project</span><span class="o">=&lt;</span><span class="n">YOUR_PROJECTNAME</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>The credentials consist of the <code class="docutils literal notranslate"><span class="pre">username</span></code>, the <code class="docutils literal notranslate"><span class="pre">password</span></code> and the <code class="docutils literal notranslate"><span class="pre">projectname</span></code> that were provided
+to you when you registered.
+The above command creates a file called <code class="docutils literal notranslate"><span class="pre">user.json</span></code> containing these credentials as depicted by the
+output of this command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+Writing credentials template to ./user.json
+[&#39;load&#39;]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 3305.20it/s]
+</pre></div>
+</div>
+<p>You can watch the content of the credential file with:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFSP
+
+$ ./cfsp user show
+0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+User     : YOUR_USERNAME
+Password : YOUR_PASSWORD
+Project  : YOUR_PROJECTNAME
+[&#39;show&#39;]
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 5801.25it/s]
+</pre></div>
+</div>
+<p>Finally, upload the generated bitstream located in the <code class="docutils literal notranslate"><span class="pre">dcps</span></code> folder of the <code class="docutils literal notranslate"><span class="pre">${SANDBOX}/cFp_HelloKale</span></code> project.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">image</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_file</span><span class="o">=</span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFp_HelloKale</span><span class="o">/</span><span class="n">dcps</span><span class="o">/</span><span class="mi">4</span><span class="n">_topFMKU60_impl_default_monolithic</span><span class="p">.</span><span class="n">bit</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Similarly to the GUI-API procedure, do not forget to write down the image <code class="docutils literal notranslate"><span class="pre">id</span></code> returned by the server
+(e.g. ‘842d2c6b-33d4-454c-8255-f4b127bd9cf3’).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span> 0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+{&#39;breed&#39;: None,
+ &#39;comment&#39;: None,
+ &#39;fpga_board&#39;: None,
+ &#39;id&#39;: &#39;842d2c6b-33d4-454c-8255-f4b127bd9cf3&#39;,
+ &#39;shell_type&#39;: None}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:02&lt;00:00,  2.91s/it]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="step-5-request-a-cloudfpga-instance-and-deploy-it">
+<h3><span class="section-number">5.5.1.4.2. </span>Step-5: Request a cloudFPGA instance and deploy it<a class="headerlink" href="#step-5-request-a-cloudfpga-instance-and-deploy-it" title="Permalink to this headline">¶</a></h3>
+<p>Now that your FPGA image has been uploaded to the cFRM, you can request a cloudFPGA instance to
+be programmed and deployed with it. The below step-5a and step-5b will cover both possible options to
+create a new cF instance.</p>
+<div class="section" id="step-5a-create-an-instance-with-the-gui-api">
+<h4><span class="section-number">5.5.1.4.2.1. </span>Step-5a: Create an instance with the GUI-API<a class="headerlink" href="#step-5a-create-an-instance-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>To create an instance via the GUI-API, point your web browser at
+<code class="docutils literal notranslate"><span class="pre">http://10.12.0.132:8080/ui/#/</span></code></p>
+<p>Expand the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Instances</span></code> and the operation
+<code class="docutils literal notranslate"><span class="pre">[POST]</span> <span class="pre">​/instances</span> <span class="pre">-</span> <span class="pre">Create</span> <span class="pre">an</span> <span class="pre">instance</span></code>. Then, fill in the requested fields as exemplified below.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-POST-Create-Req.png?raw=true#center"><img alt="Swagger-Instances-Post-Create-Req" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-POST-Create-Req.png?raw=true#center" /></a>
+<p>Next, scroll down to the server’s response and write down the “<em>role_ip</em>” for later accessing your
+instance.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-POST-Create-Res.png?raw=true#center"><img alt="Swagger-Instances-Post-Create-Res" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-POST-Create-Res.png?raw=true#center" /></a>
+</div>
+<div class="section" id="step-5b-create-an-instance-with-the-cfsp-api">
+<h4><span class="section-number">5.5.1.4.2.2. </span>Step-5b: Create an instance with the cFSP-API<a class="headerlink" href="#step-5b-create-an-instance-with-the-cfsp-api" title="Permalink to this headline">¶</a></h4>
+<p>To create a similar instance via the cFSP-API, enter the following command:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SANDBOX</span><span class="p">}</span><span class="o">/</span><span class="n">cFSP</span><span class="w"></span>
+
+<span class="n">$</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="n">cfsp</span><span class="w"> </span><span class="n">instance</span><span class="w"> </span><span class="n">post</span><span class="w"> </span><span class="o">--</span><span class="n">image_id</span><span class="o">=</span><span class="mi">31</span><span class="n">a0d56e</span><span class="mi">-6037-415</span><span class="n">f</span><span class="mi">-9</span><span class="n">b13</span><span class="mi">-6</span><span class="n">b4e625e9a29</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Next, and similarly to the GUI-API procedure, do not forget to write down the <code class="docutils literal notranslate"><span class="pre">role_ip</span></code> (e.g. ‘10.12.200.15’)
+and the <code class="docutils literal notranslate"><span class="pre">instance_id</span></code> (e.g. ‘76’) returned by the server.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span> 0%|                                                                                                                | 0/1 [00:00&lt;?, ?it/s]INFO: Repeat #0
+{&#39;fpga_board&#39;: &#39;FMKU60&#39;,
+ &#39;image_id&#39;: &#39;842d2c6b-33d4-454c-8255-f4b127bd9cf3&#39;,
+ &#39;instance_id&#39;: 76,
+ &#39;project_name&#39;: &#39;cf_ALL&#39;,
+ &#39;role_ip&#39;: &#39;10.12.200.15&#39;,
+ &#39;shell_type&#39;: &#39;NO_SRA&#39;,
+ &#39;slot_num&#39;: 15,
+ &#39;status&#39;: &#39;USED&#39;,
+ &#39;user_id&#39;: &#39;cfdummy&#39;}
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [01:20&lt;00:00, 80.94s/it]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-access-your-cloudfpga-instance">
+<h2><span class="section-number">5.5.1.5. </span>How to access your cloudFPGA instance<a class="headerlink" href="#how-to-access-your-cloudfpga-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-6-ping-the-deployed-fpga">
+<h3><span class="section-number">5.5.1.5.1. </span>Step-6: Ping the deployed FPGA<a class="headerlink" href="#step-6-ping-the-deployed-fpga" title="Permalink to this headline">¶</a></h3>
+<p>Now that you retrieved the IP address of your FPGA instance in step-5, it is good practise to ping
+your deployed FPGA and assess its availability.</p>
+<p>Use the following command to ping the FPGA with its IP address (retrieved in Step-5).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">$</span><span class="w"> </span><span class="n">ping</span><span class="w"> </span><span class="o">&lt;</span><span class="n">role_ip</span><span class="o">&gt;</span><span class="w">        </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">g</span><span class="p">.</span><span class="w"> </span><span class="n">ping</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="p">)</span><span class="w"></span>
+
+<span class="n">PING</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="w"> </span><span class="p">(</span><span class="mf">10.12.200.247</span><span class="p">)</span><span class="w"> </span><span class="mi">56</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="w"></span>
+<span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">62</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">1.26</span><span class="w"> </span><span class="n">ms</span><span class="w"></span>
+<span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">2</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">62</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">0.900</span><span class="w"> </span><span class="n">ms</span><span class="w"></span>
+<span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">3</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">62</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">0.837</span><span class="w"> </span><span class="n">ms</span><span class="w"></span>
+<span class="mi">64</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mf">10.12.200.247</span><span class="o">:</span><span class="w"> </span><span class="n">icmp_seq</span><span class="o">=</span><span class="mi">4</span><span class="w"> </span><span class="n">ttl</span><span class="o">=</span><span class="mi">62</span><span class="w"> </span><span class="n">time</span><span class="o">=</span><span class="mf">0.780</span><span class="w"> </span><span class="n">ms</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-7-network-tools-and-socket-communication">
+<h3><span class="section-number">5.5.1.5.2. </span>Step-7: Network tools and Socket communication<a class="headerlink" href="#step-7-network-tools-and-socket-communication" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned above, the role of the project <em>cFp_HelloKale</em> implements a set of TCP-, UDP-
+and DDR4-oriented tests and functions. These features can be called or exercised from a
+remote host via network tools and network communication sockets as explained in the
+following two links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./HOST/py/README.md">How to cF Socket Programming with Python</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./HOST/README.md">How to cF Network Tools</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-cleanup-optional">
+<h2><span class="section-number">5.5.1.6. </span>How to cleanup (optional)<a class="headerlink" href="#how-to-cleanup-optional" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-8-how-to-remove-a-bitstream-from-the-image-database-optional">
+<h3><span class="section-number">5.5.1.6.1. </span>Step-8: How to remove a bitstream from the image database (optional)<a class="headerlink" href="#step-8-how-to-remove-a-bitstream-from-the-image-database-optional" title="Permalink to this headline">¶</a></h3>
+<p>To remove a bitfile from the cFRM database, use either of the following two procedures.</p>
+<div class="section" id="step-8a-delete-an-image-with-the-gui-api">
+<h4><span class="section-number">5.5.1.6.1.1. </span>Step-8a: Delete an image with the GUI-API<a class="headerlink" href="#step-8a-delete-an-image-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>Expand the operation <code class="docutils literal notranslate"><span class="pre">[DELETE]</span> <span class="pre">​/images/{image_id}</span> <span class="pre">-</span> <span class="pre">Delete</span> <span class="pre">an</span> <span class="pre">image</span></code> of the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Images</span></code>, and
+fill in the requested fields as exemplified below.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-DELETE-Delete-Req.png?raw=true#center"><img alt="Swagger-Images-Delete-Delete-Req" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Images-DELETE-Delete-Req.png?raw=true#center" /></a>
+<dl class="field-list simple">
+<dt class="field-odd">bulb</dt>
+<dd class="field-odd"><p>You can retrieve a list of all your images by expanding the <code class="docutils literal notranslate"><span class="pre">[GET]</span> <span class="pre">​/images</span> <span class="pre">-</span> <span class="pre">Get</span> <span class="pre">all</span> <span class="pre">images</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">user</span></code></p>
+</dd>
+</dl>
+<p>of the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Images</span></code> and providing your credentials.</p>
+</div>
+</div>
+<div class="section" id="step-8b-delete-the-image-with-the-cfsp-api">
+<h3><span class="section-number">5.5.1.6.2. </span>Step-8b: Delete the image with the cFSP-API<a class="headerlink" href="#step-8b-delete-the-image-with-the-cfsp-api" title="Permalink to this headline">¶</a></h3>
+<p>The second option offered to you is use the command-line interface to the cFRM API.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFSP
+
+$ ./cfsp image delete &lt;id&gt;  # E.g. &quot;31a0d56e-6037-415f-9b13-6b4e625e9a29&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-9-how-to-delete-an-instance-optional">
+<h3><span class="section-number">5.5.1.6.3. </span>Step-9: How to delete an instance (optional)<a class="headerlink" href="#step-9-how-to-delete-an-instance-optional" title="Permalink to this headline">¶</a></h3>
+<p>To end an instance and return it to cFRM’s pool of resources, use either of the following two procedures.</p>
+<div class="section" id="step-9a-delete-an-instance-with-the-gui-api">
+<h4><span class="section-number">5.5.1.6.3.1. </span>Step-9a: Delete an instance with the GUI-API<a class="headerlink" href="#step-9a-delete-an-instance-with-the-gui-api" title="Permalink to this headline">¶</a></h4>
+<p>Expand the operation <code class="docutils literal notranslate"><span class="pre">[DELETE]</span> <span class="pre">​/instances/{instance_id}</span> <span class="pre">-</span> <span class="pre">Remove</span> <span class="pre">an</span> <span class="pre">instance</span></code> of the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Instances</span></code>,
+and fill in the requested fields as exemplified below.</p>
+<a class="reference external image-reference" href="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-DELETE-Remove-Req.png?raw=true#center"><img alt="Swagger-Instances-Delete-Remove-Req" src="https://github.com/cloudFPGA/cFp_HelloKale/blob/master//./DOC/imgs/Img-Swagger-Instances-DELETE-Remove-Req.png?raw=true#center" /></a>
+<dl class="field-list simple">
+<dt class="field-odd">bulb</dt>
+<dd class="field-odd"><p>You can retrieve a list of all your instances by expanding the <code class="docutils literal notranslate"><span class="pre">[GET]</span> <span class="pre">​/instances</span> <span class="pre">-</span> <span class="pre">Get</span> <span class="pre">all</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">user</span></code></p>
+</dd>
+</dl>
+<p>of the <em>Swagger</em> menu <code class="docutils literal notranslate"><span class="pre">Instances</span></code> and providing your credentials.</p>
+</div>
+</div>
+<div class="section" id="step-9b-delete-the-instance-with-the-cfsp-api">
+<h3><span class="section-number">5.5.1.6.4. </span>Step-9b: Delete the instance with the cFSP-API<a class="headerlink" href="#step-9b-delete-the-instance-with-the-cfsp-api" title="Permalink to this headline">¶</a></h3>
+<p>The second option offered to you is use the command-line interface to the cFRM API.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>$ cd ${SANDBOX}/cFSP
+
+$ ./cfsp instance delete &lt;instance_id&gt;  # E.g. &quot;17&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cFp_HelloThemisto.html" class="btn btn-neutral float-right" title="5.5.2. cFp_HelloThemisto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cfprojects.html" class="btn btn-neutral float-left" title="5. Project repository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

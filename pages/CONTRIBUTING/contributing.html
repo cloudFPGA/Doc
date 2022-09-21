@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. How to Contribute &mdash; cloudFPGA v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="5.5.3.2.4. cFp Monte Carlo European Pricing Engine" href="../PROJECTS/cFp_Zoo_quantitative_finance_mceuropean_engine.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> cloudFPGA
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../INTRODUCTION/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW/overview.html">2. Overview of cloudFPGA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GETTING_STARTED/getting_started.html">3. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CFSPHERE/cfsphere.html">4. The cloudFPGA Sphere</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../PROJECTS/cfprojects.html">5. Project repository</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. How to Contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-issues">6.1. Reporting Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#contributing-code">6.2. Contributing Code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sign-your-work">6.2.1. Sign Your Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#code-license">6.2.2. Code License</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">cloudFPGA</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>How to Contribute</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/CONTRIBUTING/contributing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-contribute">
+<span id="cfp-contribute"></span><h1><span class="section-number">6. </span>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to cloudFPGA (cF)! You can contribute to cF in a variety of ways. You can report bugs and feature requests using the <em>GitHub Issues</em> of the repsecitve cF repository. You can send patches which add new features to cF or fix bugs in cF. You can also send patches to update cF documentation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFDK/issues">cFDK GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFCreate/issues">cFCreate GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFSP/issues">cFSP GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/Doc/issues">cF Doc GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/Dox/issues">cF Dox GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloKale/issues">cFp_HelloKale GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_HelloThemisto/issues">cFp_HelloThemisto GitHub Issues</a></p></li>
+<li><p><a class="reference external" href="https://github.com/cloudFPGA/cFp_Zoo/issues">cFp_Zoo GitHub Issues</a></p></li>
+</ul>
+<div class="section" id="reporting-issues">
+<h2><span class="section-number">6.1. </span>Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permalink to this headline">¶</a></h2>
+<p>When reporting issues on GitHub please include the following (if used):</p>
+<ol class="arabic simple">
+<li><p>cFDK version including git hash</p></li>
+<li><p>Xilinx Vivado tool version</p></li>
+<li><p>Xilinx Vivado HLS tool version</p></li>
+<li><p>Output of <code class="docutils literal notranslate"><span class="pre">env</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="contributing-code">
+<h2><span class="section-number">6.2. </span>Contributing Code<a class="headerlink" href="#contributing-code" title="Permalink to this headline">¶</a></h2>
+<p>Please use GitHub Pull Requests (PR) for sending code contributions. When sending code sign your work as described below. Be sure to use the same license for your contributions as the current license of the cF component you are contributing to.</p>
+<div class="section" id="sign-your-work">
+<h3><span class="section-number">6.2.1. </span>Sign Your Work<a class="headerlink" href="#sign-your-work" title="Permalink to this headline">¶</a></h3>
+<p>Please use the <em>Signed-off-by</em> line at the end of your patch which indicates that you accept the Developer Certificate of Origin (DCO) defined by <a class="reference external" href="https://developercertificate.org/">https://developercertificate.org/</a> reproduced below:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>Developer Certificate of Origin
+Version 1.1
+
+Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+1 Letterman Drive
+Suite D4700
+San Francisco, CA, 94129
+
+Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+
+
+Developer&#39;s Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best
+    of my knowledge, is covered under an appropriate open source
+    license and I have the right under that license to submit that
+    work with modifications, whether created in whole or in part
+    by me, under the same open source license (unless I am
+    permitted to submit under a different license), as indicated
+    in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including all
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    this project or the open source license(s) involved.
+</pre></div>
+</div>
+<p>Here is an example Signed-off-by line which indicates that the contributor accepts DCO:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>This is my commit message
+
+Signed-off-by: Dionysios Diamantopoulos &lt;dionysios.diamantopoulos@example.com&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-license">
+<h3><span class="section-number">6.2.2. </span>Code License<a class="headerlink" href="#code-license" title="Permalink to this headline">¶</a></h3>
+<p>All cF code is licensed under the terms <a class="reference external" href="https://github.com/cloudFPGA/Dox/blob/master/LICENSE">LICENSE</a> Your contribution will be accepted under the same license.</p>
+<p>Please consult the table below for the brief summary of cF license for various components.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>License</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cFDK</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>cFCreate</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>cFSP</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Doc</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Dox</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>cFp_HelloKale</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>cFp_HelloThemisto</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>cFp_Zoo</p></td>
+<td><p>Apache 2.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../PROJECTS/cFp_Zoo_quantitative_finance_mceuropean_engine.html" class="btn btn-neutral float-left" title="5.5.3.2.4. cFp Monte Carlo European Pricing Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, cloudFPGA
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
